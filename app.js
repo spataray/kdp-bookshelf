@@ -449,10 +449,6 @@ function createBookCard(book) {
     const card = document.createElement('article');
     card.className = `book-card theme-${theme}`;
     
-    // Format links to download directly from Google Drive
-    const epubUrl = book.epub_gdrive_id ? `https://docs.google.com/uc?export=download&id=${book.epub_gdrive_id}` : null;
-    const docxUrl = book.docx_gdrive_id ? `https://docs.google.com/uc?export=download&id=${book.docx_gdrive_id}` : null;
-    
     card.innerHTML = `
         <div class="book-meta">
             <h3 class="book-title" title="${book.title}">${book.title}</h3>
@@ -462,49 +458,14 @@ function createBookCard(book) {
         
         <div class="asset-links">
             ${book.reader_path ? `
-                <a href="${book.reader_path}" class="download-link read-book-btn" target="_blank" style="border-color: hsla(210, 85%, 65%, 0.3); background-color: hsla(210, 85%, 65%, 0.08);">
+                <a href="${book.reader_path}" class="download-link read-book-btn" target="_blank" style="border-color: hsla(210, 85%, 65%, 0.3); background-color: hsla(210, 85%, 65%, 0.08); text-align: center; justify-content: center; font-weight: 700; letter-spacing: 0.5px;">
                     <span>📖 Read Online</span>
-                    <span class="asset-format" style="color: var(--secondary);">VIEW</span>
-                </a>
-            ` : ''}
-            
-            ${epubUrl ? `
-                <a href="${epubUrl}" class="download-link" target="_blank">
-                    <span>📚 EPUB Digital Book</span>
-                    <span class="asset-format">EPUB</span>
                 </a>
             ` : `
-                <div class="download-link" style="opacity: 0.5; cursor: not-allowed;">
-                    <span>📚 EPUB Digital Book (Pending Sync)</span>
-                    <span class="asset-format">EPUB</span>
+                <div class="download-link" style="opacity: 0.5; cursor: not-allowed; text-align: center; justify-content: center;">
+                    <span>📖 Read Online (Pending)</span>
                 </div>
             `}
-            
-            ${docxUrl ? `
-                <a href="${docxUrl}" class="download-link" target="_blank">
-                    <span>📄 Word Manuscript</span>
-                    <span class="asset-format">DOCX</span>
-                </a>
-            ` : `
-                <div class="download-link" style="opacity: 0.5; cursor: not-allowed;">
-                    <span>📄 Word Manuscript (Pending Sync)</span>
-                    <span class="asset-format">DOCX</span>
-                </div>
-            `}
-            
-            ${book.audio_present ? `
-                <button class="download-link listen-audio-btn audiobook-badge" data-slug="${book.slug}" data-lang="en" style="cursor:pointer; text-align: left; width: 100%;">
-                    <span>🎙️ Listen audiobook (EN)</span>
-                    <span class="asset-format" style="color: var(--accent);">PLAY</span>
-                </button>
-            ` : ''}
-            
-            ${book.audio_thai_present ? `
-                <button class="download-link listen-audio-btn" data-slug="${book.slug}" data-lang="th" style="cursor:pointer; text-align: left; width: 100%; border-color: hsla(120, 85%, 65%, 0.3); background-color: hsla(120, 85%, 65%, 0.08);">
-                    <span>🎙️ Listen audiobook (TH) 🇹🇭</span>
-                    <span class="asset-format" style="color: #2ecc71;">PLAY</span>
-                </button>
-            ` : ''}
         </div>
     `;
     return card;
