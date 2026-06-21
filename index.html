@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KDP-Factory Bookshelf & Audiobook Lounge</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- iOS Web App Metadata -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://img.icons8.com/isometric/512/book.png">
+    <style>
+        /* Custom visual overrides for visitor dashboard to feel more focused */
+        .app-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 18px 24px;
+        }
+        .main-content {
+            gap: 24px;
+        }
+        .gallery-section {
+            border: none;
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background glow elements for aesthetics -->
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header" id="app-header-nav">
+            <div class="logo-area">
+                <span class="logo-icon">📚</span>
+                <div class="logo-text">
+                    <h1>KDP-Factory Bookshelf</h1>
+                    <p class="subtitle">Doc William's Audiobook & Reading Lounge</p>
+                </div>
+            </div>
+            <div class="status-badge-container">
+                <span class="connection-status" style="color: var(--primary); font-weight: 600;">☁️ Google Drive Connected</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Output / Finished Books Gallery -->
+            <section class="card glass-card gallery-section" id="gallery-section">
+                <div class="gallery-header-row">
+                    <div class="gallery-title-area">
+                        <h2>Available Manuscripts</h2>
+                        <span class="gallery-count-badge" id="gallery-count-badge">0 Books</span>
+                        <button class="btn btn-secondary btn-icon-only refresh-btn" id="btn-refresh-gallery" title="Refresh Bookshelf">🔄</button>
+                    </div>
+                    
+                    <div class="gallery-controls">
+                        <div class="search-wrapper">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="gallery-search" placeholder="Search title, summary, or date... (Press '/' to focus)">
+                            <button class="clear-search" id="clear-search-btn" title="Clear Search" type="button">✕</button>
+                        </div>
+                        <div class="controls-actions">
+                            <div class="select-wrapper">
+                                <span class="select-label">Sort:</span>
+                                <select id="gallery-sort">
+                                    <option value="date-desc">Latest / Recent</option>
+                                    <option value="date-asc">Oldest First</option>
+                                    <option value="title-asc">A-Z (Title)</option>
+                                    <option value="title-desc">Z-A (Title)</option>
+                                    <option value="genre-asc">Genre (A-Z)</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-secondary toggle-view-btn" id="btn-toggle-view" title="Toggle Grid / Grouped-by-Genre View" type="button">
+                                <span class="view-icon">📂</span> <span id="toggle-view-text">Group by Genre</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Niche Filter Pills Row -->
+                <div class="filter-row" id="filter-pills-row">
+                    <div class="filter-label">Filter by Genre:</div>
+                    <div class="filter-pills" id="filter-pills-container">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <div class="gallery-grid" id="gallery-container">
+                    <div class="gallery-placeholder">
+                        <p>Loading available books from Google Drive...</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Powered by <strong>Antigravity AI Agentic System</strong> • KDP-Factory 2026</p>
+        </footer>
+    </div>
+
+    <!-- Audiobook Player Modal -->
+    <div class="modal-overlay" id="audio-player-modal">
+        <div class="modal-content glass-card player-modal">
+            <div class="player-header">
+                <span class="player-icon" style="font-size: 1.5rem; filter: drop-shadow(0 0 8px rgba(255,255,255,0.15));">🎙️</span>
+                <div class="player-title-block">
+                    <h2 id="player-book-title" style="font-size: 1.1rem; margin-bottom: 2px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px; text-align: left;">Book Title</h2>
+                    <p class="subtitle" id="player-current-track-title" style="font-size: 0.8rem; color: var(--secondary); font-weight: 600; text-align: left; margin-bottom: 0;">Chapter 1</p>
+                </div>
+                <button type="button" class="btn-text-only close-player" id="btn-close-player" style="font-size: 1.15rem; font-weight: 700; color: var(--text-muted); margin-left: auto;">✕</button>
+            </div>
+            
+            <audio id="main-audio-element" style="display:none;"></audio>
+            
+            <div class="player-disc-area" style="display: flex; justify-content: center; align-items: center; position: relative; padding: 16px 0;">
+                <div class="disc-glow" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; background-color: var(--secondary-glow); filter: blur(24px); z-index: 1; opacity: 0.6;"></div>
+                <div class="disc-art" id="player-disc-art" style="width: 84px; height: 84px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.06); border: 3px solid var(--border-glass); display: flex; align-items: center; justify-content: center; font-size: 2.75rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); z-index: 2; transition: transform 0.4s ease;">📚</div>
+            </div>
+            
+            <div class="player-controls-wrapper" style="display: flex; flex-direction: column; gap: 14px; width: 100%;">
+                <div class="scrubber-container" style="display: flex; align-items: center; gap: 12px; width: 100%;">
+                    <span class="time-label" id="player-time-current" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); min-width: 32px;">0:00</span>
+                    <input type="range" class="player-scrubber" id="player-scrubber" min="0" max="100" value="0" style="flex-grow: 1; cursor: pointer; outline: none;">
+                    <span class="time-label" id="player-time-total" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); min-width: 32px;">0:00</span>
+                </div>
+                
+                <div class="playback-buttons" style="display: flex; justify-content: center; align-items: center; gap: 16px; margin: 4px 0;">
+                    <button type="button" class="btn btn-secondary btn-icon-only" id="player-btn-prev" style="width: 40px; height: 40px; border-radius: 50%;">⏮️</button>
+                    <button type="button" class="btn btn-secondary btn-icon-only" id="player-btn-rewind" style="width: 40px; height: 40px; border-radius: 50%; font-size: 0.8rem;">⏪</button>
+                    <button type="button" class="btn btn-primary play-pause-btn" id="player-btn-play-pause" style="width: 52px; height: 52px; border-radius: 50%; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; padding: 0;">▶️</button>
+                    <button type="button" class="btn btn-secondary btn-icon-only" id="player-btn-forward" style="width: 40px; height: 40px; border-radius: 50%; font-size: 0.8rem;">⏩</button>
+                    <button type="button" class="btn btn-secondary btn-icon-only" id="player-btn-next" style="width: 40px; height: 40px; border-radius: 50%;">⏭️</button>
+                </div>
+                
+                <div class="player-meta-controls" style="display: flex; justify-content: center; align-items: center; font-size: 0.8rem;">
+                    <div class="speed-selector" style="display: flex; align-items: center; gap: 6px;">
+                        <label for="player-speed" style="margin-bottom: 0;">Speed:</label>
+                        <select id="player-speed" style="padding: 4px 8px; font-size: 0.8rem; width: auto; background-color: rgba(0,0,0,0.4); border-radius: 4px; margin-bottom: 0; min-height: unset; height: auto;">
+                            <option value="1.0">1.0x</option>
+                            <option value="1.25">1.25x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="1.75">1.75x</option>
+                            <option value="2.0">2.0x</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-playlist-section" style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border-glass); padding-top: 16px; width: 100%;">
+                <h3 style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; text-align: left; margin-bottom: 4px;">Tracks Playlist</h3>
+                <div class="player-playlist-container" id="player-playlist-container" style="max-height: 120px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 4px;">
+                    <!-- Chapters populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Verification Modal for Security -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-content glass-card" style="max-width: 400px; width: 90%; margin: 0 auto; padding: 28px 20px;">
+            <h2 style="font-size: 1.3rem; margin-bottom: 8px;">🔐 Security Verification</h2>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 20px;">Please enter your authorized email to access the bookshelf.</p>
+            <form id="auth-form">
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <input type="email" id="auth-email" placeholder="Enter your email address..." required autocomplete="email" style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass); background: rgba(0,0,0,0.3); color: #fff; box-sizing: border-box; outline: none; font-size: 0.9rem;">
+                </div>
+                <button type="submit" class="btn btn-primary" id="btn-auth" style="width: 100%; padding: 12px; font-weight: 700; border-radius: var(--radius-sm); font-size: 0.9rem; cursor: pointer;">Verify & Enter</button>
+                <p class="auth-error" id="auth-error-msg" style="color: var(--danger); font-size: 0.8rem; font-weight: 600; display: none; margin-top: 12px; text-align: center;">Unauthorized email. Please check with the administrator.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script src="app.js"></script>
+</body>
+</html>
