@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Charybdis Gravity - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">The Charybdis Gravity</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>The Charybdis Gravity: A Hard Sci-Fi Locked-Room Mystery</h1>
+<h1>Chapter 1: The Weight of Silence</h1>
+<p>The silence aboard the <em>Astraea Prime</em> wasn’t empty. It was thick. Like cold grease coating the back of your throat.</p>
+<p>Deep in the ship’s primary spine, the air carried the stale, metallic tang of recycled oxygen, heavy with the sweet, hot-iron smell of leaking hydraulic fluid. Three seconds. That was the rhythm. Every three seconds, a low-frequency hum vibrated through the steel deck plates—not a sound, but a physical pulse that rattled your molars. The Charybdis Singularity was pulling at the ship's keel from three thousand kilometers out. A massive, silent mouth yawning in the dark.</p>
+<p>Vasilis Karras tugged at the collar of his stiff gray inspector’s tunic. It was cheap wool, scratchy and damp with sweat. His left knee clicked with every step. A little souvenir from the Ceres docks. Six years ago, a pressure seal blew, three men evaporated, and Karras lost half his patella. Now, whenever the atmospheric pressure dropped or the local gravity shifted, the joint throbbed like a rusted hinge. Today, it was screaming.</p>
+<p>He paused in the corridor outside Sector Four. The overhead strip lights had reverted to a low-power amber, painting the bulkheads in the dirty color of a bruised peach. The ship-wide blackout was four hours old now. The official line from the bridge was high-density space dust scraping the external arrays. Sure. And he was the Emperor of Ganymede. In his earpiece, the static was a dry, endless hiss. Like sand sliding down a glass pane.</p>
+<p>"Karras."</p>
+<p>He spun—or tried to, his knee protesting. Zola Ndiaye was leaning against the bulkhead arch, her dark skin washed purple by the emergency lights. She wasn't carrying a sidearm—weapons were a luxury and a hazard in a high-gravity sector—but she was white-knuckling a heavy, brass-tipped pneumatic pry bar anyway. She looked like she wanted to hit something.</p>
+<p>"Tell me the deck isn't actually settling," Ndiaye said. Her voice was too quiet. The usual dry, sarcastic edge was gone.</p>
+<p>"It’s not the deck," Karras replied. His tongue felt like cardboard. "It's the Charybdis tide. The structural dampeners are drawing power from the secondary grid to fight the drift. That’s why the lights are down."</p>
+<p>"And the comms?"</p>
+<p>"The dust is thick out there, Zola. Or so the bridge says."</p>
+<p>"Do you believe them?"</p>
+<p>Karras didn't answer. What was the point?</p>
+<p>He looked past her toward the heavy, round hatch of the Gravity Well Vault. The door was made of reinforced titanium-carbide, built to handle an internal explosion—or keep ten atmospheres of pressure from blowing out into the corridor. In the center of the wheel was a viewing port. Six inches of armored glass.</p>
+<p>The other two were huddled near the diagnostic terminal, their faces lit by the amber screen. Genevieve DuPont, the mission director, had her arms crossed tight against her ribs. Her hair—usually pinned into a silver, drill-sergeant bun—was coming undone, damp strands sticking to her temples. Beside her, Ravi Chandra was sweating. Not a light sheen, but a frantic, dripping panic. His fingers slid uselessly across his tablet's stylus.</p>
+<p>"How long has he been in there?" Karras asked, stepping forward.</p>
+<p>"The log says he entered at zero-three-hundred," DuPont said. Her voice was brittle. Try to touch it, and it would shatter. "Vitals dropped off the telemetry fifteen minutes later. Right when the comms died. We assumed it was the interference. The sensor suite dropping the feed."</p>
+<p>"And the manual lock?"</p>
+<p>"Locked from the inside," Chandra whispered. He didn't look up from his screen. "The electronic interface is completely dead. It's not taking bridge codes. The vault’s local generator is looped on its own circuit. It’s... it’s a black box, Vasilis. We're totally cut off."</p>
+<p>Karras stepped up to the glass. He pressed his forehead to the frame. The steel was freezing, but inside, the vault was pitch. No main lights. Just the slow, rhythmic blue pulse of the central gravity core, washing the room in ghostly, underwater sweeps.</p>
+<p>He pressed his palm to the glass. A faint, rhythmic vibration. "The core is still running."</p>
+<p>"Running?" Chandra’s voice cracked. He looked up, his eyes bloodshot. "It’s not just running. The hardwired sensors are reading ninety-eight meters per second squared. Ten Gs, Vasilis. Ten."</p>
+<p>A cold weight dropped into Karras’s gut. Ten Gs. A human body doesn't survive that. It becomes an anchor. The blood pools in your legs instantly, your heart can't push against the crushing weight of its own fluid, and your ribs splinter under the sudden, impossible mass of your own chest cavity.</p>
+<p>"Where is Wolfe?" Karras asked.</p>
+<p>"Near the console," DuPont said, her jaw tightening. "We can’t see him clearly. The distortion from the core is scrambling the camera feeds. But he’s in there."</p>
+<p>Karras used his thumb to wipe a smear of moisture from the glass. His skin caught on something sticky. Tacky. He pulled his hand back, frowning. In the orange light, it was a tiny smudge of dark grease at the lower edge of the bezel. He rubbed his fingers together. Slippery. Smelled like graphite.</p>
+<p>"Ravi," Karras said, keeping his voice level. "When was the last time you performed maintenance on this door lock?"</p>
+<p>Chandra shook his head quickly. "Not since Ganymede. The mechanical seals are rated for five hundred cycles. We haven't even run fifty."</p>
+<p>"Then why is there fresh lubricant on the glass?"</p>
+<p>He didn't wait for an answer. He let his hand drop, rubbing the residue off on his trousers. A tiny detail. But details were what kept you alive in the black. Or, in Wolfe's case, what killed you.</p>
+<p>"We need to get the door open," DuPont insisted. She stepped closer, the smell of her expensive lavender soap momentarily cutting through the stink of oil and sweat. "Wolfe is the only one with the navigation keys for the Charybdis transit. If we don't correct our course in the next twelve hours, Charybdis takes our stern. We’ll be pulled past the event horizon before the system comms even come back online to hear us scream."</p>
+<p>"We can't just blow the seal," Ndiaye said. She tapped her pry bar against the deck plate. <em>Clang. Clang.</em> "At ten Gs, the pressure differential will buckle the frame. The corridor air will rush in, and the door will turn into a kinetic slug. It’ll punch right through the hull."</p>
+<p>"The field has to be cut from the local panel," Karras said. He turned to Chandra. "Ravi. Show me."</p>
+<p>Chandra led him to a small recessed alcove in the bulkhead. He yanked the cover off, revealing a tangled mess of fiber optics and copper-shielded lines.</p>
+<p>"Three capacitors under the deck," Chandra said, pointing a shaking finger at three fat, cylindrical fuses. "Pull them, and the field should drop. But it’s a gamble. A sudden collapse can trigger a gravimetric whip-lash."</p>
+<p>"How bad?"</p>
+<p>"A few seconds of zero-G, then a sudden spike. It could tear the core right off its mounts."</p>
+<p>Karras touched the primary line. Warm. Way too warm. "This cable is pulling serious current. If the core was just locked in a loop, it wouldn't draw this much power. Not unless..."</p>
+<p>"Unless what?" DuPont asked.</p>
+<p>"Unless someone is forcing it," Karras said. He looked at the diagnostic screen. The power curves weren't flat. They were jagged. Sharp peaks and deep valleys. "This isn't a glitch. A glitch is flat or wild. This is a pattern. It’s modulating."</p>
+<p>"Modulating?" Chandra leaned in, his brow furrowed. "That’s impossible. The safety governors would have tripped if the variance exceeded five percent."</p>
+<p>"They would," Karras agreed. "Unless the governors were bypassed."</p>
+<p>He looked back at the graphite grease on the glass. He knew that grease. It was used on the gears of the manual override levers—the ones <em>inside</em> the vault, meant for emergency escapes if the electronic systems failed.</p>
+<p>If Wolfe had been trying to get out, he would have grabbed that lever. Why didn't the door open?</p>
+<p>"We pull the fuses," Karras said. "Zola, get the pry bar in the seal. When the field drops, the pins will pull back, but the frame might be warped. We’ll have about four seconds before the backup safety magnets kick in."</p>
+<p>Ndiaye nodded, her knuckles turning white on the iron bar. "Ready."</p>
+<p>Karras grabbed the first capacitor. The metal was cold, but the current hummed right through his palm, sending a sharp spark of pain up his bad arm. "On three. One."</p>
+<p>The ship groaned. A heavy, sickening lurch. Charybdis was pulling.</p>
+<p>"Two."</p>
+<p>He braced his feet.</p>
+<p>"Three."</p>
+<p>He yanked.</p>
+<p>The fuse blew free in a shower of blue sparks, casting a split-second glare over their faces. The deck vibration dropped an octave.</p>
+<p>"Again!" Chandra screamed.</p>
+<p>Karras grabbed the other two, threw his weight back, and ripped them out. His bad knee gave out, throwing him to the deck, but he kept his grip on the fuses.</p>
+<p>The hum died. The corridor went dead silent. Inside the vault, the blue pulse flickered once and went dark.</p>
+<p>"Now!" Karras yelled, scrambling up.</p>
+<p>Ndiaye slammed the pry bar into the seam. She threw her entire weight against it. The steel shrieked.</p>
+<p>"It’s stuck!" she gasped. "The damn lock is melted!"</p>
+<p>Karras threw himself beside her, grabbing the bar. They pulled together. He could smell her sweat, the ozone of the blown fuses, and then—something else. A sickening, sweet smell slipped through the crack. Like a butcher's shop on a hot afternoon. Mixed with burnt hair.</p>
+<p>With a violent <em>crack</em>, the locking bolt sheared. The door swung open and slammed against the wall.</p>
+<p>The air that hit them was hot, thick, and smelled of iron.</p>
+<p>Karras went in first.</p>
+<p>The vault was twelve meters wide. In the center, the graviton core sat suspended in its magnetic rings, dark and dead.</p>
+<p>But Karras wasn't looking at the core.</p>
+<p>Dr. Tiberius Wolfe lay near the central control console. Or, rather, what remained of him.</p>
+<p>At sixty, Wolfe had been a tall, gangly man who smelled of tobacco and old paper. Now, he was flat. The ten-G field had crushed him against the steel plates like an insect under a boot. His limbs were splayed at impossible, broken angles, the joints driven straight into the muscle. His blue uniform was soaked black with fluid forced through his skin. His face was a bloated, purple mask, his eyes dark, jelly-filled craters.</p>
+<p>DuPont made a small, choking sound and turned away, hand over her mouth.</p>
+<p>Chandra took one look, gagged, stumbled back into the hall, and threw up.</p>
+<p>Karras knelt. The deck plates were hot. The sheer friction of the gravity had heated the steel. He reached out, his hand hovering over Wolfe's chest. The sternum had been driven straight back to meet the spine.</p>
+<p>"It was fast," Ndiaye said from the doorway, her voice dead. "At ten Gs, he would’ve blacked out in seconds."</p>
+<p>"No," Karras said. He pointed to the floor. "He didn't."</p>
+<p>Near Wolfe’s left hand—twisted into a rigid, bloody claw—were three deep scratches in the deck plating. His fingernails were gone, ripped back to the raw beds, leaving dark, greasy smears of blood on the metal.</p>
+<p>"He was crawling," Karras said. His voice was empty. "He was alive when it started to ramp up. He was trying to reach the release."</p>
+<p>"But the manual lever is right there," Ndiaye said, pointing to the wall beside the frame.</p>
+<p>Karras stood, his knee clicking. He walked to the mechanical lever, painted in yellow and black stripes. He reached out and touched it. It flopped down with a loose, hollow click.</p>
+<p>He bent down. The lever was supposed to turn a steel rod that mechanically retracted the locking pins. The rod was bare. The steel cotter pin that held the linkage together was missing.</p>
+<p>"The pin is gone," Karras said.</p>
+<p>Ndiaye peered over his shoulder. "Did it snap under the pressure?"</p>
+<p>"A hardened steel pin doesn't snap without leaving shards in the sleeve," Karras said. He clicked on his pocket flashlight, shining the narrow beam into the mechanism. "It's clean. No shavings. No dust. Someone pulled it out. By hand."</p>
+<p>"That's crazy," DuPont said, her voice shaking but hard. "Only engineering and navigation have access here. Why would anyone pull a safety pin?"</p>
+<p>"To make sure he couldn't get out," Karras said.</p>
+<p>He swept the light over the console. The screen was shattered. He leaned over, breathing in the stench of burnt plastic. The primary screens were dead, but the analog backups—the mechanical dials—were still there.</p>
+<p>He shone the light on the pressure recorder. "It wasn't a sudden spike."</p>
+<p>Chandra wiped his mouth and looked in. "What?"</p>
+<p>"Look at the ink line," Karras said, pointing the flashlight at the paper drum. "It didn't jump. If it had, the automatic breakers would have tripped. This was a slow ramp. It took four minutes to reach ten Gs."</p>
+<p>"Four minutes," Ndiaye whispered. She rubbed her neck.</p>
+<p>"He felt it," Karras said. "He stood here while his own body weight doubled, tripled, quadrupled. He tried to walk. He fell. He crawled. The door was locked, so he tried to claw his way under the seal."</p>
+<p>"But who?" DuPont demanded. "We're in a blackout. We're blind. If the crew thinks there's a murderer on board, we'll have a mutiny before the gravity well pulls us in."</p>
+<p>"An accident doesn't pull a cotter pin," Karras said. He shone his light under the lip of the console.</p>
+<p>Something metallic glinted. He reached under the terminal's base and pulled out a small, rectangular plastic block.</p>
+<p>A data-slate. Scorched, but intact. A tiny yellow light was blinking on the side: <em>Low Battery</em>.</p>
+<p>He turned it over. Scratched into the casing were two initials: <em>R.C.</em></p>
+<p>Karras looked up. Directly at Ravi Chandra.</p>
+<p>Chandra backed away, his boots squeaking on the wet floor. "That's... that's my old slate. I lost it three weeks ago! I logged it with security. Zola, tell him!"</p>
+<p>"You said you lost it in the mess hall, Ravi," Ndiaye said, her eyes cold.</p>
+<p>"I did! Someone must have taken it!"</p>
+<p>"And left it under a console in a locked vault?" DuPont asked.</p>
+<p>"I don't know!" Chandra's voice cracked into a shriek. "I haven't been in here since Tuesday! The logs will show that!"</p>
+<p>"The logs are on the mainframe," Karras said. "The one that's currently dark because of the 'space dust.'"</p>
+<p>He walked toward Chandra, his bad knee dragging. With every step, he felt the heavy, thrumming pull of Charybdis. Just outside the door, his boot hit something small.</p>
+<p>He stopped. Shone the light down.</p>
+<p>In the gutter of the door frame lay a tiny, silver cotter pin.</p>
+<p>He picked it up. Clean, except for a smear of graphite grease. And a hair.</p>
+<p>A single, long, straight, jet-black hair caught in the loop.</p>
+<p>Karras looked at Chandra's short, curly hair. Then Ndiaye's tight braids. Then DuPont's silver curls.</p>
+<p>Wolfe was bald.</p>
+<p>"Who else has access to the override keys?" Karras asked.</p>
+<p>DuPont swallowed. "The bridge officers. And the science team."</p>
+<p>"And who has long, black hair?"</p>
+<p>They looked at each other as the realization hit.</p>
+<p>"Genevieve," Ndiaye said slowly. "Where's Hana?"</p>
+<p>"She was on the upper deck," DuPont said, her voice dropping. "Helping with the sensor calibration."</p>
+<p>"The calibration that caused the blackout," Karras said.</p>
+<p>He stared at the tiny pin. The hair caught in it was a cold, quiet thread leading straight into the dark.</p>
+<p>The hull groaned. A deep, metal-tearing sound that rattled their teeth.</p>
+<p>The amber lights flared bright white, hissed, and died.</p>
+<p>Total darkness.</p>
+<p>The hum of the singularity outside grew louder, a heavy vibration that felt like it was pulling the marrow right out of Karras's bones.</p>
+<p>"Vasilis?" Ndiaye's voice was tight with panic. "What's happening?"</p>
+<p>"The secondary grid is dead," Chandra whimpered. "We lost power."</p>
+<p>"No," Karras said, his voice quiet in the dark. He could feel a cold draft moving down the hall. "The power didn't fail. Someone cut it."</p>
+<p>He reached for his flashlight. Before his fingers touched the switch, a heavy, sliding sound echoed from the end of the corridor.</p>
+<p>The airlock door. Cycling open.</p>
+<h1>Chapter 2: The Frozen Lever</h1>
+<p>The gravity near the core of the <em>Charybdis</em> didn’t pull. It dragged. It was a greasy, uneven weight that settled behind Vasilis Karras’s kneecaps and made the air in his lungs feel like wet flannel. Down here, in the throat of the station, the micro-singularity powering their propulsion drive was only three bulkheads away. Every weld in the deck plates groaned a low, sub-audible B-flat. You didn't hear it so much as feel it vibrating through the thick soles of your magnetic boots, rattling your teeth, and leaving a sour metallic taste under your tongue.</p>
+<p>Karras knelt before the outer hatch of the Gravity Well Vault.</p>
+<p>The air was frigid. It smelled of ozone, machine grease, and that distinct, sweetish rot of scorched wiring insulation. Inside that vault, Dr. Tiberius Wolfe’s body was already stiffening under the terrible, fluctuating pressure of a localized gravitational field. But Karras wasn't looking at the reinforced viewport. He was staring at the manual safety override lever.</p>
+<p>"It shouldn't be in this position," Ravi Chandra said. The Chief Engineer's voice was a thin wire stretched past its limit. He stood three feet back, hands buried deep in the pockets of his grease-stained utility jumpsuit, fingers twitching against his thighs. "The system is automated. If the field destabilizes, the software triggers the release. It doesn't need a manual throw."</p>
+<p>"And yet," Karras said. The word was a flat rasp. He didn't look up. He extended a gloved hand and touched the metal.</p>
+<p>The safety override was a solid bar of tungsten-carbide alloy, painted a high-visibility yellow that had begun to flake near the pivot. It was a fail-safe for absolute emergencies. If the digital grid fried, a human operator was supposed to dump the vacuum seals and vent the chamber to save the station.</p>
+<p>It was thrown downward, into the lock position.</p>
+<p>But it wasn't just thrown. It was deformed.</p>
+<p>The thick bar of alloy was bent to the left at a nineteen-degree angle, the metal puckered and white at the point of flexion. Karras ran his thumb over the distortion. The cold of the metal seeped through the thin, insulated synthetic skin of his glove.</p>
+<p>"To pull this," Karras murmured, "takes four hundred kilograms of torque. The pneumatic assists are disabled during active gravity runs to prevent some idiot from bumping into it. This was pulled by hand."</p>
+<p>"That’s impossible," Genevieve DuPont said from the gantry above. Her voice fell like ice water. She descended the metal ladder with a precise, clinical grace, her silver-threaded corporate tunic uncreased despite the twenty-hour shift they had all just endured. "No one on this station has that kind of physical capacity. Not without an exoskeleton. And the cargo loaders are locked in the bay."</p>
+<p>"Not all of them," Karras said. He stood up slowly, his joints popping in the heavy gravity. He turned to face her.</p>
+<p>Genevieve didn't look at Karras. Her eyes were fixed on the door, reflecting the amber strobe of the vault's warning lights. "If you are implying sabotage, Karras, you should be very careful. This project is funded by the Ministry of Maritime Space. A delay of even a week costs more than your five-year contract is worth."</p>
+<p>"Wolfe is dead, Genevieve," Karras said, his tone dry as dust. "The cost of his life has already been deducted from the balance sheet."</p>
+<p>He felt the familiar, cold knot tightening in his stomach—the Ghost that never quite left him. It was the same dry taste he’d had in his mouth five years ago on the <em>Astraea</em>, when the seal on Sector Four had failed. He had believed the telemetry then. He had trusted the automated logs that said the hatch was clear, right up until the metal buckled and three hundred crew members were swept into the black. How do you trust a digital display after that? You don't. Metal doesn't lie. Only the people who bend it do.</p>
+<p>He turned his attention back to the deck.</p>
+<p>At the base of the override housing, the floor plates were dark, almost black. Karras knelt again, ignoring the protest of his lower back. He drew a small, silver-cased diagnostic stylus from his belt and clicked the blue spectrum light onto the floor.</p>
+<p>Under the ultraviolet beam, a faint, crystalline residue shivered. It looked like spilled salt, but it wasn't.</p>
+<p>"Ravi," Karras said. "Bring the sniffer."</p>
+<p>The engineer hesitated, then scrambled forward, pulling a yellow sensor unit from his tool belt. He knelt beside Karras, his breath coming in short, ragged puffs. He held the nozzle of the sensor over the white crystals.</p>
+<p>The device beeped twice—a sharp, nervous sound.</p>
+<p>``` [SYSTEM LOG ANALYSIS: CORE SENSOR GRID 04] -------------------------------------------------- 02:14:05 UTC - Thermal Sensor 09 (Vault Ext): Offline [Signal Intercepted] 02:14:11 UTC - Thermal Sensor 10 (Vault Ext): Offline [Signal Intercepted] 02:15:00 UTC - Gravity Well Manual Override: Engaged 02:20:12 UTC - Core Diagnostics: Nominal (No anomalies detected) -------------------------------------------------- WARNING: Local temperature drop detected at Sensor Grid 04 prior to disconnect. ```</p>
+<p>"Helium-3," Ravi whispered, reading the tiny screen. "Liquid state. But that's... that's impossible. The cooling lines for the gravity coils are double-jacketed. There are no leaks."</p>
+<p>"It's not a leak," Karras said. He pointed the blue light toward the environmental sensor housing mounted on the bulkhead three inches above the deck. The sensor was a small, slotted metal dome designed to monitor air quality and infrared signatures around the vault entrance.</p>
+<p>The slotted dome was choked with a fine, glittering frost.</p>
+<p>"Someone sprayed it," Karras said. "Direct application. Liquid helium-3 has a boiling point of three Kelvin. You spray that onto a thermal sensor, and what happens?"</p>
+<p>Ravi swallowed hard, his Adam's apple bobbing. "It... it thermal-shocks the unit. The sensor registers an absolute zero reading instantly. The system thinks the sensor has failed or gone offline, so it ignores the telemetry for sixty seconds while it attempts a cold reboot."</p>
+<p>"A sixty-second blind spot," Karras said. "Exactly enough time to step out of the shadows, grab that lever, and throw it with enough force to bend the lock-pin."</p>
+<p>"But the force," Genevieve insisted, her arms crossed tight over her chest. Her fingers tapped a steady, impatient rhythm against her elbow. "Even if someone blinded the cameras, how did they bend tungsten? Zola Ndiaye is the only one who wears a hydraulic frame during her security sweeps. Are you accusing her?"</p>
+<p>As if summoned by her name, a heavy tread sounded on the gantry above.</p>
+<p>Zola Ndiaye descended the steps. She was a tall, broad-shouldered woman with dark, weathered skin and eyes that seemed permanently narrowed against the harsh glare of the station's fluorescent strips. She didn't wear her full tactical gear, but the black nylon harness of her security frame sat snug over her shoulders, the small, titanium-cased servo-motors on her joints glinting in the amber light.</p>
+<p>"Let's leave my harness out of this," Zola said, her voice a deep, gravelly rumble. She stepped onto the deck, her weight shifting easily despite the gravity. "I was in the command module when the alarm went off. The logs show my biometric keycard was used to access the comms deck at 02:10."</p>
+<p>"Keys can be cloned, Zola," Karras said, his voice quiet. He stood up, wiping his hands on a rag from his pocket. He smelled the faint, bitter tang of the cryo-coolant on his fingertips. "And harnesses can be borrowed."</p>
+<p>"The frame is biometrically locked to my neural signature," Zola said, stepping closer. She stood a full head taller than Ravi, her presence occupying the narrow corridor like a bulkhead. "Nobody wears this but me. And I didn't lock Wolfe in."</p>
+<p>"Then who did?" Genevieve asked. Her voice had lost some of its cold composure; a small, sharp edge of panic was beginning to show through. "If it wasn't one of us, then we have an intruder. Which is statistically impossible given our distance from the jump-gate."</p>
+<p>"There are no intruders on the <em>Charybdis</em>," Karras said. "Just five people who wanted Wolfe to stop his work."</p>
+<p>"Four," Ravi corrected softly, his eyes darting between them. "With Wolfe gone, there are only four of us down here."</p>
+<p>Karras didn't answer. He turned his back on them, walking slowly toward the viewport of the Gravity Well Vault. The glass was triple-reinforced quartz, six inches thick, designed to withstand the massive gravitational shear of the core experiments.</p>
+<p>He leaned his forehead against the cold glass.</p>
+<p>Inside, the vault was dark, lit only by the violet glow of the static containment field. In the center of the chamber, suspended three feet above the floor, was the gravity generator—a spherical brass cage that spun slowly, its brass arms rotating with a silent, hypnotic precision.</p>
+<p>And below it, crumpled like a discarded flight suit, lay Dr. Tiberius Wolfe.</p>
+<p>His face was pressed against the deck plates. Even from here, Karras could see the unnatural elongation of the corpse's neck. The localized gravity field had been dialed up to twelve Gs before the system was locked down. Wolfe's bones had simply collapsed under his own weight. His chest was flattened, his rib cage crushed against his lungs. High gravity didn't just kill you; it turned you into a puddle of meat.</p>
+<p>But it was his hand that caught Karras's attention.</p>
+<p>Wolfe’s right hand was outstretched, his fingers stiffened into claws. He had been dragging himself toward the emergency release panel on the inside of the door. But the panel had been deactivated when the outer lever was thrown.</p>
+<p>There was a smudge on the inner glass.</p>
+<p>It was faint, barely visible against the violet light of the containment field. A grease mark, left by a frantic, dying hand. But it wasn't a palm print. It was a single, long streak that ended in a sharp, circular smear.</p>
+<p>Karras squinted. He tapped his diagnostic stylus against the glass, changing the light spectrum to a high-intensity green.</p>
+<p>The smudge on the inside of the glass was a perfect circle, about two centimeters in diameter. It looked like the imprint of a rubber seal or a specialized tool.</p>
+<p>"Ravi," Karras said, his voice dropping an octave. "What kind of maintenance suits do we use for the core repairs?"</p>
+<p>Ravi took a step forward, looking over Karras’s shoulder. "The Mark-7s. They... they have magnetic boots and pressurized gloves with vulcanized silicone pads on the fingertips."</p>
+<p>"And the diameter of those pads?"</p>
+<p>Ravi went pale. "Twenty millimeters. Exactly."</p>
+<p>"So Wolfe was wearing his maintenance suit when he went in," Genevieve said quickly. "He must have tried to clean the window before he lost consciousness."</p>
+<p>"No," Karras said. "Wolfe's suit is still hanging in the locker in Section Two. I checked it on my way down. The one he’s wearing in there is a light-duty pressure suit. It doesn't have vulcanized pads. It has leather-reinforced palms."</p>
+<p>A heavy silence settled over the corridor. The only sound was the low, rhythmic thrum of the singularity drive, a heartbeat for a ghost ship.</p>
+<p>"If Wolfe didn't make that mark," Karras said, his eyes fixed on the circular smudge, "then someone else was inside that chamber before the gravity was turned up. Someone who was wearing a Mark-7 maintenance suit. Someone who wanted to make sure Wolfe couldn't reach the manual release."</p>
+<p>"That’s crazy," Ravi said, his voice cracking. "The vault was pressurized. The lock-out sequence takes three minutes. If anyone was in there with him, they would have been trapped when the field activated."</p>
+<p>"Unless they had a remote bypass," Karras said. He turned around, his back to the glass. "A software override that allowed them to cycle the inner hatch from a handheld terminal. Ravi, who has the root access codes for the environmental control systems?"</p>
+<p>Ravi looked at Genevieve. Genevieve looked at Zola.</p>
+<p>"All of us," Zola said flatly. "But only the Chief Engineer has the diagnostic terminal capable of executing a live bypass during a gravity run."</p>
+<p>"That's a lie!" Ravi shouted, his face turning a deep, blotchy red. "You have the security overrides, Zola! You could have done it from the main console!"</p>
+<p>"The main console logs every command," Zola said, her hands dropping to her sides, near the heavy metallic hinges of her harness. "If I had bypassed the lock, my name would be on the telemetry. It’s not."</p>
+<p>"Because you deleted it!"</p>
+<p>"You can't delete core telemetry, Ravi," Genevieve said, her voice dripping with venom. "You designed the system. You know that. Unless, of course, you left a backdoor in the code when the station was built."</p>
+<p>Karras watched them. He let the accusations fly, listening to the cadence of their panic.</p>
+<p><em>Show me the fear,</em> he thought. <em>The guilty don't just lie; they redirect.</em></p>
+<p>Genevieve’s fingers were still tapping. It wasn't a nervous tic; it was a rhythmic, calculated movement. She was an executive, a politician, used to managing crises by shifting the weight. But her eyes were too bright. They darted to the safety lever again and again, as if she were waiting for it to move.</p>
+<p>And Ravi. The young engineer was sweating through his collar, his skin gray in the sodium light. He looked like a man who knew his own machines had betrayed him. Or perhaps he was just terrified that Karras would find out <em>how</em> they had.</p>
+<p>"Enough," Karras said.</p>
+<p>His voice wasn't loud, but it had the weight of twenty years of iron-bound authority behind it. They stopped talking.</p>
+<p>"We are going to open the outer hatch," Karras said.</p>
+<p>"We can't," Ravi whispered. "The gravity well is still holding a residual charge. If we open it now, the pressure differential will blow the seals."</p>
+<p>"Then we bleed it," Karras said. "Slowly. Zola, get the manual wrench from the tool bay. Ravi, prepare the decompression protocols. We’re going inside."</p>
+<p>"And what about me?" Genevieve asked, her chin lifting.</p>
+<p>"You," Karras said, "are going to stand right there. And you are going to tell me why Dr. Wolfe's private log files were accessed from your terminal forty minutes before he died."</p>
+<p>Genevieve did not flinch. She simply stared at him, her eyes two chips of polished gray stone. "I was his supervisor, Karras. I have every right to review his work."</p>
+<p>"Even when that work is marked as classified by the Ministry?" Karras asked. He stepped closer to her, his magnetic boots clanking softly against the deck. "Even when he was planning to shut down the project because the gravity core was structurally unstable?"</p>
+<p>He saw the tiny muscle in her jaw twitch. A fraction of a millimeter. But it was there.</p>
+<p>"The core is perfectly stable," she said.</p>
+<p>"We'll see," Karras said. "We'll see what the metal tells us."</p>
+<p>Zola returned a moment later, carrying a heavy, hydraulic torque-wrench. The tool was two feet long, its carbon-fiber chassis scarred from years of heavy industrial use. She stepped up to the bent lever, her harness whining as she lifted her arms.</p>
+<p>"Stand back," she said.</p>
+<p>Karras retreated a few paces, his eyes never leaving the lever.</p>
+<p>Zola fitted the socket of the wrench over the pivot bolt of the safety override. She locked her boots to the deck plates with a sharp <em>clack</em> of her magnets. Her arm muscles tensed under her sleeves, the hydraulic pistons on her shoulders whistling as they drew power from the battery pack on her spine.</p>
+<p>She pulled.</p>
+<p>The wrench groaned. The metal of the lever shrieked, a high, agonizing sound that bounced off the narrow corridor walls.</p>
+<p>For a second, nothing happened. The lever held, stubborn and bent.</p>
+<p>Then, with a sound like a pistol shot, the lock-pin sheared.</p>
+<p>The lever snapped back into the neutral position, but the force of the release sent a shudder through the deck. A hiss of pressurized air escaped from the seal, carrying with it the smell of dry, chemical ice and something else—something metallic and sharp.</p>
+<p>Karras took a step forward, his eyes fixed on the joint of the lever.</p>
+<p>Where the metal had sheared, a tiny thread of dark, viscous liquid was oozing from the internal housing. It wasn't machine grease. It was blue. A bright, synthetic cobalt-blue that didn't belong in any mechanical system of the <em>Charybdis</em>.</p>
+<p>He reached out, catching a drop of the fluid on his glove.</p>
+<p>He held it up to the light. It was thick, almost like gel, and under the ultraviolet beam of his stylus, it didn't fluoresce. It absorbed the light, turning a deep, hollow black.</p>
+<p>"What is that?" Zola asked, leaning over her wrench.</p>
+<p>"Conductive polymer," Ravi whispered, his voice trembling. "Used in high-end cybernetic prosthetics. For... for sensory feedback."</p>
+<p>Karras looked at Genevieve. She had her hands tucked behind her back now, her face completely expressionless.</p>
+<p>"Someone didn't use a tool to bend this," Karras said softly. "And they didn't use a security harness either. They used their own hand. A hand with a military-grade prosthetic."</p>
+<p>He turned his head slowly to look at the dark, silent hatch of the vault.</p>
+<p>The blue gel on his finger was cold. It felt like grease, but it was the color of a lie. And in the deep silence of the station, the gravity well gave another long, low sigh, as if the ship itself were waiting to see who would break first.</p>
+<h1>Chapter 3: The Cryogenic Alibi</h1>
+<p>The air down on sub-deck four tasted of stale copper and twice-filtered nitrogen. It was five degrees above freezing. The ship didn't keep it cold for the crew; it kept it cold to stop the secondary superconducting manifolds from sweating condensation into the high-voltage arrays.</p>
+<p>Vasilis Karras pulled the collar of his heavy Jovian wool coat up to his ears. It was a filthy, grease-stained relic of his years on the Jupiter docks, and he’d damn well rot before he traded it for one of the company's static-cling synthetic jumpsuits. Every step down here was a fight. His knees registered each erratic, sickening tug of the Charybdis gravity anomaly churning outside the hull. The ship’s compensator plates hummed in a frantic, teeth-rattling panic, trying—and failing—to smooth out the external shear.</p>
+<p>Walking here felt like wading through half-frozen lard.</p>
+<p>The silence was the worst part. Oh, the main fusion drive was still kicking—a deep, sub-audible thrum that vibrated Karras’s back teeth—but the human silence down here was a different kind of pressure. It felt like a held breath.</p>
+<p>He found Ravi Chandra squeezed into the crawlspace beneath the primary helium-3 manifold. The space was a ribcage of titanium plumbing and fat, insulated lines that hissed with pressurized coolant. Chandra was small-framed, his dark skin slick with cold sweat despite the draft. He was working an electronic torque wrench with quick, rhythmic jerks of his wrist.</p>
+<p>Left-handed.</p>
+<p>Karras stood at the edge of the pit, saying nothing. He just watched. Chandra’s left thumb flicked the wrench’s directional toggle with a smooth, muscle-memorized twitch. That thumb. It was the exact digit you’d need to apply thirty pounds of lateral pressure to bypass the manual override lock on Dr. Tiberius Wolfe’s laboratory door. Do it right-handed, and you're awkward; you leave tool marks on the housing. The override plate on Wolfe’s door had been clean. Just a microscopic smudge of low-temp grease.</p>
+<p>"If you're here to scream about the core telemetry again, save your breath," Chandra said. He didn't look up. His voice had the dry, sandpaper scrape of a man who lived on modafinil and recycled moisture. "The core didn't kill Wolfe. The core was too busy keeping us from turning into a long smear of radioactive ash across the event horizon."</p>
+<p>"I don't give a damn about the telemetry," Karras said. His voice was flat, carrying the dry gravel of someone who had spent thirty years listening to cheap lies on cold outposts. "I care about things I can touch. Things that leave grease."</p>
+<p>Chandra froze. The wrench hovered over a valve. Slowly, he turned his head. His eyes were bloodshot, surrounded by dark, bruised hollows that looked like they'd been carved out with a spoon. "The physical reality, detective, is that we are sitting on three hundred tons of liquid helium-3. If the containment fields slip by even half a percent, we vaporize. I was down here. All night. Fighting the shear."</p>
+<p>"That’s what you told Genevieve DuPont." Karras took a step closer, his boots clanking hard against the deck plates. "And she bought it. She likes digital footprints. She thinks the ship's computer is some kind of infallible god."</p>
+<p>"It doesn't lie," Chandra spat. He crawled out of the gap and stood, wiping his palms on a oily rag. He wore heavy, insulated work gloves, but Karras saw him peel the left one off first with his teeth.</p>
+<p>There it was. A fresh, crescent-shaped cold burn across the meat of his palm.</p>
+<p>"I was at the terminal from twenty-two hundred to zero-four hundred," Chandra said, pointing a finger at Karras. "The power spikes during the dust transit required manual trimming every eight minutes. Go check the keystroke logs."</p>
+<p>Karras looked over at the console bolted to the bulkhead. It was a rugged, grease-smeared terminal with a flickering green screen.</p>
+<p><em></em>*</p>
+<h3>🛰️ SYSTEM LOG DIAGNOSTIC: REACTOR CORE OVERRIDE</h3>
+<p>``` TIMESTAMP: 21:58:12 -- WARNING: MICRO-DEBRIS TRANSIT -- SHIELDING AT 84% TIMESTAMP: 22:04:45 -- HE-3 FLOW FLUCTUATION: SEC-3 MANIFOLD -- MANUAL OVERRIDE ENGAGED TIMESTAMP: 22:15:30 -- INPUT CHARACTERS: R<em>CHANDRA</em>ADMIN -- KEystroke Sync Active TIMESTAMP: 01:12:09 -- GRAVITY SHEER EVENT: CHARYBDIS SECTOR 4 -- COMPENSATORS AT MAX TIMESTAMP: 03:45:22 -- HE-3 FLOW STABILIZED -- MANUAL OVERRIDE DISENGAGED ```</p>
+<p><em></em>*</p>
+<p>Karras stared at the green phosphorus glow of the screen, then looked back at Chandra's twitching face. "A beautiful record. Clean. Almost too rhythmic."</p>
+<p>"It's engineering, not music," Chandra said, his voice rising a register. "I was keeping us alive. While you were up in the habitat ring sleeping off your synthetic whiskey, I was sweating blood redirecting the helium reserves. If the magnets had quenched, the liquid helium would have turned into a bomb. It would have split this tub right down the seam."</p>
+<p>"I know how liquid helium behaves," Karras said softly.</p>
+<p>His mind took him back. Callisto, twelve years ago. A burst valve, and a digital terminal that insisted <em>All Systems Nominal</em> while the pressure built. By the time the bulkhead buckled, three technicians were frozen solid in less than two seconds. Karras still remembered the sound they made when the recovery crew tried to move them. They didn't sound like bodies. They sounded like dropping a crate of cheap lightbulbs.</p>
+<p>"I also know digital logs can be looped," Karras continued. "Mirror the terminal to a diagnostic pad, run a pre-recorded stabilization macro, and you can go wherever you want. Say, three decks up, to the science labs."</p>
+<p>Chandra's jaw worked. A tiny muscle below his left eye throbbed. "That's a wild guess. If DuPont heard you—"</p>
+<p>"DuPont is currently on a high-priority call trying to explain to the regional directors why their star researcher is lying on a slab in medical with his lungs turned to ice," Karras said, leaning in. "She’s occupied. I’m not. Tell me about the helium-3 reserves. Who can pull from them?"</p>
+<p>"Me," Chandra said immediately. "And Wolfe. But Wolfe’s access codes were revoked three days ago when he started his... private work."</p>
+<p>"Private work." Karras let the words hang in the freezing air between them. "Wolfe was supposed to be mapping gravity wells. But Zola Ndiaye tells me his lungs were coated in aerosolized organics. Not the stuff you find in a physics lab. More like the stuff you preserve at ninety kelvin."</p>
+<p>"I'm a grease monkey, Karras. I don't know what the doctors do." Chandra turned back to his valves, his knuckles white around the wrench. "I keep the heat on."</p>
+<p>"Then you won't mind if I take a look around the shop."</p>
+<p>Chandra went rigid. "This is a high-radiation zone. You don't have the clearance."</p>
+<p>"I have a warrant signed by the old man before they put him under," Karras lied. The captain was currently tanked on medical sedatives and couldn't sign his own name, but Chandra didn't need to know that. "And even if I didn't..." Karras tapped the heavy, ugly kinetic pistol under his wool coat. It was a brutal piece of iron, out of place among the ship's high-tech composites, but it didn't care about EMPs or power overrides.</p>
+<p>Chandra didn't move. "There's nothing here but scrap."</p>
+<p>"Let's look at the scrap."</p>
+<p>Karras pushed past him, shoulder-to-shoulder, feeling the tight, trembling energy in the engineer.</p>
+<p>The workshop was a narrow, metal alcove filled with storage drawers, spools of fiber-optic wire, and bins of synthetic gaskets. The air smelled of hot solder and sweet industrial degreaser. Karras ignored the shelves. He looked straight at the floor.</p>
+<p>The deck plates were coated in a thin sheen of hydraulic soot and carbon dust. Near the back, by Chandra's personal locker, the messy tangle of boot prints gave way to something else.</p>
+<p>Two clean, parallel tracks in the grease. About twelve inches apart. Like someone had dragged a heavy, hard-edged box out from under the bottom shelf.</p>
+<p>Karras knelt. His knees gave a loud, wet crack. He reached under the locker, his gloved fingers brushing cold, greasy steel until they hit a recessed latch.</p>
+<p>"Don't touch that," Chandra said, his voice dropping low. He was standing in the narrow doorway now, the wrench hanging loose in his left hand. "That's high-pressure diagnostic gear. You open it wrong, and you'll lose your face."</p>
+<p>"I've always been lucky," Karras said. He pulled.</p>
+<p>He dragged out a heavy, insulated metal case. It looked like a standard toolsmith’s chest, but the latches had been retrofitted with heavy-duty cryogenic seals. It was freezing to the touch. Even through his thick leather gloves, the cold bit into his skin.</p>
+<p>He popped the latches. A thin, white hiss of pressurized nitrogen vapor spilled out, pooling around his boots.</p>
+<p>Inside, nestled in custom-cut black foam, was a void.</p>
+<p>It was an empty cryogenic transport flask, about the size of a two-liter thermos, made of dull titanium. The digital gauge on the neck was dark, but the valve assembly was white with a fresh layer of frost.</p>
+<p>Karras reached down and touched the ice. It melted under his finger, leaving a wet streak. He sniffed his glove.</p>
+<p>No helium. Helium-3 had no smell, but the gaskets on those lines always carried the sharp, garlic-like stink of the curing vulcanite used to seal them. This didn't smell like garlic.</p>
+<p>It smelled like bitter almonds.</p>
+<p>"A cyanide derivative," Karras said, still on his knees. "Used to stabilize volatile proteins during deep-freeze transit. You want to tell me what was in here, Ravi?"</p>
+<p>"I don't know," Chandra whispered. His voice was shaking. "It's... it's a spare. For the core coolant."</p>
+<p>"The core uses model four-A flasks," Karras said, rising slowly to his feet. He towered over the smaller man. "This is a nine-B. Medical grade. High-isolation. The kind of container they use to ship live tissue cultures from Earth to the orbital stations. The kind of container Wolfe was looking for before someone shut him up."</p>
+<p>Chandra backed up a step, his eyes darting toward the exit. "I didn't steal it. I found it."</p>
+<p>"Where?"</p>
+<p>"In the waste chute," Chandra said, his words coming in a rushed, terrified tumble. "Two days ago. It was jammed in the shredder teeth. Someone tried to dump it, but the titanium wouldn't chew. It threw an error code on my board, so I went down to clear it. I saw what it was. I knew it was worth three months' pay on the black market, so I... I hid it."</p>
+<p>"So you kept an unregistered bio-container in your locker, lied about where you were during a murder, and faked your reactor logs," Karras said, stepping into Chandra’s space. "That's a lot of bad luck for one week, Ravi."</p>
+<p>"I’m telling you the truth!" Chandra’s voice cracked. "Why would I kill Wolfe? He was the only one on this ship who didn't treat us like property! DuPont looks at us like we're part of the plumbing. Wolfe... Wolfe actually listened."</p>
+<p>"Listened to what?"</p>
+<p>"About the anomaly," Chandra said, chest heaving. "He said the gravity wasn't right. He said the <em>Charybdis</em> didn't just drift into this sector. He thought we were dragged here. Like a fish on a line."</p>
+<p>Karras watched the man's eyes. The terror in them was genuine, but it wasn't the panic of a killer who had run out of road. It was the raw, frantic horror of a man who had just realized he was standing on a landmine and couldn't remember which foot was holding the trigger.</p>
+<p>"If this flask was empty when you found it, why is there fresh frost on the valve?" Karras pointed a finger at the box. "That ice is less than an hour old. You didn't leave this in your locker for two days. Someone used it today."</p>
+<p>Chandra stared at the metal box, his skin turning a sickly, grey color. "That's... that's impossible. Nobody has the key to that locker."</p>
+<p>"Nobody?"</p>
+<p>"Just me," Chandra said. "And... and the master override on the bridge. But that's locked behind DuPont's personal security clearance."</p>
+<p>A cold spike of adrenaline hit Karras’s stomach. He remembered the smear of grease on Wolfe’s door. It wasn't the thick, dirty lube an engineer used on a manual valve. It was the clean, synthetic grease they used on high-spec security gear.</p>
+<p>The low, steady hum of the fusion core suddenly leaped an octave, turning into a high, piercing whine that rattled Karras's fillings. The overhead lights flickered once, died, and then snapped back on in a harsh, pulsing emergency red.</p>
+<p>"The core," Chandra gasped, lunging toward his console. "The magnetic pressure is spiking—it's trying to vent!"</p>
+<p>His fingers flew across the grease-stained keyboard. But before he could hit the enter key, the screen turned red and a single line of text flashed in the center:</p>
+<p>``` SYSTEM ERROR: RECOVERY PROTOCOL ENGAGED BY TERMINAL 01-BRIDGE. ALL LOCAL CONTROLS SUSPENDED. ```</p>
+<p>Chandra froze, his face washed in the red glow of the screen. "They locked me out. Karras... if they cut the coolant flow now, the magnets will overheat."</p>
+<p>"Who is 'they'?" Karras gritted out, grabbing the engineer by his collar.</p>
+<p>"DuPont," Chandra whispered. "She's got the bridge override. She's... she's purging the sub-decks."</p>
+<p>A heavy, metallic <em>thud</em> reverberated through the floor. It was the sound of the emergency pressure doors dropping.</p>
+<p>Karras spun around. The massive steel bulkhead at the end of the corridor was already sliding down, its amber warning lights rotating in the red darkness. He lunged for the gap, but the door hit the deck with a heavy, pneumatic hiss, sealing them into the freezing, airless dark.</p>
+<h1>Chapter 4: The Echo Protocol</h1>
+<p>Sub-deck four tasted of copper and stale spit. A narrow, freezing ditch of a room jammed between the <em>Charybdis’s</em> structural spine and the low-frequency, skull-rattling throb of the primary gravity generators. Vasilis Karras sat hunched. His fingers hovered over the grease-filmed glass of the auxiliary security console. Green phosphor glowed back at him, mapping the tiny, jagged fractures in his retinas—the permanent receipt left behind by a rapid decompression blowout on the <em>Acheron</em> six years back.</p>
+<p>Whenever the station's frame groaned under the tidal drag of the singularity spinning outside, his left ear popped. A wet, tiny hiss. The exact sound of a Type-4 structural seal blowing out. He rubbed his temple, trying to quiet the ghosts, but the metallic tang in the air kept pulling him back into the black.</p>
+<p>On the display, the vault's security log scrolled in vertical columns of raw hexadecimal. Tedious. Agonizing. Most of the desk-jockeys upstairs would have swallowed the automated summary—the neat, bloodless report claiming a "localized environmental fluctuation" caused the gravity plates to spike to eight Gs. Eight Gs. Enough to crush anything in that chamber into a gray, unrecognizable paste of lead, bone, and glass.</p>
+<p>But Karras didn't trust summaries. Summaries were what middle-management wrote to save their bonuses. He wanted the raw telemetry. The ugly, unvarnished truth written in binary.</p>
+<p>Exactly 03:14:22 UT. The system registered a vertical wall of energy. Not a drift—a spike. He dragged a scarred thumb across the glass, feeling the fine grit of carbon dust the scrubbers had missed.</p>
+<p>``` ------------------------------------------------------------ [SEC<em>LOG</em>TRANSIT_4409-B] TIMESTAMP: 03:14:19.002 // SOURCE: INT-SEC-TERM-06 (BRIDGE SUB-ROUTINE) EVENT: CRYPTOGRAPHIC HANDSHAKE PROTOCOL: ECHO-DELTA-9 (LEVEL 5 SYSOPS ONLY) USER<em>ID: [REDACTED/MASTER</em>MASKED] OVERRIDE TARGET: VAULT<em>GRAV</em>PLATE_04 PARAMETER<em>SET: GRAV</em>CONSTANT = 8.21 G STATUS: AUTHORIZED // EXECUTION IMMEDIATE ------------------------------------------------------------ ```</p>
+<p>Echo-Delta-9. Karras stared at the line until the green letters burned into his bad eye.</p>
+<p>The code was a relic. An old United Earth Space Administration protocol buried deep in the kernel, preserved only because the station’s legacy systems were too fragile to untangle. It wasn't in the crew manuals. It wasn't on the standard directories. Only four people on this godforsaken side of the Kuiper Belt had that sequence.</p>
+<p>Dr. Tiberius Wolfe, who’d built the proprietary gravity plates and still treated them like his private playground.</p>
+<p>Genevieve DuPont, whose corporate backers demanded an absolute, hardwired backdoor into every system on the station.</p>
+<p>Zola Ndiaye, the flight commander with the physical keys to every lock, valve, and head on the <em>Charybdis</em>.</p>
+<p>And himself. Though they’d stripped his clearance three years ago, right after the inquiry.</p>
+<p>That left three.</p>
+<p>It damn sure didn't include Farhan Qadir.</p>
+<p>Qadir was a junior systems tech. A smart, twitchy kid who spent his entire shift whining about the lack of real sunlight and the metallic aftertaste of the recycled water. The kid didn't have the clearance to view the directories, let alone run an override. Yet there he was: currently locked in a holding cell, caught shivering in the maintenance duct right after the surge, white-knuckling a portable diagnostic rig, his face slick with panic sweat.</p>
+<p>Karras leaned back. The cheap plastic of his utility chair shrieked under his weight. He fished into his pocket, his fingers finding the small brass nut he’d carried since the <em>Acheron</em> went dark. He rolled it between his fingers, letting the hexagonal edges bite hard into his skin. His anchor. When the steel started to buckle, people lied. Numbers didn't.</p>
+<p>If Qadir didn't have the code, he was either a secret cryptological genius who’d cracked military-grade encryption in five minutes without leaving a footprint, or he was a sacrificial lamb.</p>
+<p>"Looking for ghosts, Karras?"</p>
+<p>The voice was dry. Cold. No room for warmth.</p>
+<p>He didn't jump. He’d caught the faint, synthetic whisper of her silk-weave trousers three paces before she cleared the frame.</p>
+<p>Genevieve DuPont looked entirely ridiculous down here. She was a high-altitude creature standing in a swamp of exposed conduits, weeping condensation lines, and sagging bundles of fiber. Her tailored charcoal suit was spotless, the gold thread on her lapel catching the harsh, blue terminal glare.</p>
+<p>"Just reading the autopsy on our security grid," Karras said. He didn't bother turning. He kept his eyes on the blinking green cursor. "Died quietly at three this morning."</p>
+<p>She stepped in. The scent of her imported jasmine hit him like a physical blow, slicing through the smell of ozone and wet iron. A suffocating, arrogant fragrance on a station where every breath of air was scrubbed, strained, and shared.</p>
+<p>"The Board is sweating, Vasilis," she said, her voice dropping into that smooth, practiced drone she used for press releases. "They’re being told a glitch threatened the gravity core. If that core slips, we’re in the singularity's throat in twelve minutes. We don't do 'glitches' in the quarterly reports."</p>
+<p>"This wasn't a glitch, Genevieve." He tapped the screen. Her reflection hovered over the glowing text—eyes narrow, lips pinched into a pale seam. "A manual override. Someone used a master key."</p>
+<p>"A master key? Impossible," she said, though her fingers did a quick, nervous dance behind her back. Karras saw it in the glass. "Only Tiberius, Commander Ndiaye, and I have those handshakes."</p>
+<p>"And yet," Karras said, highlighting the line, "here we are. Echo-Delta-9. Look familiar?"</p>
+<p>She leaned closer. Her breath was warm against the freezing air of the deck. "A legacy loop. A system drift from the construction phase. Systems inherit old commands all the time."</p>
+<p>"Systems don't drift into fifteen-character alphanumeric overrides that require physical key-card handshakes on the bridge," Karras said, turning the chair to face her. His knees cracked. "You know it. Wolfe knows it. Zola knows it."</p>
+<p>"Are you pointing fingers, Vasilis?" A quiet, dangerous hiss. "We built this place. We lose everything if the data gets corrupted."</p>
+<p>"And you gain everything if the wrong files vanish before the inspectors arrive," Karras said. He kept his voice level. Anger was a rookie's mistake. "Where's Qadir?"</p>
+<p>"Under lock and key in his quarters," DuPont said, smoothing her jacket. Her nails were manicured to dark, glossy points. "He claims he was clearing static buildup on the outer sensor arrays. Said the dust from the accretion disk was blinding the telemetry."</p>
+<p>"Standard tech excuse," Karras grunted. "Hard to disprove without a three-hour EVA."</p>
+<p>He spun back to the console. His fingers hit the keys—an old mechanical board that clattered like dry teeth in the small room. He bypassed the security layers, tunneling straight into the raw telemetry archives of the exterior hull. Nobody checked these; they were just endless dumps of micro-meteoroid impacts and cosmic ray tallies.</p>
+<p>He pulled up the outer array's thermal index for 03:00 UT.</p>
+<p>"If Qadir was cleaning static," Karras muttered, "we'll see a drop in signal noise. And we'll see his suit's physical weight on the hull pressure plates."</p>
+<p>DuPont hovered over his shoulder. He could feel the heat radiating from her skin.</p>
+<p>The screen flickered. A flat, dead line.</p>
+<p>No static. No dust. No suit weight.</p>
+<p>Karras opened the thermal logs for the interior junction boxes. Specifically, the junction tucked behind the vault's main power trunk.</p>
+<p>A massive spike at 02:50 UT. The heat hadn't come from space; it had cooked from the inside out, melting the copper busbars.</p>
+<p>"Look at that," Karras said, tapping the screen with a scarred fingernail. "The box didn't freeze. Someone ran a high-amperage loop directly through the main coil. They blew it on purpose."</p>
+<p>"Why?"</p>
+<p>"To trip the local breaker. That breaker kills the security feed for the vault corridor for exactly seven minutes. Enough time for whoever had the master key to walk onto the bridge, punch in the code, and walk out. No cameras. No record."</p>
+<p>"But Qadir was there," she argued, her voice tightening. "He had the diagnostic tool."</p>
+<p>"Because the alarm tripped. He went to fix an error he thought was real." Karras paused. His mind drifted back to the <em>Acheron</em>—to the green kid who’d turned a manual valve because some manager had handed him a work order with a 'typo' on it. The kid had suffocated in thirty seconds, thinking he was doing his job. "Or someone put the tool in his hand and sent him down there to be the ghost when the lights came back on."</p>
+<p>DuPont stood silent. The low-frequency throb of the station seemed to rattle the water in Karras's plastic cup.</p>
+<p>"You think it's a frame," she said.</p>
+<p>"I think Qadir isn't smart enough to write this code, and he's not stupid enough to stand in a hallway next to a gravity plate pulsing eight Gs. One bad feedback loop and he's a red smear. Who was on the bridge at three, Genevieve?"</p>
+<p>"Everyone," she whispered. "Tiberius was in his lab, but his terminal is linked. I was in my bunk, but my desk has a secure bridge tap. And Zola... Zola was in the center chair."</p>
+<p>"Three suspects. One ruined vault."</p>
+<p>"The research isn't gone, Vasilis," she said, her corporate armor sliding back into place. She drew herself up. "The containment unit was smashed, yes, but the gravity wave data we pulled from the horizon is sitting on my local server."</p>
+<p>Karras felt a cold weight settle in his gut. He squeezed the brass nut. "Your local server? The off-grid one?"</p>
+<p>"Obviously. For security."</p>
+<p>"Who set that server up for you?"</p>
+<p>DuPont didn't answer immediately. The silence stretched, heavy and damp.</p>
+<p>"Qadir," she finally said.</p>
+<p>Karras stood up, his tall, scarred frame nearly touching the low ceiling. The puzzle was too neat. A patsy who also happened to build the very vault where the secret data was kept.</p>
+<p>"I'm talking to him," Karras said, pushing past her.</p>
+<p>"He's terrified, Vasilis!" she called down the corridor. "He won't talk to you!"</p>
+<p>"He'll talk to me," Karras grunted, "or he'll talk to the vacuum."</p>
+<p>He headed down the gangway, his heavy boots echoing on the steel grates. The yellow warning lights overhead were blinking—a slow, sickly yellow. The <em>Charybdis</em> was old, leaking, and perched on the lip of a black hole, and someone inside was cutting the lines one by one.</p>
+<p>His collar comm chirped. A high, grating whine that made his bad ear throb.</p>
+<p>He tapped his neck. "Karras."</p>
+<p>"Vasilis! Get to the science deck!" Dr. Tiberius Wolfe’s voice was a ragged scrape. "Now!"</p>
+<p>"I'm going to Qadir's quarters."</p>
+<p>"Forget the boy!" Wolfe spat. "The plate in the vault... it didn't just spike. It's still drawing power. But the vector... it's inverted!"</p>
+<p>Karras froze. His hand hovered over the lift call button. "Explain."</p>
+<p>"It's pushing," Wolfe whispered, his voice a mix of terror and scientific mania. "A localized repulsive field. It's expanding. If we don't drop the breakers manually from the sub-deck, the sheer force is going to rip the bulkhead welds apart from the inside."</p>
+<p>Karras stared at his own hollow eyes in the polished metal of the lift door.</p>
+<p>Expanding.</p>
+<p>The maintenance corridor. Where Qadir had been found.</p>
+<p>The kid's alibi wasn't a cover. It was a countdown.</p>
+<p>"Wolfe," Karras growled, his knuckles white around the brass nut in his pocket. "Where is Zola?"</p>
+<p>Silence on the line. Only the dry, crackling hiss of the accretion disk.</p>
+<p>"She’s not on the bridge," Wolfe said. "Her console... she ran the Echo-Delta-9 sequence again. Ten minutes ago."</p>
+<p>The lift doors slid open. Just an empty, black vertical drop. The car was stuck somewhere below. And from the belly of the ship, the first deep, metallic scream of twisting steel echoed up the shaft.</p>
+<p>The hunt was over. Now it was just about who got out before the hull split.</p>
+<p>Karras didn't wait. He grabbed the ladder rungs of the maintenance well, the cold steel biting through his calluses, and began to climb down into the gut of the station.</p>
+<p>His breath came in short, ragged scrapes. The rungs vibrated against his palms, a rhythmic, terrifying throb like the pulse of some dying leviathan. Below him, the dark sub-decks waited.</p>
+<p>He reached the next landing, swinging his weight onto the grated platform. The air was hotter here, thick with the smell of scorched wire and something else—the dry, faint scent of jasmine.</p>
+<p>She'd been here. Or someone wanted him to think she had.</p>
+<p>Karras pulled his service torch, the beam cutting a clean path through the dark. He swept the deck plates.</p>
+<p>A smudge on the secondary terminal's glass. A fresh, clean handprint left in the thin layer of graphite dust. Too small to be Wolfe's, too clean to be Qadir's.</p>
+<p>A hand that had never held a wrench. DuPont. Or Zola, whose skin was softened by the climate-controlled cabins of the command deck.</p>
+<p>A sudden, violent heave threw him against the bulkhead. The metal shrieked—a high, teeth-shivering sound that vibrated right through his boot soles.</p>
+<p>The field was blooming.</p>
+<p>He scrambled up and ran, his boots hammering the steel. The <em>Charybdis</em> was tilting, sliding toward the throat of the singularity, and he was sliding with it.</p>
+<p>He reached the heavy blast doors of the primary gravity core. They were sealed, the red emergency lights pulsing like a dying eye. He threw his weight against the manual bypass lever. The seals hissed, the door scraping open an inch, then two.</p>
+<p>A wave of hot, ionized air hit him, thick with copper, ozone, and the unmistakable, sickening sweet stench of roasted flesh.</p>
+<p>He squeezed through the gap. His torch beam swept the smoke-choked room.</p>
+<p>Slumped against the console was a body.</p>
+<p>Karras held his breath, his chest tightening. He walked forward, his light landing on the pale, bloated face of the dead man.</p>
+<p>It wasn't Qadir. It wasn't Zola.</p>
+<p>It was the station’s chief engineer.</p>
+<p>Karras knelt, his hand searching the dead man's pockets for the master key-card. The fabric was torn. The card was gone.</p>
+<p>And from the shadows behind the main transformer, he heard it. The smooth, mechanical slide of plastic into a reader.</p>
+<p><em>Click.</em></p>
+<p><em>Echo-Delta-9.</em></p>
+<p><em>Authorized.</em></p>
+<p>The world went blindingly white.</p>
+<p>The gravity vanished.</p>
+<p>He was floating. Weightless in a room filled with smoke and the smell of a dead man, while the bulkheads around him began to buckle and rip. He lunged, his fingers clawing at the dark for a handhold.</p>
+<p>"Vasilis," a voice whispered from the smoke. Soft, clear, like a ghost from a world he’d buried a lifetime ago. "You should have stayed on Earth."</p>
+<p>Then the lights went black.</p>
+<h1>Chapter 7: Event Horizon</h1>
+<p>The deck plates didn't tilt. The inner ear knew it was a lie anyway.</p>
+<p>It was a greasy, lateral drag. A sudden, deep-marrow pull that made Vasilis Karras’s back molars ache. The <em>Astraea Prime’s</em> gravity grid was lagging. The ship was sliding one way; artificial gravity was trying to convince Karras’s body it was going another. Outside the bridge, in the cold basalt silence of the corridor, the fusion drive's clean, high-frequency hum died. In its place came a wet, rattling shudder that dropped a full octave. It sounded like a massive iron engine choking on its own teeth.</p>
+<p>Then came the smell. Hot copper. The sharp, ozone-sour bite of capacitors melting inside the bulkheads.</p>
+<p>Karras slammed a palm against the anodized titanium bulkhead. It vibrated against his skin, a frantic, high-frequency buzz that traveled straight up his forearm. He didn’t need the klaxons to know they were sliding. But they came anyway. Not a siren—sirens waste audio bandwidth when people need to scream orders. Instead, a low-frequency pulse throbbed through his boots. Three beats. A hollow pause. Three more beats.</p>
+<p><em>Navigation critical.</em></p>
+<p>The bridge doors hissed open before he could even reach for his keycard. Inside, it smelled of scorched insulation and cold, greasy sweat.</p>
+<p>The main viewport was gone. No more looking out into the velvet black of the sector. Six-inch slabs of tungsten-carbide had slammed shut, shielding the crew from the invisible teeth of the Charybdis gravity well. Without the glass, the bridge was a tomb of red light. Rhythmic, crimson strobes from the emergency HUDs washed over every console, turning the crew into shifting, bloody silhouettes.</p>
+<p>“Get back to your deck, Karras,” Captain Zola Ndiaye snapped. She didn't look at him. She couldn't. Her hands were locked onto the brass rail of the command dais so hard her knuckles looked like peeled onions. A splotchy, dark flush was climbing out of her black officer's collar, staining her neck.</p>
+<p>“How far off are we?” Karras asked. He kept his voice flat. Quiet. When a room is about to ignite, you don’t bring a match; you bring ice. He took three slow steps forward. His boots clicked against the deck plates.</p>
+<p>“I said clear the bridge, Investigator,” Ndiaye spat. Her head whipped around. Her pupils were blown wide, swallowing her irises under the red strobe. “This isn’t a debate. Get out.”</p>
+<p>Behind her, at the telemetry console, Amir Chandra’s fingers were flying across the glass. Sweat beaded on his forehead, catching the crimson glare like droplets of mercury. “The primary bus is dead, Captain. Completely unresponsive. I’m trying to pull a diagnostic bypass, but the mainframe is treating my manual override as a hostile intrusion.”</p>
+<p>``` ==================================================================== [ASTRAEA PRIME - BRIDGE TELEMETRY LOG: LOG-07-CHARYBDIS] -------------------------------------------------------------------- SYSTEM STATUS: LOCKDOWN (ADMINISTRATIVE LEVEL ALPHA-9) CURRENT TRAJECTORY: 14.22.09 // DIRECT INTERCEPT // CHARYBDIS CORE TIME TO APEX EVENT: 41 MINUTES, 12 SECONDS THRUSTER ARRAY: STAGED SHUTDOWN // EMERGENCY COOLING ACTIVE MANUAL INPUTS: OVERRIDDEN BY CRITICAL SYSTEM FAULT ==================================================================== ```</p>
+<p>“Is it a logic loop?” Genevieve DuPont’s voice was too cold, too sharp. A scalpel in a room full of blunt trauma. She stood by the comms array, back straight as a steel rod, though her fingers were clawing into the seams of her charcoal trousers. She was trying to look like a corporate board member, but the pulse in her throat was hammering like a trapped bird. “If it’s a software glitch, Chandra, patch the damn backup directory. Every mile we drift toward that well, our liability doubles. This hull isn't rated for Charybdis's tidal shear. We'll be pulled apart before we even hit the event horizon.”</p>
+<p>“It’s not a loop, DuPont!” Chandra’s voice cracked. He didn't look up. “The system thinks we're correcting for some phantom lateral drift. It’s locked the thruster nozzles at thirty percent trim. We aren't drifting. We’re steering into the well. On purpose.”</p>
+<p>Karras ignored the Captain. He stepped up to Chandra’s shoulder, eyes scanning the console. Down in the bottom right corner of the glass, right where the physical casing met the optical fiber hub, was a tiny, crescent-shaped smudge. You’d miss it if you weren't looking for it. But under the red strobe, it had that dull, greasy sheen. High-density lithium grease.</p>
+<p>The exact stuff they used to pack the gears of the manual maintenance overrides.</p>
+<p>“Chandra,” Karras said, his voice dropping an octave. “When was this console’s physical housing last opened?”</p>
+<p>“I—I don’t know,” Chandra stammered, his fingers slipping on the glass. “Two weeks ago? The mid-voyage overhaul. Why? Karras, get out of my light. I can't read the registry lines.”</p>
+<p>“Someone opened it,” Karras murmured. He hovered a gloved finger over the smudge. “This wasn't a remote hack. Someone stood right here, pulled the cover, and used the manual diagnostic port to dump a pre-compiled nav routine directly into the core.”</p>
+<p>“Impossible,” Dr. Tiberius Wolfe said from the shadows near the back of the bridge. The physicist was leaning against an environmental monitor, arms crossed. He looked infuriatingly detached, almost like he was observing a laboratory experiment, though his shallow, rapid breathing gave him away. “The physical override keys are kept in the secure armory. Dual biometric lock. Only the Captain and I have the clearance to pull those logs.”</p>
+<p>“Then the circle just got very small, Doctor,” Karras said.</p>
+<p>“That is enough!” Ndiaye’s voice tore through the bridge. She stepped down from the dais, her boots hammering the metal deck as she closed the distance. Her chest was heaving. “This ends now, Karras. Ever since you crawled aboard at Ganymede, you’ve done nothing but sow poison. You’ve dragged my crew through the mud, turned my officers against each other, and for what? To chase a ghost? To make yourself feel like a real investigator again?”</p>
+<p>Karras didn’t flinch. He let her get close enough that he could smell the stale, sour coffee on her breath, close enough to watch the tiny, uncontrollable tremor in her lower lip.</p>
+<p><em>She’s breaking,</em> Karras thought. <em>The gravity well isn't just pulling the ship; it’s squeezing her head until the seams pop.</em></p>
+<p>“We are falling into a black hole, Captain,” Karras said, his voice dead and level. “And someone physically turned the key to send us there. Those are the only facts that matter right now.”</p>
+<p>“The fact is we have a crisis, and you are a distraction!” Ndiaye turned to the two security officers standing by the elevator. Their hands were hovering nervously over their kinetic batons. “Officers. Disarm Karras. Take his slate.”</p>
+<p>A cold knot tightened in Karras’s throat. It was the exact same feeling he’d had on the Olympus-4 Platform six years ago. He remembered the low, metallic groan of the pressure seals on the lower ring, and the local commander who’d decided to lock the emergency hatches to protect corporate property. He’d trusted the uniform back then. He’d followed the protocol like a good little soldier.</p>
+<p>And twelve people had choked to death in the dark while he watched through three inches of reinforced glass.</p>
+<p>“Captain,” Karras said, and his voice lost all its professional politeness. “Don’t do this. The nav system is locked down from here, which means the only way to kill it is physically cutting the lines at the main junction box. Let me go down to the utility corridor.”</p>
+<p>“You’re not going anywhere near the corridors,” Ndiaye said. There was a desperate, ugly triumph in her eyes. She wanted a scapegoat. A physical body she could blame for the invisible hand pulling them all to hell. “You’ve poisoned this crew’s focus. You created the panic that let this... this <em>accident</em> happen. I’m suspending your charter under Article 12 of the Maritime Code. You're inciting mutiny.”</p>
+<p>“This is absurd,” DuPont muttered. But she didn't step between them. She was already running the numbers, eyes darting back and forth, calculating the legal wreckage. “He’s a federated investigator, Captain. If we survive this and he’s been locked up without cause—”</p>
+<p>“If we don’t clear the lock, DuPont, none of us will live to see a courtroom,” Ndiaye snapped. “Security. Put him on Deck 4. Use the physical deadbolt. If he even looks at a comm panel, stun him.”</p>
+<p>The guards stepped up. The kid, Mercer, was shaking so hard his fingers kept slipping on his holster strap. The older one, a veteran with thirty years of bad decisions behind him, kept his face blank, but his eyes gave Karras a quick, miserable apology.</p>
+<p>“Investigator,” the older one muttered. “Don’t make it hard.”</p>
+<p>Karras looked at Ndiaye. Then at Wolfe, who was still watching with that clinical curiosity, like a boy peering at an ant under a magnifying glass. Finally, his gaze drifted to Chandra. The engineer had stopped typing. His shoulders were slumped, completely broken.</p>
+<p>“It won't take my key,” Chandra whispered. He didn't look up. “The root admin key... it's gone. Deleted. There's no back door.”</p>
+<p>“Deck 4,” Ndiaye barked. “Get him out.”</p>
+<p>Karras didn’t fight when Mercer reached down and unclipped his service pistol. He didn't protest when they took his slate—the one filled with details on the lead engineer's murder, the phantom engine telemetry, the shell corporations. He just let them march him off the bridge.</p>
+<p>As the heavy doors hissed shut, the last thing Karras saw was the red strobe casting long, bloody shadows across Ndiaye's face. She looked like she was already drowning.</p>
+<p><em></em>*</p>
+<p>The cell on Deck 4 was a white composite plastic coffin built for transient dockworkers. It smelled of cheap chemical disinfectant and old sweat. One bunk, narrow enough to cramp a teenager. A metal sink and a vacuum toilet molded into a single block of grey plastic opposite it.</p>
+<p>The door closed. Then came the sound. Not the smooth beep of a magnetic latch, but the heavy, stomach-dropping <em>thunk</em> of a manual steel deadbolt sliding home.</p>
+<p>Karras sat on the edge of the mattress. He left the overheads off, opting for the faint, watery blue of the floor-level escape strips. It made the room feel slightly larger. Less like a tomb.</p>
+<p>The vibrations were worse now. A high-frequency rattle that got right into the fillings of his teeth. The <em>Astraea Prime</em> was groaning, its structural skeleton twisting under the uneven grip of the black hole. Every few minutes, a loud <em>crack</em> echoed through the bulkheads—titanium alloy screaming under the strain as Charybdis pulled on the ship's nose harder than its tail.</p>
+<p>The well was waking up.</p>
+<p>He reached into his coat pocket. His fingers closed around a slim piece of metal they’d missed. It was a manual diagnostic probe, no bigger than a heavy pen, tipped with copper alloy. Pretty useless without a console to feed it into, but the cold weight of it in his hand was comforting. It was physical. Real.</p>
+<p>He shut his eyes. Instantly, the ghost of Olympus-4 crawled out of the dark. He could still hear Emil's voice over the crackling, low-power comms. <em>“Vasilis, the outer seals are holding. We just need to sit tight and wait for the rescue tug. Don't touch the override. Just wait.”</em></p>
+<p>Emil had believed in the machinery. He’d believed in the corporate safety margins and the user manuals. He’d died with his lungs full of frozen carbon dioxide because the station's automated triage protocols decided saving the central hydrogen core was worth more than twelve human lives.</p>
+<p>Karras opened his eyes. The blue strip on the floor flickered, died, then blinked back to life.</p>
+<p>He stood up and pressed his ear to the cold composite of the door.</p>
+<p>The hallway was quiet. Too quiet. A ship this size should be a hive of running boots, shouting voices, the steady rush of air handlers. Now? Just the wet groan of twisting metal and the rhythmic, distant hammer of auxiliary coolant pumps fighting a losing battle.</p>
+<p>He looked down. The tolerance between the door and the jamb was tighter than a hair, but down near the floor, the synthetic sealant had peeled away.</p>
+<p>He dropped to his knees, pressing his cheek against the freezing deck, and squinted through the sliver of space. Empty. The guards were gone. Ndiaye had probably pulled them to handle the panic in the holds or the engine bay. She was running out of warm bodies to throw at the leaks.</p>
+<p>He sat back on his heels. His mind raced. That smudge on Chandra’s terminal. Lithium grease. Where did they use that specific grade on this boat? Only three places: the main drive gimbals, the heavy cranes in the cargo hold, and the scrubbers down on Deck 6.</p>
+<p>And Chandra’s console? Deleting the root admin key wasn't a software glitch. It had to be done from the physical master server racks directly below the Captain's cabin.</p>
+<p>Wolfe. The old bastard had been too quiet. On a ship plunging toward a gravity well that would rip every molecule of their bodies into long, screaming strings of atoms within forty minutes, Wolfe had stood there like a spectator under an umbrella. Why? What does a physicist want with a one-way ticket into Charybdis?</p>
+<p>Karras stood and twisted the sink tap. Nothing. Just a dry, hollow wheeze. The computer was already cutting non-essential life support to feed the integrity fields. He leaned over the basin, forehead resting against the cold metal.</p>
+<p>He had to get out. Right now.</p>
+<p>He looked up at the ceiling light. It was a standard, flush-mounted LED panel held in place by four security-hex screws. Karras fished out the diagnostic probe, pried the pocket clip off the side, and examined the metal. Tempered spring steel. He’d ground the tip of that clip into a flat wedge years ago to jimmy jammed evidence lockers back on Ganymede. He climbed onto the rim of the sink, his boots slipping on the smooth metal, and jammed the steel wedge into the first screw.</p>
+<p>The ship bucked.</p>
+<p>Karras went flying. His shoulder slammed into the hard corner of the bunk before he crashed onto the deck plates. The probe slipped from his fingers, clattering across the floor and disappearing into the dark space under the bed.</p>
+<p>For three agonizing seconds, he couldn't get air into his lungs. His collarbone felt like it had been hit with a hammer. Then came the sound.</p>
+<p>A long, metallic shriek vibrated through the bulkheads. Not an engine, not a pump. It was the sound of structural beams being stretched past their breaking point.</p>
+<p>The gravity grid cut out. For one terrifying half-second, Karras floated, his body lifting off the deck plates like a ghost. Then the field snapped back on with a vengeance, slamming him down hard enough to rattle his teeth.</p>
+<p>The ship’s automated voice—usually that calm, synthetic woman’s voice—didn't come on. Instead, a harsh emergency buzzer blared, followed by static-choked audio through the ceiling speaker.</p>
+<p>“All personnel—” It was DuPont, but her polished corporate mask was gone. She was screaming over a loud, rushing roar of escaping air. “The containment field on the starboard drive has collapsed! We are at eighty percent structural limit! If you aren't in an escape pod on Deck 2—”</p>
+<p>The line died with a sharp, wet pop.</p>
+<p>Karras scrambled on his hands and knees, sweeping his hands through the dust under the bunk until his fingers closed around the cold metal clip. He stood up, ignored the throbbing heat in his shoulder, and climbed back onto the sink.</p>
+<p>His hands were slick with sweat, but his fingers worked with a frantic, desperate rhythm. One screw out. Two. The light panel sagged, dangling by its blue-and-white power leads.</p>
+<p>He shoved his arm up into the ceiling cavity, his skin scraping against the sharp, dusty metal of the frame. He was feeling for the secondary junction box—the one routing power to the door's magnetic bolt. If he just cut the wire, the system would fail-safe. It would keep the door locked forever. He didn't want a fail-safe. He needed to feed a dead-short back into the local distribution board.</p>
+<p>He found the line. A thick, braided cable, warm to the touch. He gripped the metal probe, shoved the steel clip right through the synthetic braid, and rammed the other end straight into the high-voltage bus bar of the LED light.</p>
+<p>The world turned white. A blinding flash crackled, and the smell of ozone and vaporized copper filled his lungs. The blast threw Karras off the sink, his palms stinging with the bite of electrical burns. The lights went black. The blue strips on the floor died. But through the dark came a beautiful, heavy <em>clack-clack</em>. The magnetic latch had popped.</p>
+<p>He scrambled up, grabbed the door’s recessed handle, and threw his weight sideways. The door slid open six inches, then jammed. Karras shoved his fingers into the gap, his nails tearing against the rough metal, and pulled. He didn't feel his shoulder anymore. Survival is a hell of an anesthetic. With a wet, metallic shriek, the door slid back into the wall.</p>
+<p>The corridor was a dark, drafty cavern lit only by the faint, green glow of the photoluminescent strips on the deck plates. The air was freezing, and it carried the distinct, vinegar-sharp smell of escaping fuel. He stepped out. He was out of the cell, but the <em>Astraea Prime</em> was still a sinking ship.</p>
+<p>He looked toward the lift. The status light was dead. The shafts were useless. He had two choices on the vertical maintenance ladders: four decks up to the bridge, or two decks down to the utility corridors. He stood in the shaking, freezing dark, listening to the ship scream beneath his boots, and made his choice.</p>
+<p>He grabbed the rungs and began to climb.</p>
+<h1>Chapter 8: The Mirror Calibration</h1>
+<p>Section 9-B always smelled like a wet battery. The air was five degrees colder than the rest of the ship, tasting of stale dry-ice scrubbers and the sharp, copper bite of old grease.</p>
+<p>Vasilis Karras sat on his narrow bunk. The metal frame groaned—a low, metallic rattle that vibrated straight through his tailbone. His quarters were basically a steel coffin bolted to the ship's ribbing, but tonight they felt even tighter. The ceiling joint leaked. A slow, rhythmic drop of grey condensate hit the plastic tray near his boots.</p>
+<p><em>Tink. Tink. Tink.</em></p>
+<p>It was like someone tapping a needle directly against his temple.</p>
+<p>He didn't bother with the overhead lights. Instead, he relied on the green, sickly glow of a jury-rigged terminal balanced on his knees, painting his scarred jaw in digital bile. He’d stripped the casing off the terminal's port, exposing the copper-braided bus lines to splice them directly into the secondary telemetry trunk behind his wall panel. It was sloppy, desperate work. The kind of bypass that left your fingertips smelling of raw solder and scorched insulation, but it was the only way to pull the raw system logs before the central computer could scrub them clean.</p>
+<p>His thumb traced the hard, calloused ridge of a twenty-year-old burn scar on his left hand. <em>The Tharsis blowout.</em> He’d been a green inspector then, trusting the glowing green "All Clear" on his console while eighty tons of superheated hydrogen migrated toward the crew habitat. He had waited for the system to tell him something was wrong. It never did. By the time he actually smelled the melting wires, the bulkheads were already liquid. He survived by sealing himself in a vacuum-rated tool locker. Six of his shift-mates became ash.</p>
+<p>You don't trust the automated systems after that. Not ever.</p>
+<p>He swiped his thumb across the screen, leaving a greasy smudge over the columns of hex code. He was looking at the first six hours of the run. Specifically, the "micro-meteoroid strike" in the Kuiper fringe. Dr. Tiberius Wolfe had brushed it off during the morning briefing.</p>
+<p>"Space dust," Wolfe had said, his voice smooth and untroubled, like oil poured over water. "A brief scrape with the tail of a dead comet."</p>
+<p>Karras called up the raw thermal sensor array. The screen flickered, shifting into a jagged series of vertical bar graphs.</p>
+<p>``` [SYS<em>LOG</em>SUB<em>SEC</em>44-T] TIMESTEP: 00:14:22:09 // REF<em>SYS: TELEMETRY</em>CONSOLE_NDIAYE -------------------------------------------------- SENSOR<em>ID     TEMP (K)     STATUS     BUS</em>LINE -------------------------------------------------- TH-RAD-01     210.4        NOMINAL    A-3 TH-RAD-02     210.2        NOMINAL    A-3 TH-TELE-09    412.8        CRITICAL   D-9 (SPIKE) TH-RAD-04     209.9        NOMINAL    A-4 ```</p>
+<p>Karras stared at the numbers.</p>
+<p>If a rock had hit the radiator fins, the heat signature would have shown a classic decay curve—a sharp peak followed by a slow, sloping tail as the cold vacuum of space swallowed the heat. This wasn't that. It was a square wave. A vertical leap from normal operating temperature straight to four hundred Kelvin, holding for exactly eight seconds, and then dropping back down as if someone had flicked a switch.</p>
+<p>And it wasn't even on the radiator. Sensor `TH-TELE-09` was deep inside the hull, nestled right in the telemetry console of Sector 4. That console was managed exclusively by Zola Ndiaye.</p>
+<p>The heat hadn't come from the dark outside. It came from the machine itself.</p>
+<p>Karras leaned back, his shoulders pressing into the cold steel. He slipped an unlit, dry synthe-clove between his teeth, letting the bitter, medicinal taste numb his tongue.</p>
+<p>"Ravi," he muttered to the empty room.</p>
+<p>He pulled up the localized maintenance logs. Buried under three layers of routine diagnostic commands was Ravi Chandra's digital token. He had accessed the telemetry junction forty minutes before the spike.</p>
+<p>Karras remembered dinner. Ravi's hands had been shaking. He’d spent thirty minutes adjusting the tension on a perfectly functional valve, his eyes darting toward the corridor every time the floorplates groaned. He was hiding something. He had the access, sure, but he also had the jittery, erratic energy of a man walking on a collapsing gantry.</p>
+<p>But Ravi didn't have the stomach for sabotage. Not when they were dropping into a high-gravity swing-by. That was a suicide pact, and Ravi was terrified of dying. He was the type of guy who double-checked his harness three times before stepping into a low-G corridor.</p>
+<p>Karras scrolled deeper into the peripheral logs.</p>
+<p>Zola’s console was a masterpiece of specialized hardware, designed to monitor the ship’s optical interferometers. The <em>Charybdis</em> needed those systems to align its steering mirrors down to the nanometer. Without them, the gravity-assisted burn around the Charybdis anomaly would tear the ship into a streak of expanding debris.</p>
+<p>He loaded the calibration log for the optical cameras. Because Zola’s cameras operated in the ultra-violet and deep-infrared spectrums to measure structural warping, they ran continuously, writing raw image files to a local buffer. It was supposed to overwrite itself every twenty-four hours.</p>
+<p>But Zola was meticulous. She didn't trust the automated buffers either. She had her system set to archive the raw pixel data to a secondary partitioned drive—a hidden cache she likely thought no one else on the crew had the clearance to find.</p>
+<p>Karras's fingers flew across the terminal’s physical buttons, the soft <em>clack-clack-clack</em> sounding like a clock ticking down. He bypassed the partition’s security protocol using an old administrative backdoor he’d memorized during his years with the orbital authority.</p>
+<p>The screen blinked. A single image file, timestamped at the exact second of the thermal spike, appeared on the screen.</p>
+<p>It was a mess of blue-shifted interference patterns. Zola's calibration camera had been pointing toward the port-side optical array, but the extreme angle meant it also captured the reflection on the inner surface of the high-tensile silica viewport.</p>
+<p>And beyond that viewport lay the bridge.</p>
+<p>The bridge of the <em>Charybdis</em> was lined with polished Alumisil bulkheads—decorative, yet functional plates designed to reflect light and prevent the crew from going crazy in the deep black.</p>
+<p>Under Karras's cursor, the reflection became a map of secrets.</p>
+<p>He zoomed in on the upper-right quadrant. The resolution was grainier than salt, but the system's edge-detection algorithm began to trace the lines, smoothing the noise into a distinct silhouette.</p>
+<p>A human figure. Standing before the auxiliary bridge terminal.</p>
+<p>The figure was tall, slightly stooped, with the distinctive hang of a heavy wool jacket that didn't belong to any of the standard-issue crew uniforms.</p>
+<p>"Tiberius," Karras whispered. The clove fell from his lips, landing unnoticed on his boot.</p>
+<p>The camera had captured Wolfe’s reflection in the Alumisil plate. His arm was extended toward the manual override panel—a physical keyboard used only when the primary digital systems were offline or being deliberately bypassed.</p>
+<p>Karras applied a motion-blur correction filter. The processor on his jury-rigged terminal whined, a high-pitched squeal of protest that made him press his hand flat against the casing to muffle the sound.</p>
+<p>The image resolved further. He could see Wolfe’s hand. The long, bony fingers were poised over the mechanical keys. On his middle finger, the dull glint of his Geneva Institute signet ring was unmistakable—a heavy lump of gold that Wolfe wore like a brand of royalty.</p>
+<p>The finger was pressing three keys in rapid succession.</p>
+<p>Karras stared at the key layout on the terminal screen, comparing it to the standard bridge configuration. The keys Wolfe was striking were:</p>
+<p><em>Echo.</em> <em>Delta.</em> <em>Nine.</em></p>
+<p>"Echo-Delta-9," Karras murmured.</p>
+<p>It wasn't a diagnostic code. It was a core-level command sequence. In the event of an emergency containment breach, Echo-Delta-9 severed the hardwired connection between the main bridge and the telemetry deck, isolating the consoles to prevent a localized system failure from cascading into the main reactor.</p>
+<p>Wolfe hadn't been fixing a thermal spike. He had created one. By inputting the Echo-Delta-9 code, he had forced Zola’s console to isolate itself, blinding her telemetry array for exactly eight seconds.</p>
+<p>Why? What had happened in those eight seconds that Wolfe didn't want recorded on the ship's primary telemetry logs?</p>
+<p>Karras stood up, his knees popping in the cramped space. He paced the three steps to his door, then back to the bunk.</p>
+<p>The ship’s hull groaned, a deep, resonant pitch that vibrated through his teeth. They were entering the outer gravity gradient of the Charybdis anomaly. The pressure was mounting.</p>
+<p>If Zola’s console had been blinded, she would have noticed the eight-second gap in her calibration data. She was too sharp, too defensive of her equipment to let an unexplained gap slide. Had she confronted Wolfe? Or had she assumed it was a genuine system glitch caused by the "space dust"?</p>
+<p>Karras remembered her face at the galley table during the last shift change. She hadn't spoken to anyone. She had kept her head down, her fingers drummed against her metal mug in a fast, erratic rhythm. She wasn't angry; she was terrified.</p>
+<p>She knew.</p>
+<p>He turned back to his terminal, his mind racing through the implications. If Wolfe had initiated the isolation code, it meant the entire narrative of the voyage was a construct. The trajectory, the safety margins, the target parameters—everything they had been told was a lie designed to keep them quiet while Wolfe steered them into the gravity well.</p>
+<p>But what about Genevieve?</p>
+<p>Genevieve DuPont had the corporate authority to halt the mission. She had the codes to override Wolfe's commands. Yet she had remained in her stateroom, silent, drinking her synthetic tea and issuing platitudes about "unavoidable orbital mechanics."</p>
+<p>Was she complicit, or was she just another passenger on a train whose driver had locked himself in the engine cab?</p>
+<p>Karras reached for his jacket. He needed to get to the telemetry bay. He needed to talk to Zola before she did something stupid—or before Wolfe realized she had the archived logs.</p>
+<p>He grabbed his terminal, pulling the exposed wires free from the wall panel with a sharp jerk. A small spark flared in the darkness, smelling of ozone and singed plastic, before dying out. He slipped the terminal into his pocket.</p>
+<p>He reached for the manual door release lever.</p>
+<p>The lever didn't move.</p>
+<p>Karras frowned, gripping the cold steel handle with both hands. He pressed his weight into it, his muscles straining against the hydraulic seal.</p>
+<p>Nothing.</p>
+<p>The small indicator light above the latch, which had been a steady, reassuring green, blinked once. It turned a flat, solid red.</p>
+<p>A dry, metallic hiss echoed through the ventilation duct above his head.</p>
+<p><em>Clack.</em></p>
+<p>The sound of the magnetic solenoid locking from the outside.</p>
+<p>Karras took a step back, his breath catching in his throat. He looked at the air vent. The low-frequency hum of the fan had changed its pitch, rising to a thin, mechanical whistle.</p>
+<p>The air in the room was growing warmer.</p>
+<p>He lunged for the terminal in his pocket, but before he could reconnect the wires to the exposed bus lines, the small screen on the wall panel beside his door flickered to life.</p>
+<p>It didn't display the standard deck layout. It displayed a single line of text, written in clean, white, institutional letters:</p>
+<p>`SYSTEM MAINTENANCE IN PROGRESS. SECTION 9-B ISOLATED.`</p>
+<p>Karras hammered his fist against the steel door. The impact sent a dull, heavy vibration up his arm, but the door didn't budge. The alloy was three inches of solid, reinforced plate.</p>
+<p>"Is anyone out there?" he shouted, his voice sounding thin and muffled in the cramped cabin.</p>
+<p>No answer. Only the drip of the condensate tray.</p>
+<p><em>Tink.</em></p>
+<p><em>Tink.</em></p>
+<p>And then, through the thin metal of his floorplates, he felt a new vibration. A heavy, rhythmic stepping. Someone was standing in the corridor outside his room. Not moving. Just waiting.</p>
+<p>Karras held his breath, pressing his ear against the cold metal of the door.</p>
+<p>Through the steel, he could hear the faint, dry sound of someone breathing. Slow. Controlled.</p>
+<p>And then, the soft, distinct clinking of keys. Not digital fobs, but physical, heavy keys on a brass ring—the kind only the Chief Medical Officer and the Captain carried.</p>
+<p>"Wolfe," Karras whispered.</p>
+<p>The shadow under his door shifted, blocking the thin sliver of light from the corridor.</p>
+<p>The breathing on the other side stopped.</p>
+<p>"You should have stayed in the engine room, Vasilis," a voice said through the speaker grid. It was low, distorted by the cheap diaphragm of the intercom, but the cadence was unmistakably Wolfe's. "The telemetry is much too delicate for your hands."</p>
+<p>Karras reached for his belt, his fingers finding the heavy steel wrench he always kept in his holster. He gripped the handle, the cold iron solid and reassuring in his palm.</p>
+<p>"Open the door, Tiberius," Karras said, his voice flat, devoid of the panic that was beginning to claw at his chest. "We can talk about the logs. We can talk about Zola."</p>
+<p>A long silence stretched through the speaker. When Wolfe spoke again, his voice had lost its academic warmth. It was as cold as the vacuum outside the hull.</p>
+<p>"Zola is no longer calibrating the mirrors, Vasilis. She has found her own alignment."</p>
+<p>The speaker clicked off.</p>
+<p>From the ventilation duct above, the whistle of the air grew sharper, and the first faint scent of sweet, almond-scented gas began to drift down into the room.</p>
+<h1>Chapter 9: The Leverage Point</h1>
+<p>The emergency bulkhead door didn’t slide. It groaned. A wet, metal-on-metal rasp that fought the gravity well’s persistent, heavy drag.</p>
+<p>Vasilis Karras leaned his shoulder into the cold titanium alloy of his cabin’s maintenance hatch. The metal tasted like salt and copper when he braced his jaw against the frame. They called it "protective isolation." That was the polite lie beamed down from the bridge three hours ago when they locked him out of the main grid. But ship designers are pragmatists. They build bypasses. There was one right behind the synthetic leather headboard of his lower bunk.</p>
+<p>He dug his fingers into the narrow recess of the service channel. The manual release wire was thin, greasy, and freezing. It smelled of industrial lithium and decade-old dust.</p>
+<p>He pulled.</p>
+<p>The wire bit deep into his palms. One pound of tension. Five. Ten.</p>
+<p>With a heavy, echoing <em>clank</em> that shuddered through the deck plates like a dying pulse, the latch finally gave. The door jerked back three inches and stuck, stalled by the ship's list. The <em>Charybdis</em> was leaning hard into the singularity’s pull now, her internal gyros singing a high-pitched, agonizing song of structural fatigue.</p>
+<p>Karras squeezed through the narrow gap. The fabric of his flight jacket snagged and tore on the raw edge of the seal.</p>
+<p>The corridor was a tunnel of shifting shadows. The primary power grid was dead, leaving only the low, periodic pulse of amber emergency strobes. Every twelve seconds, the world turned the color of dried blood, then plunged back into charcoal dark. He kept his hand flat against the bulkhead, navigating by the rough weld seams. He knew the path to the reactor deck by heart. He’d helped draft the schematics when the <em>Charybdis</em> was nothing more than a series of blue-lit wireframes on an orbital workstation in Berlin.</p>
+<p>His ribs flared with sharp, stabbing pain at every step—a souvenir from the docking bay incident two days ago. He ignored it.</p>
+<p>He had to. In the quiet parts of his mind, the ghost of the <em>Vesta-4</em> disaster was whispering. He had stayed in his bunk during that crisis, trusting the automated telemetry until the airlocks blew and the vacuum took nine of his crew. He wouldn't sit in the dark and wait to die a second time.</p>
+<p>At the intersection of Junction 4, a sound drifted through the ventilation grates. It wasn't the mechanical groan of the ship.</p>
+<p>It was a human voice. Raw, cracking, and climbing toward hysteria.</p>
+<p>"I didn't touch the manifold! I was in the secondary scrubbers when the pressure dropped. Check the damn logs!"</p>
+<p>Ravi Chandra.</p>
+<p>Karras picked up the pace, his boots clicking softly on the rubberized grating. The gravity felt heavier down here, pooling in the lower decks like thick oil. His knees buckled slightly under the uncalibrated 1.3-G draw.</p>
+<p>He rounded the corner into the primary reactor vestibule.</p>
+<p>The scene was framed by the massive, circular housing of the containment shield. Under the amber pulse of the emergency lights, four figures stood in a tight, hostile circle.</p>
+<p>Dr. Tiberius Wolfe stood tallest, his silver-rimmed spectacles catching the amber strobe like twin coins. He held a heavy, high-density diagnostic tablet like a shield. Beside him, Genevieve DuPont leaned against a coolant pillar, her posture deceptively relaxed, though her hand hovered inches from the heavy magnetic plasma cutter holstered at her hip. Zola Ndiaye stood directly in front of Chandra, her massive shoulders blocking the only exit to the escape pods.</p>
+<p>Chandra was pinned against the reactor’s manual override assembly, his face slick with sweat, his eyes darting from Ndiaye's chest to the dark corridor behind her.</p>
+<p>"The logs are wiped, Ravi," DuPont said. Her voice had dropped into that quiet, terrifyingly level register she used when she was negotiating salvage rights. "The bypass was entered from your terminal. Your signature key."</p>
+<p>"Anyone could have cloned the key!" Chandra’s voice cracked. He reached out with his left hand, grasping the edge of the control console for support. His right arm was tucked against his chest, cradled defensively. "The terminal was left unlocked during the shift change. I told you, I was clearing the salt-filters!"</p>
+<p>"The filter logs are manual, Chandra," Wolfe said, his voice dry, analytical, devoid of heat but heavy with condemnation. "And the salt-filters do not explain why the manual override lever on the primary heat exchanger was bent ninety degrees out of alignment. That requires physical intervention. Sabotage."</p>
+<p>``` ==================================================================== [SHIP SYSTEM DIAGNOSTIC LOG // EXTRACT #09-B] Timestamp: 04.12.89-UTC // Reactor Sub-deck 3 --------------------------------------------------------------------</p>
+<ul><li>Alert: Manual Override Lever 12-A deformed.</li><li>Structural Integrity of Lever: 12% (Deformed past yield point).</li><li>Force Required for Deformation: &gt; 98.4 Nm (Newton-meters).</li><li>System Status: Coolant flow restricted. Manual reset required.</li></ul>
+<p>==================================================================== ```</p>
+<p>Karras stepped out of the shadow of the junction, his voice cutting through the hum of the cooling pumps. "He couldn't have done it."</p>
+<p>Four heads snapped toward him.</p>
+<p>Ndiaye’s hand drifted toward her belt, her fingers tightening, before she recognized his face. "Karras. You're supposed to be locked in your quarters."</p>
+<p>"The locks on this ship are as old as the captain's jokes, Zola," Karras said, taking a slow, deliberate step into the circle. He kept his hands visible, fingers splayed. He looked at Chandra. The young technician was pale, his lips blue from the dropping temperature of the sub-deck.</p>
+<p>"Get back to your room, Vasilis," Wolfe said, his eyes narrowing behind his lenses. "This is a security matter. The reactor’s auxiliary line is choked. If we don't clear the airlock and find out who turned the manual valve, the core will boil off its sodium buffer within thirty minutes."</p>
+<p>"I know the math, Tiberius," Karras said. He walked toward the reactor console, ignoring Ndiaye as she shifted her weight to block him. He didn't stop until he was standing three feet from Chandra. "And I know the physics of this ship."</p>
+<p>He reached out and gently took Chandra’s right arm.</p>
+<p>Chandra flinched, a hiss of pure agony escaping through his teeth as Karras’s fingers brushed his wrist.</p>
+<p>Karras pulled back the sleeve of Chandra’s grey jumpsuit. Underneath, wrapped tightly around the joint, was a thick, rigid thermal-knit medical brace, secured with three industrial-grade Velcro straps. The fabric was stained with grease, but the structural supports of the brace were intact, holding the wrist at a stiff, unyielding thirty-degree angle.</p>
+<p>"Micro-gravity strain," Karras said, his voice quiet but carrying clearly over the rumble of the turbines. "Ravi has been wearing this for a week. I saw him in the medical bay on Tuesday when Dr. Wolfe was dispensing the anti-inflammatory patches."</p>
+<p>"A wrist sprain doesn't prevent someone from turning a valve," DuPont said, her eyes tracking the movement of Karras’s hands.</p>
+<p>"It's not a valve, Genevieve," Karras said. He pointed to the manual override assembly behind Chandra.</p>
+<p>The emergency lever was a thick, solid bar of cast titanium-iron alloy, designed to be operated only when the automated hydraulic systems failed. Now, it hung uselessly, bent downward at an unnatural, fractured angle like a broken limb.</p>
+<p>"That is a grade-four mechanical lever," Karras continued, his fingers tracing the bend in the metal without touching it. "The locking pin is rated to withstand ninety Newton-meters of shear force before it yields. To bend that lever without using a cheater pipe—which we haven't found—requires a minimum of one hundred Newton-meters of torque applied directly to the handle."</p>
+<p>He looked at Wolfe. "Tiberius. You’re the medical officer. What is the maximum grip force of a human male with a third-degree tendon tear in the ulnar collateral ligament?"</p>
+<p>Wolfe stared at the brace. His mouth opened slightly, his analytical mind already running the equations. He looked from Karras to Chandra’s swollen, braced wrist.</p>
+<p>"Under twenty Newtons," Wolfe muttered, his voice dropping. "The pain alone would cause muscle inhibition. He couldn't even close his fingers around the bar, let alone exert eighty pounds of down-force."</p>
+<p>"Exactly," Karras said. "With that brace on, Ravi can't even hold a heavy wrench. If he had tried to force that lever, his tendon would have snapped completely. The tendon is intact. He’s injured, not crippled."</p>
+<p>Ndiaye looked at DuPont, then back to Karras. Her hand dropped away from her belt. "Then who bent the lever?"</p>
+<p>"The lever was bent from the left side," Karras said, pointing to the lateral scuff marks on the housing casing. "A left-handed strike, or someone working from the awkward angle of the crawlspace. Ravi is right-handed. Look at his grease stains. They're all on his right shoulder."</p>
+<p>A heavy, suffocating silence settled over the deck. The amber light pulsed again, casting long, monstrous shadows across the steel cylinders of the reactor.</p>
+<p>Chandra slowly let his breath out, his shoulders sagging as he slumped against the console. "I told you," he whispered. "I told you it wasn't me."</p>
+<p>"If it wasn't Chandra," DuPont said, her eyes cold as dry ice as she looked at Wolfe, then at Ndiaye, and finally settled on Karras, "then someone else on this crew has the physical strength to bypass a hydraulic lock. And they wanted us to think the reactor was failing on its own."</p>
+<p>Karras looked at the bent metal. He felt the cold touch of the gravity pulling at his heels, dragging them all down toward the black mouth of Charybdis.</p>
+<p>The real question wasn't who had the strength to bend the lever.</p>
+<p>The question was why they had left Chandra alive to take the blame.</p>
+<h1>Chapter 10: The Gravity of Revenge</h1>
+<p>The deckplates weren't vibrating. They were shivering. It was a nasty, high-frequency chatter that started in the soles of Vasilis Karras’s boots, worked its way up his shins, and ended as a dull, teeth-gritting hum in his back molars.</p>
+<p>Outside the bridge’s thick observation port, the Charybdis singularity was no longer some abstract, clean dot on a navigator's chart. It was a tear. A greasy, violet-rimmed hole in the middle of nothing, sucking down light and spitting out hard radiation that made the console screens flicker like dying lightbulbs.</p>
+<p>The air tasted like copper pennies. Ozone, hot solder, and the distinct, oily stink of wiring insulation cooked past its tolerance by the mounting gravitational pull.</p>
+<p>Karras shifted his stance, trying to ease the pressure. His left knee—rebuilt with cheap titanium pins and bad synthetic cartilage after the <em>Acheron</em> dock collapse—throbbed in three-four time. It was a better gravity gauge than the digital readouts. Right now, the ship’s internal compensators were losing the tug-of-war with the well. The bulkhead dial was creeping past 1.3 Gs. Every breath felt like dragging wet sand into his lungs.</p>
+<p>"Seven minutes," Ravi Chandra said. His voice was too high, thin as a wire under tension. He was hovering over his navigation terminal, his fingers twitching above the keys but refusing to touch them. "Seven minutes, and the tidal forces are going to peel this hull like a boiled shrimp. We’re dropping, Dr. Wolfe. This isn't a decay. We're diving."</p>
+<p>Dr. Tiberius Wolfe didn't look up from his screen. The harsh, blue wash of the display carved deep, skeletal hollows into his cheeks, making him look more like a skull than a living man. <em>Tap-tap-tap.</em> His thumb kept drumming against the edge of his console. A frantic, irritating rhythm. "The math is clean," he hissed. "The drift vector was calculated to five decimal places. Someone messed with the thruster timing. My model doesn't fail."</p>
+<p>"And yet, we’re about to be crushed into a point of infinite density," Genevieve DuPont said from the command dais. She was holding herself up by the steel handrail, her knuckles white, her knuckles raw. She was usually a creature of absolute, ironed-flat control, but the sour tang of her sweat was cutting right through her expensive lavender perfume. "Vasilis, tell me you’ve got something. We can't override the navigation lock without the master cipher, and Wolfe’s terminal is locked tighter than a drum."</p>
+<p>Karras didn't answer. He walked toward the telemetry station at the back of the bridge, his steps heavy and slow. His boots made a tacky, sticking sound against the rubberized deck coating.</p>
+<p>He glanced at the secondary display. The ship’s automated log was cycling through system errors in a monotonous, green scroll:</p>
+<p>``` [SYSTEM ALERT: HELIUM-3 RECOVERY LOOP]</p>
+<blockquote>SEGMENT 4: PRESSURE DROP (0.02 BAR)</blockquote>
+<blockquote>TELEMETRY CAMERA ARRAY: THERMAL BLINDING DETECTED</blockquote>
+<blockquote>OVERHEAT SEQUENCE INITIALIZED...... ACTIVE</blockquote>
+<blockquote>MANUAL BYPASS LEVER: ENGAGED [04:12:09 UTC]</blockquote>
+<p>```</p>
+<p>Karras stopped right behind Zola Ndiaye.</p>
+<p>The telemetry analyst sat perfectly still in her high-backed harness. Unlike Chandra, she wasn't sweating. Her dark skin looked cool, almost matte under the flickering purple glare of the accretion disk. Her hands were resting quietly in her lap. Her right wrist carried a heavy, scratched-up industrial chronometer, but her left hand was bare. Long fingers. Thick, dry calluses on the tips.</p>
+<p>"It takes about eighty kilograms of sudden, downward force to throw the manual bypass lever in the lower conduit room," Karras said. His voice was a low, gravelly rasp that cut right through the whine of the cooling fans. "Old-world design. You don't flip it by accident. You have to plant your feet and pull like you mean it."</p>
+<p>Chandra spun around in his chair. "We checked the security logs, Vasilis. Nobody went down Corridor 4. The thermal cameras didn't show a single heat signature during the pressure drop."</p>
+<p>"They didn't show anything because they were blind," Karras said. He reached down, tapping the metal casing of Zola’s telemetry terminal. The steel was hot—not from normal use, but from localized venting. "There's a helium-3 coolant line running right under this deckplate. If you drain the liquid line into the casing, it doesn't blow. It just superheats the return pipe, creating a wall of hot air. To the infrared cameras in Corridor 4, the whole hallway looked like an empty, uniform block of white heat. A human body walking through it wouldn't even register."</p>
+<p>"That’s... that’s just a theory," Wolfe said, though his thumb stopped tapping. He finally looked up, his eyes darting between Karras and the back of Zola’s head. "Who on this ship has the technical chops to bleed a helium line without tripping the main reactor safeties?"</p>
+<p>"Someone who spent three years on high-G drilling rigs in the outer belt," Karras said, stepping closer to Zola’s shoulder. "Someone with twice the bone density of an inner-planet native. Someone who isn't even leaning against her harness at 1.4 Gs because she’s lived in it."</p>
+<p>Zola didn't move. Her eyes remained locked on the black maw outside the window.</p>
+<p>"You’re left-handed, Zola," Karras said softly.</p>
+<p>"What does that prove?" Genevieve snapped, her voice cracking with panic.</p>
+<p>"Look at the manual lever assembly," Karras said, his eyes never leaving Zola. "The safety latch is on the right side of the housing. If you pull it with your right hand, you have to lean awkwardly over the main power bus. It’s an easy way to get yourself fried. But if you’re left-handed, your body aligns perfectly to the left. Your shoulder clears the bus, and you can put your entire weight into the drop. There’s a smudge of synthetic graphite grease on the left grip. And there's a matching grey smudge on your left cuff, Zola."</p>
+<p>Zola slowly turned her head. Her face was a mask of cold, unyielding stone. "A grease stain, detective? On a research vessel that's falling apart? That’s your grand deduction?"</p>
+<p>"No," Karras said. He pointed toward the curved, chrome-plated bulkhead separating her station from Wolfe’s terminal. "That is."</p>
+<p>The bulkhead was polished to a mirror shine—a cheap design trick to make the cramped bridge feel bigger. But under the high-contrast emergency lights, it worked like a rearview mirror.</p>
+<p>"From your seat," Karras said, "if you lean back just six inches, the reflection on that chrome panel gives you a perfect view of Dr. Wolfe’s keyboard. You didn't need to hack his codes. You didn't need to run some fancy exploit. You just watched him type. You watched the reflection of his fingers every time he updated the navigation coordinates. You’ve had his 'perfect path' memorized for months."</p>
+<p>A heavy, suffocating silence fell over the bridge, broken only by the long, metallic groan of the ship's keel stretching under the gravity.</p>
+<p>"Why?" Chandra whispered, staring at her like she was a ghost. "Zola, we’re going to die here. Why would you lock us out?"</p>
+<p>"Because it’s a beautiful trajectory," Zola said. Her voice wasn't angry. It was flat, empty, and entirely devoid of fear. "Isn't that right, Dr. Wolfe? You always said the universe is run by beautiful, unyielding equations. No room for error. No room for waste."</p>
+<p>Wolfe’s face went white. He tried to stand, but his knees buckled under the extra weight, slamming him back into his chair. "You... you don't know what you’re talking about. This is mutiny. This is murder!"</p>
+<p>"Is it?" Zola stood up. She did it smoothly, her dense leg muscles pushing through the G-force without a tremor. She turned on Wolfe, her chest rising and falling in slow, measured breaths. "What about the <em>Astraea</em>?"</p>
+<p>Karras felt a cold knot tighten in his gut. The <em>Astraea</em>. The ghost ship that had drifted through his own case files for five years. A deep-space freighter that had gone dark on the Jupiter-Io run. The official report called it a micro-meteorite strike.</p>
+<p>"The <em>Astraea</em> wasn't hit by a rock," Zola said, her eyes boring into Wolfe. "They had an engine failure. They were drifting, losing air. But they had a sister ship in the sector. The <em>Vanguard</em>, commanded by a brilliant young logistics manager named Tiberius Wolfe."</p>
+<p>Wolfe opened his mouth, but only a dry, rattling gasp came out.</p>
+<p>"You ran the numbers," Zola said, her voice dropping to a whisper that cut through the alarms. "You realized that if you changed course to pick them up, you'd burn forty percent of your fuel reserve. It would have cost your shareholders three million credits in late-delivery penalties. So you made a logistics decision. You created a 'perfect path' that bypassed them entirely. You logged a false sensor report saying the <em>Astraea</em> had already suffered explosive decompression, and you left twelve people to suffocate in the dark so your arrival profile would stay clean."</p>
+<p>"It was the shipping line!" Wolfe screamed, spit flying from his lips. "The company would have gone under! We would have all lost our contracts! The math—the math for the survival of the shipping line was absolute!"</p>
+<p>"One of those twelve was my brother," Zola said. "Adem."</p>
+<p>The name hung in the pressurized air, heavy and hot.</p>
+<p>Karras watched her. He saw the tension in her jaw, the tiny, involuntary tremor in her left hand. He knew that look. He’d seen it in the mirrors of a dozen cheap transit-station bars. It was the look of someone who had traded their soul for a single moment of clean, surgical reckoning. It was the same ghost that kept him awake at night—the three scouts he’d left behind on <em>Acheron</em> because he’d trusted the telemetry instead of going down to look for them himself.</p>
+<p>"Zola," Karras said, his voice dropping. "If you do this, Adem doesn't get justice. He just gets a bigger grave."</p>
+<p>"He gets company," Zola said, looking at Wolfe. "The doctor is going to die knowing his perfect path led him right down the throat of Charybdis. There is no escape. The key is destroyed."</p>
+<p>"No," Karras said, taking a heavy step forward. "The key isn't destroyed. You didn't delete the navigation variables. You’re a telemetry analyst, Zola. You value data too much to wipe it. You stored the correct escape vectors in the local buffer of your own console. You wanted to watch him squirm, to watch him realize his math was wrong, before the end."</p>
+<p>A massive shudder ripped through the ship. The main displays flared a violent, angry red.</p>
+<p>``` [WARNING: EVENT HORIZON PROXIMITY]</p>
+<blockquote>T-MINUS 180 SECONDS TO TIDAL DISRUPTION</blockquote>
+<blockquote>HULL INTEGRITY: 74%</blockquote>
+<p>```</p>
+<p>"Zola, please," Chandra begged, tears streaming down his face, pooling at his chin before dropping to the deck in fat, heavy droplets. "I didn't leave them. Chandra didn't do it. Genevieve didn't do it. Don't kill us for his sin."</p>
+<p>Zola looked at Chandra, then at Genevieve, who was watching her with an expression that was no longer cold, but desperate, human, and terrified. Finally, her eyes drifted back to Karras.</p>
+<p>"You knew," she said to Karras. "You knew before you even came to the bridge."</p>
+<p>"I saw the grease on your sleeve when we were in the galley," Karras said. "And I know what it’s like to want to burn the world down to pay a debt that can't be settled. But it doesn't work, Zola. The fire just keeps burning."</p>
+<p>She looked at her console. Her left hand hovered over the interface.</p>
+<p>Outside, the singularity seemed to yawn, a great, black mouth ready to swallow their light, their lives, and their secrets. The deck plates screamed as the frame began to twist under the tidal shear.</p>
+<p>With a swift, fluid motion of her left hand, Zola slammed her palm onto the secondary terminal.</p>
+<p>The screen flashed green.</p>
+<p>"True coordinates loaded," Zola said, her voice barely audible over the roaring of the structural alarms. "May the math forgive us."</p>
+<p>Chandra didn't waste a second. He lunged at his console, his fingers flying across the keys with frantic, desperate speed. "Engaging emergency burn! Hold onto something!"</p>
+<p>The ship pivoted. The gravitational forces shifted instantly, slamming Karras against the telemetry bulkhead with bone-crushing force. His vision went black at the edges. The engines didn't just roar; they shrieked as they threw every remaining ounce of helium-3 into the thrusters, fighting the monstrous grip of the black hole.</p>
+<p>For ten agonizing seconds, the ship hung in the balance, a tiny spark of silver metal trembling against the edge of infinite night.</p>
+<p>And then, with a violent, gut-wrenching lurch, the gravity dial began to drop.</p>
+<p>1.40... 1.20... 1.05...</p>
+<p>The purple light of the accretion disk began to recede in the display window, replaced once more by the cold, distant, and beautiful stars of the deep void.</p>
+<p>Karras slid down the bulkhead, his breath coming in ragged, painful gasps. He looked across the bridge. Wolfe was on his knees, head pressed against the deck, weeping silently. Chandra was laughing, a hysterical, breathless sound.</p>
+<p>Zola Ndiaye remained in her chair. She did not look at Wolfe. She did not look at the stars. She slowly reached down, took a clean cloth from her pocket, and began to wipe the synthetic grease from her left cuff.</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Frost Line - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">The Frost Line</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>The Frost Line</h1>
+<p>The cold didn’t just bite. It took inventory.</p>
+<p>Junia Keelan stood on the gravel turnaround at the edge of the Portage trail. Her fingers were already dead wood inside her sheepskin gloves, frozen stiff around the handles of two heavy aluminum gear cases. She was forty-six. At forty-six, you expect certain predictable betrayals from your own skin—the dull, familiar ache in your lower back after four hours of bouncing over unpaved washboards, or knee joints that grind like dry gears when the weather turns. But you don't expect a sudden, mocking mutiny of your internal thermostat.</p>
+<p>Right there, with a sub-zero gale off the Chugach range clawing at her heavy wool collar, a suffocating wave of heat bloomed right beneath her ribs. It climbed its way up her throat—vicious, hot, and entirely unprompted—dampening the roots of her graying hair under her knit cap. <em>Jesus. Not now.</em> She closed her eyes, forcing the freezing air deep into her lungs, counting. <em>Inhale the glacier. Exhale the humiliation.</em></p>
+<p>Here’s the absolute truth of it: she was forty-six, newly single, and standing at the raw edge of the world because her life back home had utterly dissolved. Her career as a botanical illustrator used to mean something. It was a comfortable, tenured, predictable gig at a land-grant university in Ohio. Then came the divorce. When Richard left her for a twenty-six-year-old lab tech who still had student loans, he didn't just split the retirement accounts down the middle. He poisoned the well. He turned her department into a high-school cafeteria of hushed whispers and pitying looks. You can't work in a place where people look at you like a hit-and-run victim.</p>
+<p>So, this contract. Documenting late-season vascular plants on the high-altitude scree fields of the Kenai Peninsula before winter dropped the iron curtain. It was a joke of a salary—less than half of what she made in Ohio—but it was a hard reset. More importantly, it was four thousand miles away from the deposition rooms, the fake smiles from colleagues, and the deafening silence of a three-bedroom suburban colonial with half the furniture missing.</p>
+<p>"You Keelan?"</p>
+<p>The voice was a low, gravelly rasp. It came from the porch of the low-slung log outpost fifty yards up the slope.</p>
+<p>June opened her eyes, squinting against the flat, grey glare of the afternoon. A woman stood in the doorway, her frame as wide and solid as a timber buttress, wrapped in a grease-stained canvas coat. Her hair was a fierce, iron-grey braid that reached her waist, and her face looked as though it had been carved out of driftwood with a blunt knife.</p>
+<p>"I am," June said, her throat dry from the truck’s heater. She picked up her cases—the heavy metal brackets biting deep into her palms—and started up the rocky path. "Junia Keelan. I have the reservation for the ridge cabin."</p>
+<p>The older woman didn't offer to help with the bags. She just stood there, watching June's approach with a pair of pale, unblinking eyes that seemed to calculate the exact weight of her gear and the depth of her resolve.</p>
+<p>"Oksana Rostov," the woman said, leaning against the doorframe. No hand was offered. "The university said they were sending an expert. They didn't say she'd be dressed for an autumn stroll in Vermont."</p>
+<p>June stopped at the bottom of the rough-hewn pine steps, her chest still burning from the lingering heat of her flush. She straightened her shoulders, refusing to let her hands shake. "This is mountain-grade wool and Gore-Tex, Ms. Rostov. I’ve worked the Wind Rivers. I’ve done three seasons in the high peaks of Colorado."</p>
+<p>"Those are tourist hills," Oksana said flatly. "This is the Chugach. The late-season flora you’re looking for? It grows in the cracks of rock that don't see sun for ten months of the year. In forty-eight hours, we’ll have three feet of wet snow on the ridges. If you get stuck up there, I am not sending my boys to pull your frozen corpse out of a crevasse. The mountain doesn't give a damn about your drawings."</p>
+<p>"I don't expect anyone to pull me out," June said, her tone dropping into a quiet, steel-edged register she had spent the last eighteen months rebuilding. "I’ve survived thirty years of field work, Ms. Rostov. And I’ve survived worse things than a storm."</p>
+<p>Oksana’s eyes narrowed slightly. Her gaze drifted down to the faint lines around June's mouth, the silver threading through the dark hair escaping her cap, and the set of her jaw. A small, almost imperceptible shift occurred in the older woman’s expression—not quite approval, but a recognition of grit.</p>
+<p>"We’ll see," Oksana muttered, stepping back to let June enter the warmth of the lodge. "The wood stove in your cabin is a picky bastard. Eats dry spruce like candy, chokes on damp birch. If you don't keep the draft clear, you’ll wake up breathing soot in a room that feels like a meat locker."</p>
+<p>The interior of the lodge smelled of woodsmoke, old lard, and the sharp, chemical tang of gun solvent. It was a working space, not a tourist trap. Skins of wolf and wolverine hung from the rafters, and a long pine table was covered in maps, oilskins, and brass instruments.</p>
+<p>June set her cases down on the floorboards, the sudden release of weight making her fingers tingle. She peeled off her gloves, revealing hands that were short-nailed, practical, and scarred with the small, pale nicks of a lifetime of pocketknife blades and ink pens.</p>
+<p>A door at the back of the room creaked open, and the temperature in the room seemed to drop—or perhaps it was just the sudden, arresting presence of the man who stepped through it.</p>
+<p>He was thirty-four, maybe thirty-five, but he carried himself with the heavy, unhurried ease of a man who had already lived three lifetimes. He was broad-shouldered, his frame filling the doorway in a faded flannel shirt and grease-darkened work trousers. A thick, dark beard covered his jaw, and his hair was damp with melting sleet, sticking to his forehead in dark curls. But it was his eyes that stopped June’s breath—a startling, icy blue that looked entirely out of place against his weather-beaten, rugged features. Not the pretty kind of blue you see on billboards, but the pale, washed-out color of glacial run-off.</p>
+<p>"Wind’s coming around, Oksana," he said, his voice a deep, resonant rumble that vibrated in the small cabin. "Barometer is dropping like a stone. We've got maybe ten hours, maybe less, before the pass shuts down tight."</p>
+<p>He stopped when he saw June. His gaze traveled down her practical wool coat, her sturdy hiking boots, and back up to her face. There was no polite mask, no city-bred hesitation. He looked at her with the raw, assessing scrutiny of a guide looking at a potential liability.</p>
+<p>"This is our guest," Oksana said, nodding toward June. "Junia Keelan. She's here for the high-altitude willow herbs." She turned to June. "This is Gethin Hawkes. He runs the pack strings and keeps the trails clear. If you go up the ridge, you go through him."</p>
+<p>Gethin didn't move. He stood with his hands tucked into the front pockets of his trousers, his chest rising and falling in a slow, steady rhythm. "You're late in the season, Ms. Keelan. The high scree is already icing over. You won't find anything up there but slick shale."</p>
+<p>"I have a specific list of late-germinating species to document," June said, keeping her voice level despite the sudden, erratic thudding of her heart. There was an intensity to him—a sheer, physical gravity—that made the small lodge feel suddenly claustrophobic. "The university's grant is contingent on these late-season samples. I have to go up."</p>
+<p>"You have to stay alive," Gethin said. He stepped closer, his heavy boots thudding against the pine floorboards. He was a head taller than her, and the scent of him—cold air, woodsmoke, and the clean, musky smell of a man who lived outdoors—filled her senses. "One loose shale slide and you’re down a three-hundred-foot couloir. The state troopers aren't risking a chopper to scrape an illustrator off the ice."</p>
+<p>June’s face flared, but this time it wasn’t her hormones. It was pure, unadulterated anger. The kind that makes your teeth click. She stepped closer to him, refusing to be intimidated by his size or the youthful, arrogant certainty of his strength.</p>
+<p>"I am not a hobbyist, Mr. Hawkes," she said, her voice dropping into a register that was low and dangerous. "I’ve been drawing in the field since before you were in short pants. I know how to read a slope, I know how to anchor a bivy, and I know exactly when to turn back. Now, unless you plan on carrying my bags all night, show me where I’m sleeping."</p>
+<p>Gethin’s eyes flickered, the pale blue darkening as he took in the sharpness of her tongue and the flush on her high cheekbones. For a second, his gaze dropped to her mouth, then back to her eyes. The silence between them stretched, thick with an unexpected, friction-heated tension that had nothing to do with the weather.</p>
+<p>Oksana watched them both, a slow, knowing smile tugging at the corner of her mouth. "Show her to the ridge cabin, Gethin. Make sure the stove is drawing. I don't want her burning the place down because she’s trying to prove a point."</p>
+<p>Gethin grunted, a low sound in his throat. He picked up both of June’s heavy aluminum cases with one hand, his thick forearm flexing under the flannel sleeve, and turned toward the door. "Follow me," he said. "And keep up. The path is slick."</p>
+<p>The air outside was bitter, the grey light fading fast into the deep purple of an Alaskan twilight. The path to the ridge cabin was narrow, winding through a thicket of stunted spruce and alder that rattled in the rising wind. June walked behind him, her eyes fixed on the broad expanse of his back. He moved with that easy, heavy rhythm common to people who carry heavy things for a living. No wasted motion. Every step deliberate.</p>
+<p>It had been a long time since she’d looked at a man’s back and felt anything other than a dull, familiar irritation. Richard’s shoulders had always been slightly rounded, the posture of a man who spent his life leaning over microscopes and dean's-office desks. This guy was different. He looked like he’d been built out of green timber.</p>
+<p>The ridge cabin sat on a small knoll overlooking the valley, its logs weathered to a silvery grey. It was small, no larger than a single room, with a small porch and a narrow stack of firewood piled against the south wall.</p>
+<p>Gethin kicked the snow off his boots and pushed the door open, setting her cases down on the clean pine floor. The air inside was freezing, smelling of cold ash and dried tallow.</p>
+<p>"Don't touch the stove yet," he said, his voice quieter now that they were out of the wind. He knelt before the small iron stove in the corner, his large hands moving with a quick, practiced efficiency as he cleared the old ash and began splitting dry kindling with a small hand-hatchet he took from his belt.</p>
+<p>June stood in the center of the cabin, her hands tucked into her pockets, watching him. The silence between them was heavy, filled only with the rhythmic <em>thunk</em> of the hatchet against the wood block and the rising howl of the wind outside.</p>
+<p>"How long have you lived here?" she asked, wanting to break the weight of the silence.</p>
+<p>"Ten years," he said, not looking up. He arranged the small slivers of dry spruce in a pyramid inside the iron belly of the stove. "Came up from Oregon after my discharge. Didn't want to live around people anymore."</p>
+<p>"Your discharge?"</p>
+<p>"Army," he said shortly. He struck a match, the small flame illuminating the hard, clean line of his jaw and the dark sweep of his lashes. He held the flame to the birch bark, waiting until the yellow fire took hold before closing the heavy iron door. "Up here, the terrain doesn’t lie to you."</p>
+<p>"People do," June said. The words slipped out, dry and heavy, before she could catch them.</p>
+<p>Gethin paused, his hand resting on the iron handle of the stove. He turned his head, his blue eyes catching the golden light of the fire leaking through the draft vent. He looked at her, really looked at her, his gaze lingering on the fine lines around her eyes, the proud, defensive set of her chin, and the way her wool coat clung to the mature, fuller curve of her hips.</p>
+<p>"They do," he agreed, his voice dropping an octave, becoming rougher, more intimate. He stood up, his large frame instantly making the small cabin feel warm, almost crowded. He walked toward her, stopping just a foot away. The heat from his body seemed to radiate through the cold space between them. "But up here, the lies will get you killed faster than a bullet. If you're running from something, Ms. Keelan, this is a hard place to hide."</p>
+<p>June’s breath hitched. She felt a sudden, fierce urge to step back, to put distance between herself and this man who was too young, too observant, and far too attractive for her peace of mind. But she forced herself to stand her ground. She met his gaze, her dark eyes steady.</p>
+<p>"I’m not hiding," she said, her voice steady despite the tremor in her knees. "I’m working."</p>
+<p>Gethin stared at her for a long moment, his eyes searching hers, finding the pain, the pride, and the deep, resilient strength that lay beneath the surface. He reached out, his hand hovering for a second before his thumb brushed the collar of her coat, tucking a stray lock of her dark, silver-streaked hair behind her ear. His fingers were warm, rough, and calloused, and the contact sent a sudden, electric shiver straight down her spine.</p>
+<p>"Your hair is wet," he said quietly, his thumb lingering against the soft skin of her temple. "You need to get dry before the fire goes out."</p>
+<p>June couldn't move. Her heart was hammering against her ribs like a trapped bird. "I... I can manage," she whispered, her voice losing its edge, becoming soft, vulnerable.</p>
+<p>"I know you can," Gethin said, his blue eyes dark with something heavy and unspoken. He stepped back, the loss of his warmth leaving her feeling suddenly, terribly cold. He walked to the door, his hand resting on the latch. "The storm will hit by midnight. Stay inside. If you need more wood, there's a pile on the porch. Don't go looking for me in the dark."</p>
+<p>"I won't," she said.</p>
+<p>He nodded once, a brief, sharp movement, and then he was gone, the heavy wooden door clicking shut behind him.</p>
+<p>June stood in the middle of the quiet cabin, the heat from the stove slowly spreading through the room, her skin still tingling where his fingers had touched her. She let out a long, shaky breath, her fingers rising to touch her temple, where the scent of woodsmoke and cold air still lingered.</p>
+<p>She was forty-six, she was starting over, and for the first time in years, she felt completely, dangerously alive.</p>
+<p>The whiteout didn’t announce itself with a roar. It just dropped. One second, the jagged slate-gray teeth of the Chugach range were silhouetted against a bruised sky; the next, the world was gone, replaced by a suffocating wool sack pulled tight over her head.</p>
+<p>Junia Keelan stopped. Her breath caught, instantly freezing into tiny, sharp needles on the fleece collar of her parka. The wind, which had spent the last three hours nagging at her left shoulder, suddenly turned mean. It whipped fine, dry snow across her goggles, erasing the sky, the ridge, and her own boots in a dizzying, sideways swirl.</p>
+<p>She was forty-six. And for the first first time in her life, she realized she might actually die in the dark.</p>
+<p>Her knees were already shaking. It wasn't just the fear; it was the steep, rocky climb up from the timberline. Her joints didn’t bounce back the way they used to. Twenty years ago, a grueling trek like this ended with a hot bath and a glass of cheap Pinot, and she was fine the next morning. Now? Her body kept a strict ledger. It was a body that had carried two kids, survived a quiet, agonizing divorce that felt more like a slow leak than an explosion, and spent the last two years adjusting to the flat, heavy silence of an empty house. It was a good, sturdy machine, but out here, in a sub-zero blind alley, it felt paper-thin.</p>
+<p>"Keep moving," she muttered. The wind ate the words before they even left her cracked lips. "Just find the orange marker. It's right there."</p>
+<p>She took three blind steps. Her right boot sank into a fresh, powdery drift, catching on a buried spruce root.</p>
+<p>She went down. Hard.</p>
+<p>The impact jarred through her shoulder, sending a dull, sickening ache through her collarbone. She rolled onto her side, coughing, the freezing air scraping down her throat like steel wool. Panic—the hot, metallic kind that tastes like pennies—flooded her mouth. She couldn't see her own hands. The snow was already piling against her thighs, tucking her in. She tried to push herself up, but her fingers inside her Gore-Tex gloves felt like useless chunks of frozen meat.</p>
+<p>Then, the storm tore open, and a shape stepped through.</p>
+<p>It didn't look human at first. Just a massive, shifting block of shadow. Junia squinted through the frost on her lenses, her heart hammering a frantic, useless rhythm against her ribs.</p>
+<p>Before she could scream, two heavy, ice-crusted hands grabbed her by the armpits and hauled her up with a wrenching, indifferent strength.</p>
+<p>"Stupid," a rough voice growled, the sound muffled by a wool gaiter. "Utterly, goddamn stupid."</p>
+<p>Gethin Hawkes didn't look like a savior. He looked like something the mountain had spit out. Even under his grease-stained canvas layers, his broad, square frame seemed to block the wind. His eyes, visible beneath a low-pulled hood, were a cold, furious gray.</p>
+<p>He didn't ask if she could walk. He didn't offer a hand to hold. He simply looped a thick webbing strap around her waist, clipped it to his own harness with a heavy metallic <em>clack</em>, and grabbed her arm in a grip that was going to leave bruises.</p>
+<p>"Walk," he barked. "And if you slip, don't drag me down with you."</p>
+<p>The next hour was a blur of gray-white misery. Junia blindly planted her boots in the deep, heavy craters Gethin broke through the drifts. Every step was a fight against a gale that wanted to peel them off the exposed ridge. Gethin moved like a pack mule—heavy, deliberate, balancing against the gusts with a native instinct she didn't possess. Whenever she stumbled, his arm was there, hard as an iron bar, jerking her back to center. He didn't look back once.</p>
+<p>When the dark, low outline of his cabin finally materialized through the swirling gloom, Junia’s thighs were burning so badly she was ready to crawl.</p>
+<p>Gethin kicked the heavy timber door inward, shoved her into the dim interior, and threw his weight against the wood to latch it against the storm.</p>
+<p>The sudden silence was shocking. The wind still screamed outside, but here, behind six-inch logs, it sounded distant, like an angry neighbor.</p>
+<p>The cabin was dark, smelling of woodsmoke, kerosene, and the sharp, mineral tang of wet dog—though there was no dog in sight. A cast-iron stove in the corner threw a dull, amber eye of light across the floor.</p>
+<p>Gethin unclipped the safety strap, letting it hit the pine planks with a heavy thud. He pulled back his hood, revealing a face that looked like it had been carved with a dull axe. His hair, thick and damp with sweat, was shot through with iron-gray at the temples, and his beard was a rough thatch of silver and black. He was forty-nine, and he looked every single day of it.</p>
+<p>"Sit," he said, pointing a gloved finger at a high-backed wooden chair near the hearth.</p>
+<p>Junia tried, but her knees had turned to jelly. The sudden warmth of the cabin made her skin prickle and crawl. She fumbled with the zipper of her parka, her deadened fingers sliding uselessly over the metal teeth.</p>
+<p>With a low, impatient grunt, Gethin stepped into her space. He didn't ask. He just brushed her hands away, his calloused fingers working the zipper down with practiced efficiency, peeling the heavy, wet shell off her shoulders.</p>
+<p>"I can... I have it," she managed, her voice thin and dry.</p>
+<p>"You don't have shit, Keelan," he muttered. He threw her jacket toward a peg by the door and knelt down. "Boots. Now."</p>
+<p>Junia felt a sudden, sharp pinch of embarrassment. It had been years since anyone had been this close to her body—especially a man who looked like he spent his winters hauling logs. She knew what she looked like: forty-six, a little soft around the middle, the faint, silver map of motherhood etched into her skin, and her face gray with exhaustion.</p>
+<p>Gethin didn't seem to care. He unlaced her heavy boots and pulled them off with a rough yank. When his bare hand caught her heel through her damp wool sock, she flinched.</p>
+<p>"Cold?" he asked, looking up. Those gray eyes locked onto hers, heavy and unblinking.</p>
+<p>"It gets into my bones faster than it used to," she said, trying for a light, self-deprecating laugh that fell completely flat. "The joys of getting older."</p>
+<p>Gethin didn't smile. He peeled her socks off, his wide, rough palms wrapping around her bare feet. His skin was incredibly hot, almost painfully so against her frozen arches. He began to rub them, his thumbs digging into her soles with a hard, rhythmic pressure that made the blood return in a stinging, agonizing throb—the "screaming barfies," as the climbers called it. She bit her lip to keep from crying out.</p>
+<p>"You shouldn't have been up there," he said, his voice dropping into a quiet, dangerous register. "The radio was warning about this front since yesterday morning. You're not in Seattle anymore, Junia. Out here, the mountain doesn't care about your schedule."</p>
+<p>"I had to get the ridge sketches," she said, her pride flaring up through the pain. "The deadline is next week. The publisher doesn't care about a little snow."</p>
+<p>"They won't care when you're a frozen block at the bottom of a draw, either," he snapped, letting go of her feet and standing up. He towered over her, his chest rising and falling beneath his damp flannel. "You city tourists come up here with three thousand dollars of brand-new gear and think you're bulletproof. It's arrogant. It's how people get dead."</p>
+<p>Junia stared up at him, her jaw tightening. "I am not a tourist, Gethin. I checked the radar. The storm tracker said it wouldn't hit the pass until tonight."</p>
+<p>"The radar doesn't know this ridge," he said. He turned to the stove, throwing in a fresh split of birch. The wood caught with a sharp crack, casting his broad back in a flickering orange glow. "If I hadn't been checking the line near the creek, you'd be hypothermic by dark. Think about that before you go play adventurer next time."</p>
+<p>The sting of his words was real, but beneath it, something else was shifting in the small room. The air felt heavy, thick with the scent of pine smoke and the damp, raw heat of their skin. He was angry, yes, but he was also looking at her. Really looking. Not with the polite, sexless neutrality she’d grown used to back home, but with a hard, primitive focus that made her throat dry.</p>
+<p>"Thank you," she said softly, the words cutting through the crackle of the fire. "For coming back."</p>
+<p>Gethin paused, his hand still resting on the iron latch of the stove. He didn't turn around for a long moment. When he did, the anger had settled into something quieter, but far more volatile.</p>
+<p>"Don't thank me yet," he said. "The pass road is under four feet of drift, and the wind is climbing. You're stuck here until tomorrow night at the earliest. You're in my space now."</p>
+<p>The reality of it settled in. One room. One bed. One stove. And a man who looked like he’d forgotten how to talk to people years ago.</p>
+<p>"I can take the cot," she said, gesturing toward the narrow canvas frame against the far wall.</p>
+<p>"You'll take what I give you," Gethin said. He walked to a rough-hewn cupboard, pulled down a bottle of rye and two heavy glasses, and poured two fingers into each. He handed her one. His thumb brushed hers—a brief, coarse scratch of skin that sent a sudden, electric jolt straight up her arm. "Drink it. It'll stop the shivering."</p>
+<p>She took a swallow. The liquor was cheap and hot, burning a trail down her throat and settling like a small coal in her stomach. She watched him over the rim. He stood by the small window, staring into the swirling white void outside. There was a loneliness to him that went deeper than just living in the woods. She’d heard the talk in town—that Gethin Hawkes used to be a search-and-rescue medic down in Juneau, a man who spent his life pulling people out of tight spots until he couldn't pull his own brother out of an avalanche.</p>
+<p>"You're staring," he said, without turning his head.</p>
+<p>"You're hard to ignore," she said. The whiskey was giving her a bravery she hadn't possessed an hour ago. "You look like you're trying to carry the whole mountain on your back."</p>
+<p>Gethin turned slowly. The amber firelight caught the hard angles of his jaw. "Maybe I am."</p>
+<p>"That's a lonely way to live."</p>
+<p>He walked toward her, his boots heavy on the floorboards. He set his empty glass down with a soft click, then leaned over her chair, his hands flat on the armrests, pinning her in. The scent of him—cold air, wood ash, and clean sweat—flooded her lungs.</p>
+<p>"You think you've got me figured out, June?" he whispered. His breath was warm against her face. "You draw your little pictures and think you understand this place? You don't know anything about heavy."</p>
+<p>"I know what it's like to live in a house where nobody sees you," she said. She didn't flinch away. Her heart was hammering, but for the first time in years, she felt completely, vividly awake. "I know what it's like to look in the mirror and realize the person you gave twenty years to doesn't even register your presence. I know what invisible feels like, Gethin."</p>
+<p>A muscle twitched in his jaw. The hard, defensive look in his eyes cracked, just a fraction, revealing something raw and hungry underneath. His gaze dropped to her mouth, then down the pale curve of her neck where her thermal shirt was unbuttoned.</p>
+<p>"You're not invisible," he said, his voice turning thick and rough.</p>
+<p>He reached out, his calloused index finger tracing the line of her jaw. His touch was slow, almost tentative, a sharp contrast to the brute strength he'd used on the ridge. Junia’s breath hitched. Her body, which she’d spent the last two years tucking away under oversized sweaters, suddenly flared to life.</p>
+<p>"Gethin," she whispered, her hand going to his wrist. His pulse was jumping under her fingers, hot and fast.</p>
+<p>"You're too soft for this country, June," he muttered, his thumb brushing over her lower lip. "But God, you're beautiful."</p>
+<p>The word didn't sound like a compliment. It sounded like an accusation, delivered with a desperate, heavy hunger that made her stomach drop in a delicious, terrifying swoop.</p>
+<p>He leaned down and kissed her.</p>
+<p>It wasn't gentle. It was the kiss of a man who had been starving for years and had finally found bread. He tasted of rye and salt, his tongue sliding against hers with a slow, heavy rhythm that demanded everything she had. Junia let out a small, ragged sob, her fingers tangling in the thick, silver-streaked hair at his temples, pulling him down, wanting the weight of him.</p>
+<p>He groaned, a low, animal sound deep in his chest, and slid his hands down her ribs to her waist. He lifted her out of the chair as if she weighed nothing, pressing her back against the heavy oak table. The edge of the wood bit into her thighs, but she didn't care. She parted her legs, wrapping them around his hips, pulling him flush against her.</p>
+<p>The heat was immediate. Gethin pressed himself into her, hard and unyielding through their trousers.</p>
+<p>"I've been watching you at the lodge for two weeks," he muttered against her throat, his teeth nipping at the soft skin just below her ear. "You looked so quiet. So clean. I wanted to drag you out here then."</p>
+<p>"Then do it," she whispered, her hands tearing at the buttons of his flannel shirt, desperate for the touch of his skin. "No more waiting, Gethin. Please."</p>
+<p>He didn't hesitate. He stripped his shirt off, revealing a chest that was broad, covered in dark, curling hair, and thick with heavy muscle. He wasn't lean or toned like the men in the magazines; he had the massive, functional build of a man who spent his life lifting stone and wood.</p>
+<p>He slid his hands under her thermal top, his palms scraping against her ribs as he pushed the fabric up, exposing her breasts to the warm cabin air. His breath caught, his eyes darkening as he looked at her.</p>
+<p>"Perfect," he growled.</p>
+<p>He cupped her, his large, rough thumbs brushing over her nipples until she arched off the table, her fingers digging into the wood behind her. When he leaned down to take one peak into his mouth, the wet, hot pull of his lips sent a shockwave straight between her thighs. She was already slick, aching with a heavy, throbbing heat she thought she’d forgotten how to feel.</p>
+<p>He stripped her leggings off with rough, impatient tugs, his hands sliding up her bare thighs. His fingers traced the soft, pale skin of her inner thighs, lingering over the faint stretch marks on her hips with a heavy, quiet reverence that made her throat tighten.</p>
+<p>"Look at me," he whispered, his voice thick.</p>
+<p>She opened her eyes. His gray gaze was locked on hers, intense, focused, and entirely without judgment. There was no hiding here. No trying to hold her stomach in, no worrying about the light. He saw her. All of her.</p>
+<p>He reached down, his fingers finding her wet, swollen heat. When he slid two fingers inside her, she let out a high, broken cry, her hips jerking against his hand.</p>
+<p>"You're so ready for me," he murmured, his thumb working against her, matching the slow, deep stroke of his fingers.</p>
+<p>"Gethin... now. Please."</p>
+<p>He stepped back just enough to rid himself of his trousers. He was thick, heavy, and already glistening in the dim firelight.</p>
+<p>He lifted her hips, aligning her, and with one slow, deliberate push, he buried himself inside her.</p>
+<p>Junia gasped, her hands locking onto his shoulders, her nails digging into the hard muscles of his back. The feeling of him filling her—the sheer stretch and heat of it—was almost too much. She’d forgotten what it was like to be taken with this kind of raw, unbridled hunger.</p>
+<p>Gethin stayed still for a second, his forehead resting against hers, his breath coming in ragged, painful gasps. "You alright?" he choked out, his shoulders trembling with the effort of holding back. "Am I hurting you?"</p>
+<p>"No," she sobbed, her hips moving instinctively against him, pulling him deeper. "Don't stop. Don't you dare stop."</p>
+<p>He began to move. It was a slow, heavy, punishingly perfect rhythm. He withdrew almost completely before driving back in, hitting her deepest, most sensitive spot with every stroke. The wet, sliding friction of their bodies filled the quiet cabin, drowning out the roar of the blizzard outside.</p>
+<p>Junia let herself go. She wrapped her arms around his neck, burying her face in the crook of his shoulder, tasting the salt of his sweat. With every thrust, the coil inside her wound tighter, a hot, golden spring of tension that she had thought was dead and buried years ago.</p>
+<p>Gethin’s pace quickened, his movements turning urgent, his breath hot and ragged against her ear. He gripped her hips, his fingers leaving red marks on her pale skin as he drove into her with a fierce, possessive rhythm.</p>
+<p>"I've got you," he growled, his voice raw. "I've got you, June."</p>
+<p>The release hit her like a sudden, beautiful fracture. Her vision went white as her inner muscles clamped tight around him, pulsing in wave after wave of shuddering pleasure. She cried out his name, her body shaking in his arms.</p>
+<p>At her cry, Gethin let out a low, guttural sound. He thrust deep, his entire body locking up as he came, his hot release flooding her inside. He held her tight, his face buried in her hair, his heart hammering against her ribs like a trapped bird.</p>
+<p>They stayed like that for a long time, the fire in the stove slowly settling into a quiet, orange glow as their breathing slowed. Gethin didn't pull out; he stayed buried inside her, his heavy body keeping the cold at bay, his arms wrapped securely around her waist as if he were afraid she might disappear into the storm if he let go.</p>
+<p>Eventually, he withdrew with a soft sigh. He pulled her shirt down, wrapped his flannel shirt around her shoulders, and lifted her gently into his arms to carry her to the wide, heavy timber bed in the corner.</p>
+<p>He laid her down, climbing in beside her and pulling the thick wool blankets over them both.</p>
+<p>As the quiet of the cabin settled, Junia rested her cheek against his broad chest, listening to the steady, comforting thrum of his heart. She felt a deep, quiet peace she hadn't known in a decade.</p>
+<p>But as she stared up at the dark timber beams of the ceiling, the howling of the wind outside seemed to grow louder, a reminder of the world waiting beyond the glass. They were safe here, wrapped in the temporary grace of the storm, but the mountain was still out there.</p>
+<p>And as Gethin's grip tightened around her in his sleep, a cold, sharp realization settled in her chest: when the snow finally melted, she would have to leave this cabin, and she had no idea if the man holding her would ever let her back in.</p>
+<p>The silence didn’t drop. It leaked in.</p>
+<p>First, the shuddering, metal-on-metal rattle of the old diesel generator under the floorboards died. That was the heartbeat June had been tracking for three days. Next came a wet, choking cough from the floor vents. Finally, a long, sighing hiss of dying machinery, and then nothing. Just the dry, maddening scrape of frozen pine needles against the double-paned window.</p>
+<p>June froze. Her charcoal pencil hovered a millimeter above the textured paper of her sketchbook. Beside the small wood stove—which had swallowed the last of the dry birch hours ago—the air was already turning.</p>
+<p>Across the cabin, Gethin Hawkes stayed perfectly still for three long seconds. He sat at the pine table, his shoulders hunched over a topographical map of the pass. When he finally lifted his head, the single kerosene lantern caught the flat, hard plane of his cheekbones and the dark shadow of stubble along his jaw. He was thirty-four, and he looked like a man who spent his winters arguing with engines.</p>
+<p>"The regulator," he said. His voice was a low, dry rasp that seemed to vibrate the floorboards. "Condensation must have frozen solid in the line. At thirty below, it takes about ten minutes."</p>
+<p>June swallowed. Her throat felt coated in dust. She was forty-six. She’d raised two kids, survived a quiet, marrow-scraping divorce that had left her feeling like a ghost in her own suburban kitchen, and spent the last five years believing her life’s major turning points were all in the rearview mirror. She didn’t do panic. But as she watched her breath bloom into a thick, white plume right there in the middle of the room, her chest tightened.</p>
+<p>"Can you clear it?"</p>
+<p>She hated the small, thin sound of her own voice. She hated that she sounded like a client waiting for a guide to save her, rather than the woman who had paid three thousand dollars to prove she could survive a week in the Wrangells alone.</p>
+<p>Gethin stood up. In the low-ceilinged room, his height was an immediate problem. He wore a faded flannel over a grey thermal henley, the fabric stretched tight across a chest built by trail-clearing and timber-framing, not gym memberships. "Not in the dark. Not in a sixty-mile-an-hour gale. If I go out there to bleed the line right now, the wind will have my fingers black with frostbite before I can even turn the valve."</p>
+<p>He walked to the window, scraping a blunt, calloused thumb across the glass to clear a circle in the frost. "The storm isn't moving. It’s going to get very cold, June. Fast."</p>
+<p>She stood up too. Her knees gave a small, familiar click—a souvenir from a twenty-year-old skiing injury. At forty-six, her body kept a meticulous log of the years. The persistent ache in her lower back when the barometer plunged; the soft, stubborn curve of her belly that survived three years of hot yoga. In her twenties, she would have met this with a frantic, hyperactive energy. Now, she simply closed her sketchbook with a quiet <em>thump</em> and pulled her wool cardigan tight across her ribs.</p>
+<p>"How cold?"</p>
+<p>"Zero inside by midnight," Gethin said. He turned, his dark eyes leveling a flat, unsentimental look at her. "Maybe lower. The insulation in these old line cabins is mostly sawdust and pack-rat nests."</p>
+<p>He didn't offer a reassuring smile. She liked that about him. Gethin didn't treat her like she was made of glass, even if he was twelve years her junior and possessed a raw, intimidating physical presence that made her feel suddenly, acutely aware of her own age.</p>
+<p>"We have the down bags," June said, nodding toward the gear piled near the door.</p>
+<p>"They're rated to fifteen above," Gethin said, walking toward the narrow bunk built into the log wall. It was the only bed in the place—a single mattress, barely wide enough for one large man, piled with a heavy Hudson’s Bay blanket and a faded down quilt. "Separately, we’ll freeze. Together, we have a chance of staying warm enough to actually get some sleep."</p>
+<p>He stopped. His eyes locked onto hers. There was no suggestive tilt to his mouth, no smirk. It was just the brutal, practical mathematics of the Alaskan bush. But under that steady gaze, June felt a sudden, hot flush creep up her neck—a bizarre, mocking contrast to the frost creeping up the windowpanes.</p>
+<p>"It’s a single bed, Gethin."</p>
+<p>"I know." He reached up, untying the heavy wool scarf from his neck and tossing it onto the table. "We leave our base layers on. Wool socks, thermals. We pool our body heat under the quilt, or we spend the night shivering until our core temps drop. Your call, June."</p>
+<p>She looked at the narrow mattress, then at him. He was in the absolute prime of his physical life. He looked like he belonged to the mountain, while she was a woman who had spent the last year trying to remember what it felt like to be touched by someone who actually looked at her. Since the divorce, she’d felt mostly invisible, wrapped in the protective, sexless armor of middle-aged motherhood and professional routine. The thought of pressing her soft, lived-in body against his hard, youthful heat sent a wave of raw self-consciousness through her that was far sharper than the bite of the cold.</p>
+<p>"Alright," she said, her voice barely louder than the wind rattling the cedar shingles. "Let's do it."</p>
+<p>The preparation was silent, almost clinical. They blew out the kerosene lantern to save the fuel, leaving only the pale, ghostly light of the blizzard reflecting through the glass. June pulled off her boots, her hands already stiffening, her fingers clumsy on the laces.</p>
+<p>She stood by the edge of the bunk in her charcoal-grey merino wool leggings and matching thermal top. The fabric was thin, mapping every curve she usually hid beneath layers of structured canvas and flannel—the soft slope of her waist, the fullness of her hips, the heavy, natural weight of her breasts. She felt stripped of her adult dignity, standing there while Gethin stripped down to his black thermals. Even in the half-light, his shoulders seemed impossibly wide, his thighs thick and corded with muscle.</p>
+<p>"Get in," he said softly. "Before we lose the room's air."</p>
+<p>June climbed onto the mattress, her movements awkward, her knees bumping the wooden frame. The springs groaned. She lay down on her side, facing the wall, leaving as much room behind her as possible. She held herself rigid, her spine stiff.</p>
+<p>Then Gethin got in.</p>
+<p>The mattress sagged, pulling her slightly backward. He was a solid wall of radiating heat.</p>
+<p>She pulled the heavy quilt over them, tucking it under her chin, her knees pulled tight toward her chest. She remained tense, trying to minimize the contact. She didn't want him to feel the softness of her waist, the way her body yielded where his was unyielding. She was terrified he would feel the difference between her forty-six-year-old skin and the smooth, taut girls he probably spent his summers with.</p>
+<p>"June," Gethin murmured, his breath warm against the back of her neck. "You're vibrating. Relax."</p>
+<p>"I'm just cold," she lied, her teeth clicking.</p>
+<p>"You're holding your breath."</p>
+<p>A large, heavy hand reached across her waist. His palm was shockingly hot, even through the double layer of wool. He didn't touch her with tentative gentleness; he gripped her hip with a firm, solid weight that broke through her resistance. With a slow, deliberate pull, he dragged her backward until her spine was pressed flush against his chest, his thighs nestling against the backs of hers.</p>
+<p>June let out a long, shaky breath.</p>
+<p>The heat of him was immediate, a thick, intoxicating wave that seemed to sink directly into her bones. He was so much larger than her, his chest broad against her shoulder blades, his long legs curling around hers to lock out the draft. He rested his chin against the crown of her head.</p>
+<p>"Better?" he asked, his voice vibrating directly into her spine.</p>
+<p>"Yes," she whispered, her hands clasped tight against her chest. "Thank you."</p>
+<p>"Don't thank me. It’s self-preservation."</p>
+<p>But his hand didn't leave her hip. It rested there, his thumb resting just above her pelvic bone, moving in a tiny, almost imperceptible circle against the wool. The friction sent a slow, heavy pulse of heat straight to her lower belly.</p>
+<p>For a long time, they lay in the dark, listening to the wild, chaotic fury of the storm. The wind shrieked, throwing dry snow against the logs like gravel. But inside the small bed, the atmosphere had shifted.</p>
+<p>June's muscles, thawed by his warmth, began to loosen. And with that relaxation came an agonizingly sharp awareness of his body. Every point of contact was magnified. She felt the heavy, slow thud of his heart against her back, the slow rise and fall of his ribs. She felt the scrape of his stubble against her hair, and, lower down, the hard, unmistakable ridge of his arousal pressing firmly against her.</p>
+<p>She caught her breath. Her body went still again, but not from the cold.</p>
+<p>Gethin didn't pull back. If anything, he pressed closer, his arm wrapping more tightly around her waist, his hand sliding up her ribcage to rest just beneath the swell of her breast. His fingers spread wide, his heat burning through the thin wool.</p>
+<p>"You're not sleeping," he murmured.</p>
+<p>"No," June said, her throat tight. "I'm not."</p>
+<p>"Me neither."</p>
+<p>He turned her. It was a slow, heavy movement, his hands guiding her shoulders until she was lying on her back, looking up at him. Gethin propped himself on one elbow, his face shadowed, his eyes catching the pale, silver light from the window. They were dark, intense, and completely focused.</p>
+<p>"I've been thinking about this since the first day I saw you at the lodge," Gethin said, his voice dropping to a gravelly whisper. "Watching you draw. The way you look at the mountain. The way you look at me when you think I'm busy with the horses."</p>
+<p>June’s heart hammered against her ribs. "Gethin... I'm forty-six. I have a whole life behind me. I'm not—"</p>
+<p>"I know exactly how old you are," he interrupted, his hand rising to cup her jaw. His thumb was rough, calloused from rope and cold, but his touch was incredibly gentle as he brushed her cheekbone. "You have a depth in your eyes that makes the girls my age look like they’re made of paper. Your body has lived, June. It’s beautiful. And I’ve wanted to touch it since we got stuck in this cabin."</p>
+<p>The raw, unvarnished honesty of it stripped away the last of her defenses. For years, she had felt like a vessel that had been emptied out and left on a shelf. But looking up at him, seeing the sheer, heavy hunger in his gaze, she felt a sudden, violent surge of her own long-buried desire.</p>
+<p>"Show me," she whispered.</p>
+<p>Gethin didn't hesitate. He leaned down, his mouth finding hers.</p>
+<p>The kiss was deep, hungry, and heavy with a desperate need that had been building between them for days. His lips were warm, tasting of woodsmoke and the faint metallic tang of the cold air. June gasped, parting her lips, and he took advantage instantly, his tongue sliding into her mouth with a slow, possessive stroke that made her moan.</p>
+<p>She reached up, her hands finding his shoulders. The muscle beneath his thermal shirt was dense, hot, and pulsing. She clung to him, her fingers digging into his back, pulling him down.</p>
+<p>Gethin groaned, the sound rumbling deep in his chest. He shifted his weight, moving between her thighs, his heavy frame settling into the cradle of her hips. The sheer weight of him was anchoring, driving out the cold, driving out the years of loneliness and self-doubt.</p>
+<p>His hand slid down her neck, past her collarbone, and slipped beneath the hem of her thermal top. When his bare hand made contact with the warm, bare skin of her stomach, June let out a sharp cry. His palm was rough, his callouses catching slightly, but the sensation was so intensely real she arched her back, pressing herself up into his touch.</p>
+<p>"You're so soft," Gethin growled against her mouth, his hand moving upward to cup her breast. "So warm."</p>
+<p>He pushed her shirt up, his fingers searching, finding the heavy weight of her. He squeezed, his thumb flicking across her nipple, which hardened instantly under his touch. June whimpered, her hands moving to his hair, pulling him down.</p>
+<p>Gethin broke the kiss, his mouth sliding down her throat, biting gently at the sensitive skin of her shoulder. He pulled her shirt completely over her head, throwing it into the darkness.</p>
+<p>In the pale, silver light of the storm, June lay bare from the waist up. She wanted to shrink back, to cover herself—her breasts were fuller, heavier than they had been in her youth, her skin marked by the faint, silver-white lines of motherhood. But Gethin’s eyes didn't look for perfection; they looked with a raw, heavy appreciation.</p>
+<p>"Look at you," he whispered, his voice thick. He leaned down, his mouth wrapping around her nipple, his tongue swirling around the sensitive tip before drawing her deep into his mouth.</p>
+<p>June arched off the mattress, a sharp, electric shock of pleasure shooting straight to her core. She cried out, her fingers tangling in his thick hair, holding him to her. He sucked strongly, his hand sliding down to her waist, gripping the soft flesh of her hip, his fingers sinking into her.</p>
+<p>"Gethin... please," she gasped, her legs wrapping around his hips, pulling him closer to the ache between her thighs.</p>
+<p>He stopped, his breath coming in ragged gasps. He looked down at her, his face flushed, his eyes dark with a fierce, protective heat. "Tell me what you want, June. I want to hear you say it."</p>
+<p>"I want you," she said, her voice shaking but clear. "I want to feel you inside me. No more cold. No more distance."</p>
+<p>Gethin’s jaw clenched. He reached down, his fingers hooking into the waistband of her wool leggings and her underwear, pulling them down in one smooth, urgent motion. June kicked them off, her legs bare now, exposed to the freezing air of the cabin for only a second before Gethin covered her with his own body.</p>
+<p>He stripped off his own pants, his movements frantic now, the control he had maintained slipping away. When he pressed back against her, she felt the raw, hot length of him against her inner thigh, slick and throbbing.</p>
+<p>He reached between them, his hand finding her. She was already wet, her body primed and aching for him. He slid two fingers inside her, testing her heat, and June let out a broken sob, her hips rolling against his hand.</p>
+<p>"You're so tight," Gethin whispered, his voice thick with wonder. "So ready for me."</p>
+<p>"Please, Gethin. Now."</p>
+<p>He parted her thighs, his knees forcing them wide. He rested his weight on his forearms, framing her face with his hands. "Look at me," he commanded softly.</p>
+<p>June opened her eyes, locking onto his.</p>
+<p>With a slow, powerful thrust, Gethin slid inside her.</p>
+<p>The fullness was overwhelming. June gasped, her eyes widening as her body stretched to accommodate his thick, heavy length. She felt every inch of him, the friction of his skin against hers, the intense, burning heat of their joining. He held himself still for a moment, letting her adjust, his muscles trembling with the effort of holding back.</p>
+<p>"Are you okay?" he whispered, his eyes searching hers with a sudden, tender intensity.</p>
+<p>"Yes," she breathed, her hands sliding down his back to grip his buttocks. "Yes. Don't stop."</p>
+<p>He began to move.</p>
+<p>It was a slow, agonizingly deep rhythm. Gethin drove into her, his hips crashing against hers with a heavy, hypnotic thump. Every time he pulled back, June felt the cold air try to slip between them, only for him to plunge back in, burying his heat deep inside her.</p>
+<p>She met him stroke for stroke, her body remembering a language she thought she had forgotten. There was no hesitation now, no self-consciousness. She was a woman, fully alive, her mature body responding to his strength with a wild, uninhibited hunger of her own. She wrapped her legs tightly around his waist, locking him inside her, forcing him deeper.</p>
+<p>"June... Christ, June," Gethin groaned, his pace quickening. The slow rhythm broke into a hard, desperate pounding. The bed creaked loudly, the sound lost in the roaring of the wind outside.</p>
+<p>The heat between them was absolute. Sweat broke out on Gethin’s chest, dripping onto her skin, a hot rain in the freezing cabin. June clung to him, her face buried in the crook of his neck, breathing in the scent of him—male, wild, and entirely hers in this suspended moment of time.</p>
+<p>She felt the coil tightening inside her, the pressure building to a fever pitch. It was a sensation she hadn't felt in years, a deep, internal storm that matched the tempest outside.</p>
+<p>"Gethin, I'm... I'm close," she cried out, her fingers clawing at his back.</p>
+<p>"Go," he growled, his thrusts becoming short, hard, and frantic. "Come for me, June. Let me feel it."</p>
+<p>He slipped his hand between their bodies, his thumb finding her swollen center, pressing down and rubbing in sync with his thrusts.</p>
+<p>That was the breaking point.</p>
+<p>June’s vision went white. Her pelvic muscles clamped around him in a tight, pulsing spasm as her orgasm crashed over her. She screamed his name into the dark cabin, her body shaking violently as wave after wave of intense pleasure rippled through her.</p>
+<p>Hearing her cry, feeling the tight, wet heat of her climax gripping him, Gethin lost his hold on his own restraint. With a low, guttural roar, he thrust deep one last time and held himself there, his body shuddering as he poured himself into her.</p>
+<p>He collapsed against her, his chest heaving, his face buried in her hair. They lay locked together, their breathing the only sound in the sudden, quiet aftermath.</p>
+<p>The storm still raged outside, the cold waiting just beyond the thin log walls, but inside the narrow bunk, under the heavy quilt, they were safe. The heat they had created was a living thing, wrapping around them, sealing them in.</p>
+<p>June closed her eyes, her hand sliding up Gethin’s sweat-slicked back, feeling the steady, calming beat of his heart against her breast. For the first time in a very long time, she felt entirely, beautifully warm.</p>
+<p>The pine logs of the cabin walls groaned. A low, heavy, structural complaint against the seventy-mile-per-hour gusts screaming off the pass. Inside, the draft was more than cold air—it felt alive. It needled through the dry chinking in the northeast corner, a thread of sub-zero spite that froze the condensation on the windowpanes into jagged, gray ferns of ice.</p>
+<p>Junia Keelan dragged a birch log from the hearth pile. Her lower back didn't just ache; it radiated a dull, deep heat of its own, the kind that reminded her she was forty-six and no longer bounced back from a three-mile snowshoe like she used to. Twenty years ago, this would have been an adventure. Now? It was a physical invoice. Her body kept the score in her stiff knees and the tight knot of muscle right between her shoulder blades. She bent slowly, easing the log into the orange, spitting maw of the iron woodstove. The heat hit her face, illuminating the silver threads at her temples and the sharp bracket lines around her mouth.</p>
+<p>"Let me," Gethin said. He was leaning against the kitchen counter, half-lost in the shadows of the alcove.</p>
+<p>"I’ve got it," June said. Her voice was dry, raspy from the woodsmoke and the high-altitude air. She didn't look back. Her shoulders squared. She hated sounding fragile—despised it, actually. For five years since the divorce, she’d been her own mechanic, her own carpenter, her own quiet security guard in an empty house after her daughter packed up for college. You don't spend half a decade learning to carry your own weight just to hand over a piece of firewood because a thirty-four-year-old mountain guide with shoulders like an ox happens to be standing in your kitchen.</p>
+<p>Gethin stepped into the yellow pool of the kerosene lamp. He didn't argue. He didn't need to. He just reached around her, his broad frame briefly cutting off the light, and took the heavy iron poker from her hand. His fingers brushed hers. He was warm—unreasonably warm, like he carried a private furnace under his wool shirt. His skin was rough, calloused from climbing ropes and ax handles.</p>
+<p>"The draft is pulling backward," he said. His voice was a low, gravelly vibration that she felt in her shins before she heard it. "The intake pipe outside is freezing over. If we don't clear it, we'll be sleeping in a room full of carbon monoxide by midnight."</p>
+<p>June stood up, her spine popping with a small, dry sound. Gethin watched her. It wasn't the polite, quick glance of a younger man trying not to get caught looking; it was a slow, deliberate assessment. He looked at the curve of her hip beneath her oversized wool sweater, the gray in her hair, the way she held her weight on her left foot to favor her bad knee.</p>
+<p>"Oksana warned me about this chimney," June said, stepping back to reclaim her personal space. "She said the cap freezes when the humidity spikes before a front."</p>
+<p>"Oksana’s eighty miles away in Anchorage," Gethin muttered, adjusting the flue with a sharp, metallic clink. "Warm, dry, and probably drinking tea. We’re the ones who have to keep the air moving tonight."</p>
+<p>He looked at her over his shoulder. The lamplight caught the crooked break in his nose—some old mountain tax he’d paid years ago. At thirty-four, he had a quiet, heavy competence that June found both deeply reassuring and incredibly annoying. He didn't have that frantic, insecure energy of the younger guys she met at gallery openings in Seattle. He didn't feel the need to fill the silence. He was just <em>there</em>. Grounded. Heavy.</p>
+<p>"You look exhausted, June."</p>
+<p>It stung. Not because it was an insult, but because it was true. She reached up, self-consciously tucking a loose strand of hair behind her ear, her fingers catching on the gray. "That’s what forty-six looks like after a three-mile hike in a whiteout, Gethin."</p>
+<p>"I wasn’t criticizing," he said, his voice dropping. He stood up, turning to face her fully. He was close. Close enough that she could smell him—cold wool, cedar shavings, and the clean, salt-tang of a man who spent his life outdoors. "I like how you look. You look like you’ve actually been somewhere."</p>
+<p>The words felt heavy. June’s breath caught. She wasn't used to this kind of directness. Her ex-husband’s compliments had always been transactional, or worse, those passive-aggressive little remarks about "preserving" her youth. Gethin’s gaze didn't feel like a transaction. It was a weight. It made her chest tighten and her skin flush with a sudden, localized heat that had nothing to do with the stove.</p>
+<p>To break it, she walked to the small pine table near the window. "We need to eat. The dried beef and lentils aren't going to cook themselves, and I'd rather not starve while we wait out the blizzard."</p>
+<p>"Fair enough," Gethin said, his heavy boots thudding against the pine floorboards as he followed.</p>
+<p>For the next hour, they fell into a rhythm. It was the simple, ego-free cooperation that survival in a sub-zero cabin demands. June chopped dried root vegetables with quick, practiced strokes of her pocketknife. Gethin melted blocks of snow in a galvanized bucket on the stove. The hiss of ice turning to water and the rhythmic <em>thump-thump</em> of her knife became their soundtrack, underscored by the house-shaking rattle of the window frames.</p>
+<p>They ate from tin bowls, sitting across from each other at the small table. The stew was salty, basic, and hot. To June, it tasted like a five-star meal.</p>
+<p>Gethin set his spoon down, leaning back. "I saw the botanical illustrations in your portfolio at the lodge. The high-altitude ones."</p>
+<p>June stopped chewing, her fingers tightening around the warm rim of her mug. "And?"</p>
+<p>"They’re intense," he said. "Most people draw an alpine lupine or a mountain avens to show what it looks like. You draw them to show how they survive. The deep scars on the root crown, the way the stem twists to shield itself from the wind. It’s not pretty-picture work. It’s... intimate."</p>
+<p>June looked at him. Really looked at him. The intellectual isolation she’d lived with for five years—that feeling of being a utility rather than a person—cracked open a fraction. "The flora up here is brutalized," she said softly. "But it adapts. It doesn't fight the wind; it just hugs the ground and digs its roots deeper into the granite. It finds a way to exist in the spaces the mountain doesn't care about. I think there's a real dignity in that."</p>
+<p>"There is," Gethin said. His eyes, dark blue in the shadow of the cabin, were fixed on her face. Not her work. <em>Her.</em> "Most people come up here wanting to conquer the peak. They want the summit photo to prove they’re stronger than the weather. The ones who actually stay... they’re the ones who know how to bend."</p>
+<p>"And you?" June asked, leaning her chin on her hand. "Do you know how to bend, Gethin? Or are you still trying to break the mountain?"</p>
+<p>A shadow crossed his face. He looked down at his calloused hands, his thumb tracing a pale scar across his knuckle. "I used to think I could outrun the weather," he said, his voice quiet. "I lost a partner on the west face of Denali six years ago because I thought we were fast enough to beat a front exactly like this one." He exhaled, a faint plume of mist rising from his lips in the cold air near the floor. "I don't run anymore. I wait."</p>
+<p>The silence between them changed. It was no longer the polite silence of two strangers trapped in a storm. It was the heavy, shared quiet of two people who had both watched their lives collapse and had to rebuild from the rubble. June felt a sharp, sudden ache of recognition. She knew what it was to watch a life you’d spent decades building dry up and disintegrate from the inside out.</p>
+<p>"A pair of survivors," she murmured, "waiting for the freeze to lift."</p>
+<p>Gethin reached across the table. His hand was massive, his skin dark against the pale, scrubbed pine. He didn't grab her. He just laid his palm flat, open. An invitation.</p>
+<p>June hesitated. A dozen warnings flashed in her mind. <em>You’re forty-six. You have stretch marks, a soft waist, a life that is settled and safe. He is thirty-four, in his prime, with a body like iron and no anchors.</em></p>
+<p>But as she looked at his hand, the sheer, cold loneliness of the last five years seemed to rise up and choke her. She was so tired of being strong. She was so tired of being the only one holding the wall up.</p>
+<p>She slid her hand into his.</p>
+<p>His fingers closed around hers. Warm, dry, and solid. A jolt of heat went straight up her arm, settling deep in her chest. His eyes darkened, his pupils expanding until they were nearly black. He didn't squeeze, but his grip was absolute. He was anchoring her.</p>
+<p>"You're shivering," he said.</p>
+<p>"The fire's dying," she whispered, though her skin felt hot.</p>
+<p>"Then let's fix it." He didn't let go of her hand.</p>
+<p>They stood up together. The movement was slow, heavy with the weight of what was coming. They walked to the woodstove, where the dying coals cast a fierce, red glow across their shins. A foot away from the iron, the draft from the door frame cut through the heat like a razor—a sharp reminder of the sub-zero dark just inches beyond the timber.</p>
+<p>Gethin knelt, stoking the embers with the poker. June stood close behind him, her eyes tracing the heavy play of muscle beneath his flannel shirt. When he stood, he didn't back away. He turned, pinning her between his body and the radiating heat of the iron stove.</p>
+<p>"June," he said, his breath warm against her temple.</p>
+<p>She looked up. He was close enough that she could see the tiny flecks of gold in his irises, the dry skin on his lips, the slight tremor in his jaw.</p>
+<p>She put her hand on his chest, feeling the fast, heavy thrum of his heart. "Gethin, I’m..." She wanted to say <em>I'm too old for this.</em> She wanted to say <em>I'm not the woman you think I am.</em> But the words died as his hand rose to her face.</p>
+<p>His thumb was rough. The calloused skin brushed over her cheekbone, tracing the fine lines at the corner of her eye. He didn't try to smooth them out or ignore them; he lingered on them, his touch incredibly slow, almost reverent.</p>
+<p>"You are so beautiful," he said, his voice rough and thick. "God, June. You have no idea."</p>
+<p>The sheer honesty of it stripped her bare. She closed her eyes, her head tilting into his hand. It felt like rain on dry dirt. For five years, she’d been invisible—a piece of functional machinery in her own world, appreciated for what she could do, never for who she was. Having this man look at her as if she were the only thing keeping the cold at bay was dizzying.</p>
+<p>Gethin leaned down. He went slow, giving her every chance to step back, to make a joke, to retreat to her quiet, solitary life.</p>
+<p>She didn't move. She held her breath, her fingers knotting into the wool of his shirt, pulling him in.</p>
+<p>His lips brushed hers. It wasn't a hard kiss; it was a whisper of skin, an agonizingly light touch that made her groan, her knees loosening. He kissed the corner of her mouth, his jaw stubble scraping against her skin, then moved down to her neck.</p>
+<p>His hands slid down her throat, his thumbs resting on the heavy pulse at her collarbone. He could feel her heart racing to match his. His mouth followed, hot and firm against her skin, tasting the salt of her, inhaling the scent of spruce and woodsmoke.</p>
+<p>June arched into him, her fingers tangling in his dark hair, a shiver running down her spine as the cold draft from the window hit her bare skin.</p>
+<p>Gethin’s hands slid under her heavy sweater, his warm palms finding the bare skin of her waist. His fingers were large, wrapping around her ribs. June’s breath caught. She tensed, the old insecurities screaming—the fear of her imperfect, soft, middle-aged body.</p>
+<p>But Gethin didn't let her pull away. He tightened his grip, pulling her flush against him, his thighs hard and unyielding against her hips. He pressed her back against the warm log wall, shielding her from the draft.</p>
+<p>"Don't," he muttered against her neck, feeling her tense. "Don't hide from me. You're perfect. God, June, you're so warm."</p>
+<p>His hands moved up her ribs, cupping her breast through her bra. June let out a ragged, broken sound, her fingers digging into his shoulders. It had been so long since she’d been held with this kind of unvarnished, desperate desire. He wasn't being gentle now; his hands were heavy, demanding, molding her to him until she was shaking.</p>
+<p>Gethin pulled back slightly, his face flushed, his eyes wild. He looked down at her, his chest heaving, his lips red.</p>
+<p>He leaned in again, his mouth hovering just a breath from hers. June tilted her head, her lips parting, desperate for the weight of his mouth.</p>
+<p>But he stopped. He held her there, their breath mingling, his restraint absolute and agonizing. He was trembling, his muscles locked as he fought his own pace.</p>
+<p>"If I kiss you now," Gethin whispered, his voice a raw, broken thread, "I'm not stopping. I need to know you're with me."</p>
+<p>June stared at him, her vision blurred by the heat in her chest. She saw the fierce, protective light in his eyes, the deep respect running right alongside the hunger. He was handing her the wheel.</p>
+<p>Before she could speak, a massive, structural shudder ran through the cabin. The wind outside rose to a high, deafening shriek, followed by the sharp, metallic scream of the chimney cap tearing loose under the weight of the ice.</p>
+<p>A drop of sweat hit the cast-iron stove. It hissed—a tiny, angry spit of steam that died instantly.</p>
+<p>Outside, the sub-zero Alaskan night pressed against the cabin’s log walls. It felt heavy. Predatory. The kind of cold that makes timber groan as if the wood itself is shivering. A draft whistled through the moss-stuffed chinks in the south-facing corner, freezing the sweat on June’s collarbone the moment she moved away from the hearth.</p>
+<p>She stood in the small, shadow-draped space between the kitchen counter and the massive stone chimney, watching him.</p>
+<p>Gethin was thirty-four, his body thick-shouldered and hard-packed from years of hauling timber, dragging rescue sleds, and fighting gravity on the peaks. In the dim, amber glow of the birch fire, his skin looked like oiled larch. He was kneeling, his large, calloused hands arranging split logs with a deliberate, quiet focus. It was his shield. He didn't look like a boy playing at survival; he looked like a man who had paid his taxes to the winter and lived to tell the tale.</p>
+<p>June was forty-six, and her years felt different. Less like scars, more like a slow, quiet accumulation of dust.</p>
+<p>For the last decade, her body had been a functional vessel. It dressed in sensible layers. It carried groceries. It sat at a drafting table for twelve hours a day, numbly drawing lines while her twenty-year marriage dissolved into nothingness. To her ex-husband, she’d become part of the furniture long before he finally packed his bags. She was a domestic fact. An afterthought. Her children had grown and gone, leaving her with an empty house that smelled of clean linen and quiet desperation.</p>
+<p>Why Alaska? Why now, of all times? Maybe she just wanted to see if she could still feel the cold. Or if she could still burn.</p>
+<p>The silence in the cabin wasn't empty tonight. It was pressurized. Heavy with the scent of cedar resin, woodsmoke, and the sharp, metallic ozone of the blizzard rattling the windowpanes.</p>
+<p>Gethin closed the stove door. The metallic <em>clink</em> vibrated right through June's wool socks. He stood up—six-foot-two of dark flannel and quiet intensity—and his shadow swallowed hers. His eyes found her. There was no polite evasion. No small talk. Just a heavy, unblinking focus that made her lungs seize.</p>
+<p>"You're quiet," he said. His voice was rough, like dry kindling dragging across stone.</p>
+<p>"I'm thinking," June said. Her fingers were shoved deep into the pockets of her oversized wool cardigan, curled into tight, hidden fists.</p>
+<p>"About the storm?"</p>
+<p>"About us." She took a step forward. The floorboards were freezing. "About how long we're going to pretend we're only staying in this room because of the weather."</p>
+<p>Gethin didn't move. A muscle twitched in his jaw. "June. You know what's out there. You let yourself get warm in a place like this, and the cold hurts twice as bad when it comes back."</p>
+<p>"I’m forty-six years old, Gethin," she said, her voice dropping into a register that was steady and entirely devoid of the tentative girl she had once been. "I know all about the cold. I’ve lived in it for ten years. I didn't come to this cabin to be safe."</p>
+<p>She reached for the top button of her cardigan.</p>
+<p>Her fingers were stiff, but they found their rhythm. She unbuttoned the heavy wool, letting it slide off her shoulders and pool on the floorboards. Beneath it, she wore only a faded, thin cotton tank top and flannel trousers.</p>
+<p>His restraint didn't just slip; it fractured. It was the sudden, heavy drop of his shoulders, the way his hands clenched at his sides, and the raw, unpolished hunger in his eyes.</p>
+<p>"June," he warned, his voice cracking on her name.</p>
+<p>"Shut up," she whispered.</p>
+<p>She stepped into his space. She put her hands on his chest, feeling the hard, rapid thud of his heart through the flannel. It was a wild, hammering rhythm. She was done waiting. Done waiting for men to decide if she was beautiful, if she was worthy, if she was allowed to feel. She slid her hands up to his neck, tangled her fingers in his hair, and pulled him down.</p>
+<p>Their mouths met. It wasn't a soft kiss. It was a collision of teeth and heat, tasting of woodsmoke and salt. Gethin let out a low, ragged sound—a surrender—and his arms locked around her. His hands were wide and rough, pressing her hips flush against his. The contrast was dizzying: his hard, unyielding frame against the softer, fuller curve of her waist.</p>
+<p>For a split second, the old, toxic voices whispered in her ear. <em>The stretch marks. The silver at her temples. The soft fullness of a belly that had carried two children.</em> She tried to pull back, just an inch, to hide in the shadows.</p>
+<p>Gethin wouldn't let her. He growled, a low vibration in his chest, and his hand slid down her thigh, lifting her effortlessly, anchoring her against his hip as he carried her the two steps to the sheepskin rug before the hearth. They came down together. A mess of limbs, gasping breath, and the fierce heat of the fire washing over them.</p>
+<p>Gethin hovered over her, his breathing shallow. His knuckles brushed her ribs as he reached for the hem of her tank top. He stopped, his eyes searching hers.</p>
+<p>"Let me see you," he muttered. "All of you."</p>
+<p>She nodded, swallowing the old fear. She pulled the shirt over her head and threw it into the dark.</p>
+<p>She lay there in her bra, her skin flushed amber by the firelight. She didn't hide. She made herself look at him looking at her. His gaze didn't skate over her. His rough hand settled on her waist, his thumb tracing the faint stretch marks on her hip. There was no judgment in his eyes. Just a heavy, breathless intensity.</p>
+<p>"You're beautiful," he whispered, his voice thick. "You look like a woman, June. Not some girl who doesn't know what she wants."</p>
+<p>"I know exactly what I want," she said.</p>
+<p>His mouth found the hollow beneath her ear. His stubble dragged against her skin with a delicious, scraping friction. June arched into him, her fingers gripping his shoulders. This wasn't the clumsy, frantic fumbling of her twenties. This was deliberate. Two adults who knew the exact value of every second.</p>
+<p>Gethin worked his way down her throat, his tongue tracing her collarbone before his mouth settled over her breast through the lace of her bra. She let out a sharp, gasping breath, her hips lifting instinctively. The heat in her lower belly was a coiled spring.</p>
+<p>He unclipped her bra, casting it aside, and when his bare chest pressed against hers, the skin-on-skin contact felt like circulation returning to frozen fingers—a sharp, burning rush of life. She wrapped her legs around his waist, pulling him down, wanting his weight to crowd out the ghosts of her past.</p>
+<p>He stripped away their remaining clothes until they lay bare before the hearth, two bodies silhouetted against the gold-and-red embers.</p>
+<p>Gethin’s body was a map of his own survival—scars on his shoulder, a pale line across his ribs. She traced them, feeling the hard, youth-tempered density of him. He was thirty-four, in his physical prime, yet he looked at her as if she held the keys to his salvation.</p>
+<p>He parted her thighs, his knee settling between them. The draft from the corner swept over her skin, but where they touched, she was molten.</p>
+<p>"Look at me," Gethin whispered. He leaned down, forehead to forehead. "I want to feel you. All of you."</p>
+<p>"Now," she breathed.</p>
+<p>He lowered himself, his touch guided by a slow, agonizing control. When he pushed into her, June’s eyes closed, a low cry escaping her lips. He filled her completely, stretching her in a way that felt like reclaiming her own skin.</p>
+<p>She opened her eyes to find him watching her, his face tight with a fierce, quiet intensity. He stayed still for a moment, letting her adjust, letting the warmth settle between them.</p>
+<p>"You're so warm," he groaned, locking his fingers with hers.</p>
+<p>He began to move. The rhythm was slow, heavy, deeply rooted. No rush. Every thrust was a question; every tilt of her hips was an answer. June found her own cadence, rising to meet him with a confidence she hadn't known she possessed. She knew her body. She knew what she needed. She wasn't afraid to take it.</p>
+<p>She arched her back, her fingers digging into his shoulders as he drove deeper. The friction was a sweet, building torment. She could hear the wet slide of their skin, the crackle of the wood fire, and the heavy thud of his chest against hers.</p>
+<p>"Yes," she whispered. "Gethin, please."</p>
+<p>He increased the pace, his thrusts shorter, harder, more urgent. His breath was hot against her ear, sweat dripping onto her breasts. The smell of them—musk, skin, desire—filled the small space around the hearth.</p>
+<p>June felt the tension coiling tight. It had been so long since she had let go of the control she maintained so fiercely in her life. But here, with this man who wanted her scars and her soft curves, she felt entirely safe.</p>
+<p>She let go.</p>
+<p>The climax hit her like a sudden, rolling wave of heat, starting deep in her pelvis and pulsing outward. Her muscles clamped tightly around him. June cried out, her head tossing back, her vision blurring.</p>
+<p>Gethin let out a low, guttural sound. The tight clamp of her body shattered his restraint. He drove into her one last time, burying himself deep, his body shaking violently as he came.</p>
+<p>He collapsed against her, his chest heaving, his face buried in her neck. He held her so tightly she could barely breathe, his fingers digging into her hips as if she might vanish into the Alaskan storm.</p>
+<p>June lay beneath him, her heart hammering against his. Her body felt heavy, warm, and real. Not the weight of exhaustion, but the rich gravity of satisfaction. She ran her hands down his back, feeling his muscles gradually relax.</p>
+<p>The fire had died down to a bed of glowing coals. The draft still whistled in the corner, but it couldn't touch them.</p>
+<p>Gethin shifted, rolling onto his side, pulling the heavy wool blanket over both of them. He tucked her head beneath his chin, his fingers tracing her hip.</p>
+<p>"I've wanted that since the first day I saw you," he murmured. "Since you stood in the snow and refused to let this place scare you."</p>
+<p>June smiled in the dark, her hand over his heart. "I was terrified, Gethin."</p>
+<p>"I know," he said softly. "That's why it was so beautiful."</p>
+<p>She closed her eyes, letting his heat soothe her. For the first time in ten years, she didn't feel the empty nest or the sting of her divorce. She felt present. She had crossed the frost line, and she had finally found the heat.</p>
+<p>The heat of Gethin’s mouth against the soft, pale skin of her inner thigh wasn't a gentle thing. It was deliberate. A slow, bruising burn that made her forget the sub-zero freeze clawing at the cedar logs outside.</p>
+<p>She tangled her fingers in his hair—thick, smelling of woodsmoke and damp wool—and let her head fall back against the scratchy blankets. She was forty-six. In her thirties, she’d stopped looking in mirrors that weren’t brightly lit; by forty, her body had become a utility. A machine that ran carpools, carried three babies to term, and filled the quiet corners of a suburban house that eventually grew too quiet. After the divorce, she’d felt like a tenant living in a house that didn't belong to her. A ghost. You don't expect to be wanted with a hunger that borders on violence when you’ve spent a decade being treated like a comfortable piece of living room furniture.</p>
+<p>But Gethin didn't look at her with polite tolerance. He looked at her like she was the only solid thing in a world made of ice.</p>
+<p>His hands were different from any she’d known. Hard-skinned, split at the knuckles from cold-cracked rope and mountain rigging. When he slid his palm up her flank, the rough skin snagged on her hip. It wasn't the smooth, airbrushed fiction of her twenties. She had the soft slackness of a middle-aged belly, the faint silver scars of motherhood mapped across her skin. But when Gethin’s thumb traced those pale lines, his jaw bunched. His eyes went dark, heavy with a focus so raw it made her throat lock.</p>
+<p>"Beautiful," he muttered. The word was rough, scraped out of a throat that hadn't seen much use in days. "June. Look at me."</p>
+<p>She didn't want to. She was afraid of what he’d see, but she forced her eyes open anyway. At thirty-four, he had that lean, hard-edged mountain look, but right now, his world had shrunk to the space between them. He didn't rush. God, she’d forgotten how it felt to have a man take his time. He didn't want a blank, perfect slate; he was tracing a map of a life already lived. When he kissed the soft curve of her waist, his breath was a hot scald against her skin.</p>
+<p>"I’m not... I don't look like what you’re used to," she said. The words came out before she could stop them—an old, ugly habit of apology she’d carried from Seattle.</p>
+<p>Gethin stopped. His fingers dug into her hips, anchoring her. "I don't want what I'm used to, June. I want you. Every single inch."</p>
+<p>He reared up over her, broad-shouldered and scarred from years on the high peaks, his chest a hard contrast to her soft, yielding weight. When his hand slid down, finding her wet and ready, she let out a sharp, ragged breath and tilted her pelvis up to meet him.</p>
+<p>"I thought..." She swallowed, the knot in her throat tightening. "I thought I was done with this. With feeling... anything."</p>
+<p>"You’re not done," he murmured, his fingers moving inside her with a slow, agonizing weight that made her back arch off the mattress. "You’re just starting."</p>
+<p>The kiss that followed wasn't a polite reassurance. It was a dark, heavy thing that tasted of salt and woodsmoke. June met it with a sudden, desperate hunger. She wrapped her legs around his hips, the thick, hard heat of him pressing against her. She nodded—just a sharp, desperate jerk of her chin—and dug her short nails into the hard muscle of his back.</p>
+<p>He took her in one long, heavy stroke.</p>
+<p>She didn't sigh; she cried out, the sound sharp in the quiet room. It wasn't just pleasure. It was the stinging, painful rush of blood returning to a limb that had been asleep for too long. It was terrifying. It meant she was still alive, still capable of being broken.</p>
+<p>He stayed still inside her for a long moment, chest heaving, letting her take him in. His forehead pressed against hers, his breath hot on her cheek. "You fit me," he growled, his shoulders tense as steel. "You hear me, June? Right here."</p>
+<p>Then he began to move. It wasn't a frantic rush but a deep, rhythmic driving that seemed to reach into the hollowed-out spaces of her chest. She shut her eyes, drowning in the smell of him—sweat, cedar, and cold wool—and the heavy, rhythmic thud of his heart. The lonely mother, the discarded wife—all of it burned away.</p>
+<p>The coil inside her wound tighter, a sharp, white-hot knot at the root of her spine. Gethin felt the shift, his pace turning harder, more urgent. His hand reached between them, thumb finding the swollen center of her, pressing just hard enough to tip her off the edge.</p>
+<p>She broke. The orgasm hit her in long, shuddering waves, her hips jerking against him. Gethin let out a low, guttural sound, burying his face in the crook of her neck as his own body buckled. He came with a hard, shaking intensity, locking his arms around her waist, holding her so tight she could barely breathe.</p>
+<p><em></em>*</p>
+<p>For a long time, the only sound was the crackle of the birch logs dying in the iron stove and the ragged hitch of their breath. The cabin air was dropping, but where they touched, the heat was a solid thing. Gethin lay heavy across her chest, his head on her shoulder, his thumb tracing her collarbone in lazy, slow circles.</p>
+<p>June closed her eyes. The constant, low-frequency hum of anxiety that usually lived behind her ribs had finally gone quiet. She felt warm. Whole.</p>
+<p>Then the wind stopped.</p>
+<p>It wasn't a sudden noise, but a sudden lack of it. For thirty-six hours, the storm had rattled the tin roof and whistled through the chinks in the logs. Now, the roar simply died. The silence that replaced it was heavy, pressing against the window glass like a cold hand.</p>
+<p>And then the radio on the pine counter split the quiet wide open.</p>
+<p>It was a brutal sound—a screech of white noise and mechanical static. June flinched, her body locking up instantly.</p>
+<p>"H-Hawkes... Gethin... copy..."</p>
+<p>The voice was thin, chewed up by the miles of mountain and ice, but she knew it. It was Oksana.</p>
+<p>Gethin didn't just move; he froze. The warm, heavy weight of him turned to stone. He suspended his breath, his head lifting, eyes wide and dilated with a sudden, cold focus that had nothing to do with her.</p>
+<p>"Gethin... copy? It’s Oksana."</p>
+<p>He pulled out of her. The sudden loss of his warmth was a physical shock, the freezing air of the room rushing to fill the gap. He didn't look at her. He didn't touch her arm. He swung his legs off the bed, his movements jerky, stripping away the slow grace of minutes before. He grabbed his flannel shirt off the floor, his hands shaking slightly as he shoved his arms through the sleeves, and strode toward the black transceiver on the wall.</p>
+<p>June sat up, hauling the scratchy wool blanket to her collarbone. The intimacy they’d built felt like a thin sheet of ice that had just cracked underfoot. She watched his bare back, a cold knot of dread tightening in her stomach.</p>
+<p>Gethin hit the black plastic switch. "Oksana," he said. His voice was flat. Professional. None of the gravelly warmth was left. "I copy. Go ahead."</p>
+<p>The radio spat back. "...storm’s broke down here... but we got a situation. Kid... nineteen... went up the east face trail yesterday morning. Didn't make the shelter cabin. He's out there, Gethin. Somewhere near the ridge."</p>
+<p>June saw the hit.</p>
+<p>His shoulders went rigid. His hand on the microphone began to shake—not a tremble, but a hard, physical rattle that made the plastic clack against his knuckles. The color drained out of his face, leaving his windburned skin a grey, sickly color. His breathing turned shallow, his chest rising and falling in quick, panting gasps.</p>
+<p>"Gethin? You still there?" Oksana’s voice was thin through the static. "Troopers can't get a bird up yet. Too much wind at ten thousand. We need a ground team. I know... I know you’re up at the cabin, but if you can get to the junction..."</p>
+<p>Gethin didn't speak. He stared at the little green LED light on the console, his eyes glassy. He wasn't seeing the radio. He was looking at something years ago, some dark, frozen corner of his own head.</p>
+<p><em></em>*</p>
+<p>She knew what he was seeing. He’d told her once, late at night when the whiskey had loosened his tongue, about the boy who’d died on his watch. Another nineteen-year-old. Another sudden whiteout. Gethin had been the lead guide; he’d pushed the team too hard, convinced they could beat the storm. An avalanche had taken his partner over a ledge. The rope had snapped with a sound like a rifle shot. They’d found his partner three days later under six feet of hard-packed slab, while the kid they’d gone to save had simply walked out on his own the next morning, completely fine.</p>
+<p>That guilt had eaten Gethin’s life. It was the reason he was up here, living like a ghost in a cabin at the end of the world.</p>
+<p>And now the ghost was back in the room.</p>
+<p>"Gethin?" June called out softly. She slid to the edge of the bed, keeping the blanket wrapped around her shoulders like a shield. "Gethin, what is it?"</p>
+<p>He didn't move. He was locked in a freeze response so deep he might as well have been made of stone.</p>
+<p>"Gethin," Oksana’s voice crackled again, more urgent. "We need an answer. Is the trail from your cabin passable?"</p>
+<p>Slowly, like his arm was made of lead, Gethin lifted the mic. His jaw was clenched so hard the muscle in his cheek looked like a knot of rope.</p>
+<p>"The... the east face is unstable," he said, his voice dry and cracking. "The snow load is too heavy. It’ll slide. If you send a team up, they’ll trigger it."</p>
+<p>"We don't have a choice. The kid's nineteen. In this wind chill, he’s got hours. Maybe less. We have to go."</p>
+<p>Gethin let go of the button. He didn't press it again. He stood there, back to her, his chest heaving.</p>
+<p>June took a step toward him, her bare feet instantly freezing on the rough planks. She reached out, her fingers hovering just over his shoulder. "Gethin. Look at me."</p>
+<p>When she touched him, he flinched like she’d burned him.</p>
+<p>He spun around, and the look in his eyes made her take a step back.</p>
+<p>The man who had looked at her with such heavy, worshipful hunger ten minutes ago was gone. His eyes were wide, wet, and cold as glacier ice. He was looking right through her, staring at a dead man.</p>
+<p>"Don't," he whispered. The word was raw.</p>
+<p><em></em>*</p>
+<p>The suddenness of the wall going up was a physical blow. God, it was so familiar. That instant, cold eviction. It was the exact same look Patrick used to give her during the last year of their marriage—that flat, unseeing glaze that told her she wasn't a partner or a comfort anymore, just a nuisance to be managed. When Patrick had checked out, he hadn't raised his voice. He’d just built a wall of silence, leaving her to scream at the bricks until her throat was raw.</p>
+<p>Standing here in the freezing air, the old, ugly insecurity flared up in her chest. <em>Of course,</em> the voice whispered. <em>Of course he’s pulling away. You were just a warm body to get through the storm. A temporary distraction. Why would he want your comfort?</em></p>
+<p>"I have to pack the gear," Gethin muttered. His eyes darted around the cabin, frantic, avoiding hers. He began fumbling with his heavy leather boots, his fingers too stiff and shaking to thread the laces.</p>
+<p>"Are you going out there?" June’s voice shook. "You just told Oksana it will slide."</p>
+<p>"I have to," he said, flat and hollow. "I have to."</p>
+<p>"Gethin, look at your hands," she pleaded, reaching for his arm again. She needed to break the ice. "You’re panicking. You can’t even tie your boots."</p>
+<p>"I don't panic," he snapped. He pulled his arm back with a sharp, final jerk. "You don't know what you're talking about, June. You’re an illustrator from Seattle. You don't know the mountain."</p>
+<p>The words hit her right in the throat. Neat. Sharp. A perfect little knife designed to put her in her place. The city woman. The tourist. The older woman who had no business in his hard, brutal world. He’d taken her vulnerability and used it to draw a line between them.</p>
+<p>"I know what a man looks like when he’s terrified," she said quietly, pulling the blanket tighter around herself, tucking her arms in to hide her own shaking. "And I know what it looks like when someone shuts down. You're shutting me out, Gethin. Just like that."</p>
+<p>He didn't answer. He was already dragging his heavy rescue pack from the corner, throwing in carabiners that clinked with a cold, metallic ring. Ropes, harnesses, beacons—he shoved them in with a desperate, clumsy speed.</p>
+<p>"Gethin, do you copy?" the radio chirped again, the static growing worse as the weather shifted. "We’re at the trailhead."</p>
+<p>He ignored it. He kept packing, his movements turning more erratic until a strap caught on a buckle. He lost his grip, his fingers slipping, and let out a low, vicious curse before slamming his fist down onto the heavy wood of the table.</p>
+<p>The crack of his fist echoed in the small room.</p>
+<p>June stood frozen. The warmth of their bodies had completely evaporated, chased out by the cold and the heavy, choking weight of his past. She looked at his rigid shoulders and realized there was no room for her here. His trauma was a fortress, and she was standing outside in the snow.</p>
+<p><em></em>*</p>
+<p>She looked at the unmade bed, the wool blankets still tangled, smelling of their skin. It felt like a lifetime ago. A dream she’d made up because she was forty-six and lonely and wanted to believe her body could still make a man breathe hard.</p>
+<p>The realization was a cold weight in her stomach: she’d actually believed she could thaw someone like Gethin Hawkes. But the mountain always came first. The dead always came first. She was just a guest.</p>
+<p>Gethin buckled his avalanche beacon over his chest, his hands still trembling. He finally looked at her, but his eyes slid past her face toward the door.</p>
+<p>"Stay in the cabin," he said, his voice barely carrying over the radio static. "Keep the fire fed. Don't go outside. The wind is down, but the temperature is dropping."</p>
+<p>"Gethin—"</p>
+<p>"I don't have time, June," he cut her off, flat and deadened. "I don't have time."</p>
+<p>He threw on his heavy Gore-Tex parka and pulled his gloves on. His movements were mechanical now—the survivalist overriding the broken man. Without another look at the bed, or at her bare shoulders, he opened the heavy door.</p>
+<p>A blast of sub-zero air rushed in, smelling of pine needles, raw ice, and snow. It killed the last of the cabin's warmth in an instant. The door slammed shut behind him with a heavy, hollow thud that rattled the tin cups on the shelves.</p>
+<p>June stood alone. The radio buzzed like a hive of angry insects.</p>
+<p>She stood there for a long time.</p>
+<p>"Gethin?" Oksana’s voice came through one last time, thin and broken by the ridge. "Be careful. The east face is bad. Copy?"</p>
+<p>June didn't touch the mic. She didn't know how, and even if she did, she was an outsider. She was just the woman left in the cabin, waiting to see if the man who had just cracked her open would come back, or if he’d let the mountain take him.</p>
+<p>Slowly, her fingers stiff from the draft, she walked to the stove. She picked up a fresh log of birch, opened the iron door, and threw it onto the red coals. She watched the fire take it, hungry and fast, and wondered how long a fire could last when the cold was this deep.</p>
+<p>She sat on the edge of the cold bed, wrapped the blankets tight around her, and stared at the door. Outside, the silence of the wilderness was absolute. Inside, the static kept buzzing.</p>
+<p>The wind was trying to tear the cedar shingles off the roof, one screaming latch at a time. Inside, the cabin didn't quiet down; it just hummed with a low, vibrating dread.</p>
+<p>Gethin stood by the window. He was a big, blocky shape in the dark, his flannel shirt smelling of damp wool and old grease. He hadn’t moved an inch since the radio went dead. On the table, the black plastic box of the transceiver sat silent, still warm to the touch, but useless. Oksana’s final, crackling words were still hanging in the rafters like coal smoke.</p>
+<p>June sat on the edge of the saggy cot. Her fingers were dug deep into the scratchy green army blanket. She watched his shoulders—hard, square, locked up tight enough to snap.</p>
+<p>She’d seen this movie before.</p>
+<p>Twenty years of marriage to a man who used silence as a blunt instrument will do that to you. The slow drift. The sudden, freezing withdrawal that made you feel like an intruder in your own kitchen. Back in her thirties, she would have paced. She would have brewed a pot of tea he didn’t want, offered three different apologies she didn’t owe, just to hear the sound of another human voice.</p>
+<p>Not anymore. She was forty-six. She’d survived the slow, agonizing divorce, the quiet of an empty house after her daughter left for college, and the terrifying, wonderful realization that nobody was coming to save her. She hadn't dragged herself up into the Chugach Range in November just to get frozen out by a man twelve years her junior who couldn't handle his own weather.</p>
+<p>She stood up. The floorboards groaned. She didn't tip-toe.</p>
+<p>"Gethin."</p>
+<p>Nothing. Just the twitch of a muscle in his cheek above his beard.</p>
+<p>"Go to sleep, June. Storm's hitting the ridge. We're going to need the wood by morning."</p>
+<p>"Cut the crap," she said. Her voice was flat, steady. "This isn't about the wood."</p>
+<p>"It's about making sure we don't freeze to death," he spat, turning just enough for the yellow light of the oil lamp to catch his eyes. They were bloodshot, rimmed with a hard, defensive panic. "That pass is choked. No helis are coming. We are on our own out here. So let me do my job."</p>
+<p>"Your job isn't to play the martyr," she said, taking a step closer. The heat off him was like standing near an open oven, even with the draft whistling through the log chinking. "Who is Tomas?"</p>
+<p>The name hit him like a physical blow. His chin dropped. For a second, she thought he might actually shove her away, tell her to pack her gear and walk into the whiteout.</p>
+<p>"None of your business," he muttered, turning back to the black window. "You're a client. An illustrator from Seattle who bought a package tour."</p>
+<p>"I’ve spent three days in your bed, Gethin. I've eaten your salt, and I've seen you sweat. Don't play the guide with me now." She didn't raise her voice; she let it drop into that low, heavy register that only comes with years of living. "I know what a man looks like when he's carrying a dead body in his head. Tell me."</p>
+<p>He turned, fast and clumsy, his boots scraping the floor. He towered over her, his chest rising and falling beneath the flannel.</p>
+<p>"You don't know a damn thing," he snarled, his voice cracking. "You think because we had some fun under a pile of down quilts that you've got me figured out? You don't know what this country does. What I let it do."</p>
+<p>"So tell me." She didn't move. She didn't blink. "I'm right here."</p>
+<p>"I killed him," he choked out. The words came out wet and heavy, like he’d been swallowing glass.</p>
+<p>She reached out. Her hand was steady. She pressed her palm flat against his chest, right over his heart. It was thudding like a trapped rabbit.</p>
+<p>"Tell me," she said again.</p>
+<p>His knees went. It was a strange, terrible thing to see—this massive, weathered man who had carried eighty-pound packs up vertical ice faces suddenly dropping to the floorboards. He didn't drop gracefully. He collapsed, his head hitting her thigh, his thick fingers grabbing at the fabric of her pants like he was falling off a ledge.</p>
+<p>"Three years ago," he whispered. His voice was raw, muffled by her clothes. "Denali. The West Rib. He was twenty-four. Tomas. Just a kid from Anchorage who thought he was made of iron. I was lead. I saw the front coming in from the Gulf—the barometer was bottoming out, the clouds were stacking up grey and heavy. But he wanted that summit. And I... I let him talk me into it. I wanted it too. Arrogance. Plain and simple."</p>
+<p>June's fingers found his hair. It was thick, slightly greasy, smelling of woodsmoke. She held his head against her hip, feeling the hard shudders running through him.</p>
+<p>"We got caught at seventeen-two," Gethin went on, the words spilling out in a ragged, desperate rush. "Ninety-knot winds. Total whiteout. I couldn't see my own hand. I lost the picket. I lost him. I heard him scream, June. Just once. By the time I got a screw in and rappelled down the slot... he was gone. Neck broken. I had to bivouac next to his body for three days before the wind dropped enough to haul him out. I had to hand his pack back to his mother."</p>
+<p>A dry, barking sob broke from him. Then another. It was the sound of a man who had kept his grief frozen solid, waiting for it to go away, only to find it had rotted him from the inside.</p>
+<p>June dropped to her knees beside him. The wood was cold, but she didn't care. She threw her arms around his neck and pulled his weight into her. He clung to her, his face buried in her neck, wet and hot.</p>
+<p>"I should have stopped him," he wept. "It should've been me."</p>
+<p>"You're not God, Gethin," she whispered, rocking him. "You can't control the weather, and you can't save people from themselves. You survived. That's not a sin."</p>
+<p>"It feels like one."</p>
+<p>She didn't offer him cheap comfort. She just held him. She let him shake until the worst of it passed, his breathing finally slowing into long, ragged sighs.</p>
+<p>For years, she’d felt like a used-up thing. Her ex had made her feel like her expiration date had passed when the first grey hairs showed up at her temples. But here, in the dark with this broken, younger man, she realized her age wasn't a liability. It was her armor. A twenty-something girl wouldn't have known what to do with this level of ruin; she would have been terrified. June wasn't. She had the patience of someone who had seen the worst of life and survived it anyway.</p>
+<p>He looked up. His face was a mess—swollen, wet, stripped of all that stoic Alaskan bravado.</p>
+<p>"You're still here," he said.</p>
+<p>"I'm still here."</p>
+<p>He kissed her then. It wasn't the frantic, heat-seeking kiss of the nights before. It was slow. Quiet. He tasted of salt and the cold copper of adrenaline. His beard scraped her chin, rough and dry.</p>
+<p>When he pulled her sweater off, she didn't try to hide her body. For a split second, the old voice whispered in her ear—<em>the soft curve of your belly, the stretch marks, the way your breasts sit now</em>—but she silenced it.</p>
+<p>Gethin didn't look at her like she was a compromise. His hands, huge and calloused, cupped her waist with a kind of reverence that made her throat ache.</p>
+<p>"You're beautiful," he muttered, his voice thick.</p>
+<p>They got rid of the rest of the clothes quickly, kicking them onto the floor. The cot creaked under their combined weight.</p>
+<p>He came into her slowly. No rushing. Just a deep, heavy slide that made her catch her breath. She wrapped her legs around his waist, pulling him down, wanting the heat of him to drive out the chill of the cabin.</p>
+<p>The rhythm was steady, like the wind outside but warmer. He moved with a quiet intensity, his eyes locked on hers in the dark, refusing to let her look away. It wasn't a performance; it was two people trying to stay warm in a world that was freezing to death around them.</p>
+<p>When she came, it was a sudden, hard wave that made her bite his shoulder to keep from screaming. He followed her a second later, a low, guttural grunt escaping him as he buried himself deep and held still, his muscles locking up like iron.</p>
+<p>The oil lamp flickered out. The room fell into that deep, blue-grey darkness of the far north.</p>
+<p>Gethin's arm was heavy across her chest, holding her tight against him.</p>
+<p>"Thank you," he said.</p>
+<p>She smiled in the dark, her hand resting on his chest. His heart was finally beating a normal rhythm.</p>
+<p>Then, the static returned. A sharp, metallic <em>click</em> from the table, followed by the low, garbled hiss of the transceiver. Oksana’s voice, small and distant, started calling out into the dark.</p>
+<p>The transceiver’s static wasn’t just noise; it was a physical itch in the cabin’s damp silence.</p>
+<p>Junia sat up, dragging the heavy, grease-scented wool blankets with her. The sub-zero draft seeping through the gaps in the birch logs bit her shoulders instantly. Only minutes ago, the room had been thick with the salt-swept musk of their skin and the heavy, desperate weight of Gethin’s body against hers. Now, that heat was escaping into the rafters, leaving nothing but the smell of cold soot.</p>
+<p>Gethin was already on his feet. He didn't look back.</p>
+<p>The softness that had taken over his face when he’d buried his forehead in the hollow of her collarbone was gone, replaced by a rigid, mechanical efficiency that made him look like a stranger. He stood in the gray light filtering through the frosted window, his broad, pale back mapped with old scars. He pulled on his canvas trousers with jerky, frantic tugs.</p>
+<p>"Gethin," she said. Her voice was thick, tasting of dry pine smoke and the salt of his skin.</p>
+<p>He didn't answer. He dragged a heavy wool shirt over his head. When his face emerged, his jaw was locked tight, his eyes fixed on his boots as if she were a piece of furniture he had to maneuver around.</p>
+<p>"I have to pack the rescue gear," he said. The low, resonant warmth that had vibrated against her ribs all night was gone. This was his search-and-rescue voice. Clinical. The voice of a man who dealt in survival margins and body recovery, not morning-after confessions.</p>
+<p>Junia swung her legs out of the bunk. The shock of the floorboards made her gasp—a sharp, literal reminder of her forty-six-year-old knees. Her joints, stiff from three days of snowshoeing up the pass, throbbed with a dull, familiar ache. It was a body that had carried a child, sat at an drafting table in Seattle for two decades, and survived the slow, humiliating decay of a marriage. Last night, Gethin’s rough palms had traced the soft curve of her belly and the silver threads at her temples as if they were a map he’d been dying to read.</p>
+<p>Now, she felt massive, slow, and painfully exposed.</p>
+<p>"We need to check the topo maps first," she said, forcing her trembling fingers through the buttonholes of her flannel shirt. "If Oksana is out near the northern ridge, the wind is going to drop the temperature to twenty below by noon. I can help load the sled."</p>
+<p>Gethin stopped, a heavy mountain boot dangling from his hand. He finally looked at her, but the deep blue of his eyes had gone flat, matching the iron sky outside.</p>
+<p>"You're staying here," he said.</p>
+<p>The words didn't invite debate. They fell like a deadbolt sliding into place.</p>
+<p>Junia froze, her hand hovering over her collar. "Excuse me?"</p>
+<p>"You're staying in the cabin," Gethin repeated, sitting on the bench to yank his laces with white-knuckled force. "This isn't a weekend hike, Junia. The storm is breaking, but the wind on the exposed ridge will tear right through you."</p>
+<p>"I’ve been out in the freeze with you for three days," she said, stepping closer, ignoring the bite of the cold wood against her bare soles. "I know how to handle the snowshoes. I don't panic."</p>
+<p>"You don't know the ridge," he said, and this time there was a deliberate, cutting edge to his voice. He still wouldn't look her in the eye. "You're an illustrator from Seattle, Junia. You came up here to get some fresh air and prove something to the ex-husband who replaced you. But this is a real mountain. Oksana is a trained ranger, and she’s lost. If she couldn’t make it back on her own, you won't last three miles."</p>
+<p>The mention of her divorce was a scalpel slide. Junia flinched, hating herself for the hot flush that rushed to her cheeks.</p>
+<p>"That is a cheap shot, Gethin."</p>
+<p>"It’s the reality," he said, double-knotting the cord. "I'm not risking another life out here because of... because of what we did last night."</p>
+<p>"What we did?" Junia stepped directly into his line of sight, forcing him to look up. "You mean when you were holding onto me like I was the only thing keeping you from spinning off the edge of the earth?"</p>
+<p>Gethin stood up, his thirty-four-year-old frame blotting out the window's gray light. His physical presence, which had felt like a shelter hours ago, now felt suffocating.</p>
+<p>"Last night was adrenaline," he said, his voice flat and perfectly level. "It was survival chemistry. We were trapped in a blizzard, wondering if the roof would hold. The body does things to cope with that kind of pressure. It’s biology, Junia. Nothing more."</p>
+<p>The air left her lungs in a quiet rush. For a second, she wasn't in an Alaskan line cabin; she was standing in her kitchen in Seattle three years ago, listening to a man she had loved for twenty-four years explain, with the same detached logic, why their marriage was "statistically unsalvageable."</p>
+<p><em>Chemistry. A coping mechanism.</em></p>
+<p>She searched Gethin's face for the man who had wept against her neck while the wind rattled the shake roof. Nothing. Just a mask of professional distance.</p>
+<p>"You coward," she whispered.</p>
+<p>A tiny muscle in his jaw twitched, but the mask didn't break. "I have a job to do. I don't have time for this."</p>
+<p>He turned his back on her, walking to the heavy wooden gear locker. He began pulling out climbing harnesses, ice axes, and coils of high-visibility orange rope, dropping them onto the table with loud, metallic clangs that shattered the last remnants of the night.</p>
+<p>Junia stood there, her feet aching from the floorboards. The humiliation was a cold weight in her stomach, but beneath it, a slow, dark anger was beginning to take shape. She had allowed herself to believe that out here, in the cold, she could be seen clearly. She’d forgotten the cardinal rule of her post-divorce life: <em>Never trust the warmth when the winter is still outside.</em></p>
+<p>"You're hiding behind that harness," she said, her voice dropping its heat, turning steady and analytical.</p>
+<p>Gethin paused, his hand wrapped around the shaft of an ice axe. "I’m saving a life."</p>
+<p>"You're running," she said. "You lost someone out here years ago. I know the story. I saw it in your face the second Oksana's name came over the static. But don't you dare use my age, my city, or my body as an excuse to shut me out because you're too terrified to feel anything but guilt."</p>
+<p>Gethin’s shoulders tensed, the wool of his shirt stretching tight. The only sound was the low, rhythmic hiss of the green wood bubbling in the stove. When he spoke, his voice was a dangerous, low gravel.</p>
+<p>"You don't know a damn thing about it."</p>
+<p>"I know what a runner looks like," Junia said. She walked over to her pack, retrieved her thick wool socks, and began pulling them on with deliberate, calm movements. She would not beg him, and she sure as hell wouldn't cry in front of him. "My husband ran because he was afraid of gray hair and mortgage payments. You're running because you're afraid of being alive when other people died. It's the same brand of cowardice, Gethin. Just a different coat."</p>
+<p>Gethin swung his pack onto his shoulders and grabbed his snowshoes. He didn't look at her.</p>
+<p>"I am leaving the backup transceiver here," he said, his voice rigid. "You stay inside, keep the wood stove fed, and wait for the troopers to check in at noon. If I'm not back by dusk, you radio them for an extraction. Do you understand?"</p>
+<p>"I don't work for you, Gethin."</p>
+<p>"In this valley, you do," he snapped. "I’m the registered guide. If you step out of this cabin, you’re violating emergency protocol. I’ll have the troopers escort you to the airport the second the weather clears."</p>
+<p>It was the ultimate professional gate, slammed shut in her face. Junia stared at him, her heart hammering a hard, rhythmic beat against her ribs.</p>
+<p>"Go," she said.</p>
+<p>He stared at her for three seconds—unreadable, dark—then opened the heavy timber door. A blast of sub-zero air rushed into the room, instantly freezing the sweat on Junia’s neck and sending a flurry of dry snow skittering across the pine floor.</p>
+<p>The door slammed shut. The latch clicked.</p>
+<p>He was gone.</p>
+<p>Junia walked to the window, rubbing her palm against the thick frost until she cleared a small circle. Through the distorted glass, she watched him. He was moving with long, powerful strides, his snowshoes crunching into the fresh drifts, his head tucked against the wind. He looked tiny against the massive, indifferent white of the mountain—a small black speck crawling toward a jagged sky.</p>
+<p>She leaned her forehead against the freezing glass. The physical ache of her body was nothing compared to the hollow, familiar weight in her chest. She had been a fool to think the ice around her heart had actually melted.</p>
+<p><em>Adrenaline.</em></p>
+<p>She looked at the tangled blankets on the bunk. They still smelled of him—pine needles, sweat, and wool. She reached out to smooth them, but the warmth was already gone. The cabin had claimed it.</p>
+<p>She knelt by the stove, her knees clicking in the silence. She gathered some dry birch bark and kindling, her hands steadying as she focused on the small, practical mechanics of survival. The wilderness didn't care about her pride. If she let the fire go out, she died. It was that simple.</p>
+<p>She struck a match. The yellow flame caught the paper-thin bark, curling it into black ash. As the heat hit her face, the humiliation began to harden into something else.</p>
+<p>Gethin Hawkes thought she was fragile. He thought her age made her weak, that her soft curves were a liability, that he could use her to keep the night cold at bay and then lock her in a cabin when the real work started.</p>
+<p>He was wrong.</p>
+<p>She stood up, her back straight. She was Junia Keelan. She had survived the slow, agonizing death of her youth in a house that grew too quiet, and she wasn't going to let a thirty-four-year-old boy with a savior complex tell her where her limits were.</p>
+<p><em></em>*</p>
+<p>By noon, the sun had reached its peak, casting a flat, blinding glare across the pass. The cabin was warm again, but the draft coming through the floor kept the air near her boots freezing.</p>
+<p>Junia had spent the last three hours checking her gear. She tried to ignore the radio, but every ten minutes her eyes drifted to the shelf.</p>
+<p>Nothing but the empty hiss of the weather bands.</p>
+<p>Then, the transceiver crackled, the speaker spitting static before a voice broke through.</p>
+<p>"Lodge to Cabin Two, do you copy? Over."</p>
+<p>It was Eamon, the senior dispatcher down at the highway outpost. His voice was faint, sliced by interference.</p>
+<p>Junia grabbed the heavy plastic mic. "This is Junia Keelan. I copy. Over."</p>
+<p>"Junia," the static surged, swallowing his voice for a second. "...is Gethin there? We have... second front coming off the inlet. It’s moving twice as fast as the morning forecast. Sixty-knot winds. Whiteout conditions in thirty minutes. Over."</p>
+<p>"Gethin isn't here," Junia said, her hand tightening on the mic. "He left four hours ago for the northern ridge. Alone."</p>
+<p>A long, heavy pause followed, filled only with the empty rush of the airwaves.</p>
+<p>"He went to the ridge alone?" Eamon’s voice had lost its professional calm. "In this? Junia, he has no cover up there. Tell him to get below the tree line immediately. Over."</p>
+<p>"He didn't take his handheld," Junia said.</p>
+<p>Her eyes drifted to the charging cradle on the shelf. The small black radio Gethin usually wore on his chest was sitting there, its little green light blinking in the shadows. In his rush to escape the cabin—or her—he had forgotten the one thing that connected him to the world.</p>
+<p>"He... what?" the radio sputtered, the signal breaking into high-pitched squeals. "Junia... you must... stay... do not..."</p>
+<p>The line went dead. A solid wall of static took over, white noise filling the small room.</p>
+<p>Junia dropped the mic.</p>
+<p>Outside, the sky had turned a bruised, dirty purple. The wind was hitting the cabin in great, shuddering thumps that made the log walls groan.</p>
+<p>The whiteout was here. And Gethin was on the exposed rock of the ridge, chasing a ghost.</p>
+<p>Junia didn't hesitate. She didn't think about his warnings or his threats about the state troopers. She knew the math. If he was caught on that ridge without a radio and the visibility dropped to zero, he wouldn't find his way down. He would freeze to death within sight of the tree line.</p>
+<p>She looked at her reflection in the dark glass of the kitchen window. Her hair was messy, the gray at her temples sharp against the dark wool of her hat. She looked like a woman who had lived through enough storms to know when to stop hiding.</p>
+<p>She pulled her heavy canvas parka on, zipping it to her chin, and strapped her snowshoes to her pack.</p>
+<p>She wasn't going to sit by a warm stove and watch the fire die while another man left her behind in the dark.</p>
+<p>She threw open the cabin door and stepped into the wind.</p>
+<p><em></em>*</p>
+<p>The forest was a gray hallway of pine and driving ice.</p>
+<p>Junia kept her head down, her chin tucked into her collar, her breath freezing into a crust on her wool scarf. Her thighs burned with every step upward, and her lower back was a knot of tight, hot pain. But she welcomed the ache. It was real. It was proof she was moving.</p>
+<p><em>You're an illustrator, Junia. You draw trees; you don't survive them.</em></p>
+<p>She let out a short, sharp laugh that the wind took instantly.</p>
+<p>She pushed harder, her poles planting deep in the drifts, her snowshoes biting into the hard crust beneath the fresh powder. She wasn't the woman who had sat quietly in that Seattle lawyer's office, nodding as thirty years of her life were converted into percentages and bank accounts.</p>
+<p>When she cleared the tree line, the wind hit her like a physical hand, nearly throwing her flat. She stumbled, her left pole sliding on a patch of black ice, but she dropped her weight, dug her steel crampons in, and held.</p>
+<p>The world above the trees was a chaotic, shifting wall of white. The ridge was gone, replaced by a roaring void.</p>
+<p>She pulled her goggles down, the amber tint cutting through the glare, and took another step upward.</p>
+<p><em></em>*</p>
+<p>The snow was no longer falling; it was moving horizontally, sharp as sand, stinging the sliver of skin between her goggles and her scarf.</p>
+<p>She had lost his tracks miles ago.</p>
+<p>"Gethin!" she screamed, but the wind tore the sound from her mouth and threw it down the mountain.</p>
+<p>Her lungs burned. The panic came then—a cold, metallic taste in the back of her throat. She was forty-six years old, three miles up an Alaskan ridge in a whiteout, and nobody knew she was here.</p>
+<p><em>You should have stayed in the cabin,</em> the old voice whispered. <em>You're too old for this.</em></p>
+<p>She closed her eyes, took one long, freezing breath, and pushed the voice down.</p>
+<p>She opened her eyes and saw a dark, irregular shadow through the white—a pile of scree and granite boulders near the summit line. A natural windbreak.</p>
+<p>She dragged herself toward it, her muscles screaming, every step a slow-motion battle against the gale.</p>
+<p>As she rounded the edge of the rocks, she saw him.</p>
+<p>He was huddled in a shallow cleft in the granite, his knees pulled to his chest, his head down. His snowshoes were discarded in the snow beside him, already half-buried. He was shivering violently, the fabric of his jacket frosted white.</p>
+<p>Junia dropped to her knees in the drift beside him, her hands grabbing his shoulders.</p>
+<p>"Gethin!"</p>
+<p>He looked up, his eyes dull and slow to focus. His lips were a pale, bruised blue, his cheeks white with the first signs of frostbite. He stared at her through the driving snow as if she were a hallucination.</p>
+<p>"Junia?" his voice was a dry, rattling whisper. "What..."</p>
+<p>"You forgot your radio, you idiot," she shouted over the roar of the wind. She reached into her pack, pulled out her insulated flask, and pressed it against his frozen fingers. "Drink. We have to go now."</p>
+<p>He stared at her, the professional mask completely shattered, leaving nothing but a cold, frightened boy who had run out of mountain to hide behind.</p>
+<p><em></em>*</p>
+<p>She didn't let him linger. She hauled him up, wedging her shoulder under his arm, her boots digging into the hard pack. He was nearly twice her weight, his muscles stiffening from the cold, but she didn't falter. She found a deep, stubborn strength that had nothing to do with youth and everything to do with a life spent surviving the quiet blizzards of the heart.</p>
+<p>"Lean on me," she grunted. "Move your feet, Gethin."</p>
+<p>They stepped out of the rocks and into the whiteout.</p>
+<p>The trip down was a blur of gray shadows and sliding snow. Gethin’s weight was heavy against her, his breath hot and ragged against her neck as they stumbled through the drifts. She didn't look back. She kept her eyes on the dim, dark shapes of the pines below, using them as a compass.</p>
+<p>By the time they reached the trees, the wind began to die, its teeth caught in the branches of the spruce.</p>
+<p>The cabin appeared through the gray dusk—a solid, dark shape of timber and safety.</p>
+<p>Junia kicked the door open, guided Gethin inside, and shoved the heavy bolt into place. The sudden silence of the room was deafening. The stove was still radiating a faint, lingering heat.</p>
+<p>They collapsed together onto the floorboards, their breath coming in long, shuddering gasps. They lay there in a tangle of wet canvas, frozen wool, and melting snow, listening to the wind scream across the roof.</p>
+<p>Gethin turned his head, his face still pale, his dark blue eyes wide and clear as they searched hers.</p>
+<p>"You came back," he whispered.</p>
+<p>Junia pulled her goggles off, her graying hair clinging to her damp forehead.</p>
+<p>"I didn't do it for you," she said, her voice quiet but absolutely steady. "I did it for me."</p>
+<p>She stood up, her joints cracking in the quiet room, and walked to the stove. She threw two split logs of birch onto the embers and watched the dry bark catch, the yellow light flickering across the timber walls.</p>
+<p><em></em>*</p>
+<p>The fire grew, filling the room with the sharp, sweet smell of birch smoke.</p>
+<p>Gethin got up slowly, his movements still stiff, and walked over to where she stood by the hearth. He stopped a foot away, the heat of his body radiating through his damp shirt.</p>
+<p>"Junia," he said, his voice a low, gravelly rasp. "I'm sorry."</p>
+<p>She didn't look away from the flames. "For which part?"</p>
+<p>"For last night," he said, his hand reaching out, his cold, rough fingers brushing her cheek. "For what I said this morning. I was... I was looking at you, and I was terrified of how much I wanted to stay."</p>
+<p>Junia turned her head, meeting his gaze. "Don't ever use my age or my life as a shield for your cowardice again, Gethin."</p>
+<p>"I won't," he whispered.</p>
+<p>He leaned down, his mouth finding hers. It wasn't the frantic, desperate kiss of the night before, born of adrenaline and fear. This was slow, heavy, and quiet—a deliberate surrender to the warmth they had built between them.</p>
+<p>The storm continued to rattle the shake shingles overhead, but inside, the room had gone quiet.</p>
+<p>They moved to the bunk, stripping away the stiff, damp layers of wool and canvas. Gethin’s hands were slow now, tracing the soft curve of her hip, the lines around her eyes, and the silver in her hair with a quiet, heavy reverence.</p>
+<p>There was no rush, no panic. They moved together with the slow, rhythmic ease of two people who knew exactly what they were giving up, and what they were keeping.</p>
+<p><em></em>*</p>
+<p>The sun rose cold and clean over the ridge, filling the cabin with a bright, blinding light that turned the frost on the windows into silver lace.</p>
+<p>Junia woke to the smell of coffee.</p>
+<p>She sat up, pulling the dry wool blanket around her shoulders. Gethin was standing by the stove, his back to her, his large frame silhouetted against the bright morning light.</p>
+<p>He turned when he heard her move, a quiet, easy smile on his face. He walked over, handing her a steaming tin cup.</p>
+<p>"Eamon got through on the high-band," Gethin said, sitting on the edge of the mattress. "Oksana made it to the low-line cabin before the front hit. She’s fine. Cold, but fine."</p>
+<p>Junia took a slow sip of the bitter coffee, the warmth spreading through her chest. "Thank God."</p>
+<p>"The plow is coming up the pass now," Gethin said, his eyes staying on hers. "They’ll have the road clear in an hour."</p>
+<p>Junia looked down at the dark liquid in her cup, the silence stretching between them.</p>
+<p>"And what happens when we hit the highway?" she asked.</p>
+<p>Gethin reached out, his thumb catching her chin, tilting her face up until she had to look at him.</p>
+<p>"I have some vacation time coming," he said, his voice soft but steady. "I’ve never been to Seattle."</p>
+<p>Junia looked at him—at the lines of wind-burn on his cheeks, the dark blue of his eyes, and the quiet, solid weight of his hand in hers.</p>
+<p>"It rains a lot," she said, a small smile breaking.</p>
+<p>"I think I can handle some rain," he said, leaning down to kiss her forehead.</p>
+<p>They packed their gear in silence, but it was a warm, easy silence now. Junia zipped her parka, shouldered her pack, and walked to the door. She looked back once at the small room—the unmade bunk, the cold hearth, the heavy logs that had held the winter at bay.</p>
+<p>She was forty-six years old. Her joints ached, her life in Seattle was a quiet, empty slate, and the man walking out behind her was twelve years younger and carried his own share of scars.</p>
+<p>But as Gethin opened the door and they stepped into the blinding, golden glare of the snow, Junia didn't look back.</p>
+<p>The air was freezing, but the trail ahead was clear.</p>
+<p>The smell of ink and dried willow leaves was the only warm thing left in the room.</p>
+<p>Junia Keelan smoothed her palm over the heavy vellum map, her thumb catching on the tooth of the hand-pressed paper. She was forty-six. For fifteen of those years, her ex-husband had dismissed her field notes as "June’s little pressed-flower scrapbooks." A decorative hobby. The polite, quiet death of a passionless marriage in Seattle, where she was expected to frame the world in clean, sterile lines for botanical guides.</p>
+<p>But this map wasn't a scrapbook. It was a ledger of survival.</p>
+<p>To get these lines down, she’d crawled over freezing scree, her knees grinding into the cold shale of the Wrangell slopes while the wind tried to tear the breath straight out of her lungs. She had documented the microclimates of the valley because she had nothing else to hold onto after the house went silent. She knew where the dwarf willow grew thickest. She knew which basalt outcrops caught the thermal currents from the south face, and which fissures were deep enough to harbor a human body in a sub-zero gale.</p>
+<p>The search and rescue team at the McCarthy depot were currently staring at satellite imagery and standard USGS topographical maps. Idiots. They were looking at lines of elevation that failed to show the three-foot-wide cracks in the limestone where the earth still breathed.</p>
+<p>June stood up, her joints popping in the damp chill of the cabin. Her back ached—that stubborn, middle-aged ache she’d stopped treating as a weakness and started accepting as the tax for staying alive. She rolled the vellum tightly, secured it with a thick rubber band, and threw on her heavy wax-canvas coat over her wool sweater.</p>
+<p>She wasn't going to sit by the woodstove and wait for Gethin Hawkes to bring back a corpse.</p>
+<p>The wind met her at the door, an icy slap that smelled of crushed slate and pine. She walked down the gravel path toward the rescue depot, her boots crunching rhythmically in the packed snow. The light was dying, the sky bruised into a heavy violet that promised another drop in temperature.</p>
+<p>Inside the depot, the air was thick with the scent of kerosene, wet leather, and stale chicory coffee.</p>
+<p>Oksana Rostov was hunched over a laminate table, her graying hair pinned back with a cheap plastic clip. Beside her stood Gethin. He was thirty-four, built like an anchor, but today he looked ancient. The skin around his eyes was grayed with fatigue. He’d been carrying the weight of the mountain ever since it claimed his first team years ago.</p>
+<p>"The chopper can't get up there," Gethin was saying, his voice a low, gravelly rasp. "The downdrafts off the ridge are too unstable. If we go in on foot through the western gulley, we’re blind. It’s a rock-fall hazard under this weight of snow."</p>
+<p>"We have to go somewhere, Gethin," Oksana said, her voice dry as birch bark. "The boy has been out there since yesterday morning. At these temperatures, his fingers are already gone. If he’s in the open, he’s dead by midnight."</p>
+<p>"He isn't in the open," June said, stepping into the room.</p>
+<p>Both of them turned. Gethin’s eyes flared—a flash of blue so sharp it felt like a physical touch. His jaw tightened. He looked like he wanted to carry her back to her cabin and lock the door, just to keep her safe from the very air he breathed.</p>
+<p>"June," Gethin said, his voice heavy with the protective instinct that had almost choked them both the night before. "This isn't the place."</p>
+<p>"It’s exactly the place," June said. She walked straight to the table, ignoring the heavy timber of his voice. She unrolled her map directly over the blue-and-white USGS grid. She didn't ask for permission. She grabbed two brass paperweights from Oksana’s desk and pinned the corners down.</p>
+<p>"What is this?" Oksana leaned forward, her squinting eyes catching the hand-drawn detail of the ridges.</p>
+<p>"The western gulley is a death trap," June said, pointing her index finger—her nail short, unpolished, showing the faint ridge of a life spent working—to the shaded blue lines of the standard map. "But three hundred yards to the east, behind the scree slope, there’s a series of limestone vents. The USGS maps don't show them because the canopy of dwarf birch covers the limestone shelf from the air."</p>
+<p>Gethin stepped closer. She could feel the heat radiating from him, the scent of damp wool and old woodsmoke. "Those vents are dead ends, June. There’s no shelter from the north wind there."</p>
+<p>"There is if you know where the <em>Dryas octopetala</em> grows," she said, looking up at him. She didn't blink. She met his gaze with the steady, unyielding confidence of a woman who had spent forty-six years learning that men often looked but rarely saw. "Dryas doesn't grow in the path of the north wind. It needs a snow-blanket that stays stable until May. Look here." She tapped a cluster of finely detailed green stippling on her map. "This is a thermal pocket. The ground heat from the old volcanic line leaks through the basalt fissures here. The temperature inside that rock fold stays ten to fifteen degrees warmer than the surrounding air. If the hiker had any sense, he’d have seen the bare rock where the snow melted and crawled in."</p>
+<p>Oksana stared at the vellum, her rough finger tracing June’s delicate penmanship. "You mapped this? Down to the species?"</p>
+<p>"Every foot of it," June said. "Over three summers."</p>
+<p>Gethin was silent. His eyes were fixed on the map, but his chest was rising and falling in heavy, deliberate breaths. She saw the muscle in his temple pulse. He wasn't just looking at the lines; he was looking at her mind, laid bare on the paper—the sheer, stubborn intelligence of it.</p>
+<p>"It’s a five-mile hike from the trailhead," Gethin said quietly. "Through three feet of fresh powder."</p>
+<p>"I know," June said.</p>
+<p>"You can't go," he said, the words dropping like stones. "I’ll take the map. I’ll take Oksana’s boy, Peter. But you stay here."</p>
+<p>"I’m the only one who can find the entrance to that fissure in a whiteout, Gethin," she said, her voice low and steady. "The dwarf birch is buried under three feet of snow now. It looks like every other drift. But I know the shape of the limestone beneath it. I know where the ground gives way. If you step in the wrong place, you’ll break your leg in a sinkhole before you even find the vent."</p>
+<p>"June—"</p>
+<p>"I’m going," she said. She stepped closer to him, her voice dropping so only he could hear it over the low hum of the generator in the corner. "I spent twenty years being the woman who stayed behind, Gethin. I stayed in Seattle while my husband built his firm. I stayed in the kitchen while my daughters grew up and left. I am not staying in this cabin while you go out there and decide whether you want to live or die. If you’re going up that mountain, I am going with you. Beside you."</p>
+<p>The silence between them was thick, charged with the memory of the cabin, the taste of his mouth, and the desperate, heavy way he had held her body as if she were the only solid thing in a shifting world. He was twelve years younger than her, his body a testament to youth and strength, but in her eyes, there was a weight of survival that he couldn't match. He saw it. She watched the resistance drain out of him, replaced by a dark, consuming heat.</p>
+<p>"Oksana," Gethin said, his eyes never leaving June’s face. "Give us ten minutes to check her gear."</p>
+<p>"Take fifteen," Oksana said, her voice dry but not unkind. "And put on the heavy thermal layers. It’s dropping fast."</p>
+<p>Gethin hauled her into the gear room and shut the heavy timber door. The latch clicked home. The room was small, crowded with racks of nylon ropes and steel carabiners, smelling of old canvas, ski wax, and kerosene. A single lightbulb hanging from the ceiling cast long, swinging shadows across the timber walls.</p>
+<p>He turned on her, his hands coming up to grip her jaw. His thumbs were calloused, smelling of brass and gun oil, pressing hard enough to hurt.</p>
+<p>"You are going to get yourself killed," he said, his breath hot and ragged against her face.</p>
+<p>"I'm the only one who can find him, Gethin."</p>
+<p>"I don't care about him," he muttered, his voice cracking. "I care about you."</p>
+<p>Then his mouth slammed into hers.</p>
+<p>This wasn't gentle. It wasn't the tentative, exploratory touch of the night before. This was teeth and heat and the raw terror of the cold waiting for them outside. June let out a low, sharp gasp, her hands knotting into the rough wool of his sweater, pulling him closer until the metal zippers of their jackets ground together. He tasted like cold air and stale coffee, but his mouth was a furnace.</p>
+<p>He didn't treat her like she was made of glass. He grabbed her hips, his fingers digging through the heavy canvas of her pants, finding the solid, mature curve of her waist.</p>
+<p>"Gethin," she breathed, her head spinning.</p>
+<p>He didn't answer. He ripped his gloves off with his teeth, spitting them onto the floor, and shoved his hands up under her thick wool sweater. His palms were rough, cold at first, then burning as they found the bare skin of her stomach. She shivered violently, her back pressing into a heavy wooden workbench. The oak was freezing through her clothes, but Gethin was crowding her, his thighs parting hers, his weight pinning her down.</p>
+<p>He pulled her sweater over her head and threw it aside. She stood in her thermal top, her chest heaving. He didn't look at her with the polite, distant appreciation of her ex-husband. He looked at her like a man starving. He dragged the thermal up, exposing her. She was forty-six; her breasts were heavy and soft, her skin marked by the quiet passage of time, and he put his mouth on her with a desperate, heavy hunger that made her knees buckle.</p>
+<p>"We don't have time," she whispered, her fingers clawing at his shoulders.</p>
+<p>"We have ten minutes," he muttered.</p>
+<p>His hand was already at her waist, undoing the heavy brass button of her trousers. The zipper came down with a sharp, metallic bite. He reached inside, his calloused fingers finding her. She was already slick, her body responding to him with a sudden, violent heat that defied the sub-zero room. He stroked her, his thumb pressing hard, driving the breath from her lungs in a ragged sob.</p>
+<p>"Look at me," he commanded, his face buried in the hollow of her neck.</p>
+<p>She opened her eyes. The bare bulb was swinging, sending shadows dancing across the pine ceiling. His eyes were dark, almost black, looking at her with an intensity that made her feel stripped bare—not just of her clothes, but of every defense she’d built over the last twenty years.</p>
+<p>"I want you," she whispered. "Now, Gethin. Please."</p>
+<p>He unbuckled his belt, his movements frantic but certain. He didn't have time for a bed or sheets. He lifted her onto the edge of the heavy oak workbench. The cold wood bit into the backs of her thighs, a sharp, grounding ache.</p>
+<p>He pushed into her in one long, heavy thrust.</p>
+<p>June’s breath caught in her throat. He was thick and hard, stretching her, filling the empty, quiet spaces she had ignored for a decade. She wrapped her legs around his hips, her boots catching on the edge of his trousers, pulling him deeper.</p>
+<p>The rhythm was fast, desperate, and clumsy. Every hard thrust made the old workbench groan against the floorboards. She held onto his neck, her face buried in his shoulder, tasting the salt of his skin. This wasn't the polite, quiet lovemaking of her Seattle life. This was survival. It was sweat and wool and the taste of salt, driven by the knowledge that outside, the temperature was dropping to thirty below.</p>
+<p>He watched her face, his jaw clenched so hard the muscle pulsed. He loved her maturity—the unashamed way she took him, the solid, real weight of her body against his. She wasn't a girl trying to look pretty; she was a woman claiming what was hers.</p>
+<p>"June," he groaned, his hands locking behind her knees, lifting her slightly to drive deeper.</p>
+<p>The orgasm hit her like a sudden break in the ice—a deep, rhythmic pulsing that started deep in her belly and washed outward until she was shaking. She cried out, her voice muffled against his neck. Gethin let out a low, guttural sound, his body stiffening as he buried himself inside her, his hips shaking as he poured himself into her.</p>
+<p>They clung to each other in the dim light, the only sound the loud, ragged gasps of their breath and the hum of the generator through the wall.</p>
+<p>Slowly, Gethin pulled back. He didn't turn away. He kept his hands on her waist, his thumb gently tracing a silver stretch mark on her hip. He didn't try to hide it or ignore it. He leaned down and kissed the mark, his lips warm against her skin.</p>
+<p>"We have to go," June said, her voice shaking slightly.</p>
+<p>"I know," he said.</p>
+<p>He helped her dress, his hands efficient, pulling her wool sweater back down and smoothing her hair. He tucked a loose silver strand behind her ear, his eyes steady.</p>
+<p>"You're sure about this, June? Once we're out there, there's no turning back."</p>
+<p>"I'm sure," she said. The old doubts, the quiet fears of being too old, too fragile, too useless—they were gone, buried under the weight of her own map and the heat of his touch.</p>
+<p>They stepped out of the gear room ten minutes later. Oksana didn't look up from her radio, but she pushed a pair of heavy snowshoes and trail markers toward them.</p>
+<p>"Peter’s waiting at the trailhead with the sled," Oksana said. "Don't lose the line."</p>
+<p>"We won't," Gethin said. He adjusted his pack, then looked at June. He didn't offer to carry her gear. He didn't treat her like a liability. He simply nodded.</p>
+<p>They stepped out of the depot and into the freezing dark.</p>
+<p>The wind had risen, carrying sharp needles of dry snow. The world was a vast, shifting canvas of white and violet shadow, the peaks of the Wrangells rising like jagged teeth against the night sky.</p>
+<p>June adjusted her goggles. The cold air immediately froze the moisture on her eyelashes. She looked at the mountain.</p>
+<p>She wasn't afraid.</p>
+<p>She adjusted her snowshoes and took the lead. Behind her, she heard the heavy, reassuring crunch of Gethin’s boots, following her into the white.</p>
+<p>The wind on the upper ridge didn't howl. It hissed. A sharp, white sound, filtering through the spruce needles and scraping like steel wool against the nylon of June’s shell. But beneath the frost, the mountain was giving up. The air carried a heavy, wet stink—the first honest breath of the spring line, where the sub-zero iron of winter finally rotted into mud and running water.</p>
+<p>June squinted through her goggles, pinning a vellum map against her thigh with thick, grease-stained gloves. Her fingers were stiff. Her knees—forty-six years of wear, capped off by a brutal three-mile vertical slog—ached with a rhythmic, liquid throb. But her hand didn't shake. She had marked this terrain herself. Not with the official geological surveys, which were three years out of date thanks to the glacial shifts, but by tracking the actual runs where the meltwater cut through the stone.</p>
+<p>"The wind-scour didn't push him east," she said. Her voice was sand-papery through her fleece neck gaiter. She tapped a faint, graphite smudge she’d sketched at her kitchen table the night before. "He would’ve run for the lee side of the saddle. If the kid has any survival instinct left, he’s down in the alder thicket below the crevasse. It’s the only canopy thick enough to keep him from freezing to death in the open."</p>
+<p>Gethin stood beside her, his breath pluming in great, ragged white clouds. At thirty-four, his engine ran hot. His chest rose and fell in slow, metronomic cycles, broad shoulders squared against the gusts. But there was no patronizing squint in his eyes when he looked down at her. None of that young-guy arrogance she’d spent her life dodging. Just an intense, almost frantic focus. He wasn’t looking at some city amateur he’d have to haul off the ice in a body bag; he was looking at the only person who’d gotten him through the white-out forty-eight hours ago.</p>
+<p>"You're sure?" he asked. The defensive edge he usually wore like armor was gone.</p>
+<p>"I’ve spent twenty years drawing the anatomy of these ridges, Gethin," she said, looking him dead in the eye. "I know where this mountain hides its garbage. And its people."</p>
+<p>He didn't argue. He just gave her a short, sharp nod—a total surrender to her instincts. "Lead."</p>
+<p>They found him forty-two minutes later, exactly where her pencil lines crossed. He was wedged into a shallow, collapsing snow cave beneath the alder roots, lips the color of a bruised plum, his speech nothing but a dry, clicking stutter.</p>
+<p>Gethin dropped to his knees, checking the boy's carotid artery. June didn't stand around waiting for orders. She sank right into the grey slush next to him, ignoring the sharp, hot protest in her lower back. She worked with him in silence, her movements automatic, helping him slide the kid into the foil bivvy sack. When she held the thermos of warm broth to the kid’s lips, her hands were perfectly steady. She spoke to him in that low, heavy voice she used to use when her daughter would wake up screaming from a night terror—a voice that didn't leave room for panic.</p>
+<p>Gethin stopped. His hands frozen on the nylon cinch straps of the rescue sled, he just watched her. In the flat, grey light of the ridge, with the wind catching the silver threads in her dark hair and the cold etching deep, dry lines around her eyes, she didn't look like someone who needed saving. She looked like the bedrock itself. Solid. Weathered. Alive.</p>
+<p>The realization hit him like a physical blow. For five years, Gethin had treated this range like a cemetery, keeping a miserable, frozen vigil to pay for his old mistakes. He’d built a wall of ice around himself, thinking if he never let his core warm up, he’d never have to feel the burn when things went sideways. But watching June save a stranger with nothing but a dull pencil and sheer, stubborn competence, he realized he hadn't been surviving at all. He’d just been preserving a corpse.</p>
+<p><em></em>*</p>
+<p>By the time they hauled the kid down to the valley and traded him to Oksana Rostov’s search-and-rescue rig, the sun was dropping fast, staining the snowfields in bruised shades of violet and rusted gold.</p>
+<p>Inside the rented cabin behind the lodge, the air was thick with the scent of old woodsmoke, damp wool, and the chemical tang of pine-scented floor wax. The adrenaline that had kept June upright on the ridge evaporated all at once, leaving her with a hollow, bone-deep ache. Every joint from her hips to her ankles throbbed.</p>
+<p>She stood in the cramped bathroom, hands flat against the cold porcelain of the sink. Steam from the shower had turned the mirror into a grey blur; she swiped her palm across it, clearing a ragged circle.</p>
+<p>She stared at herself.</p>
+<p>The wind had left her cheeks raw and mottled. Her shoulders were slightly rounded—the permanent posture of a woman who had carried a household, survived a messy, slow-motion divorce, and then navigated the quiet, echoing vacuum of an empty nest. Her stomach was soft, cross-hatched with the silver-white stretch marks of a pregnancy that felt like it had happened in another century. Her breasts were heavy, yielding to gravity in a way that Seattle’s gym-obsessed thirty-somethings would have wept over.</p>
+<p>A cold, familiar knot tightened in her throat. She was forty-six. Back home, she was the dependable freelance illustrator. The amicable ex-wife. The mother who remembered birthdays and sent boxes of homemade cookies. She was used to being invisible—the background noise in other people's lives. Now, with the rescue over, the massive, quiet space between her and Gethin felt like a drop-off. He was thirty-four. He lived on adrenaline, snow, and muscle. What would a man like that want with a woman who had already lived an entire lifetime before he’d even learned how to navigate a map?</p>
+<p>She pulled on an oversized, grey wool sweater that hung down to her thighs and stepped out into the main room.</p>
+<p>The door didn't get a knock. It just swung open.</p>
+<p>Gethin stood in the frame. He’d stripped off his heavy shell, wearing only a thin, dark thermal shirt that clung to the damp curve of his shoulders. His jaw was dark with three days of stubble, his eyes black and wide in the firelight.</p>
+<p>"Oksana says the kid's stable," Gethin said. His voice was raw, like he’d been swallowing gravel. He kicked the door shut behind him, the latch dropping with a heavy, final thud. "The medics said another thirty minutes and his kidneys would've shut down."</p>
+<p>"We did good," June said. Her fingers instantly went to the collar of her sweater, pulling the wool tight around her neck. "You did good, Gethin."</p>
+<p>"No," he said, taking a step toward the hearth. "You did. You pulled him out of the snow, June. And you pulled me out, too."</p>
+<p>She looked down at her bare toes on the cold pine floorboards, shaking her head. "Don't. It was the map. It was just a lucky guess."</p>
+<p>"Look at me," he said. It wasn't a shout, but the sheer weight of it made her chin lift. He crossed the room in three steps, stopping so close she could feel the heat radiating off his chest—the smell of cedar, cold sweat, and wool. "I spent five years waiting for the freeze to finish me off. I thought if I stayed numb, nothing could touch me. Then you walk in here with your charcoal pencils and your attitude, and you start digging me out."</p>
+<p>"Gethin," she whispered, her ribs aching with the hard thump of her heart. "I’m on the plane back to Seattle next Tuesday. My life is there. My kid, my apartment, my work. I’m not some girl who can run away to the mountains for a romantic weekend. I have baggage. I have a body that’s seen its share of winters."</p>
+<p>"You think I want a girl?" He reached out, his massive, scarred hands framing her jaw. His thumbs were rough, calloused from climbing ropes, but they touched her skin with a terrifying gentleness. "I want a woman, June. I want <em>you</em>. The one who knows exactly who she is, scars and all. I’m done with the cold. I want the thaw. And I want it with you."</p>
+<p>The raw honesty in his face broke whatever was left of her defenses. The fear of being too old, too used, or simply too much disappeared in his stare. He wasn't looking at her with some fleeting, polite lust; he was looking at her like she was the only coordinate that mattered on the map.</p>
+<p>"Gethin," she breathed, her fingers wrapping around his wrists. His pulse was a frantic, wild thrumming against her palms.</p>
+<p>He didn't wait. He leaned down, his mouth crashing into hers with a hunger that was desperate but patient. The kiss tasted like salt, heat, and the sudden, violent end of a long winter. June let out a low noise in the back of her throat, her body arching into him, her hands sliding up the dry cotton of his sleeves to knot in his hair.</p>
+<p>Gethin groaned, his hands traveling down her neck, then lower, bunching the thick wool of her sweater in his fists. He lifted her off her feet—his strength wasn't a show; it was just there—and carried her the two steps to the heavy timber bed.</p>
+<p>He laid her back on the flannel sheets, but he didn't follow her down yet. He stood by the mattress, his eyes locked on hers as he pulled the dark thermal shirt over his head. His chest was lean, ropey with muscle that shifted fluidly under skin bronzed by wind and high-altitude sun. He unbuckled his belt and kicked his trousers aside until he stood before her bare, a creature of bone and sinew.</p>
+<p>Then he knelt on the edge of the mattress and reached for the hem of her sweater.</p>
+<p>"Let me," he whispered.</p>
+<p>June’s chest rose and fell in short, shallow hitches. For a split second, the old instincts screamed at her to cover up, to hide the soft curve of her belly and the heavy slope of her hips. But Gethin’s eyes were too steady.</p>
+<p>He slid the sweater up and over her head, tossing it onto the floorboards. When she lay there in her simple cotton underwear, his breath caught.</p>
+<p>"You are so beautiful," he murmured, his voice thick. "Every damn inch."</p>
+<p>He leaned down, pressing his lips to her throat, his tongue tracing the hollow above her collarbone. June gasped, her fingers digging into his hair, pulling him down. He moved with a slow, deliberate gravity, mapping her with his hands. His palms, calloused and burning hot, slid over her ribs, tracing the soft, familiar weight of her waist.</p>
+<p>He didn't rush. He kissed her breasts, his mouth heavy and wet as he took one dark nipple between his lips, suckling until a sharp, liquid ache bloomed deep in her pelvis. She cried out, her hips tilting up of their own accord, searching for his skin.</p>
+<p>"Gethin, please."</p>
+<p>"Tell me what you want," he muttered against her jaw, his hand sliding under the elastic of her underwear.</p>
+<p>"You," she said, her voice sharp with sudden authority. "Now. I’m done waiting."</p>
+<p>He smiled, a genuine, easy line that made him look younger, happier than she’d ever seen him. He slid her underwear down her legs and parted her knees, settling his weight between them.</p>
+<p>The contrast between them was loud—his hard, weathered, youthful frame hovering over her softer, paler, mature body. But there was no unevenness in the room. There was only a mutual, desperate hunger. June reached down, her fingers closing around him. He was thick, hot, and fully hard. He let out a ragged, whistling breath, his forehead dropping against her shoulder as he leaned into her grip.</p>
+<p>He dipped two fingers between her thighs, finding her wet and burning. June’s breath hitched as he stroked her, a slow, heavy pressure that made her lower back arch off the mattress.</p>
+<p>"Gethin..."</p>
+<p>He braced his forearms on either side of her head, his chest resting against hers. His eyes locked onto hers, refusing to let her look away.</p>
+<p>"I love you, June," he whispered. "Since the day you told me to go to hell in the middle of a gale."</p>
+<p>Before she could speak, he pushed forward, sliding slowly and deeply inside her.</p>
+<p>The fullness of it was so intense that a small, broken sob escaped her lips. It wasn't pain; it was the sheer, shocking heat of being filled by a man who wanted the whole of her. He felt massive, solid, and perfect.</p>
+<p>"Keep your eyes open," he begged.</p>
+<p>She did, her vision slightly blurred by tears of relief. He began to move, his strokes long, heavy, and deliberate. Each thrust had a rhythm to it, matching the steady drip of the melting snow outside the window.</p>
+<p>June wrapped her legs around his waist, pulling him deeper. The feel of his rough hands locking onto her hips, anchoring her to him, sent waves of fire through her blood. She felt the power of her own maturity—the confidence of a woman who knew her own body, who met his youthful energy with a deep, grounded passion that left him gasping for air.</p>
+<p>"You're so hot, June," Gethin groaned, his pace breaking, the control slipping from his face. His skin was slick with sweat now, his back muscles bunching as he drove into her, his face buried in her neck.</p>
+<p>June felt the tension building inside her—a tight, golden coil winding tighter and tighter until it was about to snap. She clung to his shoulders, her nails digging into his skin.</p>
+<p>"I'm close," she whispered. "Gethin, I'm..."</p>
+<p>"Go," he growled, his thrusts turning hard, urgent, and raw. "Let go. I’ve got you."</p>
+<p>The release hit her like a sudden spring flood—a violent, beautiful rush of warmth that clamped her inner muscles tight around him. June cried out his name, her head throwing back into the pillow as the waves washed over her.</p>
+<p>Seeing her break, Gethin let out a low, guttural sound. He gave three more heavy, desperate thrusts, burying himself as deep as he could go, and came with a shuddering force that made his whole body lock. He held her tight, his chest heaving against her breasts, his pulse pounding against her throat as he poured himself into her.</p>
+<p><em></em>*</p>
+<p>They lay together in the quiet aftermath, the fire in the hearth dying down to a bed of glowing orange coals. The room was warm, filled with the scent of sex, woodsmoke, and the damp, clean air of the coming thaw.</p>
+<p>Gethin lay on his side, his arm draped heavy over her waist, his fingers tracing lazy circles on her soft stomach. June rested her head on his shoulder, her hand tangled in the dark hair of his chest.</p>
+<p>Outside, the steady <em>drip-drip-drip</em> of water falling from the roof was a constant, soothing rhythm. The freeze was over. The valley was waking up.</p>
+<p>"I'm coming to Seattle," Gethin said into the dark.</p>
+<p>June turned her head to look at him, her heart skipping a beat. "Gethin..."</p>
+<p>"Not forever, not right away," he said, shifting so he could look into her eyes. He reached up, gently tucking a silver-streaked lock of hair behind her ear. "But I'm not letting you go, Junia Keelan. I can manage the lodge from anywhere. Oksana can run the guides for a few months. I want to see your city. I want to see your studio. I want to be the man who makes you breakfast in your own kitchen."</p>
+<p>June looked at him—this young, fierce, beautiful man who had looked past all her doubts and found the woman she had forgotten she was. A soft, wet laugh escaped her lips, and she leaned up to kiss him, a sweet, lingering taste of the future.</p>
+<p>"It rains a lot in Seattle," she whispered against his lips.</p>
+<p>"I don't mind the rain," Gethin smiled, tightening his grip on her, pulling her body flush against his in the warm, dark safety of the bed. "As long as I’m keeping you warm."</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

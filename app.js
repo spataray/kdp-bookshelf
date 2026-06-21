@@ -461,6 +461,13 @@ function createBookCard(book) {
         <p class="book-subtitle" title="${book.summary || ''}">${book.summary || 'No summary description provided.'}</p>
         
         <div class="asset-links">
+            ${book.reader_path ? `
+                <a href="${book.reader_path}" class="download-link read-book-btn" target="_blank" style="border-color: hsla(210, 85%, 65%, 0.3); background-color: hsla(210, 85%, 65%, 0.08);">
+                    <span>📖 Read Online</span>
+                    <span class="asset-format" style="color: var(--secondary);">VIEW</span>
+                </a>
+            ` : ''}
+            
             ${epubUrl ? `
                 <a href="${epubUrl}" class="download-link" target="_blank">
                     <span>📚 EPUB Digital Book</span>

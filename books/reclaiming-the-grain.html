@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclaiming The Grain - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">Reclaiming The Grain</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>Reclaiming the Grain</h1>
+<p>The basement smelled of vinegar and rot.</p>
+<p>Specifically, the vinegar of decaying acetate film stored three aisles over, mixed with the damp chill of concrete foundation and the dry, vanilla scent of decomposing rag paper. Eulalie Fontaine leaned over the custom light box. Her lower back gave a familiar, dull throb. She held her breath, sliding a thin micro-spatula under a strip of yellowed tape.</p>
+<p>Some well-meaning volunteer in 1957 had tried to mend a tear in the 1784 ledger with cellophane tape. Now, seventy years later, the adhesive had turned into a dark brown, crusty stain that ate through the rag paper like slow acid. It was a quiet death for a piece of history. Eulalie was the only one standing between this book and the trash heap.</p>
+<p>"Patience," she muttered.</p>
+<p>The concrete walls of the St. Jude Historical Society archives swallowed the sound instantly.</p>
+<p>She worked in a slow, steady loop. Lift. Scrape. Dab a microscopic dot of warm wheat starch paste with a fine-tipped sable brush. Lay down a strip of mulberry paper so thin it was practically a ghost. Press it with the bone folder.</p>
+<p>Her fingers were steady, but they weren't young. The knuckle of her right thumb was thick and swollen, aching whenever the autumn rain set in. Her nails were short, unpolished, and stained a stubborn yellow from chemical solvents. They were useful hands. Hard-working hands. The hands of a forty-eight-year-old woman who spent her days preserving other people’s histories because her own present had fallen apart.</p>
+<p>For twenty-four years, those hands had done different work. They had rubbed the tension out of Richard’s shoulders. They had packed school lunches, ironed small cotton dresses, and planted climbing roses that eventually died of black spot in the backyard of a house she no longer owned. Finally, they had held a pen to sign a divorce decree that stripped her of almost everything she had spent her life building.</p>
+<p>She had kept the name, though. Fontaine. It was a small, petty victory. Mostly, she just couldn't stomach the bureaucratic nightmare of changing her driver’s license, her bank accounts, and her professional credentials at forty-seven. But now there was another Mrs. Fontaine in town. A younger, firmer version. Idalia.</p>
+<p>The archives were kept at a strict sixty degrees to protect the paper. But suddenly, Eulalie felt a strange, tight prickle at the back of her neck.</p>
+<p>The heat hit her like an open furnace door.</p>
+<p>It started behind her breastbone—a sudden, violent blush that flooded up her chest, over her collarbones, and pooled hot and heavy in her throat. Her cheeks burned. Her heart began to rattle against her ribs like a trapped bird.</p>
+<p>"Not now," she whispered.</p>
+<p>She dropped the bone folder before her hand could shake and ruin the mulberry paper. Her palms were slick. She tried to push her reading glasses onto her head, but they slid right back down, greasy with the sweat suddenly pooling on her forehead.</p>
+<p>She stood up too fast. Her chair shrieked against the concrete floor. Her head spun, and she had to grip the edge of the heavy oak workbench to keep from falling.</p>
+<p>She yanked at the buttons of her heavy wool cardigan. Her fingers felt like thick, clumsy sausages. She ripped the sweater off and threw it on the stool, standing there in her thin cotton camisole, her skin flushed an angry, bright red.</p>
+<p>The sweat was everywhere now. It ran in cold, miserable trickles down her spine, pooled under her breasts, and damply glued her hair to the back of her neck. She grabbed a piece of heavy, acid-free cardstock and began to fan herself, her chest heaving.</p>
+<p>It felt like a betrayal. Her own body was mutating without her permission, a constant, sweaty reminder of middle age.</p>
+<p>She caught her reflection in the dark screen of the archival scanner across the room.</p>
+<p>Her outline was soft. The waist she used to have was gone, replaced by something thicker and sturdier. Her breasts sat lower. In the dim overhead light, the silver in her dark hair caught the glare like spiderwebs.</p>
+<p>She looked tired. Not just sleepy, but the kind of bone-weary that sleep couldn't touch.</p>
+<p>"Forty-eight," she said to the dark screen.</p>
+<p>The number felt heavy. In her twenties, forty-eight had seemed ancient—the age of grandmothers and orthopedic shoes. But she didn't feel old. She just felt unfinished. Like a book left out in the rain, its pages swollen and warped, but the story still there, waiting.</p>
+<p>But who was actually looking?</p>
+<p>To the rest of the world, she had become invisible. It had happened slowly, then all at once. Men’s eyes slid right past her on the street. Clerks at the grocery store looked through her to the person behind her in line. Even here, she was tucked away in the basement, a ghost among ghosts, preserving the lives of dead people while her own life evaporated.</p>
+<p>The heat finally began to break, leaving behind a cold, clammy shiver. She pulled her cardigan back on, but the fabric felt damp and miserable against her skin.</p>
+<p>Today was the anniversary. Exactly one year since the judge had banged his gavel and ended her marriage.</p>
+<p>One year of living in the drafty apartment on Elm Street. One year of sleeping on the far left side of a double bed because the right side felt too empty. One year of learning how to buy groceries for one, of watching the silence stretch across her living room.</p>
+<p>She still remembered the exact tone of Richard’s voice when he told her. They had been sitting in the kitchen of their restored colonial.</p>
+<p>"I’m not happy, Eulalie," he had said. He hadn't even looked at her. He was staring at his phone, his thumb idling over some feed. "We've just grown apart. We’re in different places."</p>
+<p>The "different place" was a glass condo downtown with Idalia.</p>
+<p>Idalia was twenty-six. She taught yoga, laughed like wind chimes, and smelled of coconut oil. Her joints didn't ache. She didn't have to worry about grey hair or hot flashes.</p>
+<p>And now, Idalia was pregnant.</p>
+<p>Richard, who had spent ten years complaining about the cost of their daughter’s college tuition, who had claimed he was "too old and too tired" to ever think about starting over, was going to be a father again at fifty-two.</p>
+<p>Eulalie had found out through a mutual friend three weeks ago. The news had felt like a physical blow, a fist to the ribs that left her gasping on her kitchen floor.</p>
+<p>The sheer unfairness of it burned hotter than any hot flash. Richard got to press a reset button. He got a shiny new life, a young wife, and a do-over baby. He got to treat their twenty-four years together as a dry run.</p>
+<p>And Eulalie got the scraps. The old memories, the empty nest, and a body that was shutting down operations.</p>
+<p>She reached out and touched the edge of the 1784 ledger. The leather was dry and peeling. If she didn't treat it with lanolin, it would eventually turn to dust.</p>
+<p>"I am not going to crumble," she said, her voice louder this time.</p>
+<p>She looked at her hands. They were strong. They had saved thousands of books. Surely they could save her.</p>
+<p>She had spent the last year mourning a man who didn't deserve it, fading into the background. She was done being the sad, discarded first wife.</p>
+<p>By five o'clock, a cold rain was tapping against the narrow basement windows.</p>
+<p>Eulalie wrapped the restored ledger in acid-free tissue and placed it in its archival box. She cleaned her brushes, capped the paste, and wiped down the light box. Everything in its place.</p>
+<p>In the staff bathroom, she stared at herself under the harsh fluorescent lights. She didn't look away.</p>
+<p>She leaned close to the mirror. There were fine lines around her eyes—laughter lines, though many had been paid for in tears. Her skin was pale, but her cheeks still held a faint, rosy color from the flush. Her neck was long and elegant.</p>
+<p>She pulled the pins from her hair. It fell down her shoulders in thick, dark waves streaked with silver. It wasn't twenty-six-year-old hair, but it was thick and soft.</p>
+<p>"You're still here," she told herself.</p>
+<p>She gathered her things and walked up the concrete stairs.</p>
+<p>The main floor of the historical society was empty and quiet. She nodded to the evening guard, a retired cop named Artie who was working a crossword.</p>
+<p>"Night, Eulalie," he grunted.</p>
+<p>"Goodnight, Artie."</p>
+<p>The cool, damp evening air hit her face, smelling of wet asphalt and fallen leaves. She closed her eyes for a second, letting the mist cool her skin. It felt incredible.</p>
+<p>She walked the six blocks to her apartment. She had sold her SUV during the divorce to pay her lawyer, and now she walked everywhere. At first, she had hated it—it felt like a public badge of her reduced status. But now, she liked the physical work of it. It made her feel connected to the ground.</p>
+<p>Her knees ached by the time she climbed the three flights of stairs to her place, but she didn't mind. It meant she was moving.</p>
+<p>The apartment was small, but it was entirely hers.</p>
+<p>She had decorated it with everything Richard hated. The walls were a deep, rich plum instead of his sterile beige. Mismatched Turkish rugs covered the floors, stacks of art books piled up on every table, and a velvet armchair she had salvaged and restored herself sat in the corner.</p>
+<p>She dropped her keys in the bowl by the door. The quiet wrapped around her.</p>
+<p>In the kitchen, she poured a glass of cold pinot grigio. It was crisp and sharp on her tongue. She took a long, slow sip, letting the warmth spread down her throat.</p>
+<p>She didn't want dinner.</p>
+<p>Instead, she went into the bathroom and turned the hot water on high. She dumped a handful of lavender salts into the tub, watching them dissolve in the steam.</p>
+<p>She undressed slowly, letting her clothes pile on the tile.</p>
+<p>She stood in front of the full-length mirror on the door. This was always the hardest part—the part where she couldn't hide behind layers of wool or structured jackets.</p>
+<p>Her body looked forty-eight.</p>
+<p>Her belly was soft, marked with the faint, silver stretch marks of the pregnancy that had brought her daughter into the world twenty-one years ago. Her thighs were thick, her skin less tight than it used to be.</p>
+<p>But standing there in the warm, yellow light, she didn't feel disgusted.</p>
+<p>She felt a strange, quiet curiosity.</p>
+<p>This was her body. It had survived. It had carried life, endured a broken heart, and kept going. It was a good body. It deserved to be touched.</p>
+<p>She stepped into the tub, the hot water rising up her legs, her hips, her waist. She sank down until the water hit her chin, her hair floating around her head.</p>
+<p>She closed her eyes.</p>
+<p>For twenty-four years, she had been a supporting character in Richard’s life. She had been the wife who hosted the dinners, the mother who drove the carpools, the quiet face in the background.</p>
+<p>She was done with the background.</p>
+<p>She wanted to feel something real again. Not just the quiet safety of surviving, but a spark. She wanted to be held by someone who actually saw her—not as a mother, not as a reliable fixture, but as a woman.</p>
+<p>Under the water, she let her hand slide over her stomach, then lower, to the soft hair between her thighs. The touch was light, tentative.</p>
+<p>Her breath caught.</p>
+<p>The feeling was sharp, a sudden jolt that made her stomach tighten. It had been so long since she had touched herself with anything other than hurried utility.</p>
+<p>She closed her eyes tighter, her fingers finding the small, sensitive center of her. She began to stroke herself, slowly at first, then with a growing, quiet hunger.</p>
+<p>She didn't picture Richard. She would never picture Richard again.</p>
+<p>She pictured a shadow. A man with strong, patient hands—hands that didn't mind the texture of her skin, hands that would curve over her hip and pull her flush against him. A man who would look at her silver hair and see something beautiful.</p>
+<p>The pleasure built fast, a tight, hot coil that had nothing to do with hormones and everything to do with her own desire. Her hips moved slightly against the bottom of the tub, her breath coming in short, ragged gasps.</p>
+<p>The release was sudden and clean, a burst of warmth that spread through her belly and left her limbs heavy and loose.</p>
+<p>She let out a soft cry, the sound echoing off the wet tiles.</p>
+<p>She lay there in the cooling water, her heart thumping against her ribs. Sweat beaded on her forehead, but this time, it wasn't a hot flash. It was her own fire.</p>
+<p>She opened her eyes, looking up at the ceiling.</p>
+<p>She was Eulalie Fontaine. She was forty-eight, she was divorced, her knees ached, and she was entering the autumn of her life.</p>
+<p>But she wasn't dead.</p>
+<p>She was raw, she was alive, and she was ready.</p>
+<p>As she finally dried off and wrapped herself in a plush towel, a quiet determination settled into her bones. She wasn't going to hide anymore.</p>
+<p>Tomorrow, she would go back to work. She would finish the 1784 ledger. And then, she would start writing her own story.</p>
+<p>The next morning, the rain was gone, replaced by a crisp, bright autumn day. The air was sharp with the scent of pine and wet earth.</p>
+<p>Eulalie walked to work with a different stride. She didn't look down at her shoes; she kept her chin up, looking at the faces of the people passing her.</p>
+<p>When she got to her desk at the historical society, a thick courier envelope was waiting for her.</p>
+<p>She frowned, setting her bag down. She never got mail here.</p>
+<p>She slid her finger under the flap and pulled out a heavy, cream-colored card.</p>
+<p>An invitation.</p>
+<p><em>You are cordially invited to celebrate the grand opening of the Fletcher Gallery at the St. Jude Historical Society.</em></p>
+<p>Eulalie’s stomach dropped.</p>
+<p>The Fletchers were one of the oldest, wealthiest families in the city.</p>
+<p>They were also Idalia’s family.</p>
+<p>And at the bottom of the card, in elegant gold ink, was a handwritten note:</p>
+<p><em>Eulalie,</em> <em>I hope you can make it. Richard and I would love to see you there. We really want to put the past behind us and be one big, happy family.</em> <em>— Idalia Fontaine</em></p>
+<p>Eulalie felt the heat drain from her face.</p>
+<p>One big, happy family.</p>
+<p>The sheer, unadulterated gall of it. Inviting her to a public gala where her ex-husband and his pregnant, twenty-six-year-old wife could parade their new life in front of the entire town.</p>
+<p>She crushed the card in her hand, her knuckles white.</p>
+<p>Her first instinct was to throw it in the trash, run down to her basement, and lock the door.</p>
+<p>But then she remembered her promise in the bath.</p>
+<p><em>I am not going to crumble.</em></p>
+<p>She slowly smoothed the crumpled card out on her desk, her fingers trembling. She looked at the name <em>Fletcher</em>.</p>
+<p>She knew about the Fletchers. She knew they had funded the new wing. She also knew Idalia had a brother.</p>
+<p>Keir Fletcher.</p>
+<p>She had seen him once, years ago, at a museum gala. He had been striking—tall, broad-shouldered, with dark eyes that seemed to look right through the crowd. He was thirty-four now, she thought. A man of wealth and serious influence, completely out of her orbit.</p>
+<p>If she went to this gala, she would be walking straight into a trap. She would have to face Richard, Idalia, and the entire Fletcher family.</p>
+<p>But if she didn't go, she would be proving them right. She would be the sad, bitter first wife hiding in the dark.</p>
+<p>She stood up, her jaw set.</p>
+<p>She would go.</p>
+<p>And she wasn't going as the quiet, invisible archivist.</p>
+<p>She was going as Eulalie Fontaine.</p>
+<p>She picked up her phone and dialed the number of a high-end boutique downtown—the kind of place she had avoided for a year because the clothes were too expensive, too bold, too noticed.</p>
+<p>"Hello," she said, her voice clear and level. "I'd like to book a personal shopping appointment. For an event."</p>
+<p>She hung up, her heart hammering in her chest.</p>
+<p>The heat was back. And this time, she was going to let it burn.</p>
+<h1>Chapter 2: Dry Rot and Deadwood</h1>
+<p><em>Plink. Plink. Plink.</em></p>
+<p>Water hit plastic. It was the only sound down in the basement of the St. Jude Historical Society, regular as a dying heartbeat. Eulalie Fontaine knelt on the bare concrete, her knees cracking like dry twigs. She reached for another heavy, acid-free box. Her lower back didn't just ache anymore; it throbbed with a dull, steady resentment.</p>
+<p>Forty-eight wasn't old, not really, but her joints hadn't received the memo. The autumn air out on Main Street was crisp and smelled of woodsmoke. Down here? Nothing but damp limestone and the wet chill of 1890. It clung to her wool sweater and crawled right into her bones.</p>
+<p>She pushed a stray lock of hair behind her ear. Silver threaded her temples now. She’d given up on the six-dollar box dye back in April. Why bother? She wore faded, high-rise jeans that didn't quite hide her soft stomach, and a bulky green sweater with frayed cuffs. This was her "after" body—the one left behind by a twenty-year marriage and a daughter who had just packed three suitcases and headed off to college. Now the house on the hill was too quiet. The refrigerator hummed too loud. So, Eulalie spent her evenings down here, buried under a hundred years of other people's damp, forgotten lives. It was warmer than her own kitchen.</p>
+<p>"Terrific."</p>
+<p>She lifted a stack of town records from 1895. The bottom of the box gave way, turning to wet mush in her hands. She barely caught the ledger before it hit the floor.</p>
+<p>Above her head, the main support beam of the old building looked swollen and black. The upstairs kitchen had been leaking for a week, water pooling behind the plaster and bleeding down into her quiet space. The smell was everywhere. Wet dirt, rotting pine, and old mold. It made her throat itch.</p>
+<p>Then came the boots.</p>
+<p>Heavy, slow footsteps on the wooden stairs. These weren't the quiet, shuffling steps of the retired schoolteachers who volunteered on Thursdays. The old pine steps groaned under real weight.</p>
+<p>Eulalie stood up, dusting off her palms, and turned around.</p>
+<p>A man ducked under the low copper water pipes and stepped into the dim basement. He was big. Not just tall, but broad across the shoulders, filling out a faded red flannel shirt. His hair was thick, silver-grey, and chopped short, matching the rough stubble on his jaw. He carried a worn leather tool bag that looked heavy enough to kill a man.</p>
+<p>"Are you the keeper of the lost secrets?"</p>
+<p>His voice was a deep, gravelly rumble. It caught her right in the center of her chest.</p>
+<p>"Eulalie Fontaine," she said, finding her voice. She offered her hand, suddenly wishing she hadn't wiped her dusty palms on her jeans.</p>
+<p>He dropped the heavy bag with a thud that echoed off the stone. When he took her hand, his skin was surprisingly hot. And dry. His palm was huge, covered in thick, rough calluses that scraped against her fingers with a friction that made her stomach flip.</p>
+<p>"Keir Fletcher."</p>
+<p>He didn't let go. Not right away. His eyes were a startling, clear grey under thick, dark brows. He looked straight at her. Not past her, not through her—which was what most men her age did these days. He saw the silver in her hair. He saw the smudge of dirt on her forehead. And he didn't look away.</p>
+<p>"The board called me," he said, his voice dropping an octave. "Said you had a wet beam."</p>
+<p>"Right. Yes." She pulled her hand back, but her skin still tingled where he’d touched it. "The main support. Back here."</p>
+<p>She led him to the dripping corner. Keir clicked a button, and a circle of bright white LED light cut through the shadows, hitting the dark, wet wood.</p>
+<p>He stepped in close behind her. Too close. She could smell him now—cold autumn rain, cedar shavings, and some kind of clean, basic soap. It was a thick, comforting smell. It hit her with a sudden, sharp ache of realization: she hadn't been this close to a man in years.</p>
+<p>"Old-growth white pine," Keir murmured. He reached up. His flannel sleeve slid back, showing a thick forearm with dark hair and a pale, jagged scar near the wrist. He pressed his thumb hard into the wet wood. "Look at those rings. Tight. You can't buy wood like this anymore. They cleared these forests before our grandparents were born."</p>
+<p>"The 1880 renovation," Eulalie said. Her voice came out softer than she wanted. She liked the way he looked at the wood. Most guys just wanted to tear everything out and slap up cheap drywall and fast-growth spruce. "They wanted it to last."</p>
+<p>"They knew what they were doing," Keir said. He tracked the flashlight beam along the joist. "But nothing survives standing water. If it sits, the fungus takes over. It eats the wood from the inside out. Once that happens, the strength is gone."</p>
+<p>"Dry rot."</p>
+<p>He looked down at her, his lips twitching into a small, pleased smile. "Exactly. Dry rot. It’s a stupid name, really. It needs water to start, but once it gets going, it turns the timber into dry, brown powder. Looks like charcoal. Crumbles when you touch it."</p>
+<p>"Can we save it?" she asked. She found herself staring at his mouth. His lips were full, framed by deep creases that came from working out in the wind and sun.</p>
+<p>"Maybe. If the heart of it is still dry." Keir reached up again, his fingers sliding along the dark edge of the wet patch. "Come here. Feel this right here."</p>
+<p>She took a half-step closer. Her shoulder brushed his chest—he felt as solid as the foundation of the building. She reached her hand up toward the dark wood.</p>
+<p>"A bit higher," Keir murmured.</p>
+<p>He didn't wait. He put his hand right over hers, guiding her fingers up the wet timber. His palm was massive, hot, and heavy. Eulalie’s heart did a sudden, violent flip against her ribs. This wasn't one of her middle-aged hot flashes. She knew those. This was a direct, sharp spark that hit her right in the gut—a feeling she had assumed was dead and buried years ago.</p>
+<p>His rough fingers pressed hers into the wood. The timber felt slick, spongy, and dead. But she could barely register the wood. All she could feel was the weight of his hand, his thumb resting right over her pulse on the inside of her wrist. He had to feel how fast it was racing.</p>
+<p>"See how it gives?" Keir’s voice was a low whisper. His breath stirred the loose hair at her temple. "The sapwood is gone. Totally rotted through. But press harder..." He pushed down on her knuckles, forcing her hand deeper into the wood. "...right there. Feel that?"</p>
+<p>"Yes," she whispered.</p>
+<p>"That's the heartwood," he said. "It’s still holding."</p>
+<p>She could barely get the word out. Her throat was bone-dry. She was staring at the wood, but every nerve in her body was screaming about the man standing behind her, his chest warm against her shoulder blades.</p>
+<p>He didn't pull away. They stood like that in the damp dark, hands pressed together against the wet beam, while the water dripped behind them like a clock ticking down. Eulalie felt raw. Exposed. It had been three years since her ex-husband, Richard, had walked out the door with his suitcases. Three years since anyone had touched her like she was a woman, not just an object in the room. Richard had treated her like an old, out-of-print book—nice to have on a shelf, maybe, but dusty, boring, and easily swapped for a glossy new paperback.</p>
+<p>But Keir’s hand was heavy and steady. He wasn't rushing.</p>
+<p>"You’ve got a bit of dirt on your cheek," Keir said.</p>
+<p>He let his hand fall from the beam, but he didn't step back. Instead, he gently turned her to face him. His fingers were warm as they touched her cheekbone, brushing away the smudge of wood dust. His thumb lingered, the rough skin of his callus scraping light and slow against her cheek.</p>
+<p>Eulalie looked up at him, her breath caught in her throat. She saw the deep lines around his eyes, the silver cutting through his beard. He looked like a man who had actually lived. A man who worked with his hands and knew that some things took time to build.</p>
+<p>"I’m a mess," she whispered.</p>
+<p>"You look beautiful."</p>
+<p>It wasn't a line. He just said it, flat and honest. His eyes drifted down to her mouth. For a second, Eulalie was sure he was going to lean in. She wanted him to. Her body leaned forward without her permission, her heart hammering against her ribs. She wanted those big, rough hands on her hips. She wanted to feel that heat against her in this cold basement.</p>
+<p>Keir let out a slow, heavy breath, his eyes turning dark. Slowly, he let his hand drop. He stayed close, though, close enough that she could feel his warmth. "I shouldn't have done that. I'm sorry. I don't usually try to hit on my clients in dark basements."</p>
+<p>A laugh escaped her—high and slightly giddy, like a teenager's. "Well. It’s a very atmospheric basement."</p>
+<p>"That it is," he said, and the corners of his mouth twitched. The heavy tension broke, but the air between them still felt electric. He took a step back, giving her room to breathe, and ran a hand through his thick hair. "Here's the plan. I can save the beam. I’ll have to cut out the rotten section and bolt a new piece of treated timber right alongside it. 'Sistering' it, we call it. It’ll take two of us to lift the new wood, but I can do the prep work alone."</p>
+<p>"How long?" she asked, trying to find her professional, librarian voice.</p>
+<p>"Two, three days," Keir said, looking back up at the ceiling. "I’ll clear some time next week. I was supposed to help my brother-in-law build a deck, but this is worse. The town hall shouldn't be resting on a wet sponge."</p>
+<p>"Thank you," Eulalie said. A small, warm spark flared in her chest. She had something to look forward to next week. She would get to see him again. They’d talk about old buildings, about wood, about things that lasted.</p>
+<p>"Sure thing," Keir said, grabbing his flashlight. He clicked it off, and the basement slid back into its familiar, quiet shadows. "Besides, I don't mind putting Richard off. He's got enough going on anyway."</p>
+<p>Eulalie stopped.</p>
+<p>The warm feeling in her chest didn't just fade—it froze, solid and cold as river ice.</p>
+<p>"Richard?" she said. The name came out dry, empty of all the soft warmth from a moment ago.</p>
+<p>Keir didn't notice. He was already shoving his flashlight back into his leather bag. "Yeah. My brother-in-law, Richard Fontaine. Just bought that big, ugly Victorian over on Elm Street. He's trying to get the whole place gutted before the baby arrives."</p>
+<p>The words hit her like a fist to the stomach. The damp air suddenly felt too thick to breathe.</p>
+<p>"Richard Fontaine," she repeated. Her hands balled into tight fists, her nails digging into her palms.</p>
+<p>"Yeah. You know him?" Keir asked. He finally looked up. He stopped, his grey eyes narrowing as he saw her face. The color had drained completely out of her skin. She was standing stiff, like she'd been turned to stone. "He’s in real estate."</p>
+<p>"I know him," Eulalie said. It sounded like she was chewing on sand. That old, familiar shame flared up in her throat, hot and choking, burning away every trace of the sweet, stupid heat she’d just felt. "He was my husband for twenty-two years."</p>
+<p>Keir froze. The strap of his tool bag slipped through his fingers. It hit the concrete floor with a heavy, dull clatter.</p>
+<p>"Your... husband?" Keir’s face went white.</p>
+<p>"Ex-husband," she corrected. Her voice was sharp enough to cut glass. She could feel the walls slamming down inside her, thick and heavy, locking everything away. "Until three years ago. That’s when he decided he needed a younger model. He left me for a girl half his age. A girl named Idalia."</p>
+<p>Keir stared at her. His eyes were wide, filled with a sudden, terrible dawning horror.</p>
+<p>"Idalia is my sister," he said.</p>
+<p>The silence in the basement was absolute.</p>
+<p><em>Plink. Plink. Plink.</em></p>
+<p>The dripping water above seemed to grow louder, echoing off the limestone walls like a timer counting down.</p>
+<p>Eulalie looked at him. Really looked. The warmth was gone, replaced by a cold, sharp clarity. In his strong jaw, in the shape of his eyes, she could see it now—the faint, cruel family resemblance to the girl who had shattered her life. Idalia Fletcher. Now Idalia Fontaine. The twenty-six-year-old who was living in the house Eulalie had spent twenty years building. The girl sleeping in the bed Eulalie had picked out, carrying the baby Richard had always told Eulalie they were too old to have.</p>
+<p>And this man—the guy whose hands had just made her feel alive for the first time in years—was her ex-husband's new brother-in-law. A direct line to the betrayal that had broken her.</p>
+<p>"Eulalie," Keir started. He took a step forward, his hands half-raised. "I didn't know. I swear to God, I didn't know."</p>
+<p>"It doesn't matter," she said, stepping back until she hit the cold metal shelf of the 1920 tax records. Her heart was hammering again, but this time it was a sick, greasy panic. "It’s a small town. Everyone’s connected."</p>
+<p>"My sister... she didn't say much about his past," Keir said, his voice dropping. He looked genuinely sick. "Just that he was divorced. I didn't ask for names. I don't get mixed up in her business."</p>
+<p>"Well, now you're in it," Eulalie said. A hot tear prickled the corner of her eye. She swiped it away fast, pretending she was just wiping off more dust. She wasn't going to cry. Not in front of him. Not over Richard. "The support beam needs fixing. The board hired you, so please, do the work. But from now on, let’s keep this strictly professional."</p>
+<p>Keir stared at her. His grey eyes were dark, a messy mix of frustration, pity, and that lingering spark he couldn't quite put out. He looked like he had a hundred things to say, but her stiff shoulders and crossed arms locked him out.</p>
+<p>He slowly reached down and grabbed his tool bag. "Strictly professional," he said, his voice flat. "I'll send the estimate to the board by tonight. I'll be back next Tuesday."</p>
+<p>"Thank you, Mr. Fletcher," she said, her voice dry and formal.</p>
+<p>He lingered for one more second, searching her face for some crack in the armor. Finding none, he turned. His heavy boots thudded up the stairs, a slow, retreating beat that left the basement feeling three times colder and emptier than before he walked in.</p>
+<p>Eulalie stood in the dim, yellow light. Her hands shook as she reached for another wet cardboard box. The smell of dry rot filled her nose, and for the first time since she started working here, the silence of the archives felt less like a sanctuary and more like a cell.</p>
+<h1>Chapter 3: Beneath the Rafters</h1>
+<p>The crack didn't sound like wood. It sounded like a pistol shot. Sharp, dry, snapping right through the steady drum of the autumn rain.</p>
+<p>Eulalie Fontaine froze in the center of the archive room. She held a heavy, leather-bound ledger tight against her ribs. Above her, the hand-hewn oak rafters of the carriage house groaned. Then came the dust. A fine white curtain of plaster drifted down, settling in her dark, silver-threaded hair and coating the shoulders of her oversized wool cardigan.</p>
+<p>Then came the drip.</p>
+<p>A slow, rhythmic patter. Directly onto the top shelf of the seventeenth-century municipal records.</p>
+<p>"No, please," Eulalie muttered. She shoved the ledger onto a dry table and lunged toward the tall shelves. The ceiling was giving. The heavy October storm had finally found the rotten spot in the roof, and the old timbers were bowing under the weight of the water.</p>
+<p>She reached for the top box. Her fingers strained. At forty-eight, her shoulders didn't have that easy, effortless stretch anymore. A sharp pinch flared in her lower back—a dull, familiar ache from years of hunching over desks and hauling heavy crates. She gritted her teeth, blinking through the falling plaster.</p>
+<p>"Need a hand?"</p>
+<p>Keir Fletcher stood in the doorway. He was dripping wet. His dark hair clung to his forehead, his heavy canvas work jacket black with rain. He carried a blue plastic tarp and a tool bucket that rattled with wrenches. He smelled of cold air, sawdust, and the sharp, chemical tang of WD-40. Thirty-four years old, thick-bearded, with steady, unblinking eyes.</p>
+<p>Every single time she looked at him, she tasted the copper of her own humiliation. He was Idalia’s brother. Idalia—the twenty-six-year-old girl who was currently carrying Richard’s baby in the very house Eulalie had spent two decades building. Looking at Keir felt like staring at the root of the family tree that had strangled her life.</p>
+<p>"The main joist is splitting," she said. She tried to keep her voice steady, ignoring the throb in her spine. "It’s coming straight through the plaster. If these folios get wet, they’re done for. The paper is too fragile."</p>
+<p>Keir didn't talk. He dropped the bucket with a loud metallic clang and strode over. He was big—broad-shouldered and a full head taller than she was—moving with that easy, mindless confidence of a man who worked with his body every day. He reached up, his large, calloused hands slipping over hers on the heavy box.</p>
+<p>"I’ve got it," he said. His voice was a low, quiet rumble. She felt it right in her collarbone. "Where are they going?"</p>
+<p>"The dry vault," she said. Her breath hitched as his sleeve brushed her bare arm. The heat coming off him was intense, almost shocking in the damp chill of the room. "Under the cellar. It’s safe, but the stairs are narrow."</p>
+<p>"Then let’s move."</p>
+<p>For the next hour, they worked in a silence broken only by the roar of the wind outside and the heavy thud of cardboard boxes. They worked in a hard, sweaty rhythm. Eulalie pulled down the lighter records, wrapping them quick in protective paper, while Keir hauled the massive folios. He carried three at a time down the steep stone stairs to the vault.</p>
+<p>By the third trip, Eulalie was on fire. The heavy lifting—combined with the sudden, suffocating heat flashes that had started finding her this past year—made her feel like she was cooking under her clothes. She ripped off her heavy cardigan. She threw it on a dry chair, leaving herself in just a thin silk camisole and her old jeans.</p>
+<p>She caught her reflection in the glass of a display cabinet. The silk clung to her damp skin, showing the soft, thick curve of her stomach and the fullness of her hips. Her body had grown rounder, heavier since the divorce. Her breasts looked full, pressing hard against the thin fabric. The silver hair at her temples had escaped her messy bun, curling wildly in the damp air.</p>
+<p>For years, Richard had made her feel like an old building left to rot. He had traded her for a newer model. A girl whose skin was still tight and unwritten.</p>
+<p>But when she turned around, Keir was there. Standing at the top of the stairs, just watching.</p>
+<p>It wasn't a polite look. He wasn't waiting for instructions. His gaze was heavy, dragging down the pale line of her neck, lingering on her collarbones, tracing the slope of her waist. His chest rose and fell in a slow, thick rhythm.</p>
+<p>"It’s hot down there," he said. His voice had gone rough.</p>
+<p>He reached down and yanked his wet flannel shirt over his head. Underneath, he wore a tight grey thermal. The cotton stretched over the thick slab of his chest and the hard ridge of his shoulders. His forearms were dark, corded with muscle, and dusted with black hair. There was a small, jagged white scar just below his collarbone, disappearing beneath the collar of his shirt.</p>
+<p>Eulalie’s mouth went dry. Her heart gave a hard, erratic kick. It wasn't some silly, fluttering schoolgirl nervousness. This was the heavy, thudding pulse of a woman who recognized a predator—and realized, with a sudden spike of heat, that she wanted to be caught.</p>
+<p>"We have one more stack," she said. Her voice was lower than she wanted it to be. She reached for a box of old maps, her fingers shaking as she lifted it.</p>
+<p>"Let me," Keir said. He stepped closer. His boots clicked on the damp floorboards. He didn't take the box. Instead, he reached right around her, his chest pressing hard against her shoulder blades as his hands gripped the sides of the cardboard.</p>
+<p>The contact was electric. He was boiling. She could feel the hard heat of his thighs right through her jeans. He smelled of sweat, wet plaster, and a raw, heavy male scent that made her stomach tighten with a sudden, aching pull.</p>
+<p>"I can carry it," she whispered. She didn't let go.</p>
+<p>"I know you can," he murmured near her ear. His breath was warm, stirring the loose silver curls at her temple. "But you don't have to do everything alone, Eulalie."</p>
+<p>Her name on his tongue sounded like a secret. She let go, letting him take the weight of the box. Her fingers slid over his thick, scarred wrists. His skin was rough from hard labor, but when his thumb brushed the soft, pale inside of her wrist, it was incredibly gentle.</p>
+<p>"Come on," he said softly. "Let’s get this last one down."</p>
+<p>The vault was small, stone-walled, buried deep under the house. The air was different down here—thick, warm, smelling of old lime and dry earth. A single, bare bulb hung from a wire, casting long, amber shadows across the stacks of boxes.</p>
+<p>Keir dropped the final box on the pile and wiped his brow with his forearm. His thermal shirt was damp now, clinging to the small of his back.</p>
+<p>Eulalie leaned against the heavy oak table. Her legs felt like water. The physical exhaustion was real, but the tension humming between them was a different kind of tired.</p>
+<p>"Thank you," she said, staring at her hands. "If you hadn't been here, I would have lost half of this."</p>
+<p>"I'm glad I was here," he said. He didn't move. He stood just two feet away, his big frame blocking the exit, trapping her in the warm, dim light. "You work too hard. You always have."</p>
+<p>She let out a dry, sharp laugh. "I don't have much of a choice. This place is all I have left."</p>
+<p>"That's not true."</p>
+<p>"Isn't it?" She looked up, meeting his eyes. The old, bitter grief of the betrayal flared in her chest, mixing with the heat in her blood. "Your sister is living in my house, Keir. She’s having my husband's child. I am forty-eight years old, starting over in a leaky carriage house while they play house. So yes, this is all I have."</p>
+<p>Keir’s face softened, but his eyes didn't waver. He took a step closer, closing the gap until she could feel the heat radiating off his chest.</p>
+<p>"Idalia is my sister, but she’s an idiot," he said flatly. "And Richard is a fool who didn't know what he had."</p>
+<p>Eulalie’s breath caught. "You shouldn't say that."</p>
+<p>"Why not?" His voice dropped, low and rough. He stepped so close his boots brushed hers. He reached out. His large, rough hand touched her cheek. His thumb, thick and calloused, gently traced her cheekbone, wiping away a smear of plaster dust.</p>
+<p>His hand slid down her neck, fingers wrapping around the back of her head, his thumb resting against the hard, racing pulse in her throat. His touch was firm. Heavy.</p>
+<p>"I'm not a young girl, Keir," she whispered. Her voice shook. "I have lines. My body isn't..."</p>
+<p>"Your body is beautiful," he interrupted. His eyes burned into hers. "You’re a woman, Eulalie. A real, solid, gorgeous woman. I don't want some girl. I want you."</p>
+<p>The raw honesty in his voice stripped away whatever defenses she had left. She didn't want to think about Richard, or Idalia, or the scandal that had broken her life. She just wanted to feel alive. She wanted the weight of a man who looked at her with hunger, not pity.</p>
+<p>She reached up, her fingers digging into his thick thermal shirt, pulling him down.</p>
+<p>Their lips met in a crash of heat. Keir let out a low groan, his arms wrapping around her waist and lifting her, pressing her back against the edge of the heavy table. His mouth was hot, hungry. He parted her lips with a fierce, quiet authority that left her breathless. He tasted of cold rain and sweet, dark desire.</p>
+<p>Eulalie whimpered, her hands sliding up his chest, feeling the hard, frantic beat of his heart. She wrapped her legs around his hips, pulling him close, desperate for the solid weight of him.</p>
+<p>He broke the kiss, his breath hot against her neck as he dragged his mouth down her throat, biting gently at the skin where her neck met her shoulder. Eulalie arched her back. Her hands gripped his dark hair, pulling him down, harder.</p>
+<p>"Keir," she gasped, her body flushing with a deep, throbbing heat. "Please."</p>
+<p>He didn't need to be told twice. His hands, rough and warm, slid right under her silk camisole. They traced the soft curve of her ribs, moving up to cup her breasts. Eulalie let out a sharp cry as his calloused thumbs brushed over her nipples. The friction of his rough skin against her sent a jolt of pure electricity straight down to her core.</p>
+<p>He pulled the camisole over her head, tossing it aside. In the dim, amber light of the vault, her breasts were full and heavy, her pale skin glowing. Keir groaned, his eyes darkening.</p>
+<p>"Beautiful," he muttered. He leaned down, taking one dark, hard nipple into his mouth, sucking strongly.</p>
+<p>Eulalie gripped the edge of the table, her knuckles turning white. The sensation was intense. Overwhelming. It had been so long since anyone had touched her like this—with such raw, unchecked hunger. She felt a deep, wet ache blooming between her thighs.</p>
+<p>Keir’s hand slid down her stomach, his palm flat against her soft, rounded belly. He didn't avoid her curves; he pressed into them, his fingers digging into her hip before finding the button of her jeans. He undid them quickly, sliding the denim down her hips, taking her silk underwear with them.</p>
+<p>When she was bare, he stepped back. Just for a second. He looked at her, his gaze traveling over her full hips, her soft thighs, and the dark curls between them. There was no judgment in his eyes. Just a fierce, reverent hunger.</p>
+<p>He stripped off his own pants with quick, impatient movements. When he turned back to her, she saw the thick, heavy length of him, dark and pulsing with his heartbeat. Fully aroused. Tense.</p>
+<p>He climbed back onto the table, parting her knees with his hands. He leaned down, kissing her deep while his fingers found her wet, aching center. He slipped two fingers inside, finding her slick, hot, and ready.</p>
+<p>Eulalie gasped against his lips, her hips rolling against his hand. "Keir, now. Please. Inside me."</p>
+<p>He withdrew his hand, his eyes locking onto hers as he positioned himself at her entrance. He paused. His chest heaved, his muscles trembling with the effort of holding himself back.</p>
+<p>"Look at me," he whispered.</p>
+<p>She looked up, her eyes slightly blurred. She saw his young, fierce face, the dark intensity of his eyes, and knew that whatever happened tomorrow, tonight she was his.</p>
+<p>He pushed forward, sliding into her in one deep, smooth stroke.</p>
+<p>Eulalie threw her head back, a loud, ragged cry escaping her throat as her tight body stretched to fit him. He was thick, filling her completely, pressing against her with a heavy, delicious pressure that made her entire body shake.</p>
+<p>"Oh God, Keir," she sobbed, her fingers digging into his back, her nails scratching his skin as he began to move.</p>
+<p>He didn't rush. He pulled back slowly, almost all the way, before plunging deep again. He set a rhythm that was steady, powerful, and utterly consuming. Every stroke rubbed against her, sending waves of intense, white-hot pleasure radiating through her.</p>
+<p>The table groaned beneath them, the ancient oak creaking in time with their movements. The warm air of the vault was filled with their ragged breathing, the slap of skin, and the low groans Keir couldn't hold back.</p>
+<p>He shifted his grip, sliding his hands under her thighs and lifting her legs higher, draping them over his shoulders. The change in angle was devastating. He pushed deeper, hitting a spot that made her vision go dark.</p>
+<p>"Ah! Keir, yes—right there!" she screamed. Her body tightened, her inner muscles clamping around him in a tight, involuntary spasm.</p>
+<p>"That's it, Eulalie. Right there," he growled. His pace quickening, his thrusts harder, faster, driven by a raw, desperate need.</p>
+<p>She was climbing. Her body wound tighter and tighter, the pleasure building to an unbearable, agonizing peak. Her temples were damp with sweat. Her skin was flushed and tingling. She was forty-eight, and she felt more alive, more powerful, and more wanted than she ever had in her life.</p>
+<p>With a final, deep thrust, he hit her deepest spot, and Eulalie shattered.</p>
+<p>Her orgasm took her with a violent force, her body pulsing around him in tight, rhythmic waves. She cried out, eyes closed tight, as the pleasure washed over her in hot, relentless waves.</p>
+<p>Seeing her break was too much for Keir. He let out a loud, guttural roar. His body tensed, burying himself inside her to the hilt. His hips buckled as he pulsed, filling her with his hot, heavy release. He held her tight, his face buried in the crook of her neck, his entire body shaking with the force of his climax.</p>
+<p>For a long time, the only sound in the vault was the heavy, labored breathing of two people clinging to each other in the dark.</p>
+<p>He didn't pull away. He stayed buried inside her, his heavy body resting against hers, his heart beating a frantic rhythm against her chest. He kissed her shoulder, his lips gentle, before slowly withdrawing.</p>
+<p>He pulled her into his arms, wrapping his heavy canvas jacket around both of them as they lay on the large oak table.</p>
+<p>Eulalie rested her head on his shoulder, her hand resting on his damp chest. The physical satisfaction was immense. But beneath it, a quiet panic was beginning to stir.</p>
+<p>They were in the vault. The storm was still raging outside. And tomorrow, the world would still be waiting—along with Idalia, Richard, and the tangled, messy web of her past.</p>
+<p>But as Keir tightened his grip around her waist, pressing a warm kiss into her silver-streaked hair, she closed her eyes. She let herself believe, just for a little while, that she had finally reclaimed something that was hers.</p>
+<h1>Chapter 4: The Weight of Timber</h1>
+<p>The damp of the cellar floor went straight through Eulalie’s twill trousers, a flat, grey cold that settled deep in her left hip. At forty-eight, her joints had begun to keep a precise ledger of the weather. She sat with her knees pulled up, spine pressed against a stack of dry-rotted shipping crates that smelled of saltpetre, vinegar, and seventy years of disintegrating newsprint.</p>
+<p>Across the narrow patch of cleared concrete, Keir Fletcher sat on an overturned milk crate. He had a battered green thermos balanced between his work boots—scuffed, salt-stained leather, dark with grease and damp pine sawdust. He didn't have the jittery, talkative energy of the younger men she hired for the heavy hauling. Keir was thirty-four. He had the quiet, deliberate coordination of someone who spent ten hours a day matching his skin against dead weight.</p>
+<p>"Split peas and ham," Eulalie said. Her voice sounded dry, thin in the empty basement. She unscrewed the metal cap of her own thermos. The steam rose between them, smelling of bay leaves and salt pork. "Not exactly restaurant food. But it stays hot."</p>
+<p>"The best kind of food doesn't pretend to be anything else," Keir said. He reached down. His broad hand completely swallowed the small plastic cup he’d poured. His knuckles were raw, the skin stained dark with walnut juice from the joists he’d been scraping upstairs. He took a long, slow swallow. His chest rose under his heavy red wool shirt. "My mother used to make this when the harbor froze. She’d throw a splash of cider vinegar in at the end to cut the fat."</p>
+<p>"My mother just let the grease float," Eulalie said. A small, dry stretch of a smile touched her mouth. "She said it kept the drafts out of our ribs."</p>
+<p>She watched him over the rim of her cup. There was a stillness to him that she found both grounding and incredibly irritating. He was Idalia’s brother. Idalia—the girl currently carrying the child of Eulalie’s ex-husband. By every rule of local survival, Eulalie should have kept Keir Fletcher three towns away, or at least behind a thick wall of professional distance. Every word they exchanged felt like walking a tightwire over a concrete floor. If she slipped, she’d fall right back into the mouth of the town gossip that had already chewed her up once.</p>
+<p>Yet, here they were. In the dark. Eating soup.</p>
+<p>"The joists upstairs," Keir said, nodding toward the ceiling where the massive heart-pine beams ran like exposed ribs. "They aren’t as bad as the surveyor’s report claimed. Most of that rot is shallow. Just three-eighths of an inch of soft sapwood on the outside. Underneath, it’s like flint."</p>
+<p>"Can we save them?" she asked. "The historical committee wants the original timber profile preserved. If we have to sister new lumber to those beams, it’s going to look like a cheap patch job."</p>
+<p>"We don't need to sister them," Keir said. His eyes were a clear, flat hazel against his weathered skin. They stayed right on hers. "We just need to scrape away the dead stuff. Once you get past the rot, the heartwood is still alive in the only way dead wood can be. It’s dense. It took eighty years of slow growth in a dark forest to make that grain. Modern pine is grown in twenty years on plantations—it’s fat, soft, and wet. It warps the minute the sun hits it."</p>
+<p>Eulalie felt a tight, hard pulse in her throat. She set her cup down on her palm, her fingers heating against the cheap metal. "So older is better?"</p>
+<p>"Older has survived the bugs," Keir said. His voice was quiet, a low vibration that seemed to run through the floorboards. "The new stuff hasn't been tested. It’s easy to look good when you’ve never had to stand up to a hard freeze."</p>
+<p>The air between them got very small. Eulalie looked down at her own hands. They were the hands of a woman who had raised a daughter, run a household, and spent three decades polishing the rough edges off a selfish man, only to be traded in for a twenty-six-year-old who still thought life was a series of easy victories. Her skin was thin now, marked by pale tracks of old kitchen grease burns and dry creases at the knuckles.</p>
+<p>"Sometimes the winter does a lot of damage before you learn how to stand up to it," she said.</p>
+<p>"But you’re still standing," Keir said. He didn't use the soft, cooing tone her friends used—the pity that made her want to throw things. He said it like a statement of structural fact, the same way he might evaluate the load-bearing capacity of a stone foundation.</p>
+<p>He stood up, his frame cutting off the grey light from the cellar’s single high window. He was tall, but it was his breadth that filled the room—the thick slope of his shoulders and the heavy, solid column of his neck. He reached down, offering her a hand.</p>
+<p>Eulalie hesitated. She didn't need help rising; she was fit, her body hardened by years of weeding and walking the rocky beaches of the cove. But the simple, stupid human urge for touch—for the dry, solid heat of another hand—tripped her logic. She placed her fingers in his.</p>
+<p>His grip was massive, his skin like fine-grit sandpaper, but he didn't pull her up fast. He simply anchored her, letting her use his weight to find her own balance as she stood. For a second, as she came to her feet, their faces were very close. She could smell him—not the expensive, citrus-heavy cologne Richard had used to hide his age, but the raw, honest smell of cedar shavings, iron dust, and the faint, salty tang of clean sweat.</p>
+<p>"We should get that temporary jack post under the northeast joist before the temperature drops tonight," Keir said. His eyes scanned her face. He didn't let go of her hand immediately; his thumb brushed the side of her wrist, right over the steady, heavy beat of her pulse, before he drew his hand back and tucked it into his pocket. "The frost will heave the stone outside, and we don't want the floor shifting while the mortar is wet."</p>
+<p>"I can help," Eulalie said. Her throat was dry. She cleared it. "The crew left the six-by-six timbers by the coal chute."</p>
+<p>"They're heavy," Keir warned. "Green oak."</p>
+<p>"I am not made of glass, Keir."</p>
+<p>A slow, appreciative grin split his face, showing a slightly crooked canine that gave him a look of boyish mischief—the only young thing about him. "No," he said softly. "You definitely aren't."</p>
+<p>They moved to the darker corner of the cellar, where the air was colder and smelled of wet lime. A heavy oak beam, eight feet long and six inches square, lay across two sawhorses. It was meant to act as a temporary column to support the sagging floor above while Keir rebuilt the stone pier.</p>
+<p>Keir hoisted one end, his biceps straining against the red flannel of his sleeves, the fabric stretching tight over the muscle. "I’ll get the top settled into the saddle," he told her. "I need you to guide the foot onto the screw jack. Don't put your fingers under the base. Use the iron bar to lever it."</p>
+<p>Eulalie nodded, her focus shifting to the physical mechanics of the task. She liked work that had clear rules. Wood, iron, gravity—these things didn't lie to you. They didn't sign papers behind your back or look at you with polite embarrassment when you walked into a room.</p>
+<p>She took the heavy iron pinch bar, her palms gripping the cold metal. "Ready when you are."</p>
+<p>Keir grunted, lifting the massive timber with a heave of his legs. His face flushed with the effort, the tendons in his neck standing out like cords. He maneuvered the top of the beam toward the iron plate on the ceiling, his boots slipping slightly on the gravelly dirt of the floor.</p>
+<p>"Watch the base," he warned, his voice tight with exertion.</p>
+<p>The foot of the timber swung inward, heavy and erratic. Eulalie stepped in close, her boot wedging against the iron screw jack to keep it from sliding. She leaned her weight into the pinch bar, trying to pry the heavy oak foot into the center of the iron plate.</p>
+<p>"Just two inches to the left," she gasped, her muscles burning. She hadn't realized how much her shoulders had stiffened during the long hours of desk work over the past week.</p>
+<p>"I've got it," Keir said, but as he shifted his weight to thrust the top into place, his boot caught the edge of a loose foundation stone.</p>
+<p>The heavy timber lurched.</p>
+<p>Eulalie tried to step back, but her heel found the slick, wet mortar from the previous day's work. Her balance shattered. She began to fall backward toward the jagged stack of old slate tiles piled against the wall.</p>
+<p>"Eulalie!"</p>
+<p>The timber crashed to the dirt floor with a dull, heavy thud that shook the cellar, but she didn't hit the stone.</p>
+<p>Keir’s arm was around her waist before she could even register the sensation of falling. He didn't just catch her; he hauled her entirely off her feet, his strength absorbing her momentum and pulling her flush against his chest to protect her from the falling oak.</p>
+<p>They hit the brick wall behind them with a dull thud, Keir taking the brunt of the collision with his shoulder.</p>
+<p>Then, silence. Just the ragged, fast sound of their breathing.</p>
+<p>Eulalie was pinned. Her chest was pressed flat against his, her hands caught between them. She could feel the hard, steady rise and fall of his ribs. Under her palms, his wool shirt was warm, smelling of cedar and cold air.</p>
+<p>"Are you alright?" he breathed. His face was inches from hers.</p>
+<p>"I..." Her heart was hammering against her ribs like a trapped bird. "I’m fine. Did it hit you?"</p>
+<p>"No," he whispered. His hazel eyes were dark in the dim cellar light. He wasn't looking at her forehead or her hair; he was looking at her mouth.</p>
+<p>Eulalie felt a sudden, heavy ache in her chest—something she hadn't felt in years. It wasn't the polite, scheduled affection of her marriage. This was raw. It made her knees feel weak, her hips sinking just a fraction closer to his frame to find her footing.</p>
+<p>Keir’s hand, still at her waist, slid up her side. His fingers were wide, covering her ribs, his palm pressing into the soft curve of her waist. He didn't squeeze; he just held her there, taking her weight.</p>
+<p>"You're shaking," he said. His voice was a low, rough murmur.</p>
+<p>"I’m not," she lied.</p>
+<p>"Eulalie." He said her name slowly, like he was figuring out the weight of it.</p>
+<p>His other hand came up, his thumb catching her jawline. The calloused skin of his palm rasped against her cheek, a sharp, real sensation that made her eyes flutter shut. He didn't tuck her hair behind her ear; his fingers tangled in the curls at the nape of her neck, tilting her head back.</p>
+<p>She opened her eyes. He was looking at her with a quiet, hungry focus. He saw the faint lines around her eyes, the grey at her temples, the dry skin on her lips, and he didn't look away. It wasn't pity. It was desire, heavy and solid as the green oak on the floor.</p>
+<p>"I shouldn't," she whispered.</p>
+<p>"Probably not," Keir said. His thumb traced the edge of her lower lip. His skin was warm and tasted faintly of salt. "But I’ve been thinking about this since the day I walked into your yard."</p>
+<p>"I am fourteen years older than you, Keir. And your sister is—"</p>
+<p>"I don't care about my sister," he said. He leaned closer, his mouth a breath away from hers. "And I don't care about the years. You aren't a girl, Eulalie. I don't want a girl. I want you."</p>
+<p>The honesty of it felt like a physical blow. Richard had spent the last five years of their marriage making her feel like an old piece of furniture that came with the house. Keir looked at her like she was the only thing in the room.</p>
+<p>He leaned in, his lips brushing hers.</p>
+<p>It was a light, testing touch. A question. But the warmth of his mouth sent a sharp jolt right down her spine. Her fingers curled into the thick wool of his shirt, pulling him down that last fraction of an inch.</p>
+<p>Keir let out a low sound, his grip tightening on her waist. He lifted her slightly, pressing her back against the brick wall, his leg wedging between hers.</p>
+<p>The kiss was deep, tasting of salt and iron. It was the kiss of a man who worked with his hands—unhurried, heavy, and completely focused on her.</p>
+<p>Eulalie let herself go. For a few seconds, the town, the divorce, the betrayal, and the baby that was coming did not exist. There was only the weight of this man, the roughness of his skin, and the incredible, reviving shock of being wanted.</p>
+<p>She slid her hands up to his neck, her fingers burying in the thick, short hair at his collar. He was so warm.</p>
+<p>Then, upstairs, the heavy oak front door of the archive building slammed shut.</p>
+<p>The sound crashed down the stairwell.</p>
+<p>They broke apart instantly, both of them breathing hard. Keir’s hands stayed on her hips, his knuckles white as he tried to steady himself. His eyes were dark, his face flushed.</p>
+<p>"Eulalie?"</p>
+<p>The voice called down from the top of the stairs. It was Idalia—high, clear, and young.</p>
+<p>Eulalie froze, her hand still resting on Keir’s shoulder. The cold reality of her life rushed back. This was the brother of the girl who had broken her family. This was the man who, if she stayed in his arms, would drag her back into the town's mouth.</p>
+<p>She pushed against his chest, her movement sharp. "Let me go," she whispered.</p>
+<p>Keir didn't move immediately. He searched her face, seeing the sudden, cold fear. "Eulalie—"</p>
+<p>"Please, Keir. Let me go."</p>
+<p>He released her slowly, his hands sliding off her hips with a heavy, reluctant drag. He stepped back, taking a deep breath and rubbing a hand over his face.</p>
+<p>Eulalie smoothed her trousers, her hands shaking so badly she could barely tuck a loose strand of hair back into her comb. She took three steps away, putting the fallen timber between them.</p>
+<p>"I'm down here, Idalia," Eulalie called out. Her voice was remarkably steady, though her chest was still tight.</p>
+<p>Light, hurried footsteps came down the wooden stairs. Idalia appeared in the archway, her cheeks pink from the wind, her wool coat unbuttoned to show the small, round swell of her pregnancy under a bright yellow sweater.</p>
+<p>"Oh, there you are," Idalia said. She stopped at the edge of the cellar floor, her eyes data-tracking from Eulalie to Keir, then down to the timber on the ground. "Did I interrupt something? Keir, did you drop that?"</p>
+<p>"The foot slipped on some wet mortar," Keir said. His voice was completely flat, his professional tone back in place. He picked up his iron pinch bar. "Just setting a support post."</p>
+<p>Idalia looked at Eulalie, her expression a mix of youthful earnestness and that slight, modern condescension she always carried. "Richard said you were down here working in the cold. He was worried about your back, Eulalie. He said you shouldn't be doing this kind of heavy lifting at your..." She trailed off, looking at Eulalie’s hands.</p>
+<p>Eulalie tightened her jaw, her fingers curling into her palms. "Your husband doesn't need to worry about my back, Idalia. I’ve been managing this building since before you were in high school."</p>
+<p>Idalia flushed, her hand coming down to rest on her belly—the ultimate shield. "I didn't mean anything by it. I just came to bring Keir his lunch. I didn't know you two were..." She looked between them, her brow furrowing at the heavy silence in the room.</p>
+<p>"We're just working," Keir said. He didn't look at his sister. He kept his eyes on Eulalie, his gaze steady and unblinking. "Eulalie was just showing me where the rot stops."</p>
+<p>Eulalie turned away, her throat tight. She picked up her empty thermos. "I have to get back to the office," she said. "The mason is coming at three."</p>
+<p>She walked past Idalia without looking at her, her boots clicking sharply on the cellar stairs. She didn't look back at Keir. But as she reached the top of the stairs and felt the cold draft of the street door, her lips still burned with the taste of him—salt, iron, and the heavy, terrifying weight of timber.</p>
+<h1>Chapter 5: Reclaiming the Grain</h1>
+<p>Rain had been coming down since three. Just a cold, gray drizzle that turned the gravel yard into a soup of yellow mud. Inside, the air was thick with the smell of wet wool, mineral spirits, and the sharp, green bite of freshly cut walnut.</p>
+<p>Eulalie stood by the scrap bin, a stiff bristle brush in her hand. She swept the fine dust off her small assembly table, back and forth, over and over. Her lower back throbbed with a dull, familiar ache. Forty-eight wasn't old. She told herself that every single morning. But standing on a slab of cold concrete for six hours had a way of turning that lie into a joke. She wiped her forehead with the back of her wrist, leaving a smudge of dark wood flour right along her hairline.</p>
+<p>In the far corner of the shop, the rhythmic <em>shhh-shhh</em> of a hand plane stopped.</p>
+<p>Keir Fletcher stood over a long balk of white oak. His shoulders were broad under a faded flannel shirt, his knuckles dark with grease and pine oil. He was thirty-four. He had that heavy, quiet way of moving that some big men have—no wasted motion, no rush. He didn't have the jittery, frantic speed of the twenty-something boys who came and went through the yard. He just took up space. He made the concrete floor feel like it belonged to him.</p>
+<p>"You're going to wear a hole in that pine if you keep scrubbing," Keir said. His voice was a low, dry rumble, barely louder than the patter of the rain on the tin roof.</p>
+<p>Eulalie didn't look up. She kept her eyes on the small pile of shavings she had gathered. "It's dirty. If the oil gets contaminated, the finish will be cloudy."</p>
+<p>"It's clean enough," he said. He laid the plane down on its side—always on its side, a habit drilled into him since his apprenticeship. "You've been sweeping the same square foot for ten minutes."</p>
+<p>The sound of her name on his tongue made her fingers tighten around the wooden handle of the brush. It wasn't the way her ex-husband, Richard, used to say it. Richard had a way of snapping her name like a dry twig, usually right before he complained about the grocery bill or the state of his shirts. Keir said it differently. He said it the way he looked at a piece of heartwood—measuring the weight of it, finding the grain.</p>
+<p>"I have things on my mind," she said.</p>
+<p>"Idalia?"</p>
+<p>The name was a cold draft in the warm shop. Idalia was Keir’s sister. Twenty-six, pretty, and pregnant with Richard's baby. The girl who had slipped into Eulalie’s bed while Eulalie was still packing boxes in the driveway. To be near Keir was to be near them. It was messy. It was a stupid, dangerous game.</p>
+<p>"She sent me an invitation," Eulalie said. She stared at the sawdust. "To the baby shower. Richard must have given her my new address."</p>
+<p>Keir walked toward her. His heavy work boots thudded against the floorboards, leaving wet, dark prints. He stopped three feet away. He didn't offer a stupid platitude, and he didn't apologize for his sister. He just watched her, his dark eyes steady under a shelf of thick brow. "Richard is a fool. And my sister has never looked past her own nose."</p>
+<p>"She’s young," Eulalie said, the word tasting like vinegar.</p>
+<p>"She’s old enough to know better. Both of them are." Keir reached out. His hand was large, his skin rough and callused, the fingernails blunt. He touched her wrist, just above the cuff of her flannel shirt. His thumb rested right over her pulse. "You don't have to go."</p>
+<p>"I know."</p>
+<p>"Then don't."</p>
+<p>"It's not that simple," she whispered. But she knew it was. The hard part wasn't the piece of paper in her mailbox. The hard part was the quiet realization that she had been traded in for a newer model, and that everyone expected her to fade away like an old coat left in the back of a closet.</p>
+<p>Keir’s thumb moved. He slid it up, just under her sleeve, brushing the tender skin on the inside of her forearm. "It is that simple. You're here. You're not there."</p>
+<p>His skin was hot. It wasn't the polite, dry touch she had grown used to over the last ten years of her marriage. His hand had weight. It had intent. She felt her breath hitch, her chest rising against the tight cotton of her bra.</p>
+<p>"Keir," she said, but it came out too soft to mean anything.</p>
+<p>"You've been looking at me all day," he said. He wasn't bragging. He was just stating a plain fact, the same way he’d talk about the moisture content of a board. "And I haven't thought about much else since Tuesday."</p>
+<p>He stepped closer, closing the gap until she could smell him—the sharp, chemical scent of diesel fuel, the warm musk of his skin, and the sweet pine oil he used to clean his saws. He was tall enough to block out the harsh light of the fluorescent tube overhead.</p>
+<p>Eulalie looked up at him, her heart thumping against her ribs. "I'm forty-eight, Keir. My oldest is twenty-four."</p>
+<p>"I don't care about them," he said. He took the brush from her hand and set it on the workbench behind her. Then he put both hands on her hips, his fingers digging into the denim of her jeans. "And I don't care about your age. I care about you."</p>
+<p>He pulled her against him. The contact was solid, unyielding. His thighs were hard, pressing against hers. Eulalie let out a small, ragged breath and let her forehead drop against his chest. The fabric of his shirt was rough against her cheek, but beneath it, he was warm and solid.</p>
+<p>"I feel ridiculous," she muttered into his collarbone.</p>
+<p>Keir didn't answer. He cupped her chin in his hand, his fingers tilting her face up. He leaned down and kissed her.</p>
+<p>It wasn't a gentle kiss. His mouth was warm, slightly dry, and heavy. He tasted of the black coffee they had shared at noon and the cold rain in the air. His tongue slid against hers, slow and deliberate, demanding a response she had almost forgotten how to give. Eulalie whimpered, her hands rising to grip his shoulders, her fingers digging into the thick canvas of his vest.</p>
+<p>The kiss went on, deepening until her knees felt loose. Keir’s hands slid down her back, wrapping around her, lifting her slightly so she had to arch her spine to meet him. She felt the hard edge of the oak workbench behind her, pressing into her lower back.</p>
+<p>He pulled back, his breath hot against her wet lips. His eyes were dark, almost black in the dim light of the shop. "You aren't ridiculous," he said. "You're beautiful, Eulalie."</p>
+<p>He reached for the buttons of her shirt. His hands, usually so steady with a chisel, shook slightly as he pushed the plastic discs through the holes. He parted the fabric, revealing her plain white cotton bra and the pale, soft skin of her chest.</p>
+<p>Eulalie tried to cover herself, her old insecurities rising like a wall. "The light," she whispered. "Keir, don't."</p>
+<p>"No," he said. His voice was quiet but firm. He took her wrists and held them down, his grip gentle but unbreakable. "Let me look at you."</p>
+<p>He reached behind her and unclipped her bra, letting the straps slide down her shoulders. Her breasts fell free. They weren't the high, tight breasts of a twenty-six-year-old; they were full, heavy, softened by time and the nursing of two babies. The skin beneath them showed the faint blue lines of veins.</p>
+<p>Keir’s breath caught. He didn't look away. He looked at her with an intensity that felt almost physical, like a hand sliding over her skin.</p>
+<p>"Perfect," he murmured. He reached out, his rough, callused palm cupping her left breast. The contrast between his dark, weathered hand and her pale skin was stark. He squeezed gently, his thumb rubbing over her nipple until it hardened.</p>
+<p>Eulalie arched her back, a sharp, involuntary gasp escaping her throat. The sensation of his rough skin against her breast was almost too much. It felt like fire, a deep, liquid heat that pooled instantly between her thighs.</p>
+<p>He leaned down, his mouth replacing his hand. He took her nipple into his mouth, his tongue swirling around it, sucking her deep. Eulalie cried out, her fingers tangling in his thick, dark hair, pulling him closer. He held her waist with both hands, his fingers digging into the soft flesh above her hips.</p>
+<p>"Keir, please," she begged, though she didn't know what she was asking for. She only knew she wanted the empty, hollow feeling in her chest to stop.</p>
+<p>He pulled back, his mouth wet. He looked down at her waist, his gaze traveling over the soft curve of her belly. He reached down and unbuttoned her jeans, the metallic clink of the zipper loud in the quiet shop. He pushed the denim down, along with her cotton underwear, until they pooled around her knees.</p>
+<p>Eulalie stood before him, half-naked, her body exposed to the cold draft of the workshop and the heat of his gaze. She tried to pull her thighs together, trying to hide the silver stretch marks on her hips, the soft roll of skin at her waist that no amount of diet or exercise could ever erase.</p>
+<p>Keir knelt before her on the sawdust-covered floor. He didn't hesitate. He reached out and spread her knees, his hands firm on her inner thighs.</p>
+<p>"Look at me," he said.</p>
+<p>She looked down, her face hot, her heart hammering.</p>
+<p>Keir reached up, his fingers tracing the silver lines on her hip. "These are beautiful," he said, his voice thick. "This is a woman's body, Eulalie. Not a girl's. You're real. You have a history, and it's written right here."</p>
+<p>He leaned forward and pressed his lips to her hip, kissing the silver lines. The heat of his mouth against her cool skin made her shiver. He moved his mouth to her belly, kissing the soft curve of it, his breath warm against her navel.</p>
+<p>Eulalie felt a sob catch in her throat—not of sadness, but of a sudden, overwhelming release. For three years, she had felt like a ghost, a useless relic of a life that had moved on without her. Now, this man was kneeling before her, treating her body like it was something holy.</p>
+<p>He slid his hands up the back of her thighs, lifting her easily, and sat her back onto the heavy oak workbench. The cold, oiled wood bit into her bare skin, a sharp contrast to the heat of his mouth.</p>
+<p>Keir didn't wait. He parted her legs wider, stepping between them. He looked up at her, his eyes wild with a hunger that made her feel powerful, even dangerous.</p>
+<p>"I want you," he whispered. "I've wanted you since the first day you walked into this yard."</p>
+<p>He reached down and unbuckled his belt, his movements quick now, impatient. He pushed his trousers down, and Eulalie saw him—thick, hard, and pulsing. He was large, fully aroused, and the sight of him made her mouth go dry.</p>
+<p>He reached between her legs, his fingers finding her wetness. He stroked her once, twice, his thumb circling her sensitive clitoris until she was writhing against the hard oak of the bench. She was slick, dripping, her body fully primed for him.</p>
+<p>"You're so wet for me," he groaned, his fingers sliding inside her, testing her tightness.</p>
+<p>"Keir, now. Please, now."</p>
+<p>He leaned over her, his forearms resting on the workbench on either side of her shoulders. His face was inches from hers, his eyes locked onto her gaze. He positioned himself against her opening, the heat of him burning against her wet skin.</p>
+<p>He pushed forward, slowly, deliberately.</p>
+<p>Eulalie let out a long, shuddering cry as he filled her. He was thick, stretching her, his hardness occupying every inch of her. It had been years since she had been filled like this, years since she had felt a man's body so completely joined with hers. She tilted her pelvis, taking him deeper, her inner muscles clamping around him in a tight, desperate grip.</p>
+<p>Keir groaned, his eyes closing for a second as he fought for control. "Jesus, Eulalie. You're so tight."</p>
+<p>He began to move. He didn't rush. He pulled back until he was almost out, then drove back in, the heavy thud of his hips against her buttocks echoing in the quiet room. The workbench beneath them creaked, the solid oak frame groaning under their combined weight.</p>
+<p>Eulalie wrapped her legs around his waist, her heels digging into the small of his back. She was alive. Every nerve ending in her body was screaming, her skin tingling with a sudden, electric heat. The smell of sawdust and pine oil mixed with the heavy, musky scent of their coupling.</p>
+<p>"Look at me," Keir gasped, his chest heaving, his face slick with sweat.</p>
+<p>She opened her eyes, looking directly into his. There was no hiding. There was no darkness to cover her. He saw every line on her face, every gray hair at her temples, and his eyes were full of nothing but pure, unadulterated worship.</p>
+<p>He picked up the pace, his thrusts becoming harder, faster. The rough wood of the workbench scraped against her back, but she didn't care. She welcomed the friction, the physical reality of the moment. She was here. She was alive.</p>
+<p>She felt the tension building inside her, a tight, coil of heat that started in her lower belly and spread down her thighs. She gripped Keir’s shoulders, her nails digging into the meat of his arms.</p>
+<p>"Keir, I'm... I'm going to..."</p>
+<p>"Go," he growled, his thrusts turning into short, powerful drives. "Come for me, Eulalie. Let me feel it."</p>
+<p>She broke. The orgasm hit her like a wave, her inner walls pulsing around him in tight, violent spasms. She screamed his name into the empty workshop, her head falling back against the wooden bench.</p>
+<p>The sensation of her release was too much for Keir. He let out a low, guttural roar and drove himself deep inside her, his body shaking as he spilled his warmth into her. He held her tight, his face buried in the crook of her neck, his breath coming in hot, ragged gasps.</p>
+<p>They stayed like that for a long time, the only sound the steady drumming of the rain on the roof and the heavy, synchronized thud of their hearts.</p>
+<p>Slowly, Keir pulled back, his skin slick as he slid out of her. He didn't pull away completely. He stayed close, his forehead resting against hers, his hand gently wiping a stray tear from her cheek.</p>
+<p>"You okay?" he asked, his voice softer than she had ever heard it.</p>
+<p>Eulalie looked up at the rafters of the workshop. The ache in her back was gone, replaced by a deep, throbbing warmth that made her feel whole. She looked at Keir, at the brother of the girl who had helped break her life, and for the first time in three years, she didn't feel broken.</p>
+<p>She reached up and touched his cheek, her fingers tracing the rough stubble of his jaw.</p>
+<p>"Yes," she said, her voice steady and clear. "I'm very okay."</p>
+<h1>Chapter 6: Unwanted Echoes</h1>
+<p>By three in the afternoon, the dust always found the back of Eulalie’s throat. It tasted like dry soil and dead ink. Usually, that quiet settled her. It was the only time she felt completely alone with the past. But today, the silence in the county archive felt bloated. The air just sat there, smelling of vinegar and rotting microfilm.</p>
+<p>Down the hall, a blade scraped wood. <em>Shhh. Shhh.</em> Keir was shaving down the old cherry-wood tables in the reading room, his movements rhythmic and slow. Over the last week, that sound had become her clock. A heavy, predictable heartbeat in an empty building.</p>
+<p>Eulalie leaned back. Her office chair gave its usual high-pitched protest. She dug her knuckles into the small of her back, where a dull ache had taken up permanent residence. Forty-eight years old, and most of them spent slouched over ledger books. She stared at her hands. Gray dust coated her skin, highlighting the thin, dry creases across her knuckles. Her ring finger still looked slightly thicker at the base, even though the gold band had been gone for two years.</p>
+<p>The house at home was too big now. Claire was twenty, off at college, throwing herself into a world of loud, bright firsts. Eulalie was left with the seconds. The hand-me-down hours.</p>
+<p>The scraping stopped.</p>
+<p>A shadow blocked the light in her doorway. Keir stood there, thirty-four and built like a fence post. He didn't have the soft, clean-shaven look of the boys at the university. He looked like he lived outside. Fine curly shavings of red wood clung to the hair on his forearms. The collar of his blue work shirt was dark with sweat, sticking to the heavy line of his neck.</p>
+<p>"You're squinting," he said. The sound was low, more of a vibration than a voice.</p>
+<p>"The ink is fading," Eulalie said. She tried on a tired smile. "The clerks in 1880 had beautiful penmanship, but they didn't care about my eyes."</p>
+<p>He walked in. His work boots didn't make a sound on the thin wool rug. When he stopped by her desk, she got a rush of him—sawdust, diesel grease, and hot skin. He didn't ask before he reached out. His thumb was thick and rough as sandpaper, dragging slowly across her cheekbone to wipe away a smear of coal dust.</p>
+<p>It wasn't a quick, polite touch. It was heavy. His thumb stayed there, tracing the skin under her eye, pressing just hard enough to make her feel the solid weight of his hand.</p>
+<p>Her lungs froze. Her heart gave a hard, stupid kick against her ribs. "Keir," she said, her voice barely carrying across the desk.</p>
+<p>"You're always working," he murmured. His thumb slid down, grazing the corner of her lower lip. His eyes went dark, dropping to her mouth. "Hiding back here."</p>
+<p>"I have three months of deeds to catalog."</p>
+<p>"You're hiding from me." His mouth twitched into a small, dry smile. "Ever since yesterday in the vault."</p>
+<p>Yesterday, down in the damp cold of the basement, they had crossed a line. There was no slipping into it. He had backed her against the limestone wall, his hands locking onto her hips, holding her there with a heavy, bruising grip. He didn't want a memory. He didn't want some twenty-something girl with nothing to say. He wanted her—soft edges, graying hair, and all.</p>
+<p>The brass bell above the front door clanged.</p>
+<p>The noise cut through the small room like glass breaking. Eulalie jumped, pulling her face back. Keir let his hand drop slowly, his gaze lingering on her mouth for another second before he looked toward the hall.</p>
+<p>"I should get that," she said. Her voice sounded thin, like paper tearing. She stood up quickly and smoothed her trousers, trying to get her ribs to stop shaking.</p>
+<p>"Eulalie." Keir caught her elbow. His grip was steady and warm through her sleeve. "Just breathe."</p>
+<p>She nodded, but her stomach had already gone cold. She walked down the narrow pine hallway, her heels making a sharp, hollow sound on the boards. Keir followed, a heavy shadow at her shoulder.</p>
+<p>The comfort of his weight behind her died the second she hit the reading room.</p>
+<p>Richard was standing by the desk. He looked exactly the same—neat, expensive, and completely blind to the mess he had left behind. He was fifty-one, his hair cut short and silvered at the temples, wearing the green waxed coat she had bought him for their last anniversary.</p>
+<p>Beside him stood Idalia.</p>
+<p>Idalia Fontaine. She was twenty-six, with that thick, dark hair that looked like it belonged in a magazine, and skin so clear it made Eulalie feel gray. She looked bright. Too bright. Her green knit dress was pulled tight over a swollen, round stomach. Six months along. Richard’s baby.</p>
+<p>And Keir's little sister.</p>
+<p>Eulalie stopped dead. The air in the room felt like wet wool. All the old shame of the last two years came back in a hot, greasy rush, rising up her neck to burn her face. This was the girl. The one Richard had traded her for. The one who made Eulalie feel like a rusted-out car left in a field.</p>
+<p>"Eulalie," Richard said. His tone was casual, like they were running into each other at the post office. "We hoped you'd be here. Your driveway was empty."</p>
+<p>"You shouldn't be going by my house, Richard," Eulalie said. She locked her fingers together behind her back so they couldn't see them shake. "There’s nothing left to talk about."</p>
+<p>"Oh, come on, don't be angry," Idalia said. Her voice had that high, singing quality. She put her hand on her stomach, fingers splayed over the curve. It was that look—the smug, protective shield of a pregnant woman. "We didn't come to argue. Dad was clearing out the barn at the homestead and found these."</p>
+<p>She nodded toward a split cardboard box on the desk.</p>
+<p>"The Fletcher land books," Richard said, taking a step forward. He had that little smile—the one he used when he was explaining a bill or a car engine to her, like she was a child. "Since Keir’s working on the wood here, we figured they belonged in the county collection. Keep it all close, you know?"</p>
+<p>His eyes flicked past her shoulder, landing on Keir.</p>
+<p>"Keir," Richard said, giving a quick nod. "Good to see you. Idalia said you were doing some work for the county."</p>
+<p>Keir didn't move an inch. He didn't return the nod. He stood with his arms locked over his chest, his jaw set like concrete. The softness he had shown her in the office was gone.</p>
+<p>"You should've dropped those at the house, Idalia," Keir said. His voice was flat and cold as well water.</p>
+<p>Idalia’s smile dropped for a second, her eyes darting between her brother and Eulalie. "We were already in town. And Richard wanted to show me the building. It’s very... historic." She looked up at the water-stained plaster ceiling, then back at Eulalie. "You must get lonely in here, Eulalie. It’s so quiet."</p>
+<p>The words were soft, but they had teeth. It was that cheap, polite nastiness of a girl who knew she had the upper hand. She had the man. She had the child. She had the rest of her life ahead of her.</p>
+<p>Eulalie felt dry. Like the paper she spent her days brushing dust off of. She looked at Idalia’s smooth, unlined throat, then at Richard. Her husband of twenty years was looking at this girl with a soft, stupid look she hadn't seen on his face since their daughter was a baby.</p>
+<p>"I'll catalog them," Eulalie said. Her throat felt tight. "Thank you."</p>
+<p>"Are you doing alright, Eulalie?" Richard asked. He put on his concerned-husband face, the one he used in front of people. He reached his hand out toward her arm. "You look thin. Are you eating? I know how you get when you start living in these dark rooms."</p>
+<p>"Don't touch her," Keir said.</p>
+<p>It wasn't a shout, but the room went completely still.</p>
+<p>Richard’s hand stopped in mid-air. He turned his head, his brow furrowing. "Excuse me?"</p>
+<p>Keir stepped out of the shadow. He was broader than Richard, his shoulders thick from throwing lumber and hauling stone. He didn't look like a man who worked behind a desk. He looked like he could snap a shovel handle in half.</p>
+<p>"I said, don't touch her," Keir said. His voice was very quiet now. "Leave the boxes and get out."</p>
+<p>Richard’s neck turned red. "Listen, Keir. I know you're family now, but this is between me and Eulalie. You're here to sand the tables."</p>
+<p>"Keir, stop," Idalia whispered. She grabbed Richard’s arm, pulling him back. "Don't do this. Think of the baby."</p>
+<p>That word was a brick to her chest. <em>The baby.</em> The new family. The clean slate. And if she kept going with Keir—if she let him touch her, if she let herself believe in him—this was what her life would be.</p>
+<p>She’d be the older woman sleeping with her ex-husband’s brother-in-law. A joke for the local ladies at the supermarket. She would never get away from Richard. They would be bound together in some ugly, tangled knot forever.</p>
+<p>"Just go," Eulalie said. She couldn't look at Keir. "Please, Richard. Just leave."</p>
+<p>Richard looked from Keir to Eulalie, his jaw twitching. Then he looked at her again, his eyes narrowing as he saw the gray dust on her shirt, the way Keir was standing just a little too close. A slow, ugly look of understanding crossed his face.</p>
+<p>"Right," Richard said, his voice dropping. "We're going. Come on, Idalia. Let them get back to their... work."</p>
+<p>He spat the word out. He took Idalia by the elbow, and they turned. The heavy front door slammed so hard the glass rattled, and the brass bell let out one last, tinny chime.</p>
+<p>The quiet that followed was heavy enough to choke on.</p>
+<p>Eulalie stood in the middle of the empty room, her chest rising and falling too fast. Her legs felt hollow. She felt small, exposed, and dirty, like she’d been caught stealing.</p>
+<p>"Eulalie," Keir said, taking a step toward her.</p>
+<p>"Don't," she breathed, backing away. "Don't, Keir. Just... stay there."</p>
+<p>She turned and ran.</p>
+<p>She didn't go back to her office. She shoved through the heavy door to the basement and scrambled down the steep, creaking stairs into the dark.</p>
+<p>The basement was a maze of steel shelves, piled high with old leather ledgers and cardboard boxes. The only light came from three yellow bulbs hanging from cords. The air down here was cold and smelled of damp limestone and wet dirt. It felt like a tomb, and that was exactly what she wanted.</p>
+<p>She pressed her back against a metal shelf, her hands over her face, and let out a dry, shaking sob that hurt her throat.</p>
+<p>She had been so stupid.</p>
+<p>How could she have thought a thirty-four-year-old man like Keir would look at her and see anything but an easy target? She had let herself feel like a woman again. She had let herself feel pretty. But the reality was upstairs, wearing a green knit dress and carrying her ex-husband's baby.</p>
+<p>She was forty-eight. She was the discarded wife. And Keir was the brother of the girl who took her place. It was dirty. It was a joke the whole town would laugh at.</p>
+<p>The stairs creaked.</p>
+<p>She wiped her wet face with her dusty hands, leaving gray streaks on her cheeks. The heavy, slow thud of Keir’s boots came down the aisle. He didn't call her name. He just walked toward her, his long shadow stretching across the concrete floor under the yellow bulbs.</p>
+<p>"Go away, Keir," she whispered. Her voice shook. "Please. Just go back to the tables."</p>
+<p>"No," he said.</p>
+<p>He didn't back off. He stood close, his chest nearly touching her shoulder. In the dim light, his jaw looked like it was carved out of oak.</p>
+<p>"You saw them," she said, the words tumbling out of her like water. "You saw how he looked at her. She’s twenty-six, Keir. She’s having his baby. She has everything before her, and I’m just... I’m the leftover. If I stay with you, I’ll never be clear of them. Everyone in this town will talk. They’ll say I was desperate. They’ll say I took his new wife’s brother to get even."</p>
+<p>"Let them," Keir said.</p>
+<p>"I can't!" Her voice cracked against the low ceiling. "I don't have the stomach for it, Keir. I'm forty-eight. I have a grown daughter. I have a job. I’m too old to be a secret, and I’m too old to be laughed at."</p>
+<p>She tried to shove past him, but he didn't move. He stepped in, his hands catching her waist. His fingers were heavy, digging into her hips, holding her hard against the steel shelf.</p>
+<p>"Look at me," he said. His voice was a rough whisper.</p>
+<p>"No—"</p>
+<p>"Eulalie. Look at me."</p>
+<p>She looked up. Her eyes were burning with tears, her lips shaking.</p>
+<p>He was right there. His breath was warm against her mouth. His eyes were dark, almost angry.</p>
+<p>"I don't care about Richard," he said, his voice tight. "And I don't care about what my sister does. She chose her life. But you... you're the only thing I look for when I come through that door. You think this is a game? You think I give a damn about what some gossips say at the hardware store?"</p>
+<p>He pressed closer, his heavy chest flattening her breasts against him, holding her tight.</p>
+<p>"I want you because you're real," he whispered, his mouth right against her ear. "I want your quiet. I want your strength. I want every single part of you that you try to hide under these baggy clothes."</p>
+<p>His hand slid up from her hip, his rough palm scraping along her ribs before he cupped her breast through her shirt. He squeezed her, his thumb dragging hard across her nipple. It went stiff instantly.</p>
+<p>Eulalie gasped, her head hitting the metal shelf behind her. Above them, the tin boxes rattled on the shelf, but she didn't care. A heavy, thick heat bloomed in her stomach, washing away the cold shame Richard had left behind.</p>
+<p>"Keir," she whispered. Her fingers bunched the heavy cloth of his shirt, pulling him in.</p>
+<p>"Tell me to stop," he muttered. His mouth dragged down her jawline, his lips biting softly at her neck. "Tell me you don't want me, and I'll go."</p>
+<p>She couldn't say it. She couldn't even breathe the lie.</p>
+<p>She arched her back instead, pressing herself hard into his hand. "I want you," she whispered. "Keir. Please."</p>
+<p>He let out a low grunt and took her mouth.</p>
+<p>It wasn't a sweet kiss. It was hard, his teeth scraping hers, his tongue tasting of pine wood and salt. He took her breath. He was pushing every ghost out of her head with the weight of his mouth.</p>
+<p>His hands went down, clawing at the waist of her trousers. He pulled them down, dragging her underwear with them, bunching them around her knees. The cold air of the cellar hit her bare skin, but she didn't feel cold.</p>
+<p>She kicked her shoes off, her knees shaking. Keir hooked his thick arms under her thighs and lifted her. He set her back onto the old oak sorting table in the middle of the aisle. The wood was freezing against her bare skin, but Keir’s body was a furnace.</p>
+<p>He stood between her knees, his eyes black in the dim light.</p>
+<p>She lay back, her thighs open, her hips resting on the edge of the wood. For a second, she wanted to cover herself—the soft skin of her belly, the lines on her thighs. But Keir didn't look at her like that. He looked at her like a starving man looks at bread.</p>
+<p>"You're beautiful," he muttered.</p>
+<p>He reached down, his heavy hand sliding between her thighs. His fingers were thick, his skin rough. He pressed his palm hard against her, and the friction of his hand made her hips jump off the wood.</p>
+<p>She was already slick. He parted her, his thumb finding her and rubbing in a slow, heavy circle.</p>
+<p>"Keir," she choked out, her fingers clawing at the dusty edge of the table.</p>
+<p>He didn't stop. He pushed two fingers deep inside her, stretching her tight, hot skin. He moved them in a steady, heavy rhythm, his thumb grinding against her until she was panting, her head rolling back on the cold oak.</p>
+<p>He was young, his shoulders corded and hard under his shirt, but he was entirely hers. He kept his eyes locked on her face, watching her fall apart.</p>
+<p>"Look at me," he whispered. His fingers went faster, deeper. "Eulalie. Look at my hand."</p>
+<p>She opened her eyes, her face wet with sweat. She looked down and saw his dark, work-hardened hand moving between her pale thighs, wet and shining. She wasn't dead. She wasn't some old coat left in a closet. She was right here, her body burning under his fingers.</p>
+<p>The wave hit her fast and hard. Her muscles clamped tight around his hand, her hips shaking as she came, her voice echoing off the limestone walls.</p>
+<p>Keir watched her, his teeth bared in a tight, proud smile. He didn't let her go. He stood up quickly, his hands moving to his belt, unbuttoning his trousers.</p>
+<p>He was thick and heavy, pointing up toward her in the yellow light.</p>
+<p>Eulalie stared at him, her breath coming in ragged gasps. She reached out and grabbed his shoulders, her nails digging into his back. "Now," she begged. "Keir. Now."</p>
+<p>He didn't wait. He grabbed her by the hips, pulled her to the edge of the table, and pushed into her in one deep, heavy stroke.</p>
+<p>She let out a sharp cry, her eyes opening wide as he stretched her open. He was so big, so hot inside her, it made her head spin.</p>
+<p>Keir let out a low, ragged groan. He leaned forward, forehead pressing against hers, his breath hot on her nose. He stopped for a second, letting her take him. "You're so tight," he muttered, his hips giving a small, heavy twitch. "Jesus, Eulalie."</p>
+<p>"Move," she said. She wrapped her legs around his waist, locking her ankles behind his back. "Please, Keir. Move."</p>
+<p>He started to move.</p>
+<p>It was heavy, blunt work. The old sorting table creaked and groaned under them, the sound bouncing off the stone walls. Every time his hips hit hers, she felt the sheer, solid strength of him. But he wasn't hurrying. He went deep, his chest grinding against her breasts, his mouth coming down to catch her cries.</p>
+<p>Dust danced in the yellow light over their heads. The smell of old books and damp stone was gone, replaced by the smell of sweat and hot skin.</p>
+<p>Eulalie let go. The shame of Richard, the gossip in town, the empty rooms of her house—it all burned away. There was only the rough wood under her shoulders, the iron grip of his hands on her waist, and the heavy, constant thrust of his body.</p>
+<p>"I’ve got you," Keir whispered, his breath hot against her neck as he went faster. "I’ve got you, Eulalie."</p>
+<p>"Yes," she cried, her fingers tangled in his dark hair, pulling his face down to hers. "Yes, Keir."</p>
+<p>The heat built up again, a tight, heavy knot in her belly that grew with every hit. She felt another wave coming, bigger this time, darker and heavier. She squeezed him with her legs, pulling him deeper, driving him wild.</p>
+<p>Keir’s breath came in short, ragged grunts. His movements went clumsy and desperate.</p>
+<p>"Eulalie... I'm—"</p>
+<p>"With me," she cried, her voice breaking. "Now, Keir!"</p>
+<p>She broke. The climax hit her like a fist, her body shaking around him in tight, hard spasms. A second later, with a deep, animal grunt that rattled the empty shelves, Keir drove himself deep one last time and held still.</p>
+<p>His back went stiff, his neck corded as he came, filling her with thick, hot spurts. His chest was heaving, his face buried in her neck as he held her like he was falling.</p>
+<p>They stayed there on the table, the only sound their heavy, rattling breath in the dark.</p>
+<p>Slowly, Keir let his forehead rest against her wet shoulder. His skin was slick, his heart thumping hard against her chest. He didn't pull out. He stayed right there, his arms wrapped around her waist, keeping her close.</p>
+<p>Eulalie closed her eyes, her hand slowly smoothing the damp hair at the back of his neck.</p>
+<p>The quiet of the basement came back, but it didn't feel like a tomb now. It felt like a wall. Down here, in the dark with the dead papers, she had her own skin back. Richard hadn't taken that. He couldn't.</p>
+<p>She looked up at the wooden stairs. The street was up there. Richard and Idalia were up there, along with the talk and the mess of the town.</p>
+<p>But with Keir’s heart beating heavy against her ribs, she didn't care. For the first time in two years, she was standing her ground.</p>
+<h1>Chapter 7: Splinters and Scars</h1>
+<p>The heavy canvas tool roll was stiff with damp cold. Eulalie’s fingers fumbled with the cotton ties. The barn floor was concrete, drawing the winter chill straight up through the soles of her boots. She forced herself to focus on the metal. Cold carving chisels. The smooth, heavy boxwood handles of her gouges. The brass mallet her grandfather had used until the face was pitted and dark. One by one, she slid them into their pockets.</p>
+<p>She was forty-eight. Today, she felt every single year in her bones. Her lower back throbbed from hours hunched over the drafting tables, and her knees clicked when she bent down. But that was just dull background noise. The real pain was the hollow, scraping feeling right behind her ribs.</p>
+<p>She could still see Richard’s face. That look he gave her—that soft, patronizing pity. And Idalia. Young, glowing, her hand resting on the swell of her belly. The baby Eulalie had spent her whole thirty-something years crying for, the one Richard swore they couldn't afford, was growing inside a girl young enough to be her daughter. A girl who was Keir’s sister.</p>
+<p>It was a cruel joke. A jagged wire waiting to tear her open if she took one wrong step.</p>
+<p>"Packing light?"</p>
+<p>The voice came from the dark doorway. Eulalie didn’t jump. She’d been waiting for him, even though she'd hoped to load her truck and gravel-crunch her way out of the drive before he noticed.</p>
+<p>Keir stood in the entrance, blocking the gray afternoon light. He was big. His thick, grease-stained work shirt had the sleeves rolled up, showing forearms corded from decades of hauling oak and pine. He smelled like the woods: pine sap, motor oil, and the cold rain starting to rattle the tin roof.</p>
+<p>"Taking the delicate stuff home," she said. Her voice sounded thin, even to her. She didn't look up, just pulled the canvas flap down over the steel tips. "The damp in here ruins the steel. I'll finish the scrollwork at my kitchen table."</p>
+<p>"That's a lie."</p>
+<p>He walked over. His boots didn't make a sound on the sawdust. He stopped on the other side of her workbench and laid his hands flat on the scarred wood. His eyes were a quiet, dark green. They searched her face, too heavy, too honest.</p>
+<p>"You're running," he said. No games. No polite pretense. "Because of this morning. Because of Richard and Idalia."</p>
+<p>Eulalie squeezed her eyes shut, then looked right back at him. "Of course I am, Keir. Look at this. Look at us. Your sister is having my ex-husband's baby. If I stay here, if I keep working three feet away from you, I'm swimming in the wreckage of my old life. I spent twenty-four years building something that died in a weekend. I don't have the stomach for the sequel."</p>
+<p>"This isn't about them," Keir said. He reached across the pine. His hand was warm, his palms rough with calluses as his fingers closed around her wrist. He didn't pull her. He just held her. The heat of him against her pulse felt like a hand reaching down to a drowning woman. "This is about you and me. In this shop."</p>
+<p>"There is no 'you and me' without them," she whispered. Her voice broke. God, she hated how weak she sounded. Her thumb trembled against the canvas roll. "I'm forty-eight, Keir. I don't have the runway for a beautiful mistake. I can't survive another crash."</p>
+<p>He didn't let go. He slid his fingers down, locking them through hers, and pulled her gently around the workbench.</p>
+<p>"Come with me."</p>
+<p>"Keir—"</p>
+<p>"Just come."</p>
+<p>He led her through the side door into his private shop. It was smaller, tight, insulated against the draft. He kept his best cedar and his personal lathe here. The air was different. Warm. A little cast-iron stove crackled in the corner, and the smell of cedar was so thick and sweet it tasted like honey on the tongue.</p>
+<p>He shut the heavy door and threw the iron latch. The wind outside died instantly.</p>
+<p>"Look at me, Eulalie." He stepped up close, almost touching her. He was thirty-four. His skin was smooth but lined at the corners of his eyes from squinting into the sun. Dark stubble shadowed his jaw. He looked so solid, so incredibly real, while she felt like a shadow ready to blow away.</p>
+<p>"I see you," she said, looking at his collarbone. "That's the problem. I see you, and I want things I have no right to want."</p>
+<p>"What does your age have to do with anything?" His fingers caught her chin, tilting her face up. "Tell me. Because I see a woman who knows exactly who she is. A woman who doesn't play games, who doesn't need some insecure idiot to tell her she's worth something."</p>
+<p>"It's easy for you," she said, the hot tears finally spilling over. "You're young. You've got time. I look in the mirror and I see every single thing I've lost. My body... it's softer now. I've got lines. I have a past that feels like a wet wool blanket on my chest. Richard looked at me and saw something used up. He went to your sister because she's brand new. She's a blank slate. I'm lost in the middle of the woods, Keir."</p>
+<p>His grip on her chin softened. His thumb brushed her bottom lip. His face wasn't soft with pity; it was tight, almost angry.</p>
+<p>"You think I want brand new?" his voice was a rough murmur. "You think I want someone who's never broken anything? Who doesn't know what it takes to glue the pieces back together? Eulalie, my whole life has been full of people who treat everything like it’s disposable. My dad left a trail of broken promises. Idalia thinks life is a picture you take for a screen. They don't want the wood. They want the varnish."</p>
+<p>He stepped closer, his legs pressing against hers, his body heat cutting right through her heavy trousers.</p>
+<p>"I've been alone in this shop for five years," he whispered against her temple. "Making furniture for people who don't care about the grain, who just want a table that looks like a catalog page. Then you walked in. You touched the wood like you knew where the tree grew. You looked at me like you saw the man holding the chisel, not just some dumb labor. I'm terrified of being lonely, Eulalie. But I’m more scared of being with someone who makes me feel alone. You don't do that. You never have."</p>
+<p>The words hit her hard. The armor she’d spent a year putting on—the bitter jokes, the quiet dignity of the discarded wife—just fell away.</p>
+<p>She let out a long, shaky breath and leaned her forehead against his chest. His arm went around her waist, locking her against him. He was solid. Like an old oak. His heart thudded steady and strong against her cheek.</p>
+<p>"I'm scared, Keir," she whispered into his shirt.</p>
+<p>"Me too," he said, kissing her hair. "But I'd rather be scared with you than safe alone."</p>
+<p>He put his hands to her face, tilting her back to look at her. His eyes were dark, his chest rising and falling.</p>
+<p>When he kissed her, it wasn't a question. It was deep, heavy, and full of a quiet, desperate hunger. Eulalie opened her mouth with a soft sigh, tasting him, feeling the scrape of his beard. Her hands climbed his shoulders, gripping the thick fabric of his shirt as the floor seemed to slide away.</p>
+<p>She wasn't a girl being flattered. She was a woman being chosen. And she wanted it. She wanted him so much her bones ached.</p>
+<p>Keir groaned, his hands sliding down to her hips, lifting her slightly against him. The heat of him, the hard reality of his desire for her forty-eight-year-old body, sent a thick warmth through her.</p>
+<p>He walked her backward, his mouth still locked on hers, until her legs hit the edge of the low work table. Right below it was a massive pile of fresh cedar shavings. They lay in thick, curly ribbons, soft as feathers and smelling of sweet resin.</p>
+<p>He pulled back, his eyes dark. Without a word, he reached for the hem of her wool sweater. She lifted her arms, letting him pull it over her head and toss it onto the shavings.</p>
+<p>She stood in her simple cotton bra. Her breasts were heavy, her waist softer than it used to be. She started to cross her arms over her stomach—the old, automatic habit of hiding herself.</p>
+<p>Keir caught her wrists. "Don't," he said softly. "Don't hide from me."</p>
+<p>He dropped to his knees on the cedar shavings. His fingers went to the button of her trousers. He slid the zipper down, his knuckles warm against her stomach. Eulalie gasped, her fingers tangling in his dark hair as he slid the pants and her underwear down her hips, leaving her completely bare in the dim, amber light of the stove.</p>
+<p>Keir didn't look away. He looked at her—really looked at her. At the curve of her hips, the faint silver lines on her thighs, the soft curve of her belly.</p>
+<p>He leaned in and kissed her stomach, right below her navel. Eulalie's breath caught, her hips moving slightly as his tongue brushed her skin.</p>
+<p>"Beautiful," he muttered against her skin, his hands holding her hips steady. "You're so beautiful, Eulalie."</p>
+<p>The absolute truth in his voice broke the last dam. She was crying, but she was smiling too. She felt seen. Not like a ghost from someone else's past, but a real woman who could make a man look like this.</p>
+<p>She reached down, tugging his shirt. "Keir. Please."</p>
+<p>He stood up fast. He ripped off his shirt, showing a broad chest lined with muscle from years of heavy lifting, dark hair dusting his skin. He kicked off his boots and shed his trousers. He was young, strong, and beautiful, but it was his eyes—full of a fierce, steady heat—that made her throat tight.</p>
+<p>He guided her down onto the cedar shavings. They crunched and settled under her back, soft and warm, cushioning her. The curls of wood tangled in her hair, but she didn't care. The smell of the forest was everywhere.</p>
+<p>Keir came down over her, his weight a heavy, comforting blanket that shut out the cold. He kissed her neck, then moved lower, his mouth finding her breast, his tongue tracing her nipple until it was tight and hard under his touch.</p>
+<p>Eulalie arched her back, a soft, ragged sound escaping her. The feeling was sharp and clean, clearing out all the clutter in her head until there was only his mouth and the heavy ache between her thighs. She wrapped her legs around his hips, pulling him closer.</p>
+<p>"Slow," Keir whispered, his breath hot, his muscles shaking as he held himself back. "We have all night."</p>
+<p>He slipped his hand down, his fingers finding her wet and ready. She was slick, her body answering his touch with an eager, heavy heat. He stroked her, his thumb finding her center, moving in slow, heavy circles that made her breath hitch.</p>
+<p>"Keir, now. Please," she gasped, her nails digging into his shoulders.</p>
+<p>He lifted his hips, guiding himself against her. He paused for a second, his forehead resting against hers.</p>
+<p>"Look at me."</p>
+<p>She opened her eyes, locking onto his.</p>
+<p>"I'm yours, Eulalie," he said, his voice thick. "Always."</p>
+<p>He pushed forward, sliding slowly, deeply inside her. The fullness was so much she couldn't breathe. Eulalie let out a long, broken sigh, her body opening for him, holding him tight as he sank in.</p>
+<p>They lay still for a moment, joined together, their heat mixing in the quiet room. Only the stove crackled.</p>
+<p>Then Keir began to move.</p>
+<p>He pulled back almost all the way before sliding back in, a slow, heavy rhythm that took her breath away. Every stroke felt like a promise, a physical way of telling her she was wanted, that her body was still a place of joy.</p>
+<p>Eulalie moved with him, her hips rising to meet him. The feel of his skin, the sweet, sharp smell of the cedar shavings crushed beneath them, the steady, rhythmic slide of their bodies became everything.</p>
+<p>She forgot the cold barn. She forgot Richard, the small-town whispers, the shame. There was only the heat of Keir’s skin, the hard muscles shifting under her hands, and the rising, tight coil in her belly.</p>
+<p>"Keir," she cried out, the sound lost in the high rafters.</p>
+<p>"I'm here," he groaned, moving faster, his thrusts deeper. He reached down, his thumb finding her center again, pressing hard as he drove into her.</p>
+<p>That was it. Eulalie's body tightened, her mind going bright and hot as her climax took her. She shook in his arms, her body clamping down around him.</p>
+<p>Keir let out a low, rough growl. He pushed deep one last time, his whole body stiffening as he came, his face buried in her neck, his breath hot and fast against her shoulder.</p>
+<p>They stayed like that while the wind whistled outside, their breathing slowing down together in the warm shop. Keir rolled to his side, pulling her with him, keeping his arms locked tight around her.</p>
+<p>Eulalie rested her head on his chest, her fingers tracing his collarbone. She was exhausted, but it was a good, clean feeling. The heavy, cold stone that had sat in her chest for a year was gone. In its place was something warm and solid.</p>
+<p>"Don't pack your tools," Keir whispered into her hair.</p>
+<p>Eulalie smiled, her hand tightening on his shoulder. "I won't."</p>
+<h1>Chapter 8: The Cracking Beam</h1>
+<p>The unfinished floorboards smelled of raw pine and dried linseed oil, baking under the weight of a late July afternoon. Outside, the sky had turned the color of a bad bruise. A storm was coming, but it was taking its sweet time. Indoors, the air stayed thick and greasy, sticking to Eulalie’s skin like wet wool.</p>
+<p>She lay flat on her back on the stained mattress they’d hauled into the center of the room. Keir hovered over her, his wide shoulders cutting off what little grey light came through the bare studs. He was thirty-four. No gym-carved abs or soft hands like the men she used to know. This was a body built by ten-hour days of hoisting green oak and swinging sledgehammers. He smelled of cedar shavings, sharp, salty sweat, and the cold iron of the toolbox downstairs.</p>
+<p>"You're thinking too loud," Keir muttered. His chin rasped against her collarbone—rough, dark stubble that stung in the heat.</p>
+<p>She let out a breath that was half-sigh, half-shudder, her fingers digging into the hard meat of his shoulders. "I'm forty-eight, Keir. My knees ache when the storm rolls in, and we’re supposed to be at the high school gym in two hours."</p>
+<p>He looked up. His eyes were hazel, clear and dead serious. No smirk. No patronizing comfort. Just that heavy, quiet stare that always made her feel like she was falling backward. "I don’t give a damn about the gym. Or your knees. Let me."</p>
+<p>He ran a calloused palm down her ribs, his thumb catching on the soft roll above her hip. Her body wasn't what it used to be. The skin on her belly was loose now, mapped with the faint, silvery scars of her pregnancies. Her ex-husband, Richard, used to look at those marks with a polite, quiet pity that made her want to crawl out of her skin. Keir didn't look. He just gripped her hip, his fingers sinking deep, anchoring her to the mattress until her pelvis tilted up to meet him.</p>
+<p>"You are so beautiful," he murmured, his forehead resting against hers. "So soft. Like sun-warmed wood."</p>
+<p>He nudged her thighs apart with his knee, sliding between them with a heavy, unhurried pressure. She was already slick, the heat down there sharp and demanding. Eulalie reached up, burying her hands in his thick, damp hair to pull him down. He tasted like cold well water from the jar they’d shared earlier, and salt.</p>
+<p>When he pressed against her, she caught her breath.</p>
+<p>"Tell me," he whispered, chest heaving. "Eulalie. Tell me."</p>
+<p>"Now," she said. "Just... now."</p>
+<p>He pushed in, one long, deliberate stroke that filled her completely. Eulalie’s head threw back, a dry gasp catching in her throat as her body stretched to take him. He didn’t rush. He never did. He moved with the same steady, rhythmic weight he used to drive iron spikes into dry timber. Deep, slow, pulling back until they were barely touching, then driving home until she felt the impact in her teeth.</p>
+<p>She gripped his lower back, her short nails scraping his skin as the tightness built behind her hipbones.</p>
+<p>"Look at me," he growled.</p>
+<p>She forced her eyes open through the sweat. He was watching her, his jaw locked, the veins in his neck standing out like cords. The sheer weight of his focus—this younger man, completely wrecked by her—pushed her over. Her muscles clamped tight around him.</p>
+<p>Keir let out a raw, broken sound and buried his face in her neck, his movements turning fast and hard as she broke, her hips lifting off the mattress in small, desperate jerks. He shuddered a second later, pouring himself into her, his breath burning hot against her wet skin.</p>
+<p>They lay there for a long time as the light faded, the heavy silence of the house settling over them like dust.</p>
+<p><em></em>*</p>
+<p>The St. Jude gym smelled of wet wool, frying onions, and the cheap, sweet reek of punch-bowl wine. It was always bad on humid nights, but tonight the heat felt personal.</p>
+<p>Eulalie stood by the silent auction tables, her fingers white around a plastic cup of lukewarm cider. She’d worn the dark green silk—the dress that fell past her knees and showed just enough collarbone. She’d spent forty minutes in front of the mirror, pinning her dark curls to hide the gray at her temples, but under the harsh hum of the fluorescent tubes, she felt like a specimen on a slide.</p>
+<p>And she couldn't stop looking across the room.</p>
+<p>Richard was over by the bleachers. He was fifty, his silver hair swept back in a cut that cost more than her monthly electric bill. Clinging to his arm was Idalia. At twenty-six, Idalia looked like a ripening peach, her round belly stretching the yellow cotton of her sundress.</p>
+<p>Idalia, who was Keir's little sister.</p>
+<p>A cold drop of sweat crawled down Eulalie’s spine. For twelve months, this town had lived on her misery. They’d whispered when Richard packed his bags; they’d whispered when he married a girl young enough to be his daughter; and they were whispering now, watching Eulalie stand alone while her ex paraded his brand-new, fertile life.</p>
+<p>"You shouldn't be standing here alone," a quiet voice said.</p>
+<p>She started, nearly spilling her cider. Keir was right there. He’d changed into a clean flannel shirt, the sleeves rolled up over his thick, sunburned forearms, though he still wore his scuffed work boots. He smelled of soap and cheap aftershave, but his hazel eyes were dark and steady.</p>
+<p>"Keir, please," she hissed, her heart leaping into her throat. "Get away from me. We can't do this here."</p>
+<p>"I don't care about this room," he said, his voice flat with that stubborn, mule-headed tone she knew too well. He didn't budge. He stepped closer, his shoulder nearly touching hers. The heat coming off him was almost enough to make her lean in, but she forced herself to stand straight.</p>
+<p>"Everyone is watching," she whispered, her eyes darting toward the punch bowl where the librarian, Mrs. Cleary, was already nudging the woman next to her.</p>
+<p>Before Keir could reply, a shadow cut off the light.</p>
+<p>"Well, look at this. The restoration crew."</p>
+<p>Richard’s voice was like grease on water. He stood there with a small paper plate of ham sandwiches in one hand, his other arm locked around Idalia’s waist. Idalia looked miserable, her eyes darting between her brother and Eulalie, her cheeks burning red.</p>
+<p>"Richard," Eulalie said, her voice freezing over. "We were just leaving."</p>
+<p>"Were you?" Richard’s eyes raked down her green dress, a thin, nasty smile curling the corners of his mouth. "I didn't think you'd have much interest in old, salvaged junk, Eulalie. But then, you always did have a habit of keeping things past their expiration date. Sometimes things are just dry-rotted. Better to tear them down and start fresh with something... newer."</p>
+<p>He tapped Idalia’s round stomach on the word <em>newer</em>.</p>
+<p>The silence around them stretched, sudden and heavy. At the nearby bake-sale table, three women stopped talking.</p>
+<p>Eulalie felt the air leave her lungs. The humiliation was physical, a cold hand squeezing her throat. She felt every single one of her forty-eight years, heavy and tired.</p>
+<p>"Richard," Idalia muttered, her voice small. "Don't."</p>
+<p>"Just an observation, sweetie," Richard said, loud enough to carry over the hum of the gym. "Your brother’s spending a lot of time on a house that’s probably beyond saving. Some foundations are just too old to hold any real weight."</p>
+<p>"Shut your mouth, Richard."</p>
+<p>It wasn't Eulalie who said it.</p>
+<p>Keir stepped into the space between them, his massive frame blotting Richard out. His fists were clenched, the tendons in his forearms standing out like iron cables.</p>
+<p>"Excuse me?" Richard’s smile slipped, his silver eyebrows twitching. "I don't think you want to talk to me like that, Keir. I pay your sister's rent, and I pay her medical bills."</p>
+<p>"I don't give a damn what you pay," Keir growled. His voice rumbled through the rafters, cutting off the chatter three rows of tables over. The gym went dead quiet. "The only rot in this town is standing in your shoes. You walked out on a woman who was ten times too good for you because you couldn't handle the fact that she had more grit in her pinky finger than you have in your whole useless body."</p>
+<p>"Keir!" Idalia whimpered, her hands flying to her mouth.</p>
+<p>"You're a coward," Keir said, his voice ringing off the metal ceiling. "You wanted a trophy you didn't have to work for. If you ever open your mouth to her again, I’ll throw you through that fire door."</p>
+<p>"How dare you!" Richard’s face flushed a nasty, mottled purple. "This is slander! Idalia, tell your brother—"</p>
+<p>"Idalia doesn't have to say a damn thing," Keir snapped. "She knows what you are. Everybody here does. Now move."</p>
+<p>Eulalie couldn't breathe. Every pair of eyes in St. Jude was glued to them. She saw the pity, the shock, the greedy excitement of her neighbors who would be talking about this until winter. She saw Idalia, pale and shaking, clutching her belly as if she’d been struck.</p>
+<p>It was a disaster.</p>
+<p>"No," Eulalie whispered.</p>
+<p>She didn't look at Keir. She turned and ran.</p>
+<p><em></em>*</p>
+<p>She didn't stop until she hit the gravel lot. The sky had finally given up, dumping a cold, blinding sheet of rain that soaked her silk dress in seconds and plastered her curls to her skull. She fumbled with her keys, her hands shaking so hard they slipped from her wet fingers and clattered into the dirt.</p>
+<p>"Eulalie! Wait!"</p>
+<p>Keir’s boots crunched through the gravel. He was jogging toward her, his flannel shirt clinging to his ribs, his hair dripping into his eyes. He scooped up the keys and tried to hand them over, but she backed away, splashing into a muddy puddle.</p>
+<p>"Don't touch me," she choked out.</p>
+<p>Keir stopped, his shoulders dropping. "Eulalie, I was standing up for you. He had no right to say those things. He’s a pathetic—"</p>
+<p>"He is your sister's husband!" she shrieked, her voice cracking against the roar of the rain. "He is the father of her baby! Your niece or nephew, Keir!"</p>
+<p>Keir flinched, but his jaw stayed locked in that stubborn, hard line. "I don't care. He doesn't get to treat you like dirt."</p>
+<p>"You don't get it," she said, her voice dropping to a ragged whisper. She wiped the rain from her eyes, but the tears were hot and wouldn't stop. "You don't see what you did. You just stood up in front of everyone we know and chose me over your own family."</p>
+<p>"I chose you because I love you," he said, stepping into the rain toward her, reaching out.</p>
+<p>"No!" She slapped his hand away, her chest heaving. "You can't. This is crazy, Keir. Look at us! I'm forty-eight. I've got a ruined marriage, a body that's tired, and a life that's mostly behind me. You're thirty-four. You should be starting a family, not picking fights with my ex-husband in a high school gym!"</p>
+<p>"I don't want some other family," Keir said, his voice cracking. "I want you. I don't care about the years, Eulalie. I never have."</p>
+<p>"Well, I do!" she sobbed. "I care! Because every time I look at you, I see Idalia. I see Richard. I see the mess that ruined my life. If you stay with me, your sister will never let you near that child. You'll be locked out, and it'll be my fault."</p>
+<p>"That's my choice," he insisted, his fingers catching her wet arms. He was so hot in the freezing rain, his skin radiating a stubborn warmth that made her want to sink into him and hide. "Let me make it, Eulalie. Let me stand there."</p>
+<p>"I can't," she whispered, her hands pushing against his chest. "I can't survive the look on people's faces. I spent twenty-five years being the perfect wife, only to have my dignity dragged through the mud. Tonight, you took the last scrap of pride I had and turned it into a sideshow. I can't be the woman who tore a young family apart."</p>
+<p>"Eulalie, please..."</p>
+<p>"No," she said. Her voice went flat, dead, though her chest was still shaking. She looked right into his wet, hazel eyes. "It's over, Keir. The gap's too wide. The damage is done. I want you off my property. Stop the work on the house. Go back to your sister and fix whatever is left of your family."</p>
+<p>Keir stared at her. The anger drained out of him, leaving his face pale and empty, worse than any shout. His hands slid off her arms and dropped to his sides.</p>
+<p>"You don't mean that," he whispered.</p>
+<p>"I do," she said, and it felt like she was swallowing glass. "I need my life back. The quiet, empty one I had before you showed up."</p>
+<p>She snatched her keys from his loose grip. She didn't look at him again—she couldn't. She climbed into the damp, cold driver's seat, slammed the door, and locked it.</p>
+<p>Through the water streaming down the windshield, she saw him standing there in the gravel, his big shoulders slumped, the summer storm soaking him to the bone. He didn't move. He just watched her as she backed out, shifted into drive, and left him behind in the dark.</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

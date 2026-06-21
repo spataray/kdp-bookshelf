@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Branch - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">The Last Branch</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>The Last Branch: A Forensic Genealogy Thriller</h1>
+<h1>Chapter 1: The Shared Chromosome</h1>
+<p>The air in the basement lab of the State Forensic Science Unit always tasted like stale ozone and dry ice. It was a concrete tomb, really, insulated just enough to drown out the relentless hammering of the Oregon rain. It had been pouring for three straight weeks. The kind of wet that gets inside your bones and stays there until July.</p>
+<p>Under the twin halogen spotlights of her stereo microscope, the plastic microcentrifuge tube looked like a drop of amber resin. Inside it lay everything left of Cynthia Rook. Just a tiny, gray-white pellet of sediment, scraped from beneath the torn edge of the young woman’s left ring finger.</p>
+<p>The evidence envelope had arrived with Hector MacInnis’s signature gouged into the cardboard. Hector never just signed his name; he used his pen like a weapon, tearing into the paper. Rosalind could still smell the faint, sad trace of his wintergreen mints and stale rolling tobacco on the packaging. It was the scent of a midnight panic call.</p>
+<p><em>“Just give me a ghost, Rosalind,”</em> his voice had rumbled through her voicemail six hours ago, thick with the gravel of a man who’d been living on highway coffee and pure desperation since they dragged Cynthia’s body out of the drainage ditch near the old Carrow timber bounds. <em>“The brass is already talking about calling in the Bureau. Give me a name before they lock us out.”</em></p>
+<p>Rosalind adjusted the focus. Her gloved finger clicked against the pipette. The silence in the basement was absolute, save for the low, rhythmic hum of the MiSeq sequencer in the corner—seventy thousand dollars of high-grade plastic and lasers designed to translate human tragedy into strings of digital code.</p>
+<p>She’d spent forty-eight straight hours trying to coax something—anything—out of Cynthia Rook’s final moments. It was brutal work. The DNA was shredded, chewed up by the acidic forest soil and the constant wash of the rain. Traditional CODIS profiling? Useless. The short tandem repeats were too degraded, leaving nothing but a jagged, incomplete strip of markers. No semen. No saliva. No blood. Just those tiny flecks of skin under Cynthia’s fingernails, scraped loose when she fought for her life in the wet ferns.</p>
+<p>But Rosalind didn’t play in the state’s shallow genetic pool. She was a forensic genealogist. While the state police looked at twenty specific markers, she hunted for Single Nucleotide Polymorphisms. SNPs. Nearly eight hundred thousand individual variations scattered across the vast, messy map of the human genome.</p>
+<p>She turned to her monitor. The run was done. The raw data had been scrubbed, filtered, and converted into a clean text file.</p>
+<p>Her hand hovered over the mouse. On her second screen, the digital whiteboard displayed the sprawling, chaotic family tree of the Carrow clan. For three weeks, she’d been building this monster branch by branch, convinced the Highway 9 killer belonged somewhere in its shade. The geography was too neat. The five victims had all been dumped within a ten-mile radius of the crumbling estate built by old Alistair Carrow.</p>
+<p>Alistair had been one of those old-school timber barons who ruled the valley like a feudal lord, leaving behind nothing but clear-cut hillsides, poisoned soil, and a pack of bitter descendants. The living ones—Phineas and his sister Tamsin—still huddled in the decaying family manor on the ridge, watching the hemlocks reclaim the lawn. Phineas was a recluse who hadn’t been seen in town since the nineties. Tamsin was a bitter, sharp-tongued matriarch spending her twilight years selling off parcels of timberland just to pay the property taxes.</p>
+<p>Rosalind had spent her nights digging through digital graves—census records, digitized obituaries, marriage certificates from the turn of the last century—trying to find a genetic bridge. Some distant cousin or half-brother who shared enough blood with the killer to give him a name.</p>
+<p>She caught her reflection in the dark window of her office. A gray smudge on the double-paned glass marked where she’d rested her forehead during the worst of the 3:00 AM slump. She looked away, her eyes dropping to the browser tab for <em>VeritasGene</em>, the public database.</p>
+<p>Millions of profiles. People looking for their real fathers, or trying to trace their lineage back to some long-lost European village. And, for people like Rosalind with the right judicial warrants, it was a hunting ground.</p>
+<p>She clicked <em>Upload</em>.</p>
+<p>The progress bar crept across the screen. <em>12%... 34%...</em></p>
+<p>Rosalind leaned back, her office chair groaning. Her mind drifted, as it always did when the waiting started, back to the drafty house in eastern Oregon where she’d grown up. The quiet there had been different. Not sterile, like this lab, but heavy. Smothering. Her adoptive parents were decent, silent people who smelled of starch and old church hymnals, but they treated her origin like a secret disease. They gave her a home, a library card, and a debt she could never repay. When they died during her second year of grad school, they left her a single steel lockbox. Inside was her adoption decree.</p>
+<p><em>Single female infant,</em> the paper said. <em>Parentage unknown.</em></p>
+<p>It was a cruel irony, wasn't it? She spent her life rebuilding the broken families of strangers. She found sisters for crying middle-aged men and named the bones of girls left in the desert. Yet her own tree was a single, dead stump. She’d never uploaded her own DNA to a public database. The fear was too specific, too cold: the fear of finding absolutely nothing. Or worse, finding exactly what she came from.</p>
+<p>The sequencer beeped—a sharp, high-pitched chirp that signaled the end of the cooling cycle.</p>
+<p>Rosalind snapped back. The progress bar was gone. The <em>VeritasGene</em> portal had refreshed, displaying the matches for the unknown profile from Cynthia Rook’s nails.</p>
+<p>Normally, this was a slow, frustrating game of inches. You’d get a list of fourth cousins in Ohio sharing 15 centimorgans of DNA. Maybe a third cousin in Alberta sharing 32. From those tiny crumbs of genetic bread, you had to build massive trees, working backward through centuries of census data to find where the lines crossed.</p>
+<p>She looked at the top of the list.</p>
+<p>There was no fourth cousin.</p>
+<p>At the very top of the screen, highlighted in a pale, warning amber reserved for immediate family, was a single entry.</p>
+<p><strong>Relationship:</strong> <em>Full Sibling</em> <strong>Shared DNA:</strong> <em>2,650.4 cM</em> <strong>Shared Segments:</strong> <em>48</em> <strong>Longest Block:</strong> <em>112.3 cM</em></p>
+<p>The air left her lungs in a quiet, ragged gasp. The lab felt suddenly pressurized, like her ears were about to pop.</p>
+<p>"No," she said. It didn't sound like her voice. Just a dry rasp.</p>
+<p>She leaned in, her eyes burning as she stared at the numbers. In forensic genealogy, the centimorgan is the ultimate truth. Identical twins share about 3,400. Parents and children share the same, but with a different biological signature.</p>
+<p>A share of 2,650 centimorgans, spread across forty-eight distinct segments, with massive, unbroken blocks of identical DNA on every single autosome, meant only one thing.</p>
+<p>A biological brother.</p>
+<p>She looked at the username associated with the match: <em>C<em>Tree</em>88</em>. The email was an encrypted ProtonMail address.</p>
+<p>Her hand shook so violently she could barely guide the cursor to the <em>Chromosome Browser</em> tool. This was the visual map of the match, showing the shared segments across the twenty-two human chromosomes.</p>
+<p>The screen filled with twenty-two horizontal bars. They were painted in thick, overlapping bands of yellow and blue. These weren't the tiny, fragmented splinters of shared ancestry from some great-great-grandfather who died in the Civil War. These were massive, solid ribbons of shared life. The killer and <em>C<em>Tree</em>88</em> had drawn from the exact same genetic well. Same mother. Same father.</p>
+<p>Rosalind let go of the mouse. Her hand fell to her lap like a dead weight.</p>
+<p>The database didn't have the killer's profile until she uploaded it five minutes ago. The match wasn't comparing the killer to some stranger. It was comparing the killer's DNA to a profile that had already been sitting in the system for years.</p>
+<p>She looked at the account details for <em>C<em>Tree</em>88</em>.</p>
+<p>Registered three years ago. IP address in Washington.</p>
+<p>And then she saw the kit number.</p>
+<p>A cold weight dropped into her stomach. She knew that number. She didn't need to look it up, but her brain, desperate for any escape hatch, forced her to prove it.</p>
+<p>She stood up, her chair rolling backward and slamming into the metal leg of the workbench. She stumbled to her filing cabinet, her heart hammering a wild, erratic beat against her ribs.</p>
+<p>She yanked open the drawer labeled <em>Personal</em>. She bypassed her degrees, her mortgage paperwork, and grabbed the small, sealed envelope containing her own raw genetic data. She’d run it three years ago at a private lab, keeping the file on an encrypted flash drive in her desk, never quite brave enough to upload it to the public servers.</p>
+<p>But she had used it once.</p>
+<p>Three years ago, during a pilot study for the state's cold case unit, she’d needed to test the database’s privacy firewalls. She’d uploaded a control profile under a pseudonym to see if the system's security protocols held up. She had used her own raw data.</p>
+<p>She had named the kit <em>C<em>Tree</em>88</em>.</p>
+<p>The room seemed to tilt. The fluorescent lights overhead hummed with a sudden, deafening frequency.</p>
+<p>The DNA from Cynthia Rook’s fingernails—the skin of the man who had choked the life out of her—shared 2,650 centimorgans with <em>C<em>Tree</em>88</em>.</p>
+<p>With her.</p>
+<p>The Highway 9 Killer was her brother.</p>
+<p>She backed up until her spine hit the hard edge of the workbench. A glass beaker rattled in its metal rack, a tiny, fragile sound in the silence.</p>
+<p><em>Single female infant. No other issue.</em></p>
+<p>The state of Oregon had lied. Or her mother had kept one child and thrown the other away. Or maybe they had abandoned both of them, casting them out into different corners of this damp, dark country, where one grew up to read the code of life, and the other grew up to destroy it.</p>
+<p>Her phone began to vibrate on the desk. The sharp, mechanical buzz sounded like a chainsaw in the quiet room.</p>
+<p>She didn't move. She just watched the phone slide a fraction of an inch across the polished wood. <em>Hector MacInnis</em> flashed on the screen.</p>
+<p>If she picked up, what was she going to tell him? <em>Hector, I found your ghost. He's in my veins.</em></p>
+<p>She looked back at the screen. The yellow and blue bands of the chromosome browser looked like a mockery. A map of her own identity, split in half and handed to a monster.</p>
+<p>Then her eyes drifted to the Carrow family tree on the whiteboard.</p>
+<p>Alistair. Phineas. Tamsin.</p>
+<p>Why had she been so obsessed with them? Was it really just a professional hunch? Or was it something deeper? A phantom memory? The scent of cedar and damp wool from a bedroom she couldn't remember?</p>
+<p>She dragged herself back to the desk, her knees feeling like wet cardboard. Ignoring the vibrating phone, she ran a triangulation of the shared matches between herself, the killer, and the rest of the database.</p>
+<p>The screen spun for three agonizing seconds.</p>
+<p>When the page refreshed, three other matches appeared, sharing smaller, distinct segments of DNA with both her and the killer.</p>
+<p><strong>Match:</strong> <em>P<em>Carrow</em>Est</em> <strong>Shared DNA:</strong> <em>412.1 cM</em> <strong>Predicted Relationship:</strong> <em>First Cousin / Half-Uncle</em></p>
+<p>Rosalind forgot how to breathe.</p>
+<p><em>P<em>Carrow</em>Est</em>. Phineas Carrow.</p>
+<p>The connection was real. The Carrow family wasn’t a lead she’d built out of geographic convenience. They were her family.</p>
+<p>She was a Carrow. And so was the man who had dragged Cynthia Rook into the mud.</p>
+<p>She looked down at her hands. The exact same hands she’d used to extract the DNA from the evidence tube. Hands that shared their shape, their nails, and their genetic blueprint with the person who had wrapped them around Cynthia's neck.</p>
+<p>The phone stopped vibrating. The lab fell back into its cold, heavy silence.</p>
+<p>On her desk, the crime scene photo of Cynthia Rook’s hand stared up at her. The nails were short, torn, caked with the dark, peaty mud of the highway shoulder.</p>
+<p>And beneath those nails, her own blood.</p>
+<p>Rosalind reached out, her hand shaking, and closed the browser. The screen went black, reflecting her own pale face in the glass. Behind her, the door to the lab remained locked, but she knew she wasn’t alone anymore. The shadow of her brother had just stepped into the room.</p>
+<h1>Chapter 2: Lies in the Blood</h1>
+<p>The sequencer didn’t hum. It vibrated—a low, rhythmic rattle that got right into the marrow of Rosalind Mercer’s teeth and stayed there. In the sterile, over-cooled vacuum of the state forensic genealogy lab, that deep vibration was the only real proof that time was actually moving.</p>
+<p>Outside, a relentless November rain smeared the high windows, blurring the Boston skyline into a bruised, shifting watercolor of charcoal and violet. Inside, the air was different. It smelled of sharp ozone, isopropyl alcohol, and that faint, sweet undercurrent of bleach that never quite leaves a place like this, no matter how hard you scrub.</p>
+<p>Rosalind stared at the monitor. The blue glare reflected off her safety glasses, casting two pale, glowing boxes over her eyes. On screen, the raw sequence data for the Cynthia Rook homicide was still rendering. It looked like a jagged mountain range of green, red, and blue peaks—the final, desperate testament of a murdered woman, reduced to binary code.</p>
+<p>Then came the knock. Heavy, sudden, and loud enough to rattle the reinforced glass door of the cleanroom.</p>
+<p>Rosalind went rigid. Her fingers hovered over the keyboard, ready to slam the shortcut to minimize the screen.</p>
+<p>Through the double-paned glass, she saw Detective Hector MacInnis.</p>
+<p>He looked like a man who had spent the last forty-eight hours breathing nothing but cruiser exhaust and terrible diner coffee. His dark wool overcoat was damp, the shoulders soaked nearly black by the rain, and his tie was pulled loose. The salt-and-pepper hair at his temples—a premature dusting that had gotten noticeably heavier since they had called off their engagement eighteen months ago—was plastered to his forehead. He didn’t bother waiting for her to buzz him in. He used his swipe card. The sharp, plastic <em>clack</em> of the lock felt like a physical intrusion in her clean space.</p>
+<p>"Rosalind," he said. His voice had the gravelly, raw edge of pure exhaustion.</p>
+<p>"Hector." She stepped back from her desk, crossing her arms to hide the slight, betraying tremor in her fingers. "You know you aren’t supposed to be back here without an escort. The chain of custody protocols—"</p>
+<p>"I don't give a damn about the protocols tonight, and neither does the commissioner," Hector cut her off, his boots squeaking on the pristine vinyl floor as he stepped deeper into the lab. He smelled of cold rain, wet leather, and the bitter dregs of stale tobacco. "The Rook family just held a press conference. The mayor was right there on stage with them. They’re calling Cynthia’s death a failure of state security. I need a name, Rose. I need a face I can put on a warrant. Today."</p>
+<p>Rosalind’s stomach twisted.</p>
+<p>This was the moment she always dreaded. The "Ghost" of her own past—the quiet, terrifying knowledge that she was building a career on a foundation of carefully guarded secrets—reared its head. She had made a name for herself by being the absolute best, the only forensic genealogist who could coax a profile out of a degraded, contaminated sample when the state crime lab gave up. But looking at Hector now, she felt the thin ice beneath her feet beginning to crack.</p>
+<p>"DNA isn't a vending machine, Hector," she said, keeping her voice flat, cool, and dry. "You don't just slide in a cartridge and get a mugshot. The extraction from the victim's fingernail scrapings was highly degraded. It’s a mess."</p>
+<p>Hector stepped closer, his heavy shadow falling over her desk. He leaned against the edge of the workstation, his hand leaving a faint, smeary print on the glass partition. "The DA is threatening to pull our entire investigative funding if we don't have a solid lead by the weekend. You told me this new high-throughput platform could build a family tree from a single skin cell if it had to. Tell me you have something."</p>
+<p>A cold spike of panic flared in her chest. She couldn't tell him the truth. Not yet.</p>
+<p>The initial run of the suspect's DNA had matched something she hadn't expected—an anomalous, jagged familial link that touched way too close to her own private, unauthorized research. If she handed over that pedigree chart now, Hector would do his job. He would follow the branches of the tree, and those branches would lead straight to a past she had spent her entire adult life trying to bury. Her career, her reputation, her identity—gone.</p>
+<p>She had to buy herself some time.</p>
+<p>"I don't have a pedigree chart for you," she lied. Her voice remained steady, even though her heart was hammering against her ribs. "The crime scene sample yielded an incredibly low call-rate. It’s sitting at barely seventy percent."</p>
+<p>Hector frowned, his brow furrowing as he tried to translate the lab-speak. "Meaning what, exactly?"</p>
+<p>"It means the machine couldn't read thirty percent of the single nucleotide polymorphisms," she said, leaning back and gesturing to the screen, where she had quickly pulled up a generic, mock-up run of an unrelated case from three months ago. "The data is too noisy. If I try to upload this to the public databases now, we’ll get thousands of false-positive matches. It’ll point us toward every third cousin in the tri-state area."</p>
+<p>"So, what's the fix?" Hector’s eyes narrowed, studying her face.</p>
+<p>He knew her tells. Or, at least, he used to. He was looking for the subtle twitch in her jaw, the slight shift in her posture, the way she avoided direct eye contact when she was holding back.</p>
+<p>Rosalind forced herself to look right into his gray, bloodshot eyes. "I have to perform a manual phase-alignment. I need to separate the maternal and paternal alleles manually to clean up the noise before I run the triangulation algorithms. It’s painstaking work, Hector. It takes time."</p>
+<p>"How much time?"</p>
+<p>"Forty-eight hours. At least."</p>
+<p>Hector swore under his breath, turning away to pace the narrow aisle between the massive sequencers. His heavy footsteps echoed off the metal cabinets. He stopped, staring at his own reflection in the darkened glass before turning back to her.</p>
+<p>"You're stalling, Rose," he said softly. The old nickname slipped out, heavy with history. "Why do I feel like you're keeping something from me?"</p>
+<p>"I’m keeping you from making a fool of yourself by arresting the wrong third cousin of a high-profile victim," she shot back. The subtext was sharp as a scalpel: <em>Leave me alone. Let me do this. Don't dig.</em> "Go home, Hector. Get some sleep. Let me do my job."</p>
+<p>He stared at her for a long, agonizing moment. The silence between them was thick with everything they had never managed to say—the broken promises, the shared apartment they had emptied out box by box, the quiet that had grown between them until it became a wall.</p>
+<p>Finally, he let out a long, defeated sigh. "Twenty-four hours, Rosalind. That’s all I can give you before the captain takes this out of my hands and hands it over to the FBI’s regional unit. If they get it, we both lose control of the narrative."</p>
+<p>"I'll have something for you," she said.</p>
+<p>He gave her a single, curt nod and turned on his heel. The heavy glass door clicked shut behind him, the squeak of his boots fading down the long, sterile corridor until the low rumble of the sequencers reclaimed the room.</p>
+<p>Rosalind sank into her chair, her knees shaking. She waited five full minutes, counting the seconds by the rhythmic flashing of the sequencer’s status light, before she walked over and locked the door from the inside.</p>
+<p>Now, she was completely alone.</p>
+<p>She sat back down at her terminal, her fingers flying across the keys. She closed the decoy window and pulled up the raw FASTQ file for the Rook suspect.</p>
+<p>The real data flooded her screen.</p>
+<p>The call-rate wasn't seventy percent. It was a pristine ninety-nine point eight percent. The extraction had been flawless, the DNA beautifully preserved in the deep freeze of the morgue. She had just lied to the lead detective on a high-profile homicide investigation—a federal offense if anyone ever found out.</p>
+<p>But she didn't have a choice.</p>
+<p>Rosalind opened her proprietary triangulation software. It was her own creation, a program she had coded specifically to run deep-level familial searches across multiple public-access genetic databases. She uploaded the suspect’s genomic profile and watched as the system began to cluster the matches.</p>
+<p>Almost immediately, a red warning box popped up on the screen: <em>High rate of mixed calls on X-chromosome. Potential contamination or structural variation.</em></p>
+<p>Rosalind frowned, leaning closer. A "mixed call" meant the sequencing software was reading more than one nucleotide at heterozygous sites on the X-chromosome—almost as if there were two distinct maternal profiles overlapping in the exact same sample.</p>
+<p>"Degradation," she muttered to herself, her voice a dry whisper in the quiet room.</p>
+<p>It was the only logical explanation. The sample must have been contaminated at the crime scene, or perhaps the enzyme buffer had broken down during amplification. It was a common artifact in older, poorly preserved forensic samples, though highly unusual for a fresh extraction. She brushed the warning aside, forcing the software to bypass the X-chromosome anomaly and focus on the autosomes—the twenty-two pairs of non-sex chromosomes that would yield the true pedigree.</p>
+<p>The software began to map the matching segments, measuring them in centimorgans.</p>
+<p>As the digital branches began to form on her screen, Rosalind felt the blood drain from her face.</p>
+<p>The suspect's profile didn't just match a random family. It clustered heavily with a specific genetic signature she had seen once before—in her own private database. The one where she kept her own genetic profile, the one she had uploaded under a pseudonym to search for her biological family.</p>
+<p>The suspect shared a massive, three-hundred-centimorgan segment of DNA with her.</p>
+<p>In genetic terms, three hundred centimorgans wasn't a distant relative. It was a first cousin, a great-uncle, or a half-sibling. The killer of Cynthia Rook was a direct branch on Rosalind's own family tree.</p>
+<p>Her hands began to sweat inside her nitrile gloves. The sterile walls of the lab felt like they were closing in, the humming sequencers sounding less like machines and more like a chorus of accusing voices.</p>
+<p>She had to trace her own lineage. She had to know who this was before Hector did.</p>
+<p>She opened her private project file, the one labeled <em>M-01-RECON</em>. For years, she had been quietly assembling her own maternal tree, trying to piece together the fragments of an identity she had never been allowed to own. She had been adopted at birth, her birth certificate a sanitized document of state-approved lies.</p>
+<p>She initiated a maternal lineage search, tracing the mitochondrial DNA and the autosomal matches she had painstakingly verified over the last decade. She watched the digital lines crawl backward through time, bypassing the false leads and the dead ends she had spent years clearing away.</p>
+<p>The software narrowed the search down to a single, localized cluster in Western Massachusetts.</p>
+<p>A name materialized at the root of the branch.</p>
+<p><em>Zelda Carrow.</em></p>
+<p>Rosalind’s breath caught. She stared at the name, her mind racing.</p>
+<p>She opened a secure browser, bypassing the state network through a virtual private network she had installed for her private searches. She typed the name into the historical archives: <em>Zelda Carrow, Massachusetts.</em></p>
+<p>A series of digitized newspaper clippings and public records began to populate the screen.</p>
+<p>Zelda Carrow had not lived a quiet life. According to a clipping from the <em>Berkshire Eagle</em> dated August 14, 1995, Zelda had died at the age of forty-two.</p>
+<p>But she hadn't died in a hospital or in her own bed.</p>
+<p>She had died inside the Whispering Pines Psychiatric Center, a notorious state-run facility nestled in the Berkshire hills. The facility had been shuttered in the late nineties following a series of state investigations into patient abuse, medical neglect, and the mysterious disappearance of several residents.</p>
+<p>Rosalind clicked on the death record index. Zelda’s cause of death was listed as <em>cardiopulmonary arrest</em>, a generic clinical euphemism that often hid more sinister realities in institutions of that era.</p>
+<p>But it was the next document that made her heart stop.</p>
+<p>It was a probate court index entry from the county courthouse, dated three months before Zelda’s death in 1995.</p>
+<p><em>In Re: Adoption of Female Infant Carrow.</em></p>
+<p>The record was heavily redacted. The name of the infant, the adoptive parents, and the biological father were all blacked out, sealed by a judge's order under a defunct state privacy statute.</p>
+<p>Rosalind stared at the court docket number.</p>
+<p><em>#95-AD-0442.</em></p>
+<p>She knew that number. She didn't need to look at her locked drawer at home to verify it. It was the same docket number stamped on the corner of the faded, water-damaged page her adoptive mother had handed her on her twenty-first birthday—the only piece of her biological history she had ever possessed.</p>
+<p>Zelda Carrow was her biological mother.</p>
+<p>And the suspect in the Cynthia Rook homicide—the killer whose DNA was currently sitting in the sequencer behind her—was directly related to Zelda.</p>
+<p>Alistair Carrow? Phineas Carrow? Tamsin Carrow?</p>
+<p>Rosalind stared at the screen, her mind spinning as she tried to make sense of the names that were now populating the Carrow family tree on her monitor. The names were old, rooted in the stony soil of New England, but they were no longer just historical data points. One of them was a killer. And one of them was her family.</p>
+<p>She leaned forward, her forehead resting against the cool, plastic edge of the monitor casing. The sterile, cold air of the lab seemed to leak into her chest, freezing her from the inside out.</p>
+<p>She had twenty-four hours before Hector took the case away. Twenty-four hours to untangle a web of blood, madness, and sealed records.</p>
+<p>If she told him the truth, she would lose everything.</p>
+<p>If she kept the secret, a killer would walk free, and the blood of Cynthia Rook would remain on her hands.</p>
+<p>Rosalind sat up, her eyes hardening as she looked at the blinking cursor on her screen. She clicked on the anomaly warning again, staring at the mixed calls on the X-chromosome.</p>
+<p>There was a story in that noise. A story written in the blood. And she was the only one who could read it.</p>
+<h1>Chapter 3: The Taxidermist's Cabin</h1>
+<p>The foothills of the Cascades didn’t just hold water. They digested things.</p>
+<p>Rosalind Mercer kept her hands locked at ten and two, her knuckles white against the cheap leather of her Subaru’s steering wheel as the gravel road dissolved into a red clay soup. It was the kind of road that felt less like a route and more like a trap. Thirty miles east of the interstate, the canopy closed over her like a damp, green fist. The rain had finally stopped its steady hammering, but it hadn't really gone anywhere; it had just settled into a thick, greasy mist that clung to her windshield like sweat. Through the floor vents, the car breathed in the stench of wet hemlock, cold granite, and the sharp, vinegar tang of wood rot.</p>
+<p>She killed the engine forty yards from the gate.</p>
+<p>The silence that followed was immediate and suffocating. The only sound was the heavy, rhythmic <em>plip-plop</em> of water dropping from the fir boughs onto her hood.</p>
+<p>Rosalind didn't get out right away. She sat there, her thumb tracing the laminated edge of the press pass in her pocket. It was a forgery, of course. A beautiful one, run off on a high-end card printer by a former colleague from her days in the district attorney’s database unit.</p>
+<p><em>Tressa.</em></p>
+<p>The name hit her like a cold draft under an old door. Three years ago, Tressa’s DNA profile had sat on Rosalind’s desk in a sterile manila folder. Just a string of digital alleles. A code waiting for a match. Rosalind had hesitated, playing by the rules, waiting for some county administrator to sign off on the three-hundred-dollar budget line for a deep-dive genealogical search. By the time the paperwork cleared, they were pulling Tressa out of a sandbar near the Columbia River, her throat packed with river silt.</p>
+<p>Rosalind let go of the card. She wasn't waiting for permission this time. The Highway 9 killer had a twenty-year head start, and the branches of the Carrow family tree were rotting off one by one.</p>
+<p>She pushed the door open. The mud clawed at the soles of her hiking boots with a wet, greedy suction.</p>
+<p>The cabin sat in a small clearing where the daylight seemed to curdle into a dull grey. It was a low-slung, miserable thing built of hand-hewn cedar logs, its roof shingles green with a carpet of moss thick enough to grow ferns. On the front porch, a row of bleached deer skulls hung from the eaves by rusty wire, their empty snout cavities pointed down toward the porch boards like pale, silent bells.</p>
+<p>She climbed the three wooden steps. The second tread didn't just creak; it shrieked—a high, dry scream of ungreased timber.</p>
+<p>Before her knuckles could touch the weathered hemlock of the door, it swung inward.</p>
+<p>Phineas Carrow didn’t look like a man who had survived eighty winters in these mountains. He looked like something the mountains had chewed up and decided not to swallow. He was tall, stooped, and wrapped in a flannel shirt so faded the plaid had worn down to a grimy, uniform grey. His face was a map of dry gullies, but behind his wire-rimmed spectacles—thick enough to make his pupils look like black flies floating in water—his eyes were sharp, damp, and hostile.</p>
+<p>"We don't get lost up here," Phineas said. His voice had the dry, scraping rattle of dead leaves being dragged across asphalt. "Not unless we’re looking for something we shouldn't be."</p>
+<p>Rosalind forced her shoulders to drop. She gave him the smile she’d practiced in the rearview mirror—the one that looked academic, harmless, and slightly dull.</p>
+<p>"Mr. Carrow? I'm Rosalind Mercer. I'm working with the Oregon Historical Society. We're doing a survey of the early homesteads in the Clackamas basin, and your family—specifically Alistair and Tamsin Carrow—built the first mill race down near the creek."</p>
+<p>Phineas didn't blink. His right hand was buried deep in his trousers pocket, but his left hung loose at his side. His thumb was twitching. <em>Tap-tap-tap.</em> A frantic, rhythmic ticking against his index finger, like a telegraph key sending a message in a language everyone else had forgotten.</p>
+<p>"Alistair’s been in the ground since sixty-four," Phineas said. "Tamsin went five years after. There’s nothing here but their trash."</p>
+<p>"Sometimes the trash is where the real history is," Rosalind said softly. She kept her eyes locked on his, resisting the urge to peer past his shoulder into the darkness of the cabin. "I'm tracing the collateral branches. I want to make sure the family's contribution to the valley isn't lost."</p>
+<p>The old man stared. A sudden gust of wind rattled the canopy, dumping a cold shower of rain off the roof right onto the back of Rosalind’s neck. She didn't flinch.</p>
+<p>Slowly, Phineas stepped back. He didn't invite her in, but he left the door open. It was a dare.</p>
+<p>She stepped inside. The cabin smelled of things that had died decades ago but had been chemically forced to pretend they were still here. It was a suffocating mix of borax, turpentine, and white arsenic, cut by the greasy, heavy scent of mutton tallow.</p>
+<p>Against the far wall, a half-finished bobcat sat on a workbench. Its raw skin was pinned to a papier-mâché form, the stitches along its spine thick, black, and crude. One of its amber glass eyes was missing, leaving a dark, empty socket that seemed to watch her with far more intensity than the glass one.</p>
+<p>"Don't touch the skins," Phineas barked, shuffling toward a small, paper-cluttered desk near the woodstove. "They're salted. Get that salt in a cut and you'll be screaming for a week."</p>
+<p>"I won't," Rosalind said.</p>
+<p>She stayed on her feet, her eyes moving across the room with a quick, forensic greed. A row of heavy skinning knives with custom antler handles hung from a magnetic strip over the sink. The blades were spotless, but the horn handle of the smallest knife was stained near the brass guard with a dark, iron-rich varnish that had sunk deep into the porous bone.</p>
+<p><em>A red herring?</em> Maybe. A man who had skinned deer for fifty years was bound to have blood on his tools. It didn't mean he’d used them on a twenty-year-old girl found by the highway.</p>
+<p>Then her gaze hit the desk.</p>
+<p>Sitting between a rusted box of carpet tacks and a half-empty bottle of mineral spirits was a small mason jar. Inside, mixed in with brass wood screws and old fishhooks, was a single, tarnished silver cufflink.</p>
+<p>Rosalind’s chest tightened, but she didn't let her breathing change.</p>
+<p>She knew that cufflink.</p>
+<p>In the state police archives, there was an image—magnified three hundred times under an electron microscope—of a tiny, metallic thread found in the woolen collar of the third victim on Highway 9. The trace team had identified it as a rare, silver-plated copper wire used in high-end European jewelry from the 1950s, braided in a unique, triple-loop pattern.</p>
+<p>The cufflink in the jar was an ornate silver square, its face stamped with a crest she couldn't quite read from five feet away, but the border—the border was a triple-loop braid of silver wire.</p>
+<p>"You look like you've seen a ghost, girl," Phineas said. He had dropped into a creaking wicker chair, his twitching hand now resting on his knee. He kept up the rhythm. <em>Tap-tap-tap.</em></p>
+<p>"I’m just... admiring the work," Rosalind lied, gesturing vaguely toward the bobcat. "It takes an incredible amount of patience to make something look alive after it’s been taken apart."</p>
+<p>"It's not about patience," Phineas said, his dry lips curling back over yellowed teeth. "It's about knowing where the skin stretches. You pull too hard, it rips. You don't pull hard enough, it sags and rots from the inside out. You have to know the tension of the thing."</p>
+<p>Rosalind took a half-step closer to the desk, her boots silent on the bare fir floorboards. "I noticed you have some old family papers here. Did Alistair keep records of the property lines?"</p>
+<p>"Alistair kept records of everything he owned. And some things he didn't." Phineas reached out and tapped the glass jar. The silver cufflink clinked against the side. The sound was high and clean. "Is that what your history society wants? To find out who owned the dirt under the highway?"</p>
+<p>"We're interested in the people," Rosalind said. She leaned slightly against the edge of the desk, her coat brushing a dusty stack of old newspapers. "Your sister, Zelda. The records from the county courthouse show she lived here until seventy-two. But after that, her paper trail just... ends."</p>
+<p>The tapping stopped. The silence in the cabin grew thick, heavy with the smell of old formaldehyde.</p>
+<p>"Zelda’s none of your business," he said. The rattle in his voice had turned to gravel.</p>
+<p>"I’m just trying to complete the tree, Mr. Carrow. It's for the historical record. If she moved out of state, or if she—"</p>
+<p>"She didn't move out of state," Phineas spat. He stood up, his long, awkward frame casting a jagged shadow across the woodstove. "She stayed right here in this valley. Until she died. But she didn't leave anything behind that you’d want to put in your little book."</p>
+<p>Rosalind took a slow, deep breath, anchoring her heels to the floor. "Sometimes there are things that don't make it into the official county registries. A child, perhaps? Someone who might still have a claim to the old homestead?"</p>
+<p>Phineas walked toward her. His boots thudded against the floor with a slow, heavy weight. He stopped a foot away. He smelled of old tobacco, woodsmoke, and dry rot.</p>
+<p>"You think you’re clever, don't you?" he whispered. His watery eyes were wide, the pupils dilated until they looked almost entirely black. "Coming up here with your historical society talk. You’re not the first person to ask about Zelda. There was a man. Years ago. A man with a notebook and a face like a shovel. He wanted to know about her boys."</p>
+<p>Rosalind’s heart slammed against her ribs. She kept her voice dead level. "Her boys?"</p>
+<p>"She only had one," Phineas said, his voice dropping to a harsh, wet murmur. "A mistake. That’s what Alistair called him. A sin born in the brush. She had him down in Portland, in one of those homes for fallen girls. Signed him away to the state before the cord was even dry. Alistair made sure of it. Said we didn't need that kind of blood in the well."</p>
+<p>"What was his name?" Rosalind asked, her hand tightening inside her pocket.</p>
+<p>"Didn't have one," Phineas said. He leaned in closer, his dry breath hot against her face. "Just a number on a state ledger. If he’s still alive, he’s fifty years old now. A ghost with no name, wandering around looking for a mother who died forty years ago. Is that what you want for your book?"</p>
+<p>"Do you know what happened to him?" Rosalind asked, her professional veneer slipping just a fraction. "Where he went?"</p>
+<p>"I don't know, and I don't care," Phineas growled. "He was none of ours. Now, get out of my house."</p>
+<p>He didn't wait for her to agree. He grabbed her elbow. His grip was surprisingly powerful—his fingers felt like dry oak branches digging through the wool of her sleeve. He shoved her toward the door.</p>
+<p>"Mr. Carrow—"</p>
+<p>"Get out!" he screamed, his voice cracking into a high, wild screech that sounded like a wounded bird. "Tell your historical society that the Carrows are dead! There’s nothing left here but the hide!"</p>
+<p>He slammed the door behind her. The heavy bolt slid into place with a dry, metallic <em>thunk</em>.</p>
+<p>Rosalind stood on the porch, her chest heaving as the cold mountain air hit her face. The rain had started again, a light, freezing drizzle that stung her cheeks. Her heart was a wild, trapped thing in her chest.</p>
+<p>She had to think.</p>
+<p>Alistair Carrow had forced Zelda to give up an illegitimate son. A boy born in Portland, fifty years ago. A boy with no name, whose family had treated him like a stain to be scrubbed out. A boy who would have grown up in the state-run orphanages of the 1970s—places where the lonely and the angry were left to ferment.</p>
+<p>And then there was the cufflink.</p>
+<p>She looked down at the porch railing.</p>
+<p>Sitting on the wide, mossy timber near the steps was a heavy ceramic mug. It was stained with dark blue glaze, its rim chipped near the handle. Inside, a pool of black coffee had frozen into a cold, greasy skin.</p>
+<p>It was Phineas’s mug. He must have left it out here before she arrived.</p>
+<p>Rosalind looked toward the window. The yellow light inside the cabin was blocked by a thick, grime-streaked curtain, but she could see his shadow moving back and forth—a restless, twitching shape.</p>
+<p>She reached into her shoulder bag. Her fingers found a clean, sterile plastic evidence bag and a pair of latex gloves. She pulled them out, her hands shaking as she struggled to get the blue latex over her cold fingers.</p>
+<p>She stepped toward the railing, her boots making no sound on the wet wood.</p>
+<p>She picked up the mug. The ceramic was cold, damp from the mist. Her fingers avoided the handle and the rim where his mouth would have touched, gripping it instead by the very bottom. She slipped it into the plastic bag, pulling the seal shut with a soft, plastic <em>zip</em>.</p>
+<p>She tucked the bag deep into her coat pocket, her heart hammering a frantic rhythm against her ribs.</p>
+<p>If Phineas Carrow was the killer, or if the DNA on that mug matched the biological profile they had built from the Highway 9 crime scenes, she would have the anchor she needed. But if the DNA belonged to someone else—if it matched the partial profiles from the victims but not the killer—she might have just found the key to Zelda’s missing boy.</p>
+<p>She turned and walked down the steps, her boots sinking into the red clay.</p>
+<p>Behind her, the forest seemed to close its ranks, the dark hemlock branches reaching down through the mist to swallow the cabin whole. Rosalind did not look back. She got into her car, placed the bagged mug on the passenger seat, and turned the key.</p>
+<p>As the engine roared to life, she looked at the plastic bag in the grey light of the dashboard.</p>
+<p>The DNA inside that mug was a map. And for the first time in three years, Rosalind felt like she was finally holding the compass.</p>
+<h1>Chapter 4: The Frame-Up</h1>
+<p>The phone didn't ring. It shuddered. A low, heavy vibration that rattled the brass paperweights on Rosalind Mercer’s mahogany desk until the metal clinked against glass. In the dead quiet of her third-floor study, it sounded like a wet cough. Or a latch clicking into place.</p>
+<p>She didn't grab it. Instead, she stared at the screen. The Carrow family tree branched across her monitor in clean, digital lines—gray nodes spreading out like winter ivy choking a brick wall. The study smelled of stale chamomile tea, wet wool from her coat hanging by the door, and the dry, warm ozone of a hard drive running hot. Outside, the rain was a wall of water. It lashed the glass, turning the Portland streetlights into messy, bleeding streaks of yellow and brake-light red.</p>
+<p>She swiped the screen. "Hector?"</p>
+<p>"We got him, Rosalind."</p>
+<p>Hector MacInnis’s voice was too loud. It had that thin, vibrating edge that comes when you’ve been living on bad diner coffee and no sleep for two days straight. Behind him, the line hummed with the growl of a diesel engine—the command van—and the occasional high-pitched squeal of wet brakes. He was moving.</p>
+<p>"What do you mean, you got him?" Rosalind pressed her hand flat against the desk. The polished wood felt cold, solid, real. "The scrapings from Rook’s fingernails are still at the state lab. We aren't due for results until tomorrow morning at the earliest."</p>
+<p>"We didn't need the lab," Hector said. His breath hitched, raspy and dry. "AFIS hit. A latent partial off the chrome trim on Cynthia Rook's driver's-side door. Right under the handle. Right where you’d grab if you were shoving someone back into the seat. It’s a clean match."</p>
+<p>A cold knot pulled tight in Rosalind’s chest. Her hand hovered over her cold teacup, her finger tracing the chipped rim before she pulled back. "To who, Hector?"</p>
+<p>"Phineas Carrow."</p>
+<p>The name fell between them like a stone. Heavy. Impossible.</p>
+<p>"That's not possible," Rosalind said. Her voice sounded thin, almost lost to the steady drum of rain against the cedar shingles.</p>
+<p>"It’s a lock," Hector snapped. "The print matched a juvenile card from 1979. Some stupid break-and-enter that was supposed to be expunged, but the county basement never throws anything away. We scanned the physical card. Nine points of comparison on the right index. It’s him, Rosalind. It’s your uncle."</p>
+<p>"Phineas was sixteen in seventy-nine," she said, her voice dropping an octave. She stood up so fast her chair screeched against the pine floorboards. She paced the length of the narrow room, her knuckles turning white around the phone. "He took a dare to break into an abandoned boathouse. That's not a record, Hector. It's a schoolboy prank."</p>
+<p>"The law doesn’t care about the story behind the ink, Rosalind. It cares about where we found it," Hector said, his voice flat, professional, and entirely unyielding. "We have his print on the door of a car belonging to a girl who was found three miles away in a ditch with a crushed throat. I just signed the warrant. SWAT is already gearing up at the precinct. We’re breaching his cabin in thirty minutes."</p>
+<p>"No," she said, her chest tight. "No, Hector, don't. Listen to me. If you send a tactical unit through his door, he will panic. He's fragile. His heart—"</p>
+<p>"He’s a prime suspect in a homicide," Hector cut in. "Cynthia Rook was twenty-four. She died in the freezing mud because someone decided they had the right to choke the life out of her. I'm not taking chances with an old hunter who has a rack of .30-30s on his wall."</p>
+<p>"Hector, wait—"</p>
+<p>The line went dead. Just the dry, static click of a dropped signal.</p>
+<p>She slowly lowered the phone. It felt like a block of lead in her palm. On the monitor, Phineas’s name sat in its neat little gray box, linked by a thin line to her mother, Tamsin, and up to her grandfather, Alistair.</p>
+<p>Her mind went cold. The panic evaporated, replaced by the muscle memory of a decade of hard forensic work. But underneath it, the old ghost woke up.</p>
+<p>The Hargrove case. Three years ago, she’d been too eager, too sure of the math. She’d misread a tiny segment of shared DNA—a false positive that looked like a father-son link. Because of her report, a local mechanic named Ephraim spent six months rotting in a state pen while the actual killer was out there shooting up heroin in cheap motels, eventually overdosing before they could ever put cuffs on him. Ephraim was cleared, but his shop was ruined, his wife had left him, and Rosalind still couldn't look at a genetic profile without seeing his hollow, haunted face in the courtroom.</p>
+<p>She had promised herself: <em>Never again.</em> Certainly not with Phineas.</p>
+<p>She pulled her chair back in and clicked open her local server. She had the raw, unedited sequence from the skin cells found under Cynthia Rook's nails—a file a sympathetic lab tech had slipped her on a flash drive before it was sent to the state repository.</p>
+<p>She ran her custom comparison script. On the left: the unknown killer's profile. On the right: her own.</p>
+<p>The processor whined, the fan kicking into high gear as it sorted through millions of base pairs.</p>
+<p>A second later, the terminal spat out the comparison log:</p>
+<p>``` [SHARED DNA ANALYSIS: USER "MERCER<em>R" VS. UNKNOWN</em>MALE_09] --------------------------------------------------------- • Total Shared Centimorgans: 2,650 cM • Longest Shared Segment: 114.2 cM • Shared Segments: 41 • Relationship Probability: 99.9% (Parent/Child, Full Sibling) ```</p>
+<p>Rosalind stared at the screen. The glowing digits felt like a physical slap.</p>
+<p>2,650 centimorgans.</p>
+<p>Her fingers went numb as she pulled up the reference profile she had on file for Phineas.</p>
+<p>``` [SHARED DNA ANALYSIS: USER "MERCER<em>R" VS. CARROW</em>P] --------------------------------------------------------- • Total Shared Centimorgans: 1,720 cM • Relationship Probability: Uncle/Niece ```</p>
+<p>"It’s impossible," she muttered, her breath fogging the glass of her monitor. She wiped the smudge away with her sleeve, her heart hammering against her ribs.</p>
+<p>Here's the thing about genetic genealogy: centimorgans are the absolute currency of truth. They don't lie, they don't have bad days, and they can't be paid off by a dirty cop or botched by a sleepy tech. A maternal uncle shares roughly a quarter of his DNA with a niece—usually somewhere between 1,300 and 2,100 cM. Phineas’s 1,720 cM was as textbook as it got.</p>
+<p>But the killer? 2,650 cM.</p>
+<p>That number is a different beast entirely. You don't hit 2,650 cM unless you are looking at a first-degree relative. A parent. A full sibling. Or a child.</p>
+<p>She had no children. She had no brothers or sisters. She’d spent her childhood alone in a draughty, silent house on the coast, listening to the creaking floors, her mother Tamsin’s quiet weeping behind closed doors, and the stern, heavy footsteps of her father, Alistair. Her mother had been in the ground for ten years now.</p>
+<p>Which left only one possible donor for that DNA.</p>
+<p>The thought was a cold needle in her brain. She forced it out, refusing to touch the monstrous implications of that math. Not yet.</p>
+<p>Instead, she focused on what she could prove right now: Phineas was innocent. The laws of biology are stubborn things. Meiosis doesn't make exceptions for warrants, and recombination doesn't care about a county print database. An uncle cannot share 2,650 cM with his niece. The DNA under Cynthia Rook's fingernails belonged to someone else.</p>
+<p>So how did his print end up on Cynthia's car?</p>
+<p>She closed her eyes, trying to picture him. She’d driven out to his cabin near Estacada just three weeks ago. She could still smell it: the heavy scent of woodsmoke, wet wool, and the bitter tang of the liniment he rubbed into his joints. She remembered the high, thin whistle of the kettle on the stove, and the way Phineas gasped just trying to reach for a mug.</p>
+<p>Most of all, she remembered his hands.</p>
+<p>They weren't hands anymore. They were gnarled, twisted clubs, the knuckles swollen to the size of walnuts. Rheumatoid arthritis had spent fifteen years systematically destroying his joints, turning his fingers into stiff, claw-like things that drifted uselessly toward his outer wrists. He could barely hold a spoon. When he’d tried to pour her tea, his hand had shaken so badly he’d splashed boiling water across the checkered oilcloth.</p>
+<p>She'd sat there and watched him spend five agonizing minutes trying to guide a plastic button through the loop of his flannel shirt, his jaw clenched, refusing to ask for help. The pride of a dying breed.</p>
+<p>She clicked over to the PDF of the preliminary autopsy report—another quiet favor from a deputy medical examiner. She scrolled past the clinical photographs of the bruises on Cynthia Rook's neck down to the internal exam:</p>
+<p><em>Hyoid bone fractured bilaterally. Deep, localized contusions consistent with high-pressure, single-handed manual strangulation. The assailant possessed exceptional grip strength, sufficient to crush the laryngeal cartilage almost instantly.</em></p>
+<p>Rosalind let out a breath she hadn’t realized she was holding.</p>
+<p>Phineas couldn't open a jar of pickles. He didn't have the strength to crush an empty beer can, let alone the throat of a healthy, fighting twenty-four-year-old woman. If he’d even tried to squeeze someone that hard, his own finger joints would have dislocated before he could have left a mark.</p>
+<p>He was being set up. It was clean, deliberate, and terrifyingly precise.</p>
+<p>She paced back to the window, her mind racing. But how do you fake a print on a car door? Phineas hadn't left that cabin in six months. He didn't drive. He had his groceries dropped off by a kid from the local general store. He’d never even seen Cynthia Rook's car.</p>
+<p>The juvenile record from seventy-nine. That had to be it.</p>
+<p>Back then, they used black ink and thick paper cards. When they decommissioned the old county courthouse five years ago, thousands of those physical cards were left rotting in cardboard boxes in the basement. Some were digitized, but the hard copies? They were either shredded or left to mold in unsecured basement rooms.</p>
+<p>Could someone have stolen the physical card? Or did they lift it off an old glass bottle from the family home? A brass heirloom? It’s not hard to transfer a latent print if you have a little bit of gelatin and a lot of patience.</p>
+<p>She grabbed her dark wool trench coat off the hook, the fabric smelling of lavender and old books, and shoved her keys and phone into the pockets. She couldn't sit here and wait for Hector to realize his mistake. By the time the state lab got around to confirming the DNA match, Phineas would be sitting in a county holding cell—or worse, shot dead in his own living room because he didn't hear the tactical team shouting commands over the wind.</p>
+<p>She flew down the wooden stairs, her boots hammering the steps. The entryway was freezing, the autumn storm whistling through the gaps in the door frame.</p>
+<p>As she reached for the keys on the hall table, her sleeve caught the edge of a silver photo frame. It tipped over. She caught it before it hit the hardwood.</p>
+<p>In the faded photograph, a young Tamsin Carrow stood on the dock of the family lake house, her arm slung around Phineas’s shoulders. Phineas was grinning, his face bright, his hands whole and strong as he held up a flapping lake trout. But it was the figure behind them that made Rosalind freeze. Sitting in the deep shade of the porch was Alistair Carrow. His face was half-hidden by the brim of a canvas fishing hat, his eyes nothing but dark, hollow sockets in the shadow.</p>
+<p>She stared at her father's face.</p>
+<p>Two thousand, six hundred and fifty centimorgans.</p>
+<p>The number wasn't just data anymore. It was a verdict.</p>
+<p>She set the frame down with a quiet click, stepped out into the blinding rain, and let the heavy front door slam shut behind her.</p>
+<h1>Chapter 5: The Golden Locket</h1>
+<p>The rain off Highway 9 didn't drop. It hung. A heavy, greasy mist that tasted of diesel fumes and rotting hemlock needles.</p>
+<p>Rosalind Mercer yanked her collar up. The stiff, paraffin-scented canvas of her coat didn't help; the dampness had already settled into her shirt hours ago, cold as a wet dog against her spine. Down the slope, fifty yards into the brush, three county cruisers strobed red and blue, turning the wet hemlock trunks into a cheap, rhythmic disco.</p>
+<p>The deputies had tried to shovel out a path in the red clay, but twenty pairs of boots had already chewed it into a slick, brown slide. Rosalind took each step sideways, heels dug in, her fingers white-knuckled around the handle of her steel kit. A hidden root caught her toe. Her calf muscle seized, hard and hot. She didn't drop the box. You don't drop the box.</p>
+<p>"Watch the drop," a voice grunted from the bottom.</p>
+<p>Hector MacInnis was wedged under a dripping branch, collar turned up to his ears, the brim of his felt hat sagging under a pool of brown water. He looked fifty. He was forty-two. Yesterday's clean shave had dissolved into a gray, sandpapery stubble that made his jaw look hollow. He didn't offer to carry her gear. He knew better.</p>
+<p>"How fresh?" she asked, sliding under the yellow perimeter tape. The wet plastic whipped across her face, leaving a cold smear of road grit on her cheek.</p>
+<p>"Loggers found her at dawn," MacInnis said. He pointed a fat, gloved finger toward the root wad of a fallen cedar. "Or their dogs did. Easy digging in this soft rot."</p>
+<p><em></em>*</p>
+<h3>FIELD OBSERVATIONS: HIGHWAY 9 GRAVESITE</h3>
+<ul><li>  <strong>Soil Profile:</strong> Soft humus over glacial till. Heavily disturbed.</li><li>  <strong>Depth:</strong> Shallow. Less than eighteen inches.</li><li>  <strong>Flora:</strong> Decaying hemlock, invasive blackberry.</li><li>  <strong>Complication:</strong> Total wash-off imminent if the rain holds.</li></ul>
+<p><em></em>*</p>
+<p>She bypassed him and went straight to the tarp. Under the green plastic, the air smelled different—not just wet wood, but that sharp, chemical transition of a body turning cold.</p>
+<p>The girl was young. Maybe nineteen. She was curled on her side, knees tucked toward her chin like she was trying to keep warm in a drafty bedroom. A smear of yellow clay crossed her upper lip, parting her mouth just enough to show the edge of two slightly crooked front teeth.</p>
+<p>"She's recent," Rosalind said, cracking open her kit. She didn't bother with the kneeling pad; she went straight to her knees in the mud, feeling the cold soak through her canvas trousers in three seconds flat. She snapped on the blue nitrile gloves. They were stiff from the cold, smelling of cheap latex. "Twenty-four hours, max. The stiffness in her jaw is already giving way."</p>
+<p>"It's impossible," Hector spat. He was pacing the narrow dry patch under the tarp, his boots making a wet, sucking sound that grated on her nerves. "We locked Phineas Carrow in a concrete box at three yesterday afternoon. I watched the turnkey bolt the latch. Cynthia Rook was at her desk three hours ago, typing up the grand jury indictment. She's probably leaked it to the <em>Herald</em> by now."</p>
+<p>"Then Phineas has a very busy ghost," Rosalind said. She leaned down, her camera's small flash firing with a pathetic <em>pop-whine</em> in the dimness. She focused on the purple-black band around the throat. "Or he didn't work alone."</p>
+<p>"He did it," Hector whispered, his voice dropping into that low, dangerous register he used when his career was on the line. "The cedar shavings in the hair of the first three. That weird, triple-loop clove hitch on the wrists. It's his work, Rosalind. But if Rook finds out we've got a warm body with the same signature while Phineas is eating county stew, she'll have to pull the plug. The Carrows have three lawyers on retainer who would love to strip this department to the drywall."</p>
+<p>"You want me to lie about the lividity, Hector?"</p>
+<p>"I'm asking what the margin is," he said, his eyes darting toward the flashlight beams bobbing up on the highway. "Could she have died Tuesday? Before we picked him up? Give me two days."</p>
+<p>"No." She didn't look up. "Blood doesn't lie to make your warrant look good. The lividity is purple, but it still blanches when I press it. If she’d been lying here since Tuesday in forty-degree rain, she’d be rigid. She died last night. While Phineas was listening to the pipes hum in cell four."</p>
+<p>He swore under his breath, a short, wet word, and turned his back to her.</p>
+<p>Rosalind ignored him. She took an orange plastic trowel from her case. The soil here was mostly leaf mold and rotted wood—stuff that didn't scrape, just turned to mush under pressure. She worked the trowel around the victim’s collarbone, clearing the black muck to find whatever the killer had dropped.</p>
+<p>The work was boring until it wasn't.</p>
+<p>The plastic edge hit something hard. A tiny, distinct <em>click</em>.</p>
+<p>"What?" Hector was instantly behind her, his sour coffee breath hot on the back of her wet neck.</p>
+<p>"Nothing. Root," she lied instantly.</p>
+<p>She didn't use the brush. She used her gloved thumb, wiping away a smear of gray silt. Metal. A tiny, dull yellow oval.</p>
+<p>Her heart didn't jump; it seemed to stop entirely, leaving a cold, hollow space behind her ribs.</p>
+<p>"Rosalind?"</p>
+<p>"Just a button," she said. Her voice sounded flat, even to her.</p>
+<p>She pinched the oval and pulled. The wet clay let go with a sticky kiss.</p>
+<p>It was gold-plated brass. The plating was mostly gone, worn down to the greening metal beneath by years of rubbing against denim or skin. On the front, the faint, scratched outline of a wild rose.</p>
+<p>But it was the back.</p>
+<p>There was a deep, jagged scar across the reverse. Three lines, like a broken arrow.</p>
+<p><em>A blue gravel driveway in Coos Bay.</em> She was twelve again, running after a sister who wouldn't stop, her heel catching, the locket flying off her neck to skid across the sharp river rock. She had spent three hours crying on the porch, trying to buff out that scratch with a sleeve.</p>
+<p>Her thumb found the tiny, corroded notch on the side. It resisted, then popped open with a dry crunch of rust.</p>
+<p>Under the yellowed plastic inside was a pinch of dark brown hair, tied with a thread. Next to it, a scrap of thick sketchbook paper. One word, written in sheener ink that had faded to a dull charcoal:</p>
+<p><em>Rose.</em></p>
+<p>The woods went dead. The rain didn't sound like rain anymore; it sounded like sand falling on tin.</p>
+<p>This wasn't her sister's locket. It was <em>hers</em>. The one she'd kept in the cedar box on her dresser until three years ago, when some junkie had kicked her apartment door in and taken fifty dollars in quarters and a cheap silver ring she didn't care about. She’d assumed the locket had been melted down or tossed into a pawn shop bin in Portland.</p>
+<p>"What is it?" Hector's voice was too loud, too close. "Mercer. Is there an inscription?"</p>
+<p>"No," she said. She snapped the metal shut, the edge cutting through the thin nitrile glove to pinch her skin. "It's a zipper pull. From a jacket."</p>
+<p>"Let me see." He reached out a hand.</p>
+<p>"I need to bag it," she snapped, her voice cracking. She pulled her hand back into her lap, out of his reach. She saw his eyes go small, the sharp, cynical cop brain clicking behind his tired forehead. "It's got organic trace on it. If your grease gets on the seal, we lose the profile."</p>
+<p>He watched her for five long seconds. He didn't believe her, but before he could argue, his radio squealed.</p>
+<p>"MacInnis," Rook's voice was a tinny scrape of static. "Tell me you're wrapping up. The <em>Herald</em> has a stringer at the gate. We need the booking photo released."</p>
+<p>Hector pressed the black rubber button on his shoulder. "We're still processing, Cynthia. There's... details."</p>
+<p>"We have our man, Hector. The grand jury is Monday. Make the scene fit. I don't want any creative writing in the report."</p>
+<p>Hector looked at the mud, then at Rosalind. "On our way," he muttered. He hooked the mic back onto his lapel. "We aren't done with this, Mercer. Pack it up."</p>
+<p>She waited until the sloshing of his boots died out up the ridge.</p>
+<p>When the woods were only rain again, she opened her fist.</p>
+<p>The locket was there, cold and heavy as a tooth.</p>
+<p>This wasn't a mistake. It wasn't some trophy the killer had dropped because his hands were cold. It was a card left on her desk. The hair wasn't her sister’s; the shade was too dark, the texture too coarse. It was her own. Someone had stood over her bed while she slept, holding the scissors, smelling the lavender she used to wash her sheets, and she hadn't even stirred.</p>
+<p>She looked at the girl in the dirt.</p>
+<p>Dark hair, cut bob-short. Narrow collarbones. A small, pale face that looked almost gray under the hemlocks.</p>
+<p>A prototype. A test run.</p>
+<p>Rosalind didn't put the locket in the blue plastic evidence tub. She slipped the small ziplock bag into the internal pocket of her coat, letting the cold brass rest right against her ribs, right where her heart was pounding.</p>
+<p>She stood up, her knees popping like dry twigs. She looked back down the valley one last time. The yellow tape was twisting in the wind, a bright, ugly line across the gray woods. Somewhere beyond that line, in the thick brush where the loggers hadn't cleared, she knew someone was standing, watching her carry her heavy box back to the car.</p>
+<h1>Chapter 6: The Surgical Sibling</h1>
+<p>The rain over Saint Jude’s County Hospital didn’t just fall. It drifted. A greasy, grey mist smelling of wet asphalt and industrial coal scrubbers. Through the smear of the corner diner's window, the concrete towers of the medical center rose like rotting teeth against a leaden sky.</p>
+<p>Rosalind Mercer traced the rim of her heavy ceramic mug. Her thumb caught on a chipped edge in the glaze. She didn't mind the pain; it kept her awake. The coffee was black, bitter, and tasted like a burnt pot left on the burner since yesterday morning. On the sticky Formica table sat a printout. She didn't need to look at it again. She had the numbers memorized. The closed adoption files she’d pulled after thirty-six hours of sleepless digging. The original birth certificate naming Zelda Carrow as the mother. The amended record that turned Tamsin Carrow into Tamsin Avery—adopted by a wealthy Boston vascular surgeon and his blue-blooded wife.</p>
+<p>The lineage was a straight, clean line. The blood, however, was filthy.</p>
+<p>Rosalind’s throat went dry as she stared across the street. She had promised herself this job would be different. Cold. Objective. Professional distance. But the dead don't care about professional boundaries. Every time she mapped a pedigree chart now, she saw Giles Pendelton. Five years ago, a simple clerical error on her part had cleared him. Just a single misplaced name on a family tree. That oversight gave him three extra weeks of freedom. Three weeks. Long enough to claim his final victim. The agency called it an administrative anomaly. Rosalind called it a blood-debt. She couldn’t afford to be wrong twice.</p>
+<p>The brass bell above the diner door jingled. Sharp. Obnoxious.</p>
+<p>A woman stepped inside, shaking a wet, black umbrella. She didn't just walk; she marched. Tamsin Avery.</p>
+<p>She was rail-thin, looking as though her bones were held together solely by the starch in her green surgical scrubs and the heavy wool of her water-spotted black coat. Her dark hair was pinned back with metallic surgical clips. It exposed a high, pale forehead and eyes that moved with the rapid, twitching focus of a kestrel. She didn’t look tired. She looked wired, vibrating at a frequency that threatened to shatter the surrounding glassware.</p>
+<p>Rosalind folded the printout, slid it into her leather portfolio, and stood up. Her boots creaked on the damp linoleum.</p>
+<p>"Dr. Avery?" Rosalind’s voice was low. Steady.</p>
+<p>Tamsin stopped. She didn't flinch. She just looked annoyed, her eyes dropping to Rosalind’s university ID, down to her mud-splattered boots, and back up to her face. A single, clinical sweep that felt like a cold blade.</p>
+<p>"I’m off my shift in ten minutes," Tamsin said. Her voice was thin, like dry parchment. "If this is about the pharmacy inventory, I signed the logs this morning."</p>
+<p>"It's not the pharmacy," Rosalind said, offering the polite, harmless smile she used to put targets at ease. "I'm Rosalind Mercer. From the State University’s Department of Anthropological Genetics. I emailed your department head yesterday about the maternal lineage study."</p>
+<p>Tamsin’s left eyebrow twitched. She stood there for five seconds, her long fingers tapping a frantic, irregular rhythm against her heavy leather satchel. "The lateral inheritance study? The one focusing on isolated Appalachian cohorts?"</p>
+<p>"That's the one," Rosalind said, gesturing to the empty side of the booth. "I know you're running on empty, but I only need ten minutes. The department pays a small honorarium for participants who fit our profile."</p>
+<p>---</p>
+<p><strong>FIELD STUDY LOG: CASE #04-CARROW</strong></p>
+<ul><li>  <strong>Proband:</strong> Tamsin Avery (born Tamsin Carrow, Saint Jude’s County).</li><li>  <strong>Maternal Line:</strong> Zelda Carrow (Deceased; diagnosed schizophrenia, died of exposure).</li></ul>
+<p><em>   <strong>Target Phenotype:</strong> </em>Os centrale* (Accessory wrist bone). Associated with extreme joint laxity and atypical manual dexterity.</p>
+<ul><li>  <strong>Current Status:</strong> Senior Resident, Cardiothoracic Surgery.</li></ul>
+<p>---</p>
+<p>"I don't need your money," Tamsin said. But she slid into the booth anyway, her movements sharp, jerky. She kept her heavy coat on. She dragged her massive leather satchel onto the bench beside her. It hit the wood with a heavy, metallic clunk that made the salt shakers rattle.</p>
+<p>The smell hit Rosalind next. It wasn't perfume. It was a mix of iodine, peppermint oil—the kind surgeons smear under their noses to block the smell of rotting tissue—and the sharp, chemical tang of hospital-grade disinfectant. The smell of a room where bodies are taken apart and put back together.</p>
+<p>"You're Zelda Carrow's biological daughter," Rosalind said, her tone conversational, as if she were discussing the morning news.</p>
+<p>Tamsin’s tapping fingers went dead still. She leaned across the table. In the grey afternoon light, her irises were a flat, pale green. "I was adopted when I was ninety days old. I have no memory of that woman, and I have zero interest in her. My father was the chief of thoracic surgery at Mass General. My mother has a degree in French literature from Wellesley. If you’re looking for genetic junk to prove some white-trash lineage theory, you're wasting your grant money."</p>
+<p>"It's not about class, Dr. Avery. It's about bone structure," Rosalind replied. She pulled out a yellow legal pad and a cheap, plastic ballpoint pen. She clicked it once. <em>Click.</em> Then again. <em>Click.</em> The sound was tiny, but in the quiet booth, it sounded like a hammer hitting an anvil. "We're looking at specific skeletal anomalies. The Carrow bloodline has a ridiculously high incidence of a rare accessory ossicle in the wrist. The <em>os centrale</em>. It correlates with extreme joint laxity and exceptional manual dexterity."</p>
+<p>Tamsin looked down at her own hands. They were resting on the Formica. Her fingers were long, the joints knobby, white-knuckled, and completely still. Suddenly, she flexed her right hand. Her thumb bent backward at a grotesque angle, almost touching her forearm.</p>
+<p>"Exceptional dexterity," Tamsin murmured, her voice dropping. A cold, mocking smile touched her lips. "Is that what your little study is about? Or are you looking for the rot?"</p>
+<p>"The rot?"</p>
+<p>"The genetic trash," Tamsin said, leaning closer. The smell of peppermint on her breath didn't quite hide the sour, metallic scent of old sweat. "My birth mother was a crazy woman who lived in a shack and died with dead leaves tangled in her hair. My brother, Phineas, is a weak-willed idiot who spends his life digging in the mud. And Alistair... well, Alistair is a different breed of beast altogether. Tell me, Dr. Mercer, do you really believe blood is a map? Do you think you can trace a killer’s hand back to the womb?"</p>
+<p>Rosalind’s chest tightened, but she kept her grip on the pen firm. "Do you think you can't?"</p>
+<p>"I know you can't," Tamsin said. "Biology isn't destiny. It's just raw material. Some people are born with a leaky heart valve. Some are born with a brain that doesn't make enough serotonin. You don't weep for the valve; you cut it out and put in a pig’s graft. You don't try to understand the madness. You medicate it, or you bury it."</p>
+<p>She spoke about her family with the same chilling detachment she might use to describe a gangrenous leg. No grief for Zelda. No affection for her brothers. Only disgust.</p>
+<p>"You work with death every day," Rosalind noted.</p>
+<p>"I work with meat," Tamsin corrected. Her eyes dived to the window as an ambulance backed into the ER bay, its lights throwing red pulses across the wet pavement. "Living meat that wants to become dead meat. My job is to stop that transition. But sometimes, the tissue just gives up. It’s actually very peaceful. The brain goes quiet. The pupils dilate. The skin takes on a beautiful, marble-like pallor. It’s much cleaner than life."</p>
+<p>The hair on the back of Rosalind’s neck stood up. It wasn't the words—it was the flat, rhythmic cadence. Tamsin spoke of death the way an architect talks about a cantilevered beam.</p>
+<p>"And post-mortem?" Rosalind asked softly. "Once they're gone?"</p>
+<p>Tamsin’s eyes snapped back. They were bright. Almost manic. "Once it's dead, it's just raw material. You can cut it, study it, discard it. There’s no pain. No resistance. A corpse is the perfect patient. It never complains about the scar."</p>
+<p>Rosalind’s eyes drifted to Tamsin’s leather bag. The zipper was pulled back halfway. Inside, nestled in a velvet-lined case, were the silver shafts of several surgical instruments.</p>
+<p>These weren't hospital-issue. The handles were custom-molded bone. The steel of the blades was thicker, built for deep, heavy incisions. The tips were curved, ending in a small, hook-like barb near the base.</p>
+<p>Rosalind’s mind flashed back to the autopsy reports Hector MacInnis had shown her under the dim lights of the county morgue. The cuts on Cynthia Rook had been surgical but brutal. The carotid had been severed with a single, deep sweep that left a distinct notched indentation on the cervical vertebrae. The medical examiner said the weapon had to have a unique, hook-like projection—something used in specialized autopsy or skin-grafting work.</p>
+<p>The scalpels in Tamsin’s bag matched that description perfectly.</p>
+<p>"Those are beautiful instruments," Rosalind said, keeping her voice light despite the hammer in her chest. "Not standard issue for a resident."</p>
+<p>Tamsin looked down at the bag. For a split second, her face went completely blank. The manic energy vanished, replaced by pure ice. She grabbed the brass zipper and pulled it shut with a sharp, decisive snap.</p>
+<p>"They belonged to my adoptive father," Tamsin said. Her tone was cold, wrapped in steel. "He taught me that a surgeon is only as good as her tools. Use cheap steel, you get ragged edges. Ragged edges lead to infection."</p>
+<p>"Of course," Rosalind said. "Did you use them when you were assisting in pathology last semester?"</p>
+<p>Tamsin’s eyes narrowed into slits. "You've done a lot of homework for a simple genetic study, Dr. Mercer."</p>
+<p>"We like to be thorough," Rosalind replied. "It controls for environmental variables."</p>
+<p>"I don't like being managed," Tamsin said. She stood up so fast her knees slammed the underside of the table, sending Rosalind’s cold coffee spilling over the rim. "And I don't like being lied to. Your study is a joke. If the university wanted my DNA, they’d have sent a clinic nurse with a collection kit, not a woman who looks like she hasn't slept in three days, staring at my hands like she wants to amputate them."</p>
+<p>Rosalind didn't flinch. She sat her ground. "I’m just trying to understand the family, Tamsin. Your sister, Cynthia—"</p>
+<p>"Cynthia was not my sister," Tamsin hissed, leaning down so her face was inches from Rosalind’s. Her voice was a harsh whisper that barely carried over the hum of the diner's pie case. "She was an accident of biology. A weak, pathetic girl who thought she could use her connection to the Carrows to get a payout. She called me three weeks ago. Demanding money. She said she knew who our father was. Said she had proof Alistair was... involved in things."</p>
+<p>Rosalind’s breath caught. "Involved in what?"</p>
+<p>"I didn't care to ask," Tamsin said, her lip curling. "I told her to lose my number. She was a leech. And like all leeches, she got squashed."</p>
+<p>"She was murdered, Tamsin."</p>
+<p>"I know," Tamsin said, and a tiny, cold smile touched the corners of her mouth. "The police came to the hospital. A detective with a cheap suit and bad teeth. He wanted to know where I was the night she died. I told him the truth."</p>
+<p>She leaned in even closer, the sweet scent of peppermint gone, replaced by the sour smell of raw excitement.</p>
+<p>"I was in OR 4 from eight p.m. until four a.m., assisting Dr. Kincaid on a triple bypass," Tamsin whispered. "We had a power failure at eleven. We had to pump the patient’s heart by hand for twelve minutes. Six nurses, two anesthesiologists, and a perfusionist were in the room. They watched me the entire night. I didn't leave once."</p>
+<p>The alibi was airtight. Rosalind knew it before she even verified it with Hector. A triple bypass during a blackout in a major hospital was a logged, high-stakes emergency. Tamsin couldn't have been on Highway 9. She couldn't have dragged Cynthia Rook into a ditch and carved her open.</p>
+<p>Yet, looking into Tamsin's manic, cold eyes, Rosalind knew she was up to her neck in this. The scalpels, the access to restricted drugs like succinylcholine—it was too neat.</p>
+<p>"It's a high-pressure job," Rosalind said softly, her voice adopting a soothing, hypnotic tone. "That kind of stress builds up. Some people need an outlet."</p>
+<p>Tamsin drew back, her face hardening into marble. "I don't need an outlet, Dr. Mercer. I have a career. I have a life my biological family couldn't even dream of. I survived the rot. Now, if you'll excuse me, I have patients."</p>
+<p>She snatched her leather satchel, the strap biting into her shoulder, and walked out. The diner bell clinked its tinny warning as she disappeared into the grey, swirling mist.</p>
+<p>Rosalind sat alone in the booth.</p>
+<p>Her coffee was ice-cold. A thin, dark film had formed on the surface. She touched the chipped glaze of the mug, her mind racing through the pieces.</p>
+<p>Tamsin didn't kill Cynthia. The alibi was too clean. But the scalpels... the drugs...</p>
+<p>Rosalind opened her portfolio and pulled out the crime scene photos of Cynthia Rook. She stared at the clean, precise cuts along the victim’s collarbone. They were identical to the Highway 9 killings from three years ago.</p>
+<p><em>If Tamsin was in the OR, who was holding her knives?</em></p>
+<p>She pulled out her phone and dived for Hector MacInnis. The line rang three times before his gravelly voice broke through.</p>
+<p>"MacInnis."</p>
+<p>"Hector, it's Rosalind. I just talked to Tamsin. She has a rock-solid alibi for the night of Cynthia’s murder. She was in a bypass surgery during a hospital power outage."</p>
+<p>Silence on the other end. Only the wet, rhythmic slap of windshield wipers. "Then she’s clear," Hector said, his voice flat with disappointment. "We're back to Phineas or Alistair."</p>
+<p>"No," Rosalind said, staring at the grey hospital towers. "She’s not clear. Hector, she has the scalpels. The exact custom bone-handled blades used on the victims. And she has access to the hospital’s drug lockup."</p>
+<p>"If she has the tools but she’s got an alibi, what are we looking at, Rosalind?"</p>
+<p>"I’m saying she didn't do the cutting," Rosalind whispered. "But someone else did. Someone she’s protecting. Or someone she’s training."</p>
+<p>The line went quiet again, save for the rhythmic thump of Hector’s wipers.</p>
+<p>"I’m outside the Carrow place right now," Hector said. "Alistair’s truck is gone. But there’s a light on in the old barn at the back of the property. I’m going to take a look."</p>
+<p>"Hector, wait," Rosalind said, a cold spike of panic hitting her stomach. "Don't go in there alone. If Tamsin is supplying the tools, she’s not the only one who knows how to use them."</p>
+<p>"I don't have time to wait for the county deputies, Mercer," Hector grunted. "This rain is turning the driveway into a swamp. If there’s evidence in that barn, it’ll be washed away by morning."</p>
+<p>The line clicked dead.</p>
+<p>Rosalind stared at the dark screen. She looked back at the hospital, then down at her legal pad.</p>
+<p>The Carrow pedigree wasn't just a genealogical record. It was a map of a slaughterhouse. And she had just realized that the most dangerous branch was the one that had been grafted onto a different tree.</p>
+<p>She threw a five-dollar bill onto the table and walked out into the cold downpour. Her car was three blocks away. As her boots hit the wet pavement, a sudden, icy chill ran down her spine.</p>
+<p>She turned around slowly.</p>
+<p>High up on the third-floor concrete balcony of the medical center, partially obscured by the swirling fog, a figure in green scrubs stood against the railing. Tamsin Avery wasn't looking at the street or the ambulance bay.</p>
+<p>She was staring directly at Rosalind.</p>
+<p>And in her hand, catching the dull glare of the sodium lights, was a thin strip of silver that gleamed like a fresh tooth in the dark.</p>
+<p>Rosalind pulled her coat tight and ran.</p>
+<p>The rain fell in sheets now, washing away the smell of soot and leaving only the metallic taste of fear in her mouth. She had to get to the estate. She had to find Hector before he realized that the monster they were hunting wasn't a lone wolf—it was a family tradition.</p>
+<p>As she reached her sedan, her fingers fumbled with the keys. The wet brass slipped twice before she got the lock to turn. She threw herself into the driver’s seat, her breath fogging the windshield in thick, ragged pants.</p>
+<p>In the rearview, she avoided her own eyes. She didn't want to see the panic. Instead, she checked the back seat, half-expecting to see a tall, pale figure with surgical clips in her hair, holding a syringe.</p>
+<p>She cranked the engine. The old car roared to life with a metallic squeal. She threw it in drive and tore out into the grey afternoon, heading toward the black pines of Highway 9.</p>
+<p>The tree was bleeding, and the roots were calling.</p>
+<p>The question burned in her mind: If Tamsin was the architect of the technique, who was the hand? Alistair? Phineas? Or was there another sibling, a branch hidden so deep in the dark that the state archives had missed it?</p>
+<p>She slammed her foot on the gas, the tires hydroplaning slightly through the deep puddles. Driving those narrow, rain-slicked mountain roads, she knew time was gone. The storm was washing away everything—including the blood. And in her line of work, without blood, there is no truth. Only silence.</p>
+<p>The wipers cleared the windshield for a split second, revealing the dark, skeletal branches of the roadside pines. They looked like long, double-jointed fingers reaching down to pull her into the mud.</p>
+<p>She didn't look back. She couldn't. The city was dissolving in the mist behind her, and ahead lay the dark, rotten heart of the Carrow legacy.</p>
+<p>With every mile, the weight of her past errors pressed harder. Giles Pendelton. The innocent victim. She had failed then because she had trusted the paper instead of the blood. She had trusted neat, clean archive folders instead of the messy, violent reality of human monsters.</p>
+<p>This time, she wouldn't trust the paper.</p>
+<p>She would trust the steel.</p>
+<p>She hit the turnoff for the Carrow estate, gravel crunching under her tires like snapping bone. The headlights swept across the rusted iron gates. They hung open like a broken jaw.</p>
+<p>The main house was dark, a black silhouette against the storm, but far at the back, through the thick tangle of wet briars, a single yellow bulb flickered in the window of the old barn.</p>
+<p>A car was parked near the tree line.</p>
+<p>Not Hector’s sedan.</p>
+<p>A sleek, silver luxury SUV. The kind of ride a wealthy surgical resident drives when she wants to make a quiet trip out of the city.</p>
+<p>Rosalind’s heart stopped.</p>
+<p>Tamsin's alibi was for the night of Cynthia’s murder.</p>
+<p>But the night wasn't over. And Hector was already inside.</p>
+<p>She cut the headlights, slipped her keys into her pocket, and stepped out into the freezing mud. The rain had slowed to a drizzle, but the woods were alive with the sound of dripping water and wind howling through dead branches.</p>
+<p>She reached into her bag, her fingers wrapping around the cold, heavy handle of her Maglite. Her only weapon.</p>
+<p>She took a breath of the wet, ozone-heavy air and walked toward the light. Every step was a calculation. Every shadow a potential blade.</p>
+<p>She didn't turn back.</p>
+<p>The last branch of the family tree was waiting.</p>
+<p>As she neared the barn, her boots sinking into the freezing muck, she spotted something metallic glinting near the rotten wooden threshold. She knelt, her fingers brushing against the cold, wet casing of a heavy flashlight.</p>
+<p>It was Hector's. The heavy aluminum lens was shattered, the bulb inside crushed to fine powder. Next to it, the mud was torn up, deep gouges showing where a brief, violent struggle had occurred.</p>
+<p>Inside the barn, the low, mechanical hum of a portable generator vibrated through the walls. It was accompanied by a smell that made Rosalind’s throat tighten—not old hay, but the sweet, chemical stench of medical-grade ether drifting through the cedar planks.</p>
+<p>Rosalind pressed her back against the siding, her heart hammer-tapping against her ribs. She pushed the heavy wooden door open an inch.</p>
+<p>The interior was vast, cold, and choked with shadows. In the center of the dirt floor, under a single bare bulb hanging from a frayed cord, stood an old zinc-topped potting table.</p>
+<p>Laid out on the metal, arranged with terrifying precision, was a set of surgical scalpels. The silver shafts gleamed, their custom bone handles carved with spiral grooves. But unlike the clean tools in Tamsin’s satchel, these were wet. A thick, dark drop of blood gathered at the tip of a curved, hooked blade and fell to the zinc with a soft, hollow tap.</p>
+<p>Next to the knives lay a leather wallet, flipped open. Hector’s gold investigator shield stared back at her, smeared with a fresh, wet streak of red.</p>
+<p>Above her, in the dark loft, a floorboard creaked.</p>
+<p>"You should have stayed in the diner, Dr. Mercer," a voice whispered from the rafters.</p>
+<p>It wasn't Tamsin’s voice. It was deeper, slower, carrying a low, rhythmic cadence that made Rosalind's blood freeze.</p>
+<p>Behind her, the heavy barn door slammed shut. The iron latch dropped into place with a heavy, mechanical click.</p>
+<p>The light bulb overhead flickered, buzzed like a dying wasp, and went black.</p>
+<p>In the absolute darkness, the only sound was the low drone of the generator, and then, a tiny, rhythmic noise.</p>
+<p><em>Click.</em></p>
+<p><em>Click.</em></p>
+<p><em>Click.</em></p>
+<p>The sound of a ballpoint pen. Or a bone handle sliding against cold steel.</p>
+<p>Rosalind stood frozen, her flashlight unlit, staring into the blackness as she waited for the blade to find its mark.</p>
+<p>The family tree was alive. And she was standing in its shadow, waiting for the cut.</p>
+<h3>Chapter 7: Confiscated Lies</h3>
+<p>The smell of wet wool and cheap tobacco always beat Hector MacInnis to the door. It was a damp, heavy draft that rolled down the narrow hallway of Rosalind’s apartment, carrying the chill of the street long before his boots actually hit the linoleum.</p>
+<p>Rosalind stood by the sink. A half-rinsed mug slipped in her soapy fingers, clinking hard against the stainless steel. One sharp, metallic note. Then, silence again.</p>
+<p>He didn't knock. Why would he? Hector had the landlord’s master key and thirty years of leverage. He didn't ask for permission; he just turned the brass. When he stepped inside, his broad, dripping frame filled the small kitchen, casting a long shadow under the brim of his flat hat. Under his arm, he carried three white cardboard evidence boxes. They smelled of bleach and dry storage. The kind of boxes where careers went to die.</p>
+<p>"You should’ve stayed at the university, Rosalind," he said. His voice was a dry, gravelly scrape, worn down by courthouse coffee and midnight interrogations. He didn't look at her. His eyes—dark, heavy-lidded, and entirely unreadable—were already sweeping the room, cataloging her life.</p>
+<p>"I have a deadline on the state versus Miller," she said. She grabbed a kitchen towel, drying her hands with slow, deliberate rubs. Don't let him see the shake. "The sheriff doesn't pay me to sit in municipal offices waiting for clerks to finish their lunch breaks."</p>
+<p>"No," Hector agreed. He took two steps into her living room, leaving dark, crescent-shaped mud tracks on her pale pine floors. "They pay you to build family trees out of teeth and hair. They pay you to pull names out of the dirt. They don't pay you to curate a private museum."</p>
+<p>He stopped at her workspace—a long oak trestle table she’d salvaged from an old schoolhouse. On any other day, it was a temple of digital clinical precision: dual high-res monitors, a liquid-cooled tower humming like a sleeping cat, and three external drives chained together in a silver loop of cables.</p>
+<p>But today, the clean lines were ruined.</p>
+<p>An old leather-bound ledger lay open beside her keyboard, its pages yellowed and smelling of cellar rot. Next to it were three sheets of gridded drafting paper, covered in her own tight, hand-drawn lines. A family tree. It looked less like genealogy and more like a spider's web spun by an insect on speed.</p>
+<p>Hector pointed a thick, calloused finger at the center of the web, right at the name <em>Alistair Carrow</em>.</p>
+<p>"Beautiful," he muttered. He didn't touch the paper, but his shadow fell across the ink, blotting it out. "Deep roots. Lots of places for things to rot."</p>
+<p>"It's context," Rosalind said. She took a step forward. Her pulse began to race, a hot, frantic thrumming in her ears. "The Jane Doe from the ravine shares three distinct segments of DNA with the maternal line of the Carrow family. I was mapping the living descendants to narrow down the pool of potential mothers. That’s what you hired me for."</p>
+<p>"I hired you to identify a body," Hector said, turning his head slowly to fix those heavy eyes on her. "I didn't hire you to build an alibi for her killers."</p>
+<p>"An alibi?" She let out a dry, humorless bark. "That’s absurd. I’m doing the genetic genealogy. I’m working the science."</p>
+<p>"The science is clean. People aren't," Hector said. He reached into his coat and tossed a blue folder onto the table. It landed with a dull, heavy slap over her hand-drawn charts, completely covering the name <em>Tamsin Carrow</em>.</p>
+<p><em></em>*</p>
+<blockquote><strong>SEARCH AND SEIZURE WARRANT</strong></blockquote>
+<blockquote><em>Case File: 94-CIV-8819 (Carrow / Jane Doe III)</em></blockquote>
+<blockquote><em>Target: Physical and digital forensic assets in the possession of Rosalind Mercer.</em></blockquote>
+<blockquote><em>Authorization: Judge H. Miller — Immediate Execution.</em></blockquote>
+<p><em></em>*</p>
+<p>Rosalind’s chest tightened. The air in the apartment felt thin, useless. "On what grounds?"</p>
+<p>"Obstruction," Hector said. "Withholding material evidence in an ongoing serial homicide investigation. You’ve had the DNA profile for the third victim for four days, Rosalind. You logged into the GEDmatch database under a private profile twice last night. You didn't file a report. You didn't call me. You didn't even update the shared county drive."</p>
+<p>"Because the results were anomalous!" Her voice cracked, a sharp, ugly sound in the small kitchen. She stepped closer, the smell of his wet coat washing over her, mixing with the hot plastic scent of her hard drives. "The markers didn't make sense. I needed to verify the pedigree collapse. If there’s inbreeding in the Carrow line—which the charts suggest—the centimorgan counts are artificially inflated. It looks like a parent-child match when it might only be a first cousin. If I gave you those names yesterday, you’d have dragged Cynthia Rook or Phineas Carrow into an interrogation room based on a statistical illusion!"</p>
+<p>Hector’s jaw tightened. A small muscle ticked beneath his left ear. It was a tell she’d seen a hundred times in courtrooms when a defense attorney poked a hole in his timeline. But Hector didn't back down. He never did.</p>
+<p>"You’re a brilliant technician, Rosalind. But you’re a lousy liar," he said softly. "You didn't keep this quiet because of pedigree collapse. You kept it quiet because three days ago, you ran your own raw DNA file against the public databases. You used a pseudonym, but you used the department’s paid portal to do it."</p>
+<p>The room went dead.</p>
+<p>Complete and suffocating silence. Even the hum of the cooling fans seemed to drop, leaving only the low, vibrating rattle of her refrigerator.</p>
+<p>Rosalind felt her old ghost waking up. The cold, sick feeling from five years ago in Boston, when she’d made the mistake of trusting a cousin’s word over a cold database match. She had hesitated then. She had waited to run a search because she couldn't believe her own mentor was capable of it. Three more girls had vanished before the cuffs finally clicked. She had sworn then, on everything she owned, that she would never let blood or loyalty cloud the numbers again.</p>
+<p>And yet, here she was. Standing in her own kitchen, shielding a tree that bore her own hidden fruit.</p>
+<p>"You don't understand the complexity of the lineage," she whispered.</p>
+<p>"I understand larceny," Hector said. He stepped behind her desk and reached for the cables.</p>
+<p>The sound of his work was brutal. The sharp, plastic snap of Ethernet clips breaking. The violent slide of USB plugs being dragged from their ports. One of her secondary monitors flickered once, a brilliant flash of blue light, before dying into a flat, gray void.</p>
+<p>"Don't," she breathed, her hand reaching out to touch the metal casing of her primary server. The aluminum was hot, vibrating with the millions of calculations still running in the background. "Hector, please. If you interrupt the batch run on the Carrow-Rook alignment, it will corrupt the entire database. It took me three weeks to clean those files."</p>
+<p>"Then you should have been honest with me from the start," he said. He didn't look at her as he packed her primary laptop into the first white box. He laid it in face down, the sleek gray plastic disappearing into the cardboard grave. "Your contract with the county is suspended, effective immediately. As of five minutes ago, your credentials to the state forensic portal have been revoked. If you try to log in using a backdoor, the system will flag your IP and I’ll be back here with a pair of steel bracelets instead of cardboard boxes."</p>
+<p>"I was protecting the case," she whispered, her voice tight and raw. She pointed at the hand-drawn chart under the folder. "Look at the lines, Hector. Cynthia Rook isn't just some distant cousin. Her grandmother was a Carrow by birth before she married into the Rook estate. If Alistair Carrow is the biological father of the victim, then the estate transfer in ninety-four was fraudulent. The land where you found those bodies—the old timber lot—belongs to the survivor of that union. It’s not just about blood. It’s about the soil."</p>
+<p>Hector paused. His hand rested on the heavy power brick of her external array. For a fraction of a second, those dark, tired eyes searched hers. He was looking for the investigator he’d trusted for three years. The woman who could read a pedigree chart like a road map.</p>
+<p>Then, the shutter came down. His face went hard.</p>
+<p>"You have a cousin in that tree, don't you?"</p>
+<p>Rosalind swallowed. Her throat was bone-dry. "I don't know."</p>
+<p>"That’s a lie," Hector said.</p>
+<p>He yanked the power cord from the wall.</p>
+<p>The hum died instantly.</p>
+<p>The silence was a physical thing, heavy and cold, settling over the kitchen like soot. On the external drives, the tiny green and blue LED lights blinked out one by one. Like dying eyes.</p>
+<p>"I found the birth certificate from the county home," Hector said. His voice had dropped to a quiet, level tone. It was his interrogation voice—the soft one he used right before the trap snapped shut. "Nineteen seventy-eight. A child born to Tamsin Carrow. No father listed. Surrendered to the state three days later. The records were sealed, Rosalind, but the DNA you uploaded to the portal matched a sample from the Carrow family plot in St. Jude’s. You’re not just the genealogist on this case. You’re the next of kin."</p>
+<p>"I am a scientist," she said. She was shaking now, but she kept her chin up. "The DNA is just data."</p>
+<p>"Not when it’s yours," Hector said. He picked up the hand-drawn sheets, folding them once, twice, the thick paper groaning under his thumbs. He slid them into the box on top of her laptop. "I have to protect the chain of custody. If the defense finds out the county’s lead genealogist was searching her own family tree while building the state’s case against Phineas Carrow, the whole trial falls apart. The judge throws out the physical evidence from the timber lot. The bodies in the ravine get buried without names. I won't let that happen."</p>
+<p>"If you take those drives, you won't find the match," Rosalind warned. "The county database doesn't have the processing power to run the identity-by-descent algorithms. It takes hours of manual filtering. Your tech guys in the basement of the precinct don't even know how to parse a GEDmatch raw file."</p>
+<p>"Then they’ll learn," Hector said. He closed the lid of the third box, the cardboard flaps sliding together with a dry, scraping sound that sounded like a shovel hitting dirt. He picked up the boxes, stacking them against his chest. He looked massive, a wall of gray wool and white cardboard, blocking her view of her own life.</p>
+<p>He walked to the door, his boots heavy on the pine. At the threshold, he stopped, but he didn't turn around.</p>
+<p>"Stay in the apartment, Rosalind," he said. "The sheriff’s office is going to want a formal statement tomorrow morning. Don't make me send a cruiser to fetch you."</p>
+<p>The door clicked shut behind him. The lock turned with a heavy, metallic rattle.</p>
+<p>Rosalind stood in the middle of her kitchen, her fingers still clutching the dry dishtowel. The silence in the apartment was deafening, a thick, gray wool that wrapped around her head. Without the constant, low-frequency vibration of her servers, the rooms felt larger, colder, and utterly hollow.</p>
+<p>She looked at the empty trestle table. The dark spots of mud from Hector’s boots were already beginning to dry, turning into pale, dusty smears on the wood. The space where her dual monitors had stood was a blank, dusty rectangle, like a frame where a picture had been torn out.</p>
+<p>She was completely cut off.</p>
+<p>Her phone lay on the counter. She didn't bother checking it; she knew her remote access to the state servers was already dead. Her digital keys were gone. The databases she had spent a decade building—the gigabytes of curated genetic profiles, the historical census records, the proprietary algorithms she had coded herself to trace small segments of matching DNA through generations of closed communities—were locked inside those white cardboard boxes in the back of Hector’s sedan.</p>
+<p>They thought they had stripped her bare.</p>
+<p>Rosalind walked slowly to the small hallway closet. She reached up to the top shelf, past her winter coats and a box of old tax returns, until her fingers brushed against the rough surface of a heavy, green canvas satchel. She pulled it down, the weight of it familiar and grounding in her hands.</p>
+<p>She carried the bag back to the empty kitchen table.</p>
+<p>She unzipped it, her movements slow and rhythmic, almost ceremonial. Inside were three thick, black binders, their spines reinforced with duct tape. These were her physical backups—the raw, hand-transcribed data sheets she had kept since her days in Boston. She had learned early in her career that electricity was a fickle ally. Servers crashed. Databases were hacked. Governments changed access rules overnight.</p>
+<p>But paper survived.</p>
+<p>She opened the first binder. On the inside cover, written in her own neat, block print, was the title: <em>Carrow/Rook/Mercer - Lineage Reconstruction</em>.</p>
+<p>She didn't need the county’s high-speed servers to tell her what she already knew. The names were burned into her retinas.</p>
+<p><em>Alistair Carrow</em>, who had died in a mental asylum in 1982, leaving behind a trail of whispers and three missing girls whose names had never been recorded in the county registry.</p>
+<p><em>Cynthia Rook</em>, who had purchased the old timber lot for a fraction of its value in 1995, just three months after the third victim was estimated to have disappeared.</p>
+<p>And <em>Tamsin Carrow</em>, the silent sister who had spent her entire life behind the high stone walls of the family estate, refusing to speak to the police, the press, or her own neighbors.</p>
+<p>Rosalind pulled a fresh mechanical pencil from the satchel. Her fingers were cold, but they had stopped shaking. She clicked the top, feeding a tiny sliver of graphite into the tip.</p>
+<p>She didn't need their databases. She had her memory, she had her charts, and she had the one piece of evidence Hector couldn't confiscate: her own blood.</p>
+<p>She turned to a blank page of grid paper and drew a single, straight line down the center. At the top, she wrote her own name: <em>Rosalind</em>.</p>
+<p>Then, she drew a line branching to the left, leading into the dark.</p>
+<h1>Chapter 8: The Chimera Shift</h1>
+<p>The rain had no rhythm. It just lashed. Fitful, wind-whipped gusts slapped the tall, narrow panes of Rosalind Mercer’s fourth-floor apartment like handfuls of gravel thrown against the glass. Inside, the only light came from the cold, blue backwash of her dual monitors. In the corner, an old electric radiator hummed a low, metallic note, its single amber element casting a dry, chemical heat that did nothing to cut the damp chill.</p>
+<p>Rosalind paced the length of the hardwood floor. The wood was ice beneath her bare feet. The draft from the loose sash windows smelled of wet asphalt, soot, and that faint, sweet rot of autumn leaves clinging to the gutters four stories down.</p>
+<p>In her hands, she held fifty-four pages of raw genetic data.</p>
+<p>It was standard twenty-pound copy paper, but tonight it felt heavy, almost damp. The edges were already curling from the river-front humidity she couldn't seem to seal out of the room. Her thumb brushed the top margin of page twelve. The blue ink from her highlighter had bled through to the reverse side, leaving bruised shadows beneath the columns of nucleobases.</p>
+<p><em>A, T, C, G.</em></p>
+<p>The letters repeated in mindless, crystalline patterns. But on her workstation screen, the raw text file of her own profile—uploaded to the open-source genetic database three weeks ago—shivered in the blue light.</p>
+<p>She stopped. She looked down at the physical printout of her X-chromosome.</p>
+<p>There was a smudge on the glass of her desktop lamp, a greasy thumbprint that fractured the light into a tiny, oily rainbow. She didn't clean it. Instead, she stared at the marker designations.</p>
+<p><em>rs11388362. rs12562466.</em></p>
+<p>Beneath them, the genotype calls were a mess.</p>
+<blockquote><strong>SYSTEM ERROR: MULTIPLE CALL DETECTED</strong></blockquote>
+<blockquote>*   <strong>Locus:</strong> rs11388362</blockquote>
+<blockquote>*   <strong>Expected Genotype:</strong> [C;C] or [T;T]</blockquote>
+<blockquote>*   <strong>Observed Signal:</strong> [C;T] (Strength ratio: 52/48 - Aberrant baseline mismatch)</blockquote>
+<blockquote>*   <strong>Status:</strong> Flagged. Extreme risk of contamination or sample degradation.</blockquote>
+<p>Forensic genealogy is supposed to be clean. That’s the lie they sell the public on television. It’s built on the premise of absolute binary truths: you either inherited a segment or you did not. But her own profile was screaming with anomalies. The software had flagged dozens of "mixed calls"—locations where the sequencing machine had detected two distinct, competing genetic signals in a space where there should only have been one.</p>
+<p>Have you ever looked at your own blueprint and realized the code was talking over itself? It's a deeply unsettling kind of vertigo.</p>
+<p>She pulled her cardigan tighter around her shoulders. The wool was scratchy against her neck, a physical irritation that kept her grounded while her mind drifted back to the phone call with Hector MacInnis earlier that afternoon.</p>
+<p>"Leave the damn Carrow pedigree alone, Rosalind," Hector had said. He was chewing on something—probably one of those terrible nicotine lozenges he’d been trying to quit for five years. His voice was muffled by the crackle of a bad cell connection and the relentless hiss of city traffic. "You’re looking for ghosts in a house that’s already been demolished. Cynthia Rook is already breathing down my neck, asking why you're running unauthorized queries on the legacy files."</p>
+<p>"It’s not an unauthorized query if it’s my own data, Hector," she had replied.</p>
+<p>"It is when your data links to an open homicide investigation," he’d snapped, right before the line went dead.</p>
+<p>She hadn't told him the worst of it. She hadn't told him that the database had matched her own profile to the blood recovered from the floorboards of the Carrow estate—a profile the system identified as belonging to a biological sibling. A full brother or sister.</p>
+<p>But Rosalind did not have siblings.</p>
+<p>She stood frozen in the center of the dark room, the silence of the apartment pressing against her ears like deep water. The radiator clicked, a sharp, metallic strike that made her flinch.</p>
+<p>She knew her own history. She had spent her life tracing the roots of others, building massive, spreading trees for clients who wanted to know if they were descended from royalty or coal miners. Her own tree was a solitary trunk. No branches. No offshoots. Her parents had died in a hydroplaning accident on Route 9 when she was nineteen, leaving her with nothing but a box of tax returns, a set of silver-plated cutlery, and a medical folder thick enough to stop a bullet.</p>
+<p>She set the printout on the desk, her fingers brushing the cool, laminated surface of her keyboard. Her hand was trembling—just a micro-tremor in the tendon of her right index finger, but she saw it. She knew what tremors meant in her line of work: fatigue, panic, or something worse.</p>
+<p>She opened her medical history file on the secondary monitor.</p>
+<p>The digital document was a scan of a paper record from 1998. The logo of the pediatric oncology ward at St. Jude’s was faded, the blue ink of the letterhead washed out by the scanner's high-contrast lens.</p>
+<p><em>Patient: Mercer, Rosalind. Age: 7. Diagnosis: Acute Lymphoblastic Leukemia (ALL).</em></p>
+<p>The room smelled suddenly of things she had spent twenty years trying to forget. The sharp, nose-stinging scent of isopropyl alcohol. The heavy, greasy odor of floor wax used in hospital corridors at three in the morning. The taste of pennies—cold, cheap copper resting on the back of her tongue while a plastic bag of yellow platelets, looking like lukewarm chicken broth, dripped into her chest.</p>
+<p>She remembered the silver poles. She remembered the dark red bags of packed red blood cells.</p>
+<p>And then, the final folder.</p>
+<p><em>Procedure: Allogeneic Bone Marrow Transplant. October 14, 1998.</em></p>
+<p><em>Donor: Anonymous (Registry ID: Private-US-9810).</em></p>
+<p>Rosalind’s breath caught. She slowly sat down in her swivel chair, the old leather groaning under her weight.</p>
+<p>A bone marrow transplant.</p>
+<p>She reached out, her fingers hovering over the keys, then began to type. Her strokes were loud in the empty room, a rapid-fire clicking like beetle legs on glass. She pulled up her own laboratory protocols, the ones she had used to process her spit sample for the online database.</p>
+<p>"Saliva," she whispered to the empty room.</p>
+<p>When a person spits into a plastic funnel for a consumer DNA test, they aren't just donating epithelial cells from the lining of their cheeks. Spit is a biological soup. It contains food particles, bacteria, and a massive concentration of white blood cells—leukocytes.</p>
+<p>And where do white blood cells come from?</p>
+<p>They are manufactured in the bone marrow.</p>
+<p>Rosalind leaned forward, her face inches from the screen. Her eyes scanned the technical breakdown of her own profile. The spit kit she had used had extracted DNA from both the epithelial cells of her cheek and the white blood cells suspended in her saliva.</p>
+<p>If a person has had a bone marrow transplant, they are a chimera.</p>
+<p>This is exactly why DNA isn't the clean, perfect blueprint the courtrooms want it to be. It’s a messy, living history. The transplant didn't change her skin, her hair, or her native tissue. Her cheek cells still carried the DNA she had been born with—the DNA of her mother and father, the DNA that made her Rosalind Mercer.</p>
+<p>But her blood?</p>
+<p>Her blood didn't belong to her. Not genetically. Every white blood cell, every lymphocyte, every drop of marrow inside her femur, her pelvis, her ribs, belonged entirely to Registry ID: Private-US-9810.</p>
+<p>The anonymous donor.</p>
+<p>She felt a cold sickness pool in her stomach. It felt like the early days of the induction therapy, a deep, hollow nausea that had nothing to do with food and everything to do with a body turning against itself.</p>
+<p>She clicked through to the raw file of the Carrow crime scene sample—the blood recovered from the broken glass in the conservatory where Alistair Carrow had been found. That sample had been processed from pure blood. No cheek cells. No saliva. Just dried, dark hemoglobin scraped from a jagged edge of leaded glass.</p>
+<p>The database had compared Rosalind's mixed saliva sample to that pure blood sample.</p>
+<p>The software, designed to find simple, Mendelian relationships, had struggled with her file. It had seen two distinct genetic signatures in her saliva: her own native DNA and her donor's DNA. When it ran the comparison against the Carrow blood, it found a massive, undeniable overlap. It saw half of her native self and half of her donor self, and it calculated the statistical probability of a sibling match.</p>
+<p><em>2,650 centimorgans.</em></p>
+<p>"It’s not a sibling," she whispered. Her voice sounded thin, dry, like paper scraping across stone.</p>
+<p>She closed her eyes. The image of the Carrow family tree burned against her eyelids. Phineas Carrow. Tamsin Carrow. Alistair, dead in his study with his eyes open to the ceiling. The ancient, rotting wealth of a family that had spent three generations buying silence.</p>
+<p>She opened her eyes and looked back at the screen.</p>
+<p>The crime scene blood didn't share half of her DNA.</p>
+<p>It shared <em>all</em> of the DNA that her blood currently carried.</p>
+<p>The killer’s blood, left behind on the shattered glass of the conservatory, was a 100% genetic match to the blood circulating through Rosalind’s own heart right now. The immune system that kept her alive, the white cells that fought off her winter colds, the very essence of her biological survival for the last twenty-four years was identical to the blueprint of the person who had slaughtered Alistair Carrow.</p>
+<p>Her savior was a monster.</p>
+<p>She stood up so quickly her chair rolled backward, its casters striking the base of her filing cabinet with a sharp <em>clack</em>. She walked to the window, her hand pressing against the cold glass. The street lamp below cast long, skeletal shadows of the bare maple branches across the brick facade of the building opposite.</p>
+<p>The donor had been anonymous. In 1998, the rules were ironclad. She had received a letter when she was nine, a single sheet of blue paper with the postmark of a small town in upstate New York, written in a cramped, left-leaning script.</p>
+<p><em>I am glad you are feeling better,</em> the letter had said. <em>Live a long, good life.</em></p>
+<p>She had kept it in a velvet box in her top drawer for twenty years. She had looked at it when she graduated from college, when she got her first job at the institute under Cynthia Rook, when she felt the first twinges of the loneliness that seemed to follow her like a physical shadow.</p>
+<p>Now, she felt as if someone had reached inside her chest and twisted her lungs.</p>
+<p>She turned back to the room. The paper sheets on her desk looked different now. They weren't just data points. They were a confession.</p>
+<p>The phone on her desk vibrated, its small motor buzzing against the wood. She flinched, her eyes darting to the screen.</p>
+<p><em>Hector MacInnis.</em></p>
+<p>She picked it up on the third ring, her knuckles white around the casing.</p>
+<p>"Hector," she said.</p>
+<p>"Rosalind." His voice was different now. The ambient noise of the street was gone; he was inside a car or a quiet office. She could hear the rhythmic <em>click-clack</em> of a turn signal in the background. "I’ve been looking at the Carrow property records. The old cabin up near the reservoir. The one Alistair owned before the divorce."</p>
+<p>"Hector, listen to me," she said, her voice dropping to a harsh whisper. "The database match. It’s not a sibling."</p>
+<p>There was a pause on the other end. The turn signal stopped.</p>
+<p>"What are you talking about?"</p>
+<p>"It’s me," she said. She reached up with her free hand, her fingers gripping her own forearm, feeling the pulse under the skin—the blood that didn't belong to her, beating in time with her heart. "It’s my blood. Or rather, the blood I received. My donor."</p>
+<p>"Rosalind, you're not making sense. The lab report—"</p>
+<p>"The lab report analyzed my saliva," she interrupted, her words tumbling out, fast and sharp. "I’m a chimera, Hector. My bone marrow is from the donor. The blood at the crime scene... it’s an exact match to my circulating DNA. The killer is the person who saved my life in ninety-eight."</p>
+<p>The silence that followed was heavy, filled only with the faint, electronic hiss of the cellular network.</p>
+<p>"Are you sure?" Hector asked. His voice had lost its professional distance. It sounded small, creaky, like an old floorboard.</p>
+<p>"The X-chromosome calls are mixed," she said, looking back at page twelve of the printout. "The software tried to merge two genomes. If you sequence my blood—just my blood—it will match the Carrow evidence perfectly. Whoever killed Alistair Carrow is the person whose marrow is inside my bones."</p>
+<p>"The registry," Hector said. "We can get a warrant for the donor records."</p>
+<p>"No," Rosalind said, her eyes shifting to the shadow of her pedigree charts on the wall. "Cynthia Rook told me yesterday that the old pediatric files from St. Jude’s were archived in the basement of the county courthouse. But those are protected by three layers of federal privacy laws. A warrant could take weeks. The Carrows... Phineas and Tamsin... they aren't going to wait weeks. They’re already selling off the estate. They’re closing the accounts."</p>
+<p>"Rosalind, stay where you are," Hector said. His tone was suddenly urgent. "Do you hear me? Don't touch anything. Don't go to the office."</p>
+<p>"Why?"</p>
+<p>"Because Phineas Carrow was at the station an hour ago," Hector said, his voice dropping. "He wasn't here to talk about his father's estate. He was asking about you. He had a copy of the database query. Someone at the institute leaked it, Rosalind."</p>
+<p>The radiator gave one last, loud <em>thump</em> and went silent. The apartment felt instantly colder, as if the dampness from the street had seeped through the bricks.</p>
+<p>"Cynthia," Rosalind whispered.</p>
+<p>"I don't know," Hector said. "But you need to lock your door. I'm coming to get you."</p>
+<p>The line went dead.</p>
+<p>Rosalind stood in the quiet of her kitchen, the phone still clutched in her hand. Her gaze drifted to the window. Across the street, a dark sedan she hadn't noticed before was parked under the dripping branches of the maple tree. Its headlights were off, but she could see the pale, circular smudge of a face behind the windshield, looking up at her window.</p>
+<p>She stepped back into the shadow of the curtain.</p>
+<p>Her hand went to her throat, her fingers pressing against her carotid artery. <em>Thump. Thump. Thump.</em></p>
+<p>A stranger’s blood. A stranger’s life.</p>
+<p>She turned back to the desk, her eyes falling on the drawer where the blue letter had lived for twenty years. She didn't open it. She knew the words by heart.</p>
+<p><em>Live a long, good life.</em></p>
+<p>She picked up her laptop, slid it into her bag, and reached for her coat. The rain outside was growing heavier, turning the city into a blur of gray and silver, but she knew she couldn't stay here. The past wasn't a closed file anymore. It was in her veins, and it was waiting for her at the bottom of the stairs.</p>
+<h1>Chapter 9: The Trap in the Trees</h1>
+<p>The sequencer's cooling fan didn’t hum; it rattled, a cheap plastic vibration that traveled up the metal edge of the lab bench and settled directly into Rosalind Mercer’s collarbone. Three AM. The hour of bad decisions, cold coffee, and false positives. The air in the county forensic lab tasted of stale ozone and dry, forced heat that made her contacts stick to her eyeballs.</p>
+<p>On the screen, the chromatograms stretched out in jagged peaks of green, red, and blue—highs and lows that looked less like science and more like a hostile mountain range. Rosalind’s eyes burned. She’d run the sequence three times already, refusing to let her brain accept what her fingers had traced. She didn't trust the automated readout. She had counted the short tandem repeats on the thirteenth chromosome by hand, her fingernail leaving a faint smudge on the LCD glass.</p>
+<p>There was no statistical wiggle room. Not here.</p>
+<p>A full sibling match. A brother she didn't know existed until five minutes ago.</p>
+<p>Rosalind sat back, the vinyl chair groaning in the empty room. Her breath felt thin, catching in a throat that tasted like dry paper. For thirty-two years, her life had been defined by a very specific kind of quiet absence—the girl left in a cedar cradle on the steps of a fire station with nothing but a flannel blanket and a nameless heritage. She’d spent her entire career mapping the branches of other people’s broken family trees, hoping that if she solved enough puzzles, the universe might finally return her own missing piece.</p>
+<p>But this match wasn't a resolution. It was a head-on collision.</p>
+<p>The donor profile from under the fingernails of the second victim belonged to Alistair Carrow.</p>
+<p>Alistair.</p>
+<p>The county's lead forensic technician. The guy who, thirty-six hours ago, had stood so close she could smell the peppermint on his breath while he pointed a gloved finger at a slide of epithelial cells. <em>A tragic business,</em> he’d murmured, his voice as sterile as the slide.</p>
+<p>He wasn't just analyzing the physical evidence. He was editing it.</p>
+<p>He was the gatekeeper of the sterile corridor. Every swapped blood sample, every contaminated swab, every strategically placed drop of synthetic DNA that pointed toward Tamsin Carrow’s guilt—it had all passed through his hands. He was using the department’s own chain of custody as a canvas for his masterpiece.</p>
+<p>The phone on the desk buzzed, skidding three inches across the cold laminate.</p>
+<p>She snatched it up. "Hector?"</p>
+<p>"Rosalind." Hector MacInnis’s voice was barely a rasp, nearly drowned by the rhythmic, wet slap of old wiper blades. "I’ve got Tamsin."</p>
+<p>"Where?"</p>
+<p>"The old Carrow taxidermy cabin. Up on the northern ridge, past the timber mill." The line crackled, static eating the edges of his words. "Jeep’s tucked under some hemlock branches. There’s a light on in the back. I’m going in."</p>
+<p>"Don't. Hector, stay the hell out of that cabin!" Rosalind was already on her feet, her knee slamming into the metal desk drawer with a crack that would leave a bruise by morning. "It's not Tamsin. Do you hear me? The DNA under the nails—it’s Alistair’s. He’s framing her. He’s been swapping the controls."</p>
+<p>"Alistair?" A wave of white noise swallowed his voice. "...what are you... Alistair’s at the county station..."</p>
+<p>"He’s baiting you, Hector! He wanted you to find her there. He’s going to kill you both and call it a closed case. Hector!"</p>
+<p>Only the dry hiss of a dead signal answered her.</p>
+<p>She didn't bother locking the lab. She ran. Her boots made a frantic, wet slapping sound against the linoleum of the empty corridor, the heavy fire doors slamming behind her as she broke into the cold, driving rain.</p>
+<p>The road up the ridge was five miles of deteriorating asphalt swallowed by Douglas firs that crowded the shoulder like spectators at an execution. Rosalind white-knuckled the wheel, her headlights cutting weak yellow tunnels through the downpour.</p>
+<p>Her mind was a chaotic loop of old foster homes and the quiet, desperate fantasy she’d kept in her pocket like a lucky coin—the sibling who would eventually come back for her. Well, Alistair had found her. He’d watched her build her forensic genealogy practice from across the hall, letting her trace the twigs of their rotting family tree until she arrived exactly where he wanted her: at his feet.</p>
+<p>She turned off the main road onto the logging trail, the sedan bouncing violently over deep, water-filled ruts. The stench of burning oil and wet ferns filled the cabin of the car as the undercarriage scraped against rock.</p>
+<p>She killed the headlights a quarter-mile out, relying on the pale, watery glow of the moon breaking through the cloud cover.</p>
+<p>The silence of the woods was heavy, broken only by the cold <em>plink-plink</em> of rain off her car roof. She stepped out. The mud seized her left boot with a wet, sucking sound.</p>
+<p>The air here smelled different. Not just wet earth, but something sweetish and chemical—the lingering ghost of tanning salts and formaldehyde. The Carrow cabin was a low, hunched shape in the dark, its cedar logs rotting under a thick pelt of moss. One window on the east side cast a jaundiced yellow square onto the wet pine needles.</p>
+<p>Beside the woodpile, hidden beneath a blue plastic tarp, sat the tail end of Tamsin’s Cherokee.</p>
+<p>Rosalind crept forward, her shoulder blades tight. She pressed herself against the rough log wall of the cabin, the wood cold and damp through her coat.</p>
+<p>Inside, a floorboard groaned.</p>
+<p>"Tamsin?" Hector's voice was low, carrying that flat, cop-like authority that masked how fast his heart was actually beating. "State police. Keep your hands where I can see them."</p>
+<p>Rosalind peered through a corner of the window, wiping a circle through the grease and spiderwebs with her sleeve.</p>
+<p>The cabin was a tomb of dead things. Stuffed bobcats with empty eye sockets sneered from the rafters. A massive, moth-eaten black bear stood in the corner like a sentinel, its snout curled in a permanent, dusty snarl. Below it, tables were littered with rusted taxidermy tools—scalpels, heavy wire, and dry jars of arsenic.</p>
+<p>Hector stood in the center, his Glock raised, rain dripping from the brim of his hat.</p>
+<p>Opposite him, near a cold hearth, stood Tamsin Carrow. She looked tiny in an oversized canvas coat, her copper hair plastered to her forehead, hands shaking as she held them up. No weapon. Just pure, unadulterated terror.</p>
+<p>"I didn't do anything," Tamsin sobbed, her voice leaking through the cracked window pane. "I got a note. It said Phineas was hurt. It said he was here."</p>
+<p>"Who sent it, Tamsin? We found your blood at the clinic. We found the vials."</p>
+<p>"Someone took it! Weeks ago, when I went in for my physical. I don't know who! Hector, please—we went to school together. You know I couldn't."</p>
+<p>Rosalind needed to get around to the door. But as she shifted her weight, a shape detached itself from the shadow of a massive spruce twenty yards away.</p>
+<p>A man.</p>
+<p>He wore a black rain slicker, his face shadowed by a deep hood, holding a bolt-action rifle with the casual ease of a man who’d grown up hunting these ridges.</p>
+<p>The yellow light from the window caught the hard, flat line of his jaw.</p>
+<p>Alistair.</p>
+<p>He wasn't looking at the cabin door. He was waiting for Rosalind to make her entrance. He’d calculated the timing down to the minute: Hector would pull the trigger, or Alistair would do it for him through the window, ending the Carrow line in a neat, tragic murder-suicide. And Rosalind would be the perfect, grief-stricken sister to identify the bodies and close the file.</p>
+<p>Alistair raised the rifle, cheek pressing to the stock, aiming directly at the back of Hector's skull through the glass.</p>
+<p>Rosalind didn't think. She didn't have the breath for it.</p>
+<p>She threw herself forward, her entire weight slamming into Alistair's shoulder just as his finger squeezed.</p>
+<p>The rifle barked—a sharp, deafening <em>crack</em> that tore through the mountain silence. The bullet shattered the upper pane of the window, showering the interior with glass.</p>
+<p>Inside, Hector yelled. Tamsin shrieked.</p>
+<p>Alistair stumbled, his boots slipping in the clay, but he didn't drop the gun. He spun on her, his hood falling back. There was no rage on his face. No panic. Just a cold, analytical curiosity, as if she were a particularly interesting slide under his microscope.</p>
+<p>"Rosalind," he said, his voice level, almost conversational. "You drive too fast. These roads are dangerous in the dark."</p>
+<p>"I ran the profile, Alistair," she said, her chest heaving as she backed away, her hands searching the dark space behind her for a branch, a stone, anything. "I know. I know who we are."</p>
+<p>A small, humorless twitch of his mouth. "Who we are? We're the only ones left with the stomach to finish things. Phineas was weak. Tamsin is a child. They spent their lives whining about what our father did, but you and I... we understand the chemistry of an ending."</p>
+<p>"You killed those girls in the woods," she spat. "They had nothing to do with this."</p>
+<p>"Controls," Alistair said, taking a slow, heavy step toward her. His boots barely whispered in the mud. "Every clean experiment needs them. I wanted to see if the department was as lazy as I suspected. They were. Give Hector a scent, and he’ll run until his lungs bleed."</p>
+<p>The cabin door flew open, casting a long spear of yellow light across the mud. Hector was on the porch, flashlight beam shaking as it caught Alistair in its glare.</p>
+<p>"Drop it! Alistair, drop the rifle now!"</p>
+<p>Alistair didn't even turn his head. His eyes remained fixed on Rosalind.</p>
+<p>"You see?" Alistair whispered, his voice almost fond. "He still doesn't understand how the trap is built."</p>
+<p>He didn't swing the rifle toward Hector. Instead, he fired a single, blind shot directly into the rusted hundred-pound propane tank bolted to the cabin's foundation—a detail Rosalind’s eyes had missed in the dark.</p>
+<p>The world didn't just explode; it tore open. A concussive punch of heat hit Rosalind's chest, lifting her off her feet and throwing her backward into the wet ferns. Her head hit the ground hard, the sound of the blast instantly replaced by a high, agonizing squeal in her ears.</p>
+<p>She rolled over, coughing up the taste of copper, sulfur, and burnt pine.</p>
+<p>Through the thick, greasy smoke, the porch of the cabin was a wall of orange fire. Hector was on his knees, hands over his face, while Tamsin’s screams echoed from somewhere behind the sheet of flame.</p>
+<p>And the woods where Alistair had stood were empty.</p>
+<h1>Chapter 10: The Last Branch</h1>
+<p>The air in the valley tasted like wet cedar and copper. Not the crisp, pine-scented draft of a travel brochure, but a heavy, sodden rot of forest floor and stagnant groundwater. Winter was coming, and it smelled like old iron. Rosalind Mercer killed the headlights of her station wagon fifty yards down the overgrown logging trail, letting the engine die with a wet, shuddering rattle that vibrated straight through her teeth.</p>
+<p>Then came the silence.</p>
+<p>It wasn’t peaceful. It was the tense, suspended quiet of an old house right before the plaster ceiling gives way.</p>
+<p>Her boots sank into the black muck with a heavy, wet <em>shluck</em> as she stepped out. God, she hated these woods. The hemlocks didn't just grow here; they crowded the trail, leaning in like gossips trying to choke out what little grey light was left of the afternoon. Keep breathing. One, two, three, four. Hold it. Release. Her hands were shaking anyway. She had spent her entire career tracing neat, clean lines on archival bond paper, connecting names in dusty registries, building symmetrical family trees that stayed exactly where she put them. But the trees in this valley were wild, tangled things, choked with ivy and rot.</p>
+<p>A single, greasy yellow light flickered through the grimy window of the cabin up ahead.</p>
+<p>When she reached the porch, she hesitated, her hand hovering over the doorframe. The pine was soft with dry rot, the kind that leaves grey dust under your fingernails. She didn’t bother knocking. The door was already unlatched, swinging inward with a dry, screeching groan that sounded like a fingernail dragging across a chalkboard.</p>
+<p>The air inside hit her like a physical slap. The damp cedar was gone, replaced by a sharp, chemical sting that made her eyes water—cheap industrial bleach trying, and failing, to mask the heavy, metallic tang of fresh sweat.</p>
+<p>"Step inside, Rosalind," a voice said from the shadows by the hearth. "Shut the door. Gently."</p>
+<p>The light from a single kerosene lamp on the table washed over the room, throwing long, jittery shadows against the log walls. In the center of the space, Hector MacInnis was strapped to a heavy oak kitchen chair. His face was the color of skim milk, a dark smear of blood crusting along his temple where his silver hair was matted and wet. His chest rose and fell in shallow, hitching gasps.</p>
+<p>Standing behind him, the barrel of a dull black revolver pressed hard into the soft dip behind Hector’s left ear, was Alistair Carrow.</p>
+<p>Alistair had lost weight since his last courthouse appearance. His skin had a translucent, waxy quality, like lard left out on a counter. But his eyes were too bright. They burned with a frantic, twitching energy that made Rosalind’s stomach drop.</p>
+<p>"Alistair," Rosalind said, keeping her voice low, flat, and steady. She held her hands open at her sides, fingers splayed. "Let him go. He’s an old man. This is between us."</p>
+<p>"It was always between us," Alistair said. He didn't budge the gun an inch. His thumb pulled back the hammer of the revolver. The double <em>clack-clack</em> was deafening in the low-ceilinged room. "Even when we didn't have names for each other. You were the sister who got away. The one they kept clean. The one they tucked into a warm bed with a family that didn't look at you like you were some kind of genetic mistake."</p>
+<p>Rosalind’s eyes darted to Hector. The old detective gave her a microscopic shake of his head. <em>Don't push him.</em></p>
+<p>"I didn't know," Rosalind said. Her mind scrambled through the thousands of census records, birth certificates, and baptismal registries she had memorized over the years. Her adoptive name—Mercer—felt like a shield that was rapidly turning to paper. "I didn't know about you, Alistair. The state records were sealed. I was told I was an only child."</p>
+<p>"Sealed for you," Alistair spat, a muscle leaping in his jaw. "Must be nice. You get the private schools, the college degree, the quiet life in the climate-controlled archives. I got the state system. I got the group homes where the radiator hissed all night and the hallway smelled like ammonia. I got the Carrow bloodline, pure and uncut, running through my veins like radiator fluid."</p>
+<p>He shifted his weight, and Rosalind caught the movement of his left hand. He was wearing a heavy, coarse wool sweater, but the cuffs were pulled back to his forearms. His wrists were a violent, angry red, covered in raised, weeping plaques of skin that looked raw and raw-edged. He was scratching at them absentmindedly against the rough canvas of his trousers—a dry, rhythmic <em>scritch-scritch</em> that filled the silence between his words.</p>
+<p><em>The graft-versus-host disease.</em></p>
+<p>She remembered the medical files now. During her late-night deep dives into the Carrow family history, she’d found the records of Alistair’s childhood leukemia. The bone marrow transplant from an anonymous donor had saved his life, but it had left him with a chronic, low-grade nightmare. His immune system was a permanent war zone, his body constantly trying to reject the foreign cells. It manifested as severe, intractable contact dermatitis—skin so hyper-sensitive that the wrong laundry detergent, the touch of certain fabrics, or even raw metal could send him into a state of burning agony.</p>
+<p>"You killed them," Rosalind said, keeping her tone conversational, trying to anchor him to the facts. "Cynthia Rook's brother. Phineas and Tamsin's circle. You wanted to wipe out everyone who ever touched this family."</p>
+<p>"I wanted to burn the tree to the ground," Alistair said, his voice dropping to a low, rhythmic hum. "Every rotten branch. They abandoned me. They threw me in the dark and expected me to rot quietly. But I didn't. I grew up. I got a job in the state forensics lab. Pretty poetic, isn't it? The unwanted kid becomes the keeper of the dead."</p>
+<p>He took a step forward, dragging the gun barrel across Hector’s scalp. Hector didn't flinch, though his eyes squeezed shut.</p>
+<p>"I was running the DNA from the cold cases," Alistair continued, a thin, dry smile stretching his lips. "The old Carrow homicides. The blood on the glass from the ninety-two robbery. I ran it through the system, expecting the usual dead ends. And then... there you were. A partial match. Not a suspect, but a sister. A genealogist who was suddenly digging up the old graves. You were hunting me, Rosalind. My own flesh and blood was building the gallows."</p>
+<p>"I was trying to find the truth," Rosalind said. "I didn't know who you were."</p>
+<p>"The truth is a luxury for people who can afford the rent," Alistair sneered. "I had to act. I couldn't let you hand me over. So I swapped the samples. I took the DNA from the crime scene and replaced it with a synthetic sequence that would point the finger at the cousins. And then I planted the locket. The old silver one with our mother's initials. I knew you’d find it. I wanted to draw you in, Rosalind. I wanted you to see what you left behind."</p>
+<p>The puzzle pieces clicked together with the cold, heavy clunk of a deadbolt. The weird discrepancies in the lab reports, the sudden, convenient discovery of the locket at the secondary search site—it wasn't incompetent police work. It was Alistair, pulling the strings from inside the forensics division, orchestrating a grand performance to frame the rest of the family before 'discovering' the definitive evidence that would ruin them.</p>
+<p>And now, she and Hector were the last loose ends to be burned.</p>
+<p>"You’re going to frame Phineas and Tamsin for our deaths, too," Rosalind whispered.</p>
+<p>"A tragic murder-suicide," Alistair said, his eyes scanning the dark corners of the ceiling, already visualizing the report. "The retired detective gets too close. The paranoid Carrow siblings panic and pull the trigger. It’s clean. The police will find Phineas's revolver. They’ll find Tamsin's fingerprints on the casings. And the Carrow name will finally be dragged through the mud where it belongs."</p>
+<p>He raised the gun, aiming it directly at her chest.</p>
+<p>Her heart hammered against her ribs like a bird in a chimney. Her hand went to her coat pocket, her fingers brushing against the small, plastic spray bottle of industrial-strength isopropyl alcohol she’d taken from her lab kit that afternoon. She had meant to use it for sterilizing slides, but now, looking at the raw, weeping lesions on Alistair’s wrists, she saw something else.</p>
+<p>"Alistair," she said, her voice dropping its professional distance, softening into something almost intimate. "Look at your hands."</p>
+<p>He blinked, momentarily thrown off by the shift in her tone. "What?"</p>
+<p>"You're bleeding," she said, taking a slow half-step forward. Her boots made no sound on the grit-strewn floor. "The wool. It's killing you, isn't it? The lanolin in the fibers. It's triggering the dermatitis. Your skin is on fire."</p>
+<p>Alistair’s eyes darted down to his wrists. The suggestion alone seemed to trigger the nerve endings. His fingers twitched, scratching frantically at the raw flesh. The red patches were angry, weeping clear fluid where he had torn the skin.</p>
+<p>"I... it's fine," he muttered, but his grip on the gun loosened just a fraction. The constant, low-grade agony of his condition was a weak point—a physical crack in his armor that he had lived with for decades.</p>
+<p>"It's not fine," Rosalind said, her voice dripping with a false, soothing sympathy. She took another step. She was within six feet of him now. "Your body is rejecting your own skin, Alistair. You've been fighting yourself since you were a boy. Let me help you. I have the high-potency steroid cream in my bag. The prescription stuff. It stops the burning. Immediately."</p>
+<p>"You're lying," he whispered, but his eyes drifted to her leather shoulder bag anyway. The itch was a physical torment, a madness that crawled under his skin, made worse by the sweat and the sheer tension of the room. He reached up with his left hand to scratch at the side of his neck, where the rash had spread in a violent red collar.</p>
+<p>"I'm not lying," Rosalind said. She reached into her bag, her fingers wrapping around the cool, hard plastic of the spray bottle. "I'm your sister, Alistair. I know what you suffer from. I know the pain."</p>
+<p>She pulled her hand out.</p>
+<p>Instead of a tube of cream, she brought the small bottle up and squeezed the trigger. A fine, pressurized mist of ninety-nine percent isopropyl alcohol sprayed directly into Alistair's face and onto the raw, open sores of his neck and wrists.</p>
+<p>Alistair screamed.</p>
+<p>It was a high, thin sound of absolute, white-hot agony. The alcohol hit the weeping, exposed nerve endings of his dermatitis like liquid fire. His eyes snapped shut as the chemical burned into his skin, and his hands flew to his face in an involuntary reflex of self-preservation.</p>
+<p>The revolver slipped from his fingers, hitting the floorboards with a heavy thud.</p>
+<p>In that fraction of a second, Hector moved. Despite his injuries, the old detective threw his weight forward, the heavy wooden chair tipping with a loud crash. He slammed into Alistair’s knees, sending both of them crashing to the pine planks.</p>
+<p>The gun skittered across the dusty floor.</p>
+<p>Rosalind didn't think. She lunged forward, her knees hitting the grit, her fingers closing around the cold steel of the revolver. She scrambled back, bringing the weapon up, her arms shaking as she aimed it at the writhing figure on the floor.</p>
+<p>"Don't move!" she screamed, her voice cracking under the strain.</p>
+<p>Alistair was on his knees, his hands clutching his neck, his face twisted in a mask of pure pain and fury. The skin where the alcohol had hit was turning a deep, angry crimson, the chemical reaction causing his nerve endings to scream. He looked up at her through tear-filled eyes, his breath coming in ragged, whistling gasps.</p>
+<p>"You... you bitch," he hissed.</p>
+<p>"It's over, Alistair," Rosalind said, her finger steadying on the heavy trigger.</p>
+<p>The sound of heavy boots crunched on the gravel outside, followed immediately by the red and blue glare of police lights cutting through the grimy windows of the cabin. The sirens, muted by the deep woods, finally grew loud enough to rattle the glass in its frames.</p>
+<p>Cynthia Rook was the first through the door, her service weapon drawn, her face grim. Behind her, three state troopers flooded the small room, their boots thudding against the floorboards as they secured the area.</p>
+<p>"Drop the weapon, Alistair," Cynthia commanded.</p>
+<p>But Alistair didn't move. He remained on the floor, his hands still clutching his raw neck, weeping quietly as the officers pulled his arms behind his back and clicked the metal handcuffs into place. The cold steel of the cuffs against his irritated wrists made him wince—a final, physical reminder of the body he could never escape.</p>
+<p>As they dragged him out into the cold rain, he didn't look back at her.</p>
+<p><em></em>*</p>
+<p>The rain had stopped by midnight, leaving the air clear and biting.</p>
+<p>Rosalind sat on the bumper of an ambulance, a rough wool blanket wrapped around her shoulders. She had refused the paramedics' offer to take her to the county hospital, choosing instead to watch the flashing lights paint the hemlocks in rhythmic pulses of red and blue.</p>
+<p>Hector was being loaded into the back of a separate rig, a thick white bandage wrapped around his head. He gave her a slow, tired nod as they closed the doors. He would survive. The physical wounds would heal, though the old detective would likely never look at a cold case file the same way again.</p>
+<p>Cynthia Rook walked over, two paper cups of steaming, terrible utility-grade coffee in her hands. She offered one to Rosalind, who took it, letting the heat seep into her frozen fingers.</p>
+<p>"The lab confirmed the sample swap," Cynthia said, looking out over the dark treeline. "Alistair had been manipulating the database for months from his terminal. We found the original profiles in his secure digital drive. Phineas and Tamsin are cleared. The locket was indeed a plant."</p>
+<p>"The Carrow family tree is dead," Rosalind said quietly.</p>
+<p>"And you?" Cynthia asked, her eyes searching Rosalind’s face in the blue light. "Are you going to look for the other branches?"</p>
+<p>Rosalind looked down at the coffee cup, watching the dark liquid ripple in the faint light. She thought of the neat, beautiful charts she had spent her life constructing. She thought of the names she had searched for, the ancestors she had tried to pull back from the silence of the past.</p>
+<p>She had wanted so badly to find where she belonged. She had wanted a bloodline, a heritage, a deep root in the earth.</p>
+<p>But looking at the wreckage of the Carrow family—the madness, the secrets, the poison that had passed from one generation to the next—she realized that blood was not a sanctuary. It was merely a blueprint. And a blueprint could be discarded if the house it built was rotten.</p>
+<p>"No," Rosalind said. She stood up, letting the heavy blanket slip from her shoulders. The air was freezing, but she didn't shiver. "I have a family. The ones who took me in. The ones who held my hand when I was sick, who watched me grow, who loved me without needing a DNA match to prove it."</p>
+<p>She walked away from the flashing lights, toward her station wagon. The mud was already drying on her boots, the forest quiet once more. For the first time in her life, she didn't feel the need to look back at the tree behind her. She was her own branch, and she was finally ready to grow.</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Edge Of The Wild - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">The Edge Of The Wild</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>The Edge of the Wild</h1>
+<p>The ringing wasn't just in Imogen Kelp’s ears. It was in her teeth—a high, metallic shriek that vibrated through the marrow of her jaw.</p>
+<p>For a long, empty minute, her hands didn’t exist. She blinked, trying to clear a gray film from her eyes, but the film was on the outside. Snow. Fine as dry flour, whistling through the jagged mouth where the Cessna’s windshield used to be.</p>
+<p>"Clive?" Her throat felt like it was lined with sand.</p>
+<p>To her right, Clive Dunmore was folded over the yoke like a discarded coat. He was a heavy, red-faced man who had spent the last two hours grumbling about high-pressure fronts over the Yukon. Now he just looked small. A thick, dark crust of blood was already freezing into his gray hair where he’d taken the brunt of the frame. He let out a low, wet click of a breath, his fingers twitching against his knees.</p>
+<p>Imogen moved. A hot, clean knife of pain flared in her left hip, but her toes wiggled inside her boots. Her knees bent. Forty-five is a terrible age to survive a crash; her body already demanded a ten-minute negotiation with the radiator most mornings just to get down the hall. But it had held. The spruce branches must have caught the wings, slowing their drop before the final, crunching stop.</p>
+<p>She unbuckled. Her fingers were already losing their utility, turning stiff and clumsy in the sub-zero draft howling through the cabin. "Clive. Come on, Clive. Talk to me."</p>
+<p>She reached across the cracked console, pressing her fingers to his neck. His pulse was a frantic, erratic little engine under his collar. When she tried to nudge him upright, he let out a sound that didn't sound human—a thin, rattling scream of pure agony.</p>
+<p>"Leg," he croaked, his eyelids fluttering. "Leg’s pinned... the paneling."</p>
+<p>"I’m going to get you out."</p>
+<p>It was a lie, and they both knew it.</p>
+<p>Imogen looked through the shattered side window. The Yukon had simply ceased to exist. No sky. No horizon. No jagged black line of the tree canopy. Just a churning, deafening wall of white that seemed actively hostile. The temperature in the cockpit was dropping like a stone. If they stayed in the metal shell, they would be blocks of ice before the flight-following system in Whitehorse even flagged them as missing.</p>
+<p>She threw her shoulder against the warped passenger door. Once. Twice. The third time, her collarbone took the brunt of it, and the metal latch popped with a screech that made her teeth ache.</p>
+<p>The wind hit her like a physical hand, stealing the air right out of her throat.</p>
+<p>She scrambled out onto the wing, burying herself to the knees in powder. She tried to reach Clive from the pilot's side, but the fuselage had twisted around his shin like a fist. She didn't have the leverage. She didn't have the muscle. Despair, heavy and numbing, settled in her chest.</p>
+<p>Then, the whiteout tore.</p>
+<p>It wasn't a clearance; it was a brief, violent gap in the storm.</p>
+<p>A shape existed where there shouldn't have been one. A massive, low-slung silhouette, broader than any man had a right to be in this weather, wrapped in dark canvas and yellowing sheepskin. He didn't walk so much as plow, pulling a long wooden freight sled behind him.</p>
+<p>He stopped ten feet away. Behind his iced-over goggles and a heavy beard caked in frozen breath, Imogen felt the sudden, hot weight of his stare.</p>
+<p>"Are you broken?" His voice was a low, gravelly bark that cut straight through the gale.</p>
+<p>"No—just bruised!" she screamed back. She stumbled off the wing, her legs sinking deep. "The pilot. His leg is trapped under the console. I can't shift the metal."</p>
+<p>The man didn't waste time with questions. He yanked the goggles down around his neck. His face looked like it had been whittled out of dry pine—deep-set, dark eyes under heavy, frost-bitten brows. He looked fifty, maybe older, with the kind of hard, unhurried density that comes from decades of hauling timber.</p>
+<p>"Get back," he said.</p>
+<p>Imogen crouched in the partial shelter of the tail. She watched him work. He didn't have the frantic, nervous energy of a young search-and-rescue tech. He ripped off his thick mittens and grabbed the jagged edge of the pilot's door with his bare hands. Bracing a boot against the landing gear, he pulled. The muscles in his shoulders bunched under his red plaid mackinaw. With a sickening groan of tearing aluminum, the metal gave.</p>
+<p>He reached into the dark of the cockpit, his thick fingers surprisingly careful as he felt Clive’s leg.</p>
+<p>"It's broken, Clive," Arno Ghyll said. His voice was calm, almost conversational, the kind of tone used to quiet a spooked horse. "I’m going to pull you out. It’s going to hurt like hell."</p>
+<p>He didn't wait. He locked his thick arms under Clive’s shoulders and hauled him out in one clean, brutal heave. Clive let out a high, ragged shriek and then went blessedly limp.</p>
+<p>Arno laid him on the wooden sled, wrapping him in a heavy oilskin tarp and two green wool blankets before turning his eyes to Imogen.</p>
+<p>He stepped close. He was huge—six-foot-four at least, his shoulders blocking out the drift. Up close, he smelled of woodsmoke, old grease, and the sharp, metallic tang of the storm.</p>
+<p>"You’re shock-cold," he said, his eyes scanning her blue lips. "Can you walk?"</p>
+<p>"Yes." She took a step, but her boot caught a buried branch.</p>
+<p>Arno’s hand shot out. His grip was absolute iron around her arm, steadying her instantly. He didn't let go.</p>
+<p>"Keep your eyes on the middle of my back," he told her, his face inches from hers. "Do not look left. Do not look right. If you lose sight of me, you die out here. Understand?"</p>
+<p>"Yes."</p>
+<p>He turned, took up the leather harness of the sled, and dragged two hundred pounds of unconscious pilot into the white fury as if it were nothing but a sack of flour.</p>
+<p><em></em>*</p>
+<p>The walk was a blur of gray-white misery. Imogen focused on the red plaid of his coat. Every muscle in her back screamed; her knees felt like dry kindling. Just as she was about to drop, a low shape rose from the snow.</p>
+<p>It was a small, squat cabin of rough-cut spruce logs. Arno kicked the heavy timber door open, hauled the sled inside, and slammed the door, dropping a thick iron latch into place.</p>
+<p>The silence was instantaneous.</p>
+<p>The cabin was small, dominated by a massive stone hearth where a bed of orange coals still cast a dull, dry heat. The room smelled of cedar, kerosene, and old grease.</p>
+<p>Arno didn't speak. He carried Clive to a narrow iron cot, his hands moving with practiced efficiency. He cut away the pilot's heavy boot and trousers, revealing a jagged purple lump where the bone had tried to break through the skin.</p>
+<p>"Is he going to make it?" Imogen's teeth were chattering so hard she could barely get the words out. She was shaking now—the cold, the adrenaline, the sudden cessation of movement.</p>
+<p>"He'll keep," Arno said, wrapping the leg in clean wooden splints. "The bone missed the artery. But he’s out for the night. The storm’s blocking the satellite signal, and we aren't getting a chopper in this. We’re on our own."</p>
+<p>He pulled a thick quilt over Clive, then stood up and turned his full attention to her.</p>
+<p>The room was warming, but Imogen was frozen from the inside out. Her outer coat was soaked through from the snow. She stood by the hearth, shivering so violently her shoulders ached.</p>
+<p>Arno crossed the floor. In the small room, he seemed to take up all the air. He had shed his heavy coat, leaving him in a faded gray flannel shirt that hung loose but heavy over his chest.</p>
+<p>"Get those wet clothes off," he said. His voice was a low, dry rasp.</p>
+<p>"I... I’ll be fine," she said, folding her arms. "I just need to stand by the fire."</p>
+<p>Arno's eyes narrowed. He stepped closer, his gaze dropping to the dark, sodden patches on her wool trousers. "That wet wool is sucking the heat right out of your liver, lady. In ten minutes, you'll be too stupid with hypothermia to stand. Take them off."</p>
+<p>"I don't have anything else."</p>
+<p>"I have dry flannel. Blankets." He reached out, his hand surprisingly gentle as he caught her chin. His thumb was rough as sandpaper, but his touch was light. He tilted her face up. "I've hauled too many frozen bodies out of the timber, Imogen. You're sliding. Let me help you."</p>
+<p>Hearing her name in his gravelly voice made something flutter in her chest. When was the last time a man had looked at her like this? In her normal life, she was the reliable one, the logistics coordinator, the mother whose kids had long since stopped calling except on holidays. She was a woman who had forgotten she had a body that existed for anything other than carrying groceries.</p>
+<p>"Okay," she breathed.</p>
+<p>Arno didn't step back. He reached for the zipper of her heavy parka. His knuckles brushed her collarbone, and a sudden, sharp heat ran down her spine. He peeled the wet nylon away and let it drop.</p>
+<p>Then his hands found the hem of her sweater.</p>
+<p>"Arms up," he murmured.</p>
+<p>She obeyed, her heart hammering against her ribs. He pulled the heavy wool over her head, leaving her in a thin, damp thermal shirt that clung to her skin.</p>
+<p>Arno paused. His hands stayed on her shoulders. Through the thin cotton, his palms felt like branding irons.</p>
+<p>He didn't look away. His eyes traced the line of her neck, the heavy, mature curve of her collarbone, and the slow, deep rise and fall of her chest. There was no clinical distance in his face now. It was the dark, steady hunger of a man who hadn't seen another human soul in years—and didn't want just any soul.</p>
+<p>"You're a beautiful woman," he said. It wasn't a line. It was a statement of fact, spoken with the quiet gravity of a man who didn't waste breath on lies.</p>
+<p>Imogen felt a flush rise in her cheeks. "I'm forty-five, Arno. I'm not... I'm not young."</p>
+<p>"I don't have any use for girls," he said, his voice dropping an octave. His hands slid down her arms, his thumbs tracing the soft, thin skin of her inner wrists. "I want a woman who has some mileage on her. A woman who knows how to hold her ground."</p>
+<p>The raw honesty of it broke something she didn't know was still standing. The years of feeling invisible, of being treated like a piece of office furniture or a dependable utility, evaporated.</p>
+<p>"The pants," she whispered. "They're wet, too."</p>
+<p>Arno knelt. He was eye-to-eye with her hips now. His thick fingers worked the button of her trousers with slow, deliberate focus. When his hand brushed the soft skin of her lower belly, she gasped.</p>
+<p>She reached out, her hands finding his shoulders. The flannel of his shirt was rough, but the muscle beneath was like solid oak. She leaned into him, her knees turning to water as he slid the wet wool down her legs.</p>
+<p>She stood in the firelight in nothing but her thin underwear. Her thighs were soft, her hips curved and mature. She waited for the familiar spike of self-consciousness, the urge to cover herself, but Arno’s eyes swept over her with a quiet reverence that made her feel solid. Real.</p>
+<p>"You’re still shivering," he murmured, rising.</p>
+<p>"Not from the cold."</p>
+<p>"Let's fix that."</p>
+<p>He grabbed a heavy wool blanket from a nearby chair, draped it over her shoulders, and pulled her against him.</p>
+<p>The impact of his chest was a shock. He was so incredibly hot. Imogen buried her face in his neck, breathing in the scent of him—spruce, woodsmoke, and the clean, wild musk of a man who lived by his own rules.</p>
+<p>His arms locked around her waist, crushing her against him.</p>
+<p>"I've been alone in this valley for five years," he muttered into her hair, his voice rough with something he couldn't quite suppress. "I thought I wanted the silence. I thought I wanted to be left to rot."</p>
+<p>"And now?"</p>
+<p>"Now I think the storm knew what it was doing."</p>
+<p>He kissed her.</p>
+<p>It wasn't a gentle kiss, but it wasn't rushed either. It was heavy, deep, and tasted of cedar and iron. Imogen let the blanket slide to the floor. She wrapped her arms around his thick neck, her fingers tangling in the graying curls at the back of his head.</p>
+<p>He groaned, a low, physical vibration that she felt in her own chest. His hands slid down her back, cupping her rear, lifting her slightly until she was pressed against the hard length of him.</p>
+<p>She let out a soft cry, her hips tilting toward his. The sheer contrast between her curves and his hard, weathered body was intoxicating.</p>
+<p>"Arno," she breathed. "Please."</p>
+<p>He didn't speak. He lifted her easily, her legs wrapping around his waist, and carried her the two steps to the massive timber bed by the hearth. The mattress was thick with goose down and piled high with heavy caribou pelts.</p>
+<p>He laid her down and followed her, his weight pinning her to the soft fur.</p>
+<p>The fire crackled, a pocket of pitch exploding like a small pistol shot in the quiet room. Outside, the wind screamed against the logs, but inside, the air was thick, heavy, and hot.</p>
+<p>Arno stripped off his shirt. His chest was broad, covered in dark, silvering hair, and crossed with old scars from his years in search-and-rescue. He was a survivor of his own private wreckage, and looking up at him, Imogen saw the shadow of it in his eyes—the quiet, heavy grief of a man who had fled the world.</p>
+<p>"I'm not a gentle man, Imogen," he whispered, his hand shaking slightly as he stroked her hair. "Not anymore."</p>
+<p>"I don't need gentle," she said. She reached up, framing his face with her hands. "I need you."</p>
+<p>His eyes darkened. With a low grunt, he rid them both of what was left of their clothes.</p>
+<p>When he slid into her, Imogen let out a sharp, breathless cry. He was thick and hot, filling her so completely she had to arch her back to take him. She gripped his shoulders, her nails digging into the hard muscle of his back as he began to move.</p>
+<p>The rhythm was slow, a heavy, deliberate grinding that let her adapt to him. But with every stroke, the heat built. The friction of skin on skin, the sound of their ragged breathing, and the steady, primal drive of his hips erased everything else.</p>
+<p>She wasn't a mother, a divorcee, or a woman wondering where her youth went. She was just skin, heat, and hunger, being taken by a man who needed her survival as much as his own.</p>
+<p>"Arno," she cried out, her head tossing on the dark fur. "Arno, I'm... I'm there."</p>
+<p>He didn't slow. He gripped her hips, his thrusts turning hard and fast, driving her over the edge. He watched her face, his own jaw clamped tight as he held back.</p>
+<p>"Come on," he growled. "Let me feel it."</p>
+<p>She broke.</p>
+<p>The release hit her like a physical wave, her body tightening around him in a series of deep, shuddering spasms. She screamed his name, her back arching off the furs.</p>
+<p>The tight clamp of her body shattered his control. With a low, guttural roar, Arno drove deep into her, his body freezing as his own release ripped through him. He buried his face in her neck, his chest heaving as he held her tight against the mattress.</p>
+<p><em></em>*</p>
+<p>For a long time, the only sound was the dry hiss of the woodfire.</p>
+<p>Arno lay beside her, his arm hooked over her waist, pulling her back against his chest. The heavy caribou pelts were drawn over them, keeping the freezing air of the cabin at bay. His rough hand rested on her belly, his thumb tracing slow, soothing circles.</p>
+<p>Imogen felt a quiet, profound peace. The physical ache was there, but the hollow space in her chest had filled with something warm and solid.</p>
+<p>She glanced toward the corner. Clive was still unconscious, his breathing shallow but rhythmic.</p>
+<p>Then, a loud, sharp <em>crack</em> echoed from the roof beams.</p>
+<p>Arno went rigid. He sat up, his head tilted toward the ceiling.</p>
+<p>"What was that?" she asked, her heart restarting its frantic beat.</p>
+<p>"Snow load," Arno said, his voice dropping its warmth, returning to the flat, hard tone of survival. He swung his legs out of bed, reaching for his trousers. "The wind is packing the drift against the chimney. If that flue gets blocked, this place fills with carbon monoxide in ten minutes."</p>
+<p>He looked back at her over his shoulder, his face shadowed in the dying firelight. "We aren't out of the woods yet."</p>
+<p>The wind didn’t have a voice; it had teeth. It chewed at the cabin’s corner logs, a steady, high-pitched whistling that meant the chinking was giving way somewhere near the roofline. Outside, the Yukon had gone flat-black and fifty below, the kind of cold that turns grease to stone and makes a deep breath feel like swallowing glass. Inside, life had narrowed down to twenty-eight feet of drafty spruce planks, the smell of scorched pine needles, damp wool, and the flat, copper tang of Clive’s blood.</p>
+<p>Behind the heavy olive-drab army blanket hung from the rafters, Clive’s breathing was a wet, heavy rattle.</p>
+<p>Imogen Kelp pressed her knuckles to his forehead. Cool. Too cool, maybe, but the dry, skin-baking heat of his fever had finally broken. She tucked the edge of the down quilt around his shoulder, her hands stiff and clumsy from the chill creeping up through the floorboards.</p>
+<p>Her fingers wouldn’t stop shaking.</p>
+<p>It wasn't just the draft. It was the hangover of the last six hours. Yesterday, her biggest worry had been a custody rider in a divorce settlement and whether her youngest had registered for his spring semester classes at UBC. She was forty-five. She was supposed to be in her "prime," reclaiming her identity with a solo trip to the North, proving to herself that twenty-two years of a slow-dissolving marriage hadn't left her hollow.</p>
+<p>Instead, she was trapped in a drafty box with a semi-conscious guide and a man who looked at her like she was an unwanted ghost.</p>
+<p>She let the heavy blanket fall back into place and stepped out into the main room.</p>
+<p>Torin Haldane was kneeling by the woodbox, his back to her. He’d stripped off his canvas parka, down to a grease-stained wool henley that showed the heavy, thick-set curve of his shoulders. He was thirty-four—eleven years her junior—and he moved with the sort of heavy, unhurried weight that only came from a life lived entirely on the move. He didn't look like the men she knew in Vancouver. Her ex-husband had been a creature of soft cotton shirts and passive-aggressive silences. Torin was all bone and scarred hide. A silver line of scar tissue cut through his dark, blunt beard, trailing from his jaw down into the collar of his shirt.</p>
+<p>The hand-hatchet rose and fell. <em>Thud. Crack.</em> He was splitting dry cedar shakes directly on the stone hearth, his movements rhythmic, almost hypnotic. The clean, resinous scent of the wood cut through the room’s stale air.</p>
+<p>"He's holding," Imogen said. Her voice felt small, swallowed by the roar of the stovepipe.</p>
+<p>Torin didn't look up. The hatchet came down again, clean through the grain. "For now."</p>
+<p>"You’re welcome, by the way." She moved closer to the cast-iron stove, her hands held out to the heat. "I just spent two hours sewing up a four-inch tear in his femoral fascia with a curved needle and mint-flavored dental floss while you were clearing the flue. If I hadn't packed that kit, we’d be hauling a corpse out to the cache tomorrow."</p>
+<p>Torin set the hatchet down on the hearthstone. He stood up slowly, unfolding a frame that seemed too large for the low spruce rafters. His eyes were the color of river ice under grey clouds—tired, bloodshot, and heavy with the kind of cynicism that only comes from burying people who thought they could beat the winter.</p>
+<p>"Nobody gets a medal for doing what keeps them breathing, Imogen," he said, his voice a low, gravelly rasp. "And we’re not clear. The mercury’s dropping another ten degrees before dawn. If the stovepipe chokes again or the draft back-pressures, we’ll sleep and we won't wake up."</p>
+<p>"Then we don't sleep," she said, her chin lifting. "We split the night. I’m not some fragile tourist you have to carry, Torin. I’ve raised three kids, buried both my parents, and watched my life get dismantled by a team of high-priced lawyers. I can handle a cold night."</p>
+<p>Torin looked at her. Really looked at her.</p>
+<p>It wasn't the polite, cautious look she’d grown used to from men her own age, nor was it the idle, passing glance of a younger man. It was heavy, deliberate, and entirely physical. He took in the grey streaks at her temples, the fullness of her mouth, the shape of her hips beneath her stiff, mud-splattered wool trousers. It was raw. It felt like being stripped by a cold wind.</p>
+<p>"You think this is just about a cold night?" He took a step toward her. The heat off his skin was almost palpable, carrying the scent of woodsmoke, old sweat, and pine resin. "You have no idea what it's like when the oil in the lamps freezes. When the spit in your mouth turns to ice before it hits the floor. You’re tough, Imogen. I give you that. But this dirt doesn't care about your grit."</p>
+<p>"I don't need it to care," she said, her chest rising and falling. He was too close. In the cramped space between the table and the hearth, his presence felt massive, almost suffocating. "I just need you to stop looking at me like I'm a liability."</p>
+<p>"I don't look at you like you're a liability." His voice dropped, the gravel in it scraping against her raw nerves.</p>
+<p>"Then what is it?" she asked, her breath catching in her throat. "Because every time I walk into the room, you look like you want to either bolt the door or kick it down."</p>
+<p>Torin’s jaw tightened, the muscles bunching under his beard. He reached out, his hand—rough, dry, calloused from axes and cold steel—clamping around her wrist. His grip wasn't painful, but it was absolute. His thumb pressed hard against her pulse, feeling the rapid, frantic beat of her blood.</p>
+<p>"I look at you," he said, his breathing heavy and hot against her cheek, "and I think about how long it's been since I had anything warm in this cabin. And I think about how a woman like you—a real woman, who actually knows what she's lost and doesn't play games—has no business being within fifty miles of a man who's got nothing left to give."</p>
+<p>The honesty of it was a physical weight. Imogen didn't pull back. Instead, she leaned into him, her fingers curling into the rough, coarse fabric of his henley.</p>
+<p>"Maybe I don't want you to give me anything," she whispered, her eyes dropping to his mouth. His lips were dry, wind-chapped, smelling of black coffee and woodsmoke. "Maybe I just want to take."</p>
+<p>The last of his hesitation didn't fade; it broke.</p>
+<p>Torin let out a low, ragged sound—half groan, half curse—and pulled her flush against him. The impact of their bodies was hard, almost violent. His chest was like a timber wall, crushing her breasts, his body heat burning through her layers of flannel and wool. Before she could find her breath, his mouth came down on hers.</p>
+<p>It was a hard, desperate kiss. There was no politeness in it, no courtship. It was driven by the wind screaming outside the logs and the simple, terrifying knowledge that they were alive while everything else was freezing to death. He tasted of salt and smoke, his tongue sliding deep into her mouth with a heavy, possessive rhythm that made her knees feel hollow.</p>
+<p>Imogen whimpered, her hands clawing up his back, her fingers tracing the hard, knotted muscles of his shoulders, the thick line of his spine. For years, she had been touched with caution, with the bloodless, routine familiarity of a marriage that had died long before the paperwork was filed. Torin touched her like she was earth, wood, stone—something real, solid, and necessary for survival.</p>
+<p>His hands slid down to her hips, his heavy palms cupping her rear through her trousers, lifting her slightly, pressing her pelvis against the hard, thick ridge of his groin. A sharp, liquid ache flared between her thighs, a visceral, long-buried hunger that rushed through her veins like wildfire. She arched her back, grinding her hips against him, a low gasp escaping her lips as he tore his mouth away to bury his face in the curve of her neck.</p>
+<p>"God, Imogen," he growled, his teeth grazing the sensitive skin over her collarbone, sending a violent shiver down her spine. "You're so warm."</p>
+<p>"Torin..." Her voice was a breath, a demand.</p>
+<p>He didn't wait. He backed her up, his boots dragging on the floorboards, until her spine hit the thick timber wall of the cabin. The rough, cold logs bit into her back through her shirt, a sharp shock against the heat of his body. He reached down, his fingers fumbling with the heavy brass button of her trousers. He unzipped them with a single, rough pull, his hand diving inside, past the thin fabric of her underwear, to find her.</p>
+<p>Imogen gasped, her head falling back against the log wall as his fingers found her wet, swollen heat. He was rough-handed but certain, his thumb finding the hard, sensitive center of her and rubbing in slow, heavy circles that made her hips lift off the wall. She was ready, her body priming itself for him with a fast, urgent dampness that surprised her.</p>
+<p>"You're so wet," he muttered, his voice thick, his fingers sliding deep inside her. He felt the tight, hot squeeze of her walls, her maturity offering a deep, lush heat that didn't need performance or reassurance. She wanted him, and she was letting him feel every ounce of it.</p>
+<p>"Please," she choked out, her hands tangled in his dark, coarse hair, pulling him down to her breast.</p>
+<p>He pulled her shirt open, the cheap plastic buttons popping and clattering against the pine floorboards. He dragged her bra down, exposing her full, heavy breasts. Torin took her nipple into his mouth, sucking hard, his tongue swirling around the tip until she let out a sharp cry, the sound instantly swallowed by a gust of wind that shook the tin roof.</p>
+<p>He kept his fingers inside her, driving them in a steady, heavy rhythm that had her climbing, her breath coming in short, ragged pants. She could feel the tension building, a tight, electric coil waiting to snap.</p>
+<p>"Now," she pleaded, her voice breaking. "Torin, now."</p>
+<p>He pulled his hand back, his fingers wet. He didn't hesitate. He kicked his own trousers down to his knees, his penis springing free—heavy, thick, and dark with blood. He grabbed her thighs, lifting her legs to wrap around his waist.</p>
+<p>At forty-five, her body had more weight than it used to, her hips wider, her skin softer, but Torin lifted her like she weighed nothing at all, his eyes locked on hers with a fierce, consuming hunger.</p>
+<p>"Hold onto me," he growled.</p>
+<p>He guided his tip to her opening and pushed.</p>
+<p>Imogen let out a long, shuddering cry as he filled her. He was thick, stretching her tight, his length sliding deep into her core until she felt the hard impact of his pelvis. The sensation was so intense, so complete, that tears pricked the corners of her eyes. It wasn't just physical; it was the sheer, overwhelming reality of being alive, of feeling her body work, feel, and crave after years of emotional starvation.</p>
+<p>He began to move, his strokes long, heavy, and punishingly deep. He held her against the wall, his bicep flexing as he supported her weight, his other hand gripping her hip to guide her against his thrusts. Every time he went deep, she felt her internal muscles clench around him, driving him wild.</p>
+<p>"You're perfect," he muttered against her lips, his movements growing faster, more desperate. "So tight... so warm, Imogen."</p>
+<p>The pace became frantic. The cabin was silent save for the howling wind, the crackle of the woodstove, the wet, rhythmic slap of skin, and their ragged breathing. Imogen closed her eyes, letting herself dissolve into the sensation. She was no longer a mother, a divorcee, a woman worrying about the future or mourning the past. She was a creature of skin, heat, and pulse, locked in a battle for survival against the cold with a man who was worshiping her body with every thrust.</p>
+<p>She felt the wave cresting. Her internal muscles began to ripple, a series of tight, involuntary contractions that clamped down on his shaft.</p>
+<p>"Torin, I'm... I'm going to—"</p>
+<p>"Go," he commanded, his voice a guttural roar. "Come for me, Imogen. Let me feel it."</p>
+<p>She broke. The climax hit her like a physical blow, a violent, pulsing release that started deep in her belly and radiated through every nerve. She screamed, her fingers digging deep into his shoulders, her head thrashing against the log wall as she came, her body gripping him so hard he groaned in agony.</p>
+<p>The feeling of her climax was the trigger he couldn't resist. Torin let out a low, animalistic cry, his body freezing as he drove himself as deep as he could go. He bucked against her once, twice, and then he came, a thick, hot gush of semen filling her, pulsing deep inside her womb as his chest heaved against hers.</p>
+<p>They stayed like that for a long time, chest to chest, their breath mingling in the dim, warm air of the cabin.</p>
+<p>Slowly, Torin let her slide down his body until her feet touched the cold wood planks of the floor. His legs were shaking, his brow wet with sweat that was already beginning to cool in the draft. He didn't pull away immediately. He kept his forehead pressed against hers, his hands resting gently on her hips, his thumbs tracing the soft curve of her waist.</p>
+<p>There was no regret in his eyes. There was only a quiet, solemn reverence.</p>
+<p>"You okay?" he asked, his voice softer than she had ever heard it.</p>
+<p>Imogen managed a small, breathless laugh, her hand reaching up to wipe a bead of sweat from his temple. "I think... I think I'm warm now."</p>
+<p>Torin’s lips curved into the ghost of a smile. He kissed her once more—a soft, lingering touch of his lips that felt more intimate than the wild ride that had preceded it. Then, he stepped back, pulling his trousers up and buttoning them with a steady, quiet hand.</p>
+<p>The wind outside gave a vicious shriek, a reminder that the world had not gone away, and that they were still very much at its mercy.</p>
+<p>Imogen pulled her shirt together, her fingers trembling as she attempted to lace up her trousers. Her body felt heavy, thoroughly used, and alive in a way she hadn't experienced in decades. She looked toward the wool partition at the back of the room. Clive was still breathing his steady, wet rattle.</p>
+<p>"We need to put more wood on," Torin said, his voice returning to its quiet, practical drone, though his eyes lingered on her bare collarbone as she pulled her damp shirt closed. "The temperature's dropping."</p>
+<p>"I'll do it," Imogen said, stepping toward the woodbox. "You get some rest. You’ve been working since we got here."</p>
+<p>Torin watched her, his gaze tracking the confident, steady swing of her hips as she walked to the hearth. He didn't argue. He sat down on the low wooden bench by the fire, his hands resting on his knees, his eyes reflecting the dying embers of the hearth.</p>
+<p>For the first time since the storm had trapped them, the silence in the cabin didn't feel like a threat. It felt like a truce.</p>
+<p>The wind didn’t just blow. It screamed—a high, thin shriek that found every microscopic crack in the mortar of the log walls. Inside, the warmth was a fragile, hard-won thing. The only defense was the cast-iron woodstove, its belly glowing a dull, angry orange against the creeping dark.</p>
+<p>Imogen Kelp pulled her wool shawl tighter, her thumbs digging into the rough, greasy weave. Forty-five. It was an age where you finally knew the difference between a draft on your neck and the cold that settles deep into your marrow. For twenty years, her life had been a chaotic, high-volume production—screaming kids, a leaking roof, the exhausting choreography of pretending a dead marriage was still breathing. When Clive packed his bags and walked out of their sterile suburban colonial, she had expected peace. Instead, she got a silence so loud it made her ears ring. An empty nest isn't just an empty room; it's a sudden, terrifying lack of gravity. She had spent the last two years feeling like a ghost in her own life, a woman whose primary utility had expired, leaving behind a soft, lived-in body that no one looked at, let alone wanted.</p>
+<p>But here? In this cramped mountain cabin? The silence wasn't dead. It was heavy, charged, and crackling with a low-voltage current that made the tiny hairs on her arms stand up.</p>
+<p>"The draft is coming from the northern pane," Torin Haldane said. His voice was a low, gravelly scrape that seemed to vibrate right through the pine floorboards.</p>
+<p>Imogen looked up from the hearth. Torin stood by the window, his broad shoulders cutting off what little gray afternoon light filtered through the frosted glass. Thirty-four years old and built like a timber beam, he had a rugged, unpolished edge that felt dangerous in a room this small. He was a creature of the Montana high country, his face lined by sun and biting frost, his eyes carrying the heavy, unspoken weight of a survivor. He didn't look <em>past</em> her. That was Clive’s specialty—that polite, chilling look that made you feel like a piece of cheap furniture. When Torin’s dark eyes settled on Imogen, they locked on. He actually saw her.</p>
+<p>"If the seal gives way completely," Torin said, his jaw tightening as he ran a thumb along the warped wooden frame, "the glass will shatter under the wind pressure. We won't make it through the night if the blizzard gets inside."</p>
+<p>"What do you need me to do?" Imogen asked. Her voice was steady, but her heart gave a quiet, rebellious thud against her ribs.</p>
+<p>"I need to nail a brace across the outer sash, but the wood is warped from the damp," Torin said, reaching for a small wooden box of rusted iron nails and a heavy, short-handled hammer. "To do it from the inside, the inner frame has to be held flush against the sill. It’s a two-person job. The frame is heavy, and the wood is slick with ice."</p>
+<p>"Show me," she said, stepping forward.</p>
+<p>The corner was cramped, a narrow wedge of space squeezed between the rough-hewn log wall and the edge of the heavy timber dining table. To reach the top of the frame, Imogen had to step up onto an upturned cedar crate Torin used for kindling.</p>
+<p>As she climbed up, her knees shook. Just a little. She was acutely aware of her own body—the fullness of her hips beneath her heavy denim, the soft curve of her waist, the way her breasts rose and fell with her shallow breathing. She was no slip of a girl. Her body carried the soft, mature contours of a woman who had lived, loved, and endured. For a long time, she had viewed these changes as a slow, humiliating decline. But as she stood on the crate, elevated just above him, she caught Torin looking. His gaze wasn't clinical. It was dark, heavy, and hot, lingering on the curve of her hip before moving up to lock onto her eyes.</p>
+<p>A strange, hot prickle of heat spread behind her ribs, ignoring the frost outside.</p>
+<p>"Hold it here," Torin muttered. His voice dropped an octave as he stepped into her space. "Both hands. Press your weight into the upper corner. Don't let it budge when I strike."</p>
+<p>Imogen reached up, her palms pressing against the freezing, damp wood of the frame. The cold bit into her skin immediately, a sharp shock that made her gasp. "Like this?"</p>
+<p>"Harder," he murmured.</p>
+<p>Then, he moved in.</p>
+<p>There was no room for hesitation in the narrow corner. Torin stepped up behind her, his body aligning with hers so closely that the fabric of his heavy flannel shirt brushed the back of her wool sweater. He was pure heat. The sheer, radiating warmth of him rolled over her in a wave, cutting through the chill of the window draft.</p>
+<p>Imogen’s breath hitched. Her back wasn't quite touching his chest, but she could feel the hard, solid expanse of his torso just millimeters away. He smelled of woodsmoke, pine resin, wet cedar, and the clean, intoxicating scent of cold skin. It was a rugged, utterly masculine scent that made her head spin—a sharp contrast to the synthetic colognes Clive had used to mask his indifference.</p>
+<p>Torin reached his arms around her to reach the frame, effectively bracketing her. His thick forearms, dusted with dark hair and marked by pale scars of outdoor labor, were positioned on either side of her face. She was completely enclosed, trapped between the frozen windowpane and the hard, living wall of his body.</p>
+<p>"Holding," she whispered. Her voice trembled.</p>
+<p>"Good," he said. His warm breath fanned the sensitive skin of her neck, just below her ear, sending a shiver straight down her spine that had absolutely nothing to do with the sub-zero wind. "Keep steady."</p>
+<p>He lifted the hammer.</p>
+<p><em>Crack. Crack.</em></p>
+<p>With every blow of the hammer against the iron nail, Torin’s body jolted slightly, his chest pressing flush against her shoulder blades. The contact was electric. Imogen felt the hard, dense muscle of his chest bunching against her back, the solid ridge of his thighs behind her knees, and the subtle, intoxicating pressure of his hips aligning with hers. It was an agonizingly slow, rhythmic friction. Every strike of the hammer vibrated through his frame and directly into hers, setting off a low, heavy ache deep in her belly.</p>
+<p>She closed her eyes for a brief second, losing herself in the sensation. How long had it been since she had been held like this? Since she had felt the sheer, unyielding weight of a man’s physical presence, not as a demand or an obligation, but as a consuming, vital force?</p>
+<p>"You're doing well, Imogen," he murmured, his voice rough and low against her temple. He set another nail against the warped wood.</p>
+<p>"The wood is shifting," she managed to say, her fingers straining. Her hands were losing their feeling from the intense cold of the glass, the numbness creeping up her wrists. "It's slick."</p>
+<p>"I've got you," he said. "Just one more."</p>
+<p>He leaned in closer to get leverage for the final nail, pressing his entire weight against her. Imogen felt the hard, undeniable line of his desire pressing against her. It was a bold, unmasked declaration of his presence, a reminder of the raw, youthful energy he possessed. He wasn't trying to hide it. His breathing had grown heavy, his chest rising and falling in deep, ragged thuds against her back.</p>
+<p>A dizzying wave of desire swept through her, so intense it made her toes curl inside her boots. She didn't pull away. Instead, she leaned back fractionally into him, her body seeking his heat, her soul crying out for the validation of being wanted so fiercely.</p>
+<p>Then, the frost-slicked cedar crate beneath her boots shifted.</p>
+<p>The wood gave a sharp, wet creak. Imogen’s left boot lost its traction, sliding off the edge.</p>
+<p>She gasped, her hands flying off the window frame as she began to fall backward.</p>
+<p>The heavy wooden sash groaned, beginning to tilt inward toward her.</p>
+<p>Torin didn't hesitate. He dropped the hammer; it hit the floorboards with a dull, heavy clang. In a fraction of a second, his left arm shot forward, wrapping around her waist like an iron band. He hoisted her upward, lifting her completely off her feet to absorb the impact of her fall, pinning her back securely against his chest.</p>
+<p>With his right hand, he lunged forward, his palm slamming flat against the tilting window frame to force it back into place before the glass could shatter.</p>
+<p>But as he did, his hand caught hers.</p>
+<p>His massive, calloused hand came down directly over her bare palm, trapping her hand against the cold wood.</p>
+<p>They froze.</p>
+<p>The window pane was secure, held firmly by the weight of Torin's arm and shoulder, but neither of them made a move to pull away.</p>
+<p>The sudden silence in the cabin was deafening. The storm outside seemed to fade into a distant, muted hum. Inside, the only sound was the harsh, rapid cadence of their breathing, their chests rising and falling in a frantic, syncopated rhythm.</p>
+<p>Torin's arm was still wrapped tightly around her waist, holding her feet inches off the floor. Her back was pressed so hard against his torso that she could feel every rib, the hard contour of his abdominal muscles, and the fierce, hammering beat of his heart.</p>
+<p>His hand remained locked over hers against the wood.</p>
+<p>Imogen’s breath came in shallow, trembling gasps. She could feel the intense contrast of their skin. Her hand, soft and chilled by the glass, was completely engulfed by his. His palm was burning hot, the skin thick and heavily calloused from years of split wood and heavy rope. As he slowly relaxed his grip, his hand didn't release her. Instead, his fingers slid down, his palm dragging against hers. The rough, abrasive texture of his calluses scraped against the highly sensitive skin of her palm, creating a friction so intensely sensual that a soft, involuntary whimper escaped her throat.</p>
+<p>Torin’s chest surged against her back at the sound.</p>
+<p>"Imogen," he rasped.</p>
+<p>The sound of her name on his lips was a prayer and a plea all at once. It was stripped of the cautious, guarded tone he had maintained since she had arrived at his cabin. It was raw, honest, and heavy with a desire he had tried so hard to lock away behind his walls of guilt.</p>
+<p>Slowly, deliberately, he lowered her until her boots touched the floorboards. But he didn't step back. He kept his arm anchored around her waist, his body heat enveloping her, keeping the biting cold of the draft at bay.</p>
+<p>With his other hand, he gently turned her hand within his grasp, sliding his fingers between hers. His long, thick fingers interlaced with her smaller, softer ones, locking them together. He squeezed, his thumb tracing the delicate, sensitive skin of her inner wrist. He was feeling her pulse, which was leaping frantically under his touch.</p>
+<p>Imogen turned her head, her face inches from his.</p>
+<p>Their gazes locked. In the dim, amber glow of the woodstove, Torin’s grey eyes were dark, burning with a hunger that was entirely undisguised. There was no mockery there, no clinical distance. He was looking at her as if she were the only source of warmth in a frozen, dying world. He looked at the fine, silver-threaded hair at her temples, the mature curve of her jaw, and the fullness of her parted lips with a reverence that made her throat tighten with unshed tears.</p>
+<p>"You're shaking," he whispered, his voice a low, gravelly caress. His face was so close she could feel the heat of his breath, tasting of the hot tea they had shared earlier.</p>
+<p>"It's... it's not from the cold," she confessed, her voice barely a whisper. The honesty of the admission felt terrifying, yet incredibly empowering. She was forty-five years old, and she was done hiding behind the polite deceits of her past. She wanted him. She wanted to be touched by him, to be held by him, to let his raw, youthful strength burn away the cold, gray ash of her old life.</p>
+<p>Torin’s eyes flared at her words. His grip on her hand tightened, his knuckles turning white.</p>
+<p>"Imogen, I'm not a good man," he muttered, his jaw ticking as his internal walls fought a desperate, losing battle against the heat between them. "I'm broken. I've spent years in this valley trying to freeze myself to death because it was easier than feeling anything. But you..." He let out a ragged, tortured breath, his forehead dropping to rest against her temple. "You walk in here with your quiet strength, with the warmth in your eyes, and you make me want to live. You make me want things I have no right to touch."</p>
+<p>"You have a right to feel, Torin," she said, her voice growing stronger, filled with the deep, maternal wisdom and emotional maturity she had fought so hard to earn. She turned her body within his embrace, her chest now pressing against his, her free hand rising to cup his jaw. His stubble was rough, scraping against her sensitive fingertips, but she welcomed the friction. "We are both survivors of our own winters. We don't have to freeze."</p>
+<p>Torin let out a low, guttural sound—a mix of a sigh and a growl.</p>
+<p>He didn't speak another word. He didn't need to.</p>
+<p>His mouth came down on hers.</p>
+<p>The kiss was not gentle, nor was it tentative. It was a collision of hunger and desperation, a dam breaking after years of drought. His lips were warm, firm, and slightly chapped from the wind, pressing against hers with a raw, demanding intensity that took her breath away.</p>
+<p>Imogen gasped into his mouth, and Torin took immediate advantage, his tongue sliding past her teeth to tangle with hers. The sensation was overwhelming, a sudden, white-hot heat that pooled straight in her core. She arched her body into his, her hands clutching at the thick fabric of his flannel shirt, pulling him closer, wanting to dissolve the last fraction of space between them.</p>
+<p>He groaned, his hand sliding down from her waist to cup the full, mature curve of her hip, his fingers digging into her flesh through her denim trousers. He lifted her slightly, pressing her back against the log wall beside the window. The wood of the wall was cool, but she barely felt it; all she felt was the solid, heavy pressure of Torin’s body pinning her, the slide of his tongue against hers, and the delicious, heavy heat pooling between her thighs.</p>
+<p>She felt alive. Truly, vibrantly alive, for the first time in decades.</p>
+<p>Torin pulled back just an inch, his lips trailing down her jawline to press hot, burning kisses against the sensitive skin of her neck. His breath was ragged, his chest heaving against her breasts.</p>
+<p>"You are so beautiful, Imogen," he muttered against her skin, his hand sliding up under her wool sweater, his calloused palm making direct contact with the bare, warm skin of her midriff.</p>
+<p>A sharp gasp escaped her lips as his rough hand slid higher, his thumb brushing the underside of her breast. The contrast of his rough, hot hand against her soft, sensitive skin was almost too much to bear. She arched her back, her fingers tangling in the thick, dark waves of his hair, holding him to her neck as she rode the wave of pure, electric heat.</p>
+<p>Outside, the sub-zero wind continued to howl, a futile beast clawing at the thick logs of the cabin. But inside, the frost had entirely melted, replaced by a fierce, consuming heat that threatened to burn down every wall they had ever built.</p>
+<p>The cast-iron stove gave a sharp, metallic ping—a small, angry protest as the temperature outside plummeted toward forty below. Inside the single-room cabin, the air had grown heavy and thin, smelling of dry ash, scorched iron, and the sticky yellow pine resin weeping from the unpeeled log walls. Even with the draft wide open, the heat didn't reach the corners. In the washbasin near the door, a greasy grey skin of ice was already needle-crystallizing over the standing water, creeping outward from the tin rim.</p>
+<p>Imogen Kelp pressed her forehead against the small window pane. The glass was so cold her breath froze instantly into a thick, white blindfold. She rubbed her knuckles together. They were dry, cracking, and raw. At forty-five, you don't just feel the cold; your joints anticipate it. The tension settled in the small of her back—a dull, heavy knot she’d carried since the divorce, through the quiet years of managing a silent house after the kids left, and the long, freezing dismissals from a husband who had looked right through her for a decade. But this wasn’t emotional distance. This was physical. Real. A freezing weight pressing against the green timber of the cabin, searching for the slightest gap in the dry moss chinking.</p>
+<p>"You’re shaking."</p>
+<p>Torin Haldane’s voice came from the dark corner by the woodbox. Low, dry, like gravel sliding down a chute. He was sitting with his knees pulled up at sharp angles, his long frame looking entirely too large for the cramped cabin.</p>
+<p>He was thirty-four. Not young enough to be soft, but old enough to have the kind of mileage that leaves a man quiet. Twelve years of hauling dead weight out of tree wells and tracking lost tourists who thought the mountains cared about their windbreakers had left deep, weathered tracks around his eyes. He didn’t have the smooth, easy skin of the men she used to know. He looked heavy. Built of dense bone, weathered hide, and old wool.</p>
+<p>"I’m fine," Imogen said. Her jaw clicked on the second word. She shoved her hands deeper into the sleeves of a grey, oversized sweater that she’d practically lived in for three days.</p>
+<p>Torin stood up. The floorboards didn’t just creak; they groaned under his boots. He walked to the stove, spat on the iron lid, and watched the moisture sizzle and die instantly. "We’re burning through the pine too fast. The chimney’s drawing hard because of the gale. I can choke the damper down, but we’ve got six hours of wood left, max. If I choke it, the room drops below freezing in three."</p>
+<p>He didn't look away from her. His eyes were the color of winter slush. Direct. No polite hesitation. No sugarcoating. "We aren't going to make it through the night in separate corners, Imogen. Not in this."</p>
+<p>He pointed a thumb at the narrow bunk against the interior wall. It was a rough pine frame strung with sagging rope, topped with a thin straw tick and three scratchy wool blankets. It was tight for one. For two, it was a vice.</p>
+<p>Her throat tightened. The cold-blooded logic of the backcountry was simple, but her ribs felt tight. She wasn't some twenty-year-old girl who expected to be looked at, to be admired. When did she stop looking in mirrors? Sometime around her thirty-eighth birthday, probably, when Clive’s eyes started drifting to the younger, firmer paralegals at his firm. Her body had changed since then. It had carried a child, stretched, softened, and settled into a shape that felt too permanent, too heavy. She was left with the distinct, freezing impression that her physical self had simply expired.</p>
+<p>"The bunk," she said, her voice barely carrying over the wind. "It's small."</p>
+<p>"It keeps the draft out," Torin said. He didn't offer a reassuring smile. He didn't try to make it comfortable for her. He just unbuckled his heavy leather work belt and let it drop onto the table with a solid, metallic clatter. "Get down to your base layer. Any sweat or damp wool on you now will turn to ice the second the fire dies."</p>
+<p>He didn't wait for her to agree. He pulled his heavy flannel over his head, leaving him in a faded, waffle-weave thermal shirt that clung to the broad, heavy slope of his shoulders. His neck was thick, marked with a pale scar from an old climbing line. He was built for utility, not display, but the sheer volume of him seemed to push the walls of the cabin inward.</p>
+<p>Imogen hesitated, her fingers bunched in the hem of her knobby sweater. "Torin..."</p>
+<p>He paused, his hand at his waist. He looked at her, his expression flat, but his eyes intense. "Look, Imogen," he said, and his voice had the hard, flat edge of a man who didn't do diplomacy. "I'm thirty-four. I’ve spent a decade sleeping packed against three other guys in snow caves just to keep our toes from turning black. I don't give a damn about anything tonight except keeping the air in our lungs warm." He paused, his gaze dropping to her mouth, then back up. "But if you're asking if I want you? Yeah. I do. Have since you walked into the station. That doesn't change the weather."</p>
+<p>The absolute lack of varnish hit her like a bucket of cold water. No lines. No seduction. Just a hard, heavy truth that stripped her defenses faster than any smooth talk could have managed.</p>
+<p>She pulled the grey sweater over her head and dropped it on the woodbox. Underneath, she was wearing a thin tank top and fleece leggings. She felt incredibly small, her waist soft, her breasts unsupported under the cheap cotton. Who was she keeping up appearances for anyway? She waited for the look—the slight, polite shift of the eyes that women learn to recognize when a man realizes they aren't twenty-five anymore.</p>
+<p>Torin’s eyes didn't shift. They darkened. The muscles along his jaw tightened into hard knots.</p>
+<p>"Get in," he muttered.</p>
+<p>She climbed onto the bunk. The straw mattress gave a loud, dry rustle. The sheets were like panes of ice; she gasped as the cold bit through her leggings. She curled into a tight, hard ball, her knees tucked to her chest, her back to the room.</p>
+<p>The bed frame sagged. The wood groaned as Torin climbed in behind her.</p>
+<p>The heat off him was a physical shock—a thick, radiating wall that seemed to shove the room's chill back. He didn't touch her at first. He just lay there, a massive, solid shield against the draft. But the mattress was too narrow; they had no choice. The rough texture of his thermal top pressed hard against her shoulder blades. She could hear him breathe—slow, deep, smelling faintly of the chicory they’d boiled on the stove.</p>
+<p>"You're shaking," he said against the back of her neck.</p>
+<p>"I can't help it," she whispered. The cold was in her teeth, but the proximity was doing something else, drawing a tight, heavy ache deep in her lower stomach.</p>
+<p>Torin reached out. His hand was huge, his palm rough with calluses as he slid his arm around her waist. He didn't ask. He just hauled her backward, flushing her hips tight against his thighs, her back flat against his chest.</p>
+<p>Imogen’s breath hitched. She went rigid. The hard, heavy ridge of his arousal pressed directly into her backside, separated only by thin cotton and fleece. It was massive, uncompromising, and hot.</p>
+<p>"Torin," she breathed, her hands clutching his forearm. His skin was like a furnace, the dark hair on his arm rough against her fingers.</p>
+<p>"Shh," he grunted, his face burying into the crook of her neck, right where her hair parted. "Just get warm."</p>
+<p>But the warmth had changed. It wasn't the dry, sterile heat of the woodstove anymore. It was the thick, skin-to-skin friction of two bodies trapped in a freezing room, their nerves firing in the dark. Every point of contact started to throb. Imogen’s nipples hardened against the thin cotton of her tank top, aching with a sharp, sudden sensitivity that made her dizzy.</p>
+<p>She tried to shift, to find some neutral ground, but the movement only caused her hips to slide slowly against his lap.</p>
+<p>Torin let out a low, ragged sound. His hand tightened on her waist, his fingers digging into the soft flesh of her hip. "Do that again," he muttered, his voice dropping into a rough, gravelly register, "and we aren't going to be worrying about the frostbite."</p>
+<p>Imogen turned her head, her cheek brushing his rough beard stubble. "Maybe I don't want to worry about it."</p>
+<p>The words came out before she could think, driven by a sudden, sharp needle of courage. She was forty-five. She had spent half her life waiting for someone to notice she was still there.</p>
+<p>Torin didn't say a damn word. He rolled her onto her back, his heavy frame shadowing her completely. The old rope bed creaked in protest as he pinned her with his thighs, his hands coming up to frame her face. His palms were rough against her skin, his thumbs tracing her cheekbones with heavy, deliberate pressure.</p>
+<p>"You sure about this, Imogen?" his grey eyes searched hers in the orange glow from the stove's grate. "Because once I start, I’m not stopping. I’ve spent three days watching you move around this cabin, wanting to put my mouth on you."</p>
+<p>"Yes," she said, her voice steady now, her fingers reaching up to tangle in his thick, dark hair. "Yes, Torin."</p>
+<p>He came down on her. No gentleness, just a deep, heavy hunger that took the breath right out of her. His mouth was hot, his tongue sliding in with a slow, possessive weight that made her hips arch off the straw. She tasted like salt; he tasted like copper and cold air.</p>
+<p>He pulled her tank top up and over her head, his hands finding her breasts. Imogen tensed, a sudden, sharp spike of the old shame hitting her—wanting to cross her arms, to hide the softness of her belly, the way her skin had yielded to time.</p>
+<p>But Torin’s hands were heavy, solid, and entirely sure. He cupped her, his thumbs flicking over her nipples, his touch rough and reverent. He leaned down, his mouth replacing his fingers, drawing her wet and deep into his throat. He sucked her in until she was crying out, her fingers clawing at his shoulders, her nails scraping his back.</p>
+<p>"You're so soft," he muttered, his voice thick, vibrating against her skin. "Beautiful, Imogen."</p>
+<p>"I'm... I'm not young, Torin," she gasped, her hips rolling under his, desperate for the touch.</p>
+<p>He pulled back just enough to look at her, his face dark, his chest heaving. "I don't want some girl," he said, his voice hard as iron. "I want you."</p>
+<p>He reached down, his fingers hooking into the waistband of her fleece leggings and pulling them down in one heavy, blunt motion. He threw them over the edge of the bed. The cold air hit her bare skin like a bucket of ice water, making her gasp.</p>
+<p>But Torin was already there, his bare body dropping back over hers. He had kicked his pants off, his heavy, hair-roughened thighs burning hot against her skin. He parted her legs with his knee, his fingers finding her wet, hot, and waiting.</p>
+<p>She was already slick, her body responding with a wild, forgotten heat. When his fingers slid deep into her, she let out a loud, uninhibited sob, her head tossing back against the straw.</p>
+<p>"Look at me," Torin commanded, his voice shaking with the effort of holding back.</p>
+<p>She opened her eyes, her vision blurred. He was poised above her, his dark, heavy length glistening in the dim amber light. He reached down, guiding himself against her, the broad head of his shaft stretching her open.</p>
+<p>He pushed in. Slow. Single, heavy inches.</p>
+<p>Imogen’s breath stopped. Just stopped. He was too wide, too thick, filling her until she felt her ribs expand. She tilted her pelvis, her thighs wrapping around his hips, locking him in.</p>
+<p>"Torin, please... all of it."</p>
+<p>With a low, guttural grunt, he drove home, burying himself to the hilt.</p>
+<p>The sensation was so thick, so intense, her entire world shrunk to the place where they met. She felt the heavy stretch of her skin, the hot friction of his slide, the blunt weight of his pelvis slamming against hers with a dull, flesh-on-flesh thud.</p>
+<p>He began to move. His rhythm was slow, punishingly deep. He wasn't rushing; he was pacing himself, his hands sliding down to grip her rear, lifting her off the tick to change the angle, driving himself up into her with deliberate, agonizing precision.</p>
+<p>Every stroke felt like a reclamation of her own skin. The stretch marks on her hips were clamped under his calloused fingers; the soft curve of her stomach was pressed flat against his hard, ridged abs. He used his weight to hold her down, his mouth finding hers again, drinking her whimpers as he picked up the pace.</p>
+<p>The bed creaked rhythmically, the pine frame scraping against the log wall with a steady, dry shudder that matched the howling wind outside. The storm was screaming, rattling the tin roof, but inside their small circle of heat, the air was heavy with sweat, cedar, and the musk of two people burning up.</p>
+<p>Imogen’s release began to build—a tight, electric coil deep in her lower belly that spread outward to her fingertips. Her breath came in short, ragged gasps, her chest heaving as she gripped Torin’s back, her fingers finding the old scars there, holding onto him like he was the only solid thing left in a freezing world.</p>
+<p>"Torin... I'm going to..."</p>
+<p>"Go," he growled, his thrusts turning fast, hard, his hips hammering into her with raw, unbridled force. "Give it to me, Imogen."</p>
+<p>She broke. The orgasm hit her like a physical blow, her inner muscles clamping around him in tight, pulsing spasms that tore a loud, harsh shout from his throat. He threw his head back, his neck straining, and with three more deep, desperate lunges, he emptied himself into her, his body shaking violently as his seed flooded her warmth.</p>
+<p>He collapsed against her, his head buried in her neck, his chest laboring for air. He was heavy, almost crushingly so, but Imogen didn't want him to move. She wrapped her arms around his sweat-slick back, her skin cooling where the blanket had slipped, but her core burning with a deep, radiant heat.</p>
+<p>For a long time, the only sound in the cabin was the ragged sound of their breathing and the relentless, screaming howl of the wind outside.</p>
+<p>Then, with a sharp, terrifying <em>crack</em>, the main timber of the roof groaned overhead.</p>
+<p>Torin’s head snapped up, his body instantly tense. The warmth of their release vanished, replaced by the immediate, icy reality of the storm pressing down on the rafters. Above them, the heavy logs creaked under the weight of the accumulating snow, a reminder that the wild had not forgotten them, and the walls they had just shattered between each other were the only protection they had left.</p>
+<p>The cabin was drafty—not just cold, but the kind of damp, bone-deep chill that makes your teeth click if you pull your chin too far from the blankets. But under the heavy piles of scratchy wool and stiff canvas, the heat was still there. Sticky. Real.</p>
+<p>Imogen Kelp lay perfectly still, her ribs rising and falling against Torin Haldane’s shoulder. She was forty-five. She knew the map of her own skin by now, and it wasn’t a pristine one. There was the dull, familiar ache in her lower lumbar from twenty years of hunching over desks; the slight, soft slackness of her belly that never quite went away after her daughter was born; the coarse silver strands springing up along her temples like wire. For a long time, her body had been nothing more than an instrument of labor. Pacing the linoleum of her high school classroom, grading essays until 1:00 AM, trying to stretch a teacher’s modest salary to cover the heating bill in an Anchorage duplex that always smelled faintly of dry rot.</p>
+<p>But over the last hour, under Torin’s hands, that same body had been translated into something entirely different.</p>
+<p>Torin’s arm lay across her waist like a heavy sandbag, his fingers hooked over the crest of her hip. He was thirty-four. His skin was thick and calloused from a decade of high-altitude search and rescue, his muscles possessing the dense, unyielding strength of a man who spent his winters throwing timber. Yet there had been no rush in him. He had touched her with a deliberate, slow reverence that made her blood hum. He hadn't looked at her with the polite, careful tolerance she’d come to expect from men her own age, nor the dismissive glance of the younger generation. He looked at her as if she were a complicated piece of terrain he wanted to get lost in.</p>
+<p>"You're thinking too loud," Torin muttered, his voice a low, gravelly vibration against her collarbone. His breath was warm, smelling faintly of the bitter spruce-tip tea they’d boiled on the woodstove.</p>
+<p>Imogen shifted, her bare thigh sliding against his rougher skin. "I'm forty-five, Torin. We don't just think. We edit."</p>
+<p>He let out a short, quiet huff that might have been a laugh, his fingers tightening on her hip. "There's nothing to change."</p>
+<p>Before she could answer, a sharp, violent burst of static tore through the silence of the cabin.</p>
+<p>The sound didn't come from the wind. It was the high-pitched, metallic whine of the shortwave radio sitting on the dry-sink across the room. It crackled, died, and then burst to life again, a human voice cutting through the white noise like a blunt saw.</p>
+<p>"Haldane... copy... do you... Haldane..."</p>
+<p>Torin went rigid. The warmth evaporated from his frame in an instant. He sat up, the heavy wool blankets sliding down his broad chest, exposing the jagged, pale line of an old surgical scar running from his left shoulder down to his ribs—the mark of an avalanche that had rewritten his life three years ago.</p>
+<p>"Torin?" Imogen sat up beside him, clutching the quilt to her chest. The cold air of the room hit her bare shoulders like a splash of well-water.</p>
+<p>He didn't answer. He was already out of the bed, his long legs moving with a sudden, tense efficiency. He pulled on his thick wool trousers, not bothering to button them all the way as he strode across the cold floorboards.</p>
+<p>He struck the side of the metal radio casing with the heel of his hand, then twisted the dial. The static smoothed out.</p>
+<p>"Torin, you there? It's Clive."</p>
+<p>Clive Dunmore’s voice sounded small, yet heavy with the weight of the outside world. Clive was the dispatcher at the regional hub seventy miles south—the man who represented every logistical reality Imogen had spent the last three days trying to forget.</p>
+<p>Torin grabbed the hand-mic, his thumb pressing the talk switch. "I'm here, Clive. Go ahead."</p>
+<p>"Thank God," Clive muttered. "We’ve been trying to get through the ridge static for twelve hours. The satellite shows the low-pressure system is tracking east faster than we projected. The eye of the blizzard is passing over you now. You’ve got a window opening up."</p>
+<p>Imogen watched Torin's back. The muscles along his spine were tight, coiled like cable.</p>
+<p>"How long?" Torin asked.</p>
+<p>"Forty-eight hours," Clive replied. "The winds will drop below twenty knots by Tuesday morning. I’ve got a commercial chopper scheduled for extraction. They’ll land at the clearing near the old logging spur. You need to have her ready to move by dawn on Tuesday."</p>
+<p>"Understood," Torin said. His voice was flat. Professional. The voice of a ranger executing a routine retrieval, not the man who had spent the last hour whispering against her throat. "We'll be at the clearing. Haldane out."</p>
+<p>He clicked the radio off. The silence that followed was heavier than the static.</p>
+<p>Torin stood before the dry-sink for a long moment, his hands resting on the timber edge, his head bowed. He didn't turn around.</p>
+<p>Imogen felt the cold seeping deep into her bones now, bypassing the wool of the blanket. <em>Forty-eight hours.</em></p>
+<p>The heavy, grey reality of her life rushed back into the small room, crowding out the scent of pine resin and sweat. On Wednesday, she was expected back at the district office to sign her contract extension for the spring semester. She had a stack of sophomore essays on <em>The Great Gatsby</em> waiting in her canvas tote bag, a 2012 Subaru with a slipping alternator belt she couldn't afford to replace, and a landlord who would charge her a fifty-dollar late fee if her rent check wasn't in the slot by the fifth.</p>
+<p>She was a woman with a budget, a schedule, and a life defined by small, necessary compromises.</p>
+<p>And Torin was a man who had built a fortress out of ice and isolation to keep the world from breaking him a second time.</p>
+<p>"So," Imogen said, her voice steady, though she had to clear her throat to keep it from cracking. "The rescue is on schedule."</p>
+<p>Torin turned. The shadows of the cabin fell across his face, highlighting the hard line of his jaw and the sudden, defensive distance in his grey eyes. The vulnerability she had seen in him—the raw, desperate hunger that had softened his features when he held her—was gone. The walls had snapped back into place, thick and impenetrable.</p>
+<p>"Yeah," he said, reaching for his flannel shirt where it hung over the back of a chair. He slid his arms into the sleeves, his movements hurried, as if his bare skin was suddenly a liability. "Forty-eight hours. The snow should pack down enough by tomorrow afternoon for us to snowshoe to the spur. We'll camp there tomorrow night to make the morning landing."</p>
+<p>"Torin."</p>
+<p>He stopped, his fingers pausing on the buttons of his shirt. He didn't look at her.</p>
+<p>"Don't do that," she said softly.</p>
+<p>"Do what?"</p>
+<p>"Treat me like a piece of cargo you're clearing from a manifest." She pulled the blanket tighter around herself, sitting cross-legged on the mattress. "We just spent the night in this bed. I know who you are. I know what your skin feels like. Don't pretend we're back to being stranger and guide."</p>
+<p>Torin let out a harsh breath, finally looking at her. The intensity in his gaze was different now—it was defensive, almost hostile, though she could see the flicker of panic beneath the surface. He was thirty-four, but in this light, carrying the ghosts of the three men he hadn't been able to dig out of the pass three years ago, he looked ancient.</p>
+<p>"This is how it has to be, Imogen," he said, his voice dropping an octave. "We got through the storm. We... we had tonight. But Clive is coming. You have a life in the city. You have a job, a daughter, a routine. And I have this." He gestured vaguely to the small, dark room, the frost-rimed window, the endless, unforgiving white wilderness outside.</p>
+<p>"And 'this' is enough?" she challenged, her wit returning as a shield against the sting of his retreat. "Living like a ghost in a wooden box? You're thirty-four, Torin. You're not dead."</p>
+<p>"I should be," he snapped.</p>
+<p>The words hit the room like a physical blow. The raw, unvarnished truth of his survivor's guilt hung between them, cold and jagged.</p>
+<p>Torin turned away, shoving his hands into his pockets, his shoulders rigid. "You don't understand what it's like to walk away from a mountain when three other guys didn't. You don't understand the quiet out here. It's the only thing that keeps the noise in my head from driving me mad. If I let myself... if I let someone in, Imogen, I lose the only peace I have left."</p>
+<p>Imogen looked at him, her heart aching with a mixture of profound sympathy and a stubborn, mature refusal to let him hide behind his self-pity. She got out of the bed, ignoring the bite of the cold air on her bare skin. She picked up her flannel nightshirt from the floor, pulling it over her head, her movements deliberate and devoid of the nervous flutter of a younger woman. She walked across the rough floorboards until she was standing just inches from his back.</p>
+<p>"You think I don't know about loss?" she said, her voice quiet but carrying the immense weight of her own history. "I spent twenty years building a marriage only to watch it dissolve into polite indifference. I spent eighteen years being a mother, my entire identity wrapped up in a child who now only texts me when she needs fifty dollars for textbooks. I know what it's like to look in the mirror and realize the person you were is gone, and there's nothing but empty space where your future used to be."</p>
+<p>She reached out, her fingers hesitant for a fraction of a second before she pressed her hand flat against his back, right over his shoulder blade. She felt the muscle twitch under his shirt, then slowly yield to her touch.</p>
+<p>"You're not the only one who came into this cabin starving, Torin," she whispered. "But I'm not going to apologize for wanting to feel alive for the forty-eight hours we have left."</p>
+<p>He didn't move for several seconds. Then, with a low growl that sounded like a sigh, he turned around.</p>
+<p>His hands came up to frame her face, his thumbs brushing over the fine lines at the corners of her eyes. His touch was rough but incredibly tender. "You deserve more than forty-eight hours of a broken man."</p>
+<p>"Let me decide what I deserve," she murmured, her eyes holding his.</p>
+<p>The distance between them dissolved. The tension that had been building since the radio crackled to life didn't disappear; instead, it transformed, twisting into a sharp, desperate need to defy the clock.</p>
+<p>Torin leaned down, his mouth crashing against hers with a sudden, fierce hunger that made her breath hitch. This wasn't the slow, exploratory passion of the night before; this was a reclamation. His tongue parted her lips, tasting of winter and the dark, rich strength of his resolve. Imogen wrapped her arms around his neck, pulling herself flush against him, her breasts flattening against his chest.</p>
+<p>He groaned into her mouth, his hands sliding down her back, clutching the soft flannel of her nightshirt and bunching it up to her waist. His fingers were hot against her bare skin, digging into the flesh of her buttocks as he lifted her slightly, pressing her against the hard wooden edge of the dry-sink.</p>
+<p>The contrast of the cold wood against her thighs and the blazing heat of his body was intoxicating. Imogen wrapped her legs around his waist, her heels digging into the back of his thighs.</p>
+<p>"Imogen," he whispered against her neck, his breath hot and ragged as his mouth trailed down to her collarbone, leaving a damp, burning path. "We shouldn't. We have to pack, we have to—"</p>
+<p>"Quiet," she commanded, her fingers tangling in his thick, dark hair. "No drafts. No revisions."</p>
+<p>He let out a low, desperate sound, his mouth returning to hers to stifle his own surrender. He reached down between them, his fingers finding her already wet, her body ready and aching for him. She gasped into his mouth as his fingers stroked her, a deep, rhythmic pressure that made her pelvis tilt instinctively toward him.</p>
+<p>"You're so warm," he muttered, his voice thick with desire, his eyes dark as he looked down at her. "So beautiful."</p>
+<p>At forty-five, hearing those words in the stark, cold light of a remote cabin, Imogen felt a profound sense of power. It wasn't the fleeting beauty of youth, but the rich, earned beauty of a woman who knew the value of what was being offered.</p>
+<p>Torin unbuttoned his trousers fully, freeing his thick, rigid length. He guided himself to her entrance, pausing for a single beat as his grey eyes searched hers, seeking permission, seeking anchor.</p>
+<p>"Now," she whispered.</p>
+<p>He thrust upward, entering her in one smooth, deep motion.</p>
+<p>Imogen’s head fell back, a sharp cry escaping her lips as she gripped his shoulders. He filled her completely, the thick heat of him stretching her, a sensation so intense it bordered on pain but settled quickly into a deep, throbbing ache of pure pleasure.</p>
+<p>He began to move, his hands locking onto the edge of the dry-sink on either side of her hips, his powerful arms framing her as he drove into her with a steady, punishing rhythm. The old wooden cabinet groaned against the wall with every thrust, a rhythmic creak that kept time with their breathing.</p>
+<p>The cold air of the cabin swirled around them, but where their bodies joined, there was only heat. Imogen clutched at his back, her fingernails digging into the thick muscles of his shoulders, feeling the scars beneath his shirt—each one a reminder of what he had survived, just as her own body carried the invisible scars of her past.</p>
+<p>"Look at me," Torin rasped, his chest heaving, his face flushed with exertion.</p>
+<p>She opened her eyes, her vision slightly blurred by tears of sensation. He was looking down at her with an intensity that felt almost violent in its honesty. There was no hiding here. No walls. He was entirely hers, stripped of his isolation, bound to her by the raw friction of their skin.</p>
+<p>He increased the pace, his thrusts becoming faster, shallower, driving her toward the edge. Imogen’s breath came in short, ragged pants, her core tightening around him, milking him, sending a spasm of pure, unadulterated heat through his frame.</p>
+<p>"Torin..." she gasped, her hands slipping from his shoulders to grip his forearms, feeling the corded strength of him holding her up.</p>
+<p>"I've got you," he growled, his jaw clenching as he drove deep one last time, his body shuddering as he met her climax with his own.</p>
+<p>Imogen felt the sudden, hot rush of his release deep inside her, a thick, pulsing warmth that seemed to stall the very passage of time. Her own body convulsed around him, a series of long, rolling waves of release that made her cling to him, her face buried in the crook of his neck as the world narrowed down to the sound of their combined breathing and the slow, steady beat of his heart against her ribs.</p>
+<p>They stayed like that for a long time, the cabin settling back into its quiet, wooden groans around them. The fire in the hearth crackled, a single log shifting and sending a brief shower of orange sparks up the chimney.</p>
+<p>Slowly, Torin lowered her feet back to the cold floorboards. He didn't pull away immediately; he kept his forehead pressed against hers, his breath slowly returning to normal.</p>
+<p>When he finally looked up, the shuttered, distant look had not returned to his eyes. But there was a quiet, solemn acceptance there. The clock was ticking. The outside world was coming for them, and nothing they did in this room could stop the helicopter from landing in forty-eight hours.</p>
+<p>"We should get some wood on the fire," Torin said softly, his hand lingering on her cheek for one last, fleeting second before he stepped back and began to adjust his clothing.</p>
+<p>"Yes," Imogen replied, smoothing down her nightshirt, her legs slightly unsteady beneath her. "We should."</p>
+<p>She walked over to the small window, rubbing a circle into the frost with the side of her hand. Outside, the white landscape was vast, silent, and indifferent to the small drama unfolding within the log walls. The wind had dropped, just as Clive had said it would. The world was clearing.</p>
+<p>She had forty-eight hours left on the edge of the wild. And for the first time in years, Imogen Kelp wasn't afraid of what came next.</p>
+<p>The stove spat.</p>
+<p>A pocket of pitch in the spruce log went off like a pistol shot, loud enough to make Imogen jump. Outside, the sub-zero wind clawed at the cedar shingles, a heavy, roaring weight that made the spruce timbers groan in their notches.</p>
+<p>Imogen Kelp sat on the edge of the low pine cot, knees tucked tight to her chest, her fingers knotted into the coarse gray wool of the blanket. Forty-five didn't feel old until the temperature dropped below zero. Tonight, her lower back was a dull, hot ache from three days of carrying split birch, and her shoulders wouldn't drop. But the physical weariness was nothing compared to the silence. It wasn't the empty, hollow quiet of her drafty colonial back in Connecticut; this was the heavy, suffocating silence of three hundred miles of empty timber.</p>
+<p>Across the room, Torin Haldane stood by the small, frosted window. The single kerosene lamp on the table cast his shadow long and jagged across the floorboards. At thirty-four, he had the kind of thick, stubborn neck and broad shoulders that belonged to someone who spent his life pulling choked engines or throwing hay. He stood with his back to her, rigid, clad in faded, grease-stained canvas trousers. He looked like a man waiting for something heavy to drop.</p>
+<p>"You haven't spoken in an hour," Imogen said. Her voice was dry, scraping against the smoky cabin air.</p>
+<p>Torin didn't turn. His reflection was a dark blur against the black pane of glass, silvered with thick veins of frost. "Not much to say. The storm’s dropping another six inches before dawn. We aren't going anywhere."</p>
+<p>"That's not what's keeping you quiet."</p>
+<p>He stiffened. The muscles in his jaw flexed, a hard lump rising along his cheekbone. "You should sleep, Imogen."</p>
+<p>"I don't want to sleep." She lowered her legs, her bare feet touching the cold, grit-dusted floorboards. She wore only a heavy flannel shirt of his—the hem falling to her mid-thigh—and a pair of thick wool socks. The shirt smelled of spruce-tip tea, woodsmoke, and the sharp, salty tang of dried sweat. It was an intimate, heavy scent that made her pulse thrum in her throat. "And I don't want to be managed. I spent twenty years being managed. I know the tone."</p>
+<p>Torin turned his head slightly, his profile sharp in the amber lamplight. His eyes, usually a cold, piercing gray, looked almost black in the shadows. "I'm not managing you."</p>
+<p>"Then look at me."</p>
+<p>He turned slowly. There was a roughness to him, an unpolished edge that had terrified her when she first arrived at this remote outpost, but now it only drew her in. He looked at her—not the polite, superficial glance her ex-husband Clive used to give her, but a heavy, deliberate gaze that took in the fine lines around her eyes, the soft curve of her throat, and the way her hair, streaked with silver at the temples, fell loose over her shoulders.</p>
+<p>"I see you," he said, his voice dropping an octave, rough as sandpaper. "I see you every damn second we're in this room."</p>
+<p>"But you aren't here," Imogen whispered, standing up. The draft from the floorboards swept up her bare legs, making her shiver, but she forced herself to take two steps toward him. "You're back on that mountain. You’ve been there all night."</p>
+<p>A shadow crossed his face, sudden and violent. Torin let out a short, harsh breath through his nose and looked down at his boots. His hands, thick-fingered and scarred from years of manual labor, clenched into fists at his sides.</p>
+<p>"You don't want to know about that," he muttered.</p>
+<p>"I do." She took another step, stopping just outside his reach. The heat radiating from his body was almost physical, a contrast to the icy draft leaking through the window frame. "Tell me."</p>
+<p>Torin stared at the floor. For a long moment, the only sound was the howling wind outside, shaking the heavy log purlins above their heads. Then, he spoke, the words coming out hard and uneven.</p>
+<p>"It was four years ago," he said, his voice flat. "A late February whiteout. Near the ridge. A couple of flatlanders went up without snowshoes, thought they could hike the trail before the front hit. The local volunteer unit got the call. Ned was my partner. We’d grown up together in these hills."</p>
+<p>He stopped, his throat bobbing as he swallowed hard. Imogen stayed perfectly still, holding her breath.</p>
+<p>"We found them," Torin continued, his eyes fixed on a knot in the pine floorboards. "Half-frozen. Hysterical. We had to rope them up to get them down the chimney chute. The wind... you couldn't see your own hand in front of your face. Ned was anchor. I was guide. I had the girl on my line. Ned had her husband."</p>
+<p>He closed his eyes. "The husband panicked. Swung wide off the ledge and took Ned with him. The anchor blew out. I heard the crack—sounded like a rifle shot. I dropped to my knees, dug my axe in, grabbed Ned's line with my bare hand. I had him. For about ten seconds, I had them both."</p>
+<p>A single, harsh tremor shook Torin’s shoulders. He looked up at her, and the raw agony in his gray eyes made Imogen’s chest ache.</p>
+<p>"The rope was sliding," Torin whispered, his voice cracking. "Burning through my glove, through my skin. I could feel his weight. I could hear him yelling over the wind. He was telling me to let go, that the line was going to pull me and the girl over too. I didn't. I held on until the rope literally stripped the flesh off my palm. And then... the sheath of the rope split. It just snapped. He fell three hundred feet into the gorge. I survived. The girl survived. But Ned..."</p>
+<p>He broke off, his head dropping into his hands. His broad shoulders shook, and a low, muffled sob tore from his throat—a sound so raw, so utterly unvarnished, that it seemed to strip the cabin of all its remaining warmth.</p>
+<p>Imogen didn't hesitate. She closed the distance between them, her bare feet moving silent over the floorboards. She reached out, her hands hesitating for a fraction of a second before she pressed them against his chest. His heart was hammering beneath his heavy flannel shirt, a wild, trapped animal rhythm.</p>
+<p>"Torin," she murmured.</p>
+<p>He didn't pull away. Instead, he collapsed forward slightly, burying his face in the crook of her neck. His arms came around her waist, locking her against him with a desperation that took her breath away. His grip was almost painful, his fingers digging into her hips, but she didn't care. She held him, her fingers running through his thick, damp hair, feeling the heavy, shuddering gasps of his chest against hers.</p>
+<p>"It wasn't your choice," she whispered into his hair, her cheek pressed against the rough wool of his collar. "You didn't let him go."</p>
+<p>"I survived," he choked out, his breath hot and wet against her skin. "He had a wife. A kid. I had nothing. Why him? Why not me?"</p>
+<p>"Because the mountain doesn't negotiate," she said, her voice steady, carrying the quiet authority of a woman who had spent decades watching the arbitrary cruelty of life unfold. "And you cannot punish yourself forever for the crime of breathing."</p>
+<p>She held him as his breathing slowly leveled out, the violent tremors in his shoulders gradually subsiding into a heavy, exhausted stillness. They stood locked together in the center of the dark cabin, the heat of their bodies creating a small sanctuary against the freezing draft.</p>
+<p>After a long while, Torin pulled back slightly. His face was pale, his eyes rimmed with red, his mouth set in a hard line of vulnerability that made him look younger, yet somehow infinitely more real. He didn't let go of her waist. His thumbs remained hooked under the hem of his flannel shirt, resting against the bare, warm skin of her hips.</p>
+<p>"You make it sound so simple," he muttered, his gaze searching her face.</p>
+<p>"It's not simple," Imogen said, a bitter, self-deprecating smile touching her lips. "I spent twenty years dying a slow, quiet death in a colonial house with a manicured lawn. Clive didn't drop off a cliff. He just slowly erased me. Every dinner party, every faculty function, I was the accessory. The quiet, polite wife who kept her mouth shut and wore the right pearls."</p>
+<p>She looked down at his chest, her fingers tracing the seam of his shirt pocket. "By the time the kids left for college, I looked in the mirror and didn't recognize the woman staring back. I was a ghost. Clive looked at me and saw an old house he was tired of maintaining. He left me for a graduate student who was twenty-four. And the worst part wasn't the betrayal. It was the realization that I had let him do it. I had surrendered my own life, piece by piece, until there was nothing left but a shell."</p>
+<p>She looked back up, her eyes bright with unshed tears, but her gaze was fierce. "I came out here to these woods because I wanted to feel something. Even if it was just the cold. Even if it was just the pain of being alive. And then I met you."</p>
+<p>Torin’s hand moved up her side, his palm rough and calloused, scraping against the soft cotton of the flannel shirt. "Imogen..."</p>
+<p>"Don't," she whispered, her hand rising to cup his jaw. The stubble of his beard was scratchy and dry against her soft palm. "Don't tell me we shouldn't. Don't tell me you're too damaged, or that I'm too old, or that this is just the storm. I want to feel you. I want to know that I'm still here. That my body still belongs to me."</p>
+<p>Torin stared at her, his throat bobbing. The raw admiration in his eyes was almost overwhelming. He didn't look at her with the polite, indifferent tolerance her ex-husband had shown for years. He looked at her as if she were the only source of light in a dark, frozen world.</p>
+<p>"You're not old," he growled, his voice thick with a sudden, heavy heat. "You're the most beautiful thing I've ever touched."</p>
+<p>He bent his head, and his mouth found hers.</p>
+<p>It was not a tentative, cautious kiss. This was a dark, desperate collision of two people who had survived different kinds of winters. Torin’s lips were firm, tasting of spruce tea and the cold draft from the window, but his tongue was hot, parting her lips with a quiet, dominant hunger that made Imogen’s knees go weak.</p>
+<p>She gasped into his mouth, her hands gripping his shoulders, her fingers digging into the thick muscle there. He groaned, a deep vibration in his chest that she felt in her own ribs. He pulled her closer, his hands sliding down her back to cup her bottom through the thin flannel, lifting her slightly so she had to arch her hips into his.</p>
+<p>The hard, thick ridge of his arousal pressed against her lower belly, separated only by the layers of fabric. The sheer heat of him sent a shuddering wave of desire straight to her core, a heavy, throbbing ache she hadn't felt in fifteen years.</p>
+<p>Torin pulled back just enough to look down at her, his chest heaving. His hands trembled as they reached for the buttons of the flannel shirt she wore. He went slowly, his knuckles brushing against her skin with every button he undone, exposing the pale, soft rise of her breasts, the slight curve of her stomach.</p>
+<p>When the shirt fell open, he didn't rush. He stood in the amber glow of the kerosene lamp and just looked at her. Imogen felt a momentary, instinctive urge to cover herself—to hide the softness of her forty-five-year-old belly, the faint silver stretch marks on her hips from two pregnancies—but the look on Torin's face stopped her. His eyes were dark with a reverence that felt almost sacred.</p>
+<p>"You're perfect," he whispered, his voice rough.</p>
+<p>He reached out, his calloused palms wrapping around her waist, his thumbs tracing the flare of her hips. The contrast of his rough, weathered hands against her soft, pale skin was electric. He bent his head, his mouth pressing against the hollow above her collarbone, his tongue tracing the sensitive skin there until she shivered.</p>
+<p>Slowly, deliberately, he worked his way down. His lips brushed the soft swell of her breast, his breath hot and damp against her skin. When his mouth closed over her nipple, sucking gently, a sharp, white-hot jolt of pleasure shot straight down between her thighs. Imogen let out a soft cry, her head tossing back, her fingers tangling in his hair, holding him to her.</p>
+<p>"Torin..."</p>
+<p>He murmured something low and incomprehensible against her skin, his hand sliding down her stomach, past the waistband of her cotton underwear, his fingers finding the thick, curling hair between her thighs. He paused, his palm resting over her warmth, feeling the rapid, shallow breaths she was drawing.</p>
+<p>Then, he slipped his fingers lower.</p>
+<p>Imogen gasped, her hips jerking forward instinctively. She was slick, burning, her body responding to him with a desperate, heavy wetness that she hadn't anticipated. Torin let out a low growl, his fingers parting her, finding the sensitive bundle of nerves and stroking upward with a slow, heavy pressure that made her eyes roll back.</p>
+<p>"Look at me," he commanded softly, his face rising to meet hers.</p>
+<p>She opened her eyes, her vision slightly blurred by the heat rising in her blood. He was watching her, his jaw clenched, his eyes dark with an intensity that felt like a physical weight. He stroked her again, his thumb rotating over her center while his fingers slipped inside her, testing her tightness, her readiness.</p>
+<p>"You're so wet for me, Imogen," he growled, his voice thick. "So warm."</p>
+<p>"I want you," she whispered, her hands clawing at his shoulders, desperate to pull him down. "Now, Torin. Please."</p>
+<p>He didn't need to be told twice. He stripped off his own shirt, his broad, corded chest gleaming with a light sheen of sweat in the amber lamplight. There were scars there—a long, pale line across his ribs, thick marks on his shoulder from some long-ago accident—but he looked magnificent, a creature of the wild, built of bone and sinew and raw strength.</p>
+<p>He unbuckled his trousers, pushing them down along with his drawers, and then he was lifting her.</p>
+<p>Imogen wrapped her legs around his waist, her thighs gripping his lean hips. He carried her the two steps to the pine cot, laying her down onto the rough gray blanket. The wool scratch against her bare back was a sharp, grounding sensation, a contrast to the liquid heat pooling between her thighs.</p>
+<p>Torin hovered over her, his forearms framing her head, his chest pressing against her breasts. The weight of him was a comfort, a heavy, solid presence that banished the ghosts of her past, the coldness of the room, the screaming of the wind outside.</p>
+<p>He positioned himself, the broad, blunt head of his shaft brushing against her soaking entrance. He paused there, his forehead resting against hers, both of them breathing in short, synchronized gasps.</p>
+<p>"No turning back," he whispered, his voice trembling slightly. "If I take you now, Imogen... I'm not letting you go back to that ghost of a life."</p>
+<p>"I don't want to go back," she said, her hands sliding down his back to grip the firm muscles of his buttocks, pulling him down. "Take me."</p>
+<p>With a slow, heavy thrust, Torin drove into her.</p>
+<p>Imogen let out a sharp, breathless cry, her fingers digging into his back as her body stretched to accommodate his thick, hard length. It was a tight, intense fit, her mature body gripping him with a sudden, clenching instinct that made Torin gasp, his head dropping to her shoulder as he buried himself completely inside her.</p>
+<p>He stayed still for a moment, letting her adjust to his size, his chest heaving against hers. The heat where they were joined was incredible, a burning focal point in the middle of the freezing cabin.</p>
+<p>"You're so tight," he groaned, his voice muffled in her hair. "So beautiful."</p>
+<p>"Move," she whimpered, her hips tilting up, silently begging for more. "Torin, please."</p>
+<p>He began to move, slowly at first, drawing almost completely out before driving back in with a heavy, deliberate rhythm. Every thrust was deep, unhurried, filling her so completely that she felt it in the very center of her being. This was not the polite, mechanical coupling she had endured for two decades; this was raw, physical friction, a desperate search for connection that transcended the boundaries of their skin.</p>
+<p>Imogen met his thrusts, her hips lifting to meet him, her body moving with a fluid, instinctive grace she thought she had lost forever. She felt the muscles of her thighs tightening, the tension building in her lower belly, a tight, coil of pleasure that was winding tighter and tighter with every stroke.</p>
+<p>Torin’s pace quickened. His breathing became a series of harsh, ragged grunts, his hands gripping her hips, his fingers leaving red marks on her pale skin as he drove into her with a wilder, more desperate urgency. The cabin around them seemed to fade away—there was only the smell of woodsmoke, the rough wool beneath her, and the consuming heat of his body sliding against hers.</p>
+<p>"Imogen," he choked out, his eyes locking onto hers again. "I'm close. I can't... I can't hold it."</p>
+<p>"Don't hold it," she cried, her arms wrapping around his neck, pulling him down for a deep, bruising kiss. "Come with me. Now."</p>
+<p>The tight coil inside her snapped.</p>
+<p>A sudden, violent wave of pleasure rippled through her pelvic floor, a series of intense, clenching spasms that locked her body around his. She cried out into his mouth, her head tossing back as the climax washed over her, a deep, restorative warmth that seemed to reach into the darkest, coldest corners of her soul.</p>
+<p>The tight, rhythmic pulsing of her walls was the catalyst Torin couldn't resist. He let out a loud, raw roar against her neck, his body stiffening as he drove deep one last time, his hips locking against hers. Imogen felt the hot, heavy pulse of his release flooding her deep inside, a thick, burning warmth that seemed to seal them together.</p>
+<p>He held her tight, his chest heaving, his heart hammering against her ribs like a trapped bird gradually slowing its wings. They lay joined on the narrow cot, the silence of the cabin returning slowly, filled only by the sound of their ragged, intertwined breathing.</p>
+<p>After a long while, Torin rolled slowly onto his side, but he didn't pull away completely. He kept one heavy leg hooked over hers, his arm wrapping around her waist to pull her back against his chest. He pulled the thick wool blanket up over both of them, tucking it around her shoulders to shield her from the creeping chill of the room.</p>
+<p>Imogen closed her eyes, her head resting on his arm. For the first time in twenty years, she felt warm. Not just on her skin, but deep inside, in the quiet places that had been frozen for so long.</p>
+<p>But as she lay there, listening to the wind rattle the loose tin on the cabin roof, a sudden, sharp sound echoed from the dark woods outside.</p>
+<p>It was the heavy, splintering crack of a massive pine branch yielding to the weight of the ice. The sound was like a gunshot in the silent night, followed by a dull, vibrating thud that shook the frozen ground beneath the cabin.</p>
+<p>Torin’s body went instantly rigid behind her. His arm tightened around her waist, his head lifting from the pillow as his eyes darted toward the darkened window.</p>
+<p>The storm was not over. And as the temperature continued to plummet outside, Imogen felt a quiet, chilling realization settle in her chest. They had survived each other's pasts tonight, but the wild had a way of demanding more than just survival.</p>
+<p>Dawn brought a silence so thick it felt heavier than the three feet of snow packed against the cabin doors. For three days, the blizzard had screamed through the gaps in the green logs, a relentless, skull-shaking roar that had shrunk Imogen Kelp’s world down to the radius of a single hearth. And then, nothing. The wind just died, leaving behind a quiet that felt less like peace and more like suffocating.</p>
+<p>Inside, the quiet was broken only by the dry hiss of a dying pine knot in the grate and the slow, rhythmic breathing of the man sleeping behind her. Torin Haldane. He was thirty-four, thick-chested and heavy-limbed from a decade of clearing timber, and the heat radiating off him was almost oppressive in the cramped space of the cot. He had one thick thigh hooked over hers, pinning her down, his scarred wrist resting heavy across her waist. His palm was flat against her belly. Warm. Steady.</p>
+<p>At forty-five, Imogen knew exactly how much space she took up in a room. Her skin had lost the tight, springy resilience of her twenties; her hips were wider, her lower belly marked by the faint, silver-threaded scars of pregnancies that now felt like lifetimes ago. Her children were grown, gone, and living lives that barely required her signature. For years, she’d felt like a ghost haunting the corners of her own suburban house—a woman whose useful years had been packaged, labeled, and put in attic storage. But under Torin’s calloused, heavy hand, she felt solid. She felt anchored.</p>
+<p>She shifted, trying to turn without waking him, but she failed. Torin didn't slowly blink himself awake; his eyes simply opened, dark and completely clear. It was the instant, unnerving alertness of a man who lived where things could kill you if you slept too deeply.</p>
+<p>"Imogen," he muttered. The gravel in his voice vibrated straight through her collarbone.</p>
+<p>"Wind's stopped," she whispered.</p>
+<p>Her breath plumed white in the cabin's freezing air. The fire was dead, and the draft rising through the floorboards was already turning the edges of the blanket to ice, but where their skin met, the heat was absolute.</p>
+<p>Torin didn't say anything. He just looked at her. Really looked. His eyes traced the thin, silver-threaded gray in the dark hair spilled over his canvas pillow, then drifted to the fine lines radiating from the corners of her eyes. There wasn't any polite pity in his gaze, none of the gentle, neutralizing kindness men her own age used when they looked at her. Just a quiet, simmering hunger that made her pulse skip.</p>
+<p>His hand slid up her side. His thumb caught the soft, yielding underside of her breast through the thin wool of her camisole. Imogen drew in a sharp breath, her fingers instantly knotting into the rough thermal fabric of his shirt.</p>
+<p>"Torin," she said, though she wasn't sure if it was a protest or an invitation.</p>
+<p>"Let me," he muttered, his jaw tightening. "Just... give me this morning."</p>
+<p>He rolled, shifting his weight until he was over her. The contrast was ridiculous, really—his raw, heavy-shouldered youth, hardened by a life of self-imposed exile, set against her soft, lived-in curves. But he didn't rush. He kissed her with a slow, deliberate intensity, his tongue tasting of the bitter spruce-tip tea they'd drank before the fire went out.</p>
+<p>She opened up for him. She couldn't help it. Her back arched as his hand slid beneath the hem of her camisole, bunching the wool around her collarbone. The freezing air hit her bare skin like a splash of cold water, but then his mouth followed, his hot breath skimming over her ribs before his lips closed around her nipple. The sensation was sharp, almost electric, and she let out a low, raw sound, her fingers locking into his thick, dark hair.</p>
+<p>It was the anchor she’d needed for ten years. It dragged her violently out of the gray, comfortable numbness she’d called a life. When his knee nudged her thighs apart, she didn't hesitate. She felt the heavy, rigid pressure of him through his canvas trousers against her damp skin. She wanted that heat. She wanted the reminder that she wasn't dead yet, that she could still burn.</p>
+<p>"Help me," she whispered.</p>
+<p>He didn't need the invitation twice. There was an awkward, desperate scramble as they shed the rest of their clothes—a clumsy, urgent fumbling in the freezing cold that had nothing to do with grace and everything to do with survival. The air bit at her bare shoulders, but where their bodies pressed together, they sweat.</p>
+<p>He hovered over her for a second, his forearms flanking her head, his biceps trembling slightly as he held his weight off her. His face was a mask of sheer concentration.</p>
+<p>"Look at me," he commanded.</p>
+<p>She opened her eyes, meeting his amber gaze. When he pushed into her, it was slow, deep, and unyielding. Imogen gasped, her head falling back into the pillow as her hips automatically tilted to take him in. It was a tight, intense stretch that bordered on pain, but it was a real, solid pain. It was life.</p>
+<p>He began to move, establishing a heavy, deliberate rhythm. The old iron cot groaned beneath them, a rhythmic metallic squeak that filled the silent cabin. Imogen locked her legs around his hips, pulling him deeper, her heels digging into the backs of his thighs. She could feel the hard play of the muscles in his back, the sweat slicking his skin despite the freezing air, the salt-and-iron taste of him when she bit his shoulder to muffle her own voice.</p>
+<p>This wasn't the light, easy pleasure of her twenties. This was a heavy, resonant ache that built deep in her belly—the slow-burning accumulation of a decade of being untouched, unseen, and irrelevant, all of it combusting in the space of a few minutes.</p>
+<p>"Torin, please," she gasped against his neck.</p>
+<p>"I've got you," he growled. The rhythm shattered, losing its careful control, turning into something hard and desperate. His fingers dug bruisingly into her hips, anchoring her to the mattress as he drove home.</p>
+<p>The climax hit her with the same sudden violence as the blizzard. Her muscles clamped around him in tight, shuddering waves, and she cried out—a raw, unpolished sound that bounced off the bare cedar walls. A second later, with a low, animal grunt, Torin buried himself deep and held still, his body shaking as he released, his face buried in the crook of her neck, his breath coming in ragged, hot bursts against her collarbone.</p>
+<p>They lay tangled together for a long time, their breathing slowly winding down while the sweat cooled and turned icy on their skin. Imogen kept her arms locked around his back, her fingers tracing the bumps of his spine. She had a sudden, foolish urge to sew their skins together. In her chest, something fragile and stupid was trying to take root—a belief that maybe this was her actual life now, that she could trade the empty, quiet house in Seattle for this raw, clean existence in the woods.</p>
+<p>Then the floorboards began to vibrate.</p>
+<p>It started as a high, metallic hum, barely louder than the blood rushing in her ears. Within seconds, it deepened into a heavy, rhythmic thrumming that made the tin cups on the shelf rattle against each other.</p>
+<p>Torin froze. The softness that had briefly touched his eyes vanished, replaced instantly by the cold, guarded look she’d seen when he first found her in the snow. He lifted his head, his gaze darting to the frosted window.</p>
+<p>The chopper was here.</p>
+<p>Without a word, he pulled away from her. The sudden loss of his heat was a physical shock; the cold cabin air rushed into the empty space, leaving her shivering and instantly hollow. He didn't look at her. He just stood up, grabbed his woolen trousers, and began dressing with fast, mechanical efficiency.</p>
+<p>"Torin?" she said, her voice sounding thin and childish to her own ears.</p>
+<p>He kept his back to her, buttoning his flannel shirt with stiff, fast fingers. "Rescue's here. They're early. The front must have moved faster than the radio said."</p>
+<p>Imogen sat up, pulling the wool blanket tight around her chest to ward off the sudden, freezing draft. "You're not even going to look at me?"</p>
+<p>His shoulders went rigid, but he didn't turn around. "We need to get your gear packed. Clive isn't going to want to idle on the ridge if the wind starts kicking up again."</p>
+<p>Clive Dunmore. The name felt like a bucket of ditch-water dumped over her head. Clive meant her real life. He meant the sterile country club charity dinners, the endless meetings with divorce attorneys, the polite, suffocating expectations of a woman who was supposed to fade quietly into middle-aged obscurity.</p>
+<p>"Torin, look at me," she said, swinging her legs over the edge of the cot, keeping the blanket wrapped around her like armor.</p>
+<p>He finally turned, but the man who had looked at her with such desperate, hungry reverence five minutes ago was gone. In his place stood the stoic, distant guide who had pulled her out of a snowdrift. His eyes were flat. Dead.</p>
+<p>"It's over, Imogen," he said. His voice was perfectly level. "The storm's done. You're going home."</p>
+<p>"Is that all this was?" A sharp, cold ache flared behind her breastbone. "A way to kill time while we waited for the sky to clear?"</p>
+<p>Torin’s jaw clenched, a muscle pulsing beneath his dark stubble. He looked down at a knot in the floorboards between his boots. "We did what we had to do to stay warm. It was adrenaline. High-altitude hysteria. It happens."</p>
+<p>The lie was so bald, so clinical, it felt like a physical blow. Imogen flinched. "Adrenaline? You think what just happened in this bed was a survival reflex?"</p>
+<p>"I know what it was," he said, his voice dropping to a harsh, quiet rasp. "I'm a thirty-four-year-old drop-out who lives in a dirt-floor cabin because I can't look at a civilized face without seeing the people I couldn't save. And you're a lonely woman who got turned around on a ski trail. Don't mistake a warm bed during a blizzard for a future, Imogen. You belong in the city. You belong with people who have clean sheets and know how to make small talk. I don't fit in your world. And you'd last about three weeks in mine."</p>
+<p>"I could adapt," she whispered, a single hot tear spilling over and turning cold on her cheek. "I wanted to try."</p>
+<p>"You'd freeze," he said flatly. "And I'm not going to watch it happen."</p>
+<p>Before she could argue, the roar of the helicopter drowned out everything else. The heavy, beating prop wash hit the roof, rattling the loose tin panes of the window and sending a small shower of soot down the chimney into the dead hearth. The light in the room dimmed as the massive shape of the machine hovered just over the clearing.</p>
+<p>Torin grabbed her canvas duffel from the corner, snatching up her damp socks and shoving them inside with brutal, clumsy haste. He didn't care if they were packed neat; he just wanted her gone.</p>
+<p>Imogen dressed in silence, her hands shaking so hard she could barely thread her laces through the eyelets of her boots. She refused to ask him for help. The realization was settling in, heavy and cold: she’d been a fool. She’d mistaken a desperate, physical heat for a second chance. She’d let herself believe, even for an hour, that she was still a woman who could be loved like that, rather than just a temporary distraction for a broken man’s guilt.</p>
+<p>The cabin door banged open, letting in a blinding swirl of powder and the deafening, high-pitched scream of the turbine engine.</p>
+<p>Clive Dunmore stood in the doorway, looking ridiculous in a bright orange, high-tech survival parka, his face pale with relief. "Imogen! Thank God!" He stepped inside, his heavy boots crunching on the snow blowing across the floorboards. "We’ve been flying grid lines since first light. Are you okay? Are you hurt?"</p>
+<p>"I'm fine, Clive," she said. Her voice sounded thin, dry, like paper rubbing together.</p>
+<p>Clive looked past her, his eyes narrowing as they found Torin standing in the shadows by the cold stove, holding her bag. Clive took in the single bed, the rumpled blankets, the heavy, suffocating silence between them. "Is this the guide who found you?"</p>
+<p>"This is Torin Haldane," she said, her voice catching on his name. "He... he kept me alive."</p>
+<p>Clive gave a stiff, formal nod, reaching into his parka for a thick leather wallet. "We’re incredibly grateful, Mr. Haldane. Name your price. For the shelter, the food, your time."</p>
+<p>Torin didn't even look at the wallet. He stepped forward, dropped her duffel at Clive’s feet, and retreated back into the dim corner. "I don't want your money. Just get her on the bird. The wind's going to turn in ten minutes and lock you in."</p>
+<p>Clive frowned, pocketed the wallet, and picked up the bag. "Right. Imogen, let's go. We need to lift off now."</p>
+<p>Imogen didn't move for a long second. She looked at Torin. He stood with his arms crossed over his chest, his eyes fixed on the window, his jaw set like granite. He’d already gone back into his fortress. There was no way through.</p>
+<p>She had survived the freeze, but as she walked toward the open door, she felt a different kind of cold settling into her bones—the kind no fire, and no man, would ever quite reach.</p>
+<p>"Thank you, Torin," she said, her voice barely carrying through the roar of the rotors outside.</p>
+<p>He didn't blink. He didn't say a word.</p>
+<p>She turned and stepped out into the blinding white glare of the mountain. Clive took her arm, his grip firm and proprietary, guiding her through the waist-deep drifts toward the idling helicopter.</p>
+<p>Inside the cabin of the chopper, Clive helped her into the seat and buckled her harness, slipping a pair of heavy, noise-canceling headphones over her ears. Imogen didn't look at him. She pressed her forehead against the cold, vibrating plexiglass of the window as the helicopter lifted off, tilting its nose down toward the civilized valley below.</p>
+<p>Through the snow-streaked glass, the cabin rapidly shrank into a tiny, dark speck against the immense, white silence of the ridge. And there, standing just outside the door, was a single dark figure, motionless in the wind, watching them go until the rising snow swallowed him completely.</p>
+<p>The radiator in the corner of Imogen Kelp’s Seattle apartment didn't just hiss; it rattled with a dry, metallic grudge that had kept her staring at the ceiling since three in the morning. Sterile heat. It was forced, dusty, and smelled of scorched iron. Through the bent slats of the cheap Venetian blinds, the city emerged in shades of wet slate and the dull, oily yellow of the streetlights.</p>
+<p>Imogen sat hunched over her drafting table. Her fingers were stained to the knuckles—dark carbon charcoal wedged under her nails, the stubborn, greasy stain of Prussian blue clinging to her cuticles. Forty-five is a hell of an age to start over. But there she was, staring at a rental drafty enough to freeze grease, with nothing but her own name on the lease. There were no plastic toys left on the rug. No dry-cleaned charcoal suits belonging to Clive Dunmore occupying the master closet. Not even the lingering, high-end citrus sting of his expensive cologne. Just quiet. A heavy, ringing silence that felt less like peace and more like a glass bell jar, trapping her in a vacuum where the air was too thin to draw into her lungs.</p>
+<p>She leaned forward, her forehead touching the cool glass of her framed illustration. On the heavy, 300-pound watercolor paper underneath was a rendering of <em>Dryas octopetala</em>—the mountain avens. It was a tiny, spit-of-a-plant she’d sketched while shivering in the freezing mud outside Torin Haldane’s cabin in the Alaskan interior. In the drawing, the roots didn't just sit there; they clawed. They dug into frozen gravel, the tiny white petals looking ridiculously fragile but surviving anyway against a bleak wash of gray ink.</p>
+<p>She caught her reflection in the glass. This return to city life was supposed to be her "recovery." That was the word her friends used over lunch, spoken with head-tilts and soft, sympathetic eyes. But looking at her face—the sudden, thick silver threads running through her dark hair, the fine, sun-etched squint-lines at the corners of her eyes, the fullness of a throat that had survived decades of quiet compliance—she knew recovery was a lie. She didn't want to heal back into her old shape. She wanted to live.</p>
+<p>The buzzer on her wall intercom went off. A sharp, grating rasp that made her shoulders instantly bunch up near her ears. She walked over, her bare feet cold on the linoleum, and pressed the talk button.</p>
+<p>"Imogen? It’s Clive. I have the final inventory sheets for the gallery delivery."</p>
+<p>She took a slow, deep breath, centering herself. "Come up, Clive."</p>
+<p>When she opened the door five minutes later, Clive stood in the hall looking like an advertisement for middle-aged stability. Polished. Predictable. He was perfectly tailored in a charcoal-grey cashmere coat that probably cost more than her three months of rent, and he smelled of cold rain and expensive mint. His eyes did a quick, patronizing sweep of her small space—lingering on the stacked canvases, the sink full of dirty mugs, the faint layer of charcoal dust on the counter. A tiny, familiar twitch pinched the corner of his mouth.</p>
+<p>"You’ve got soot on your cheek," Clive said, stepping past her without waiting for an invite. He reached out with a soft, lotion-scented hand to brush her face.</p>
+<p>Imogen stepped back. It wasn't a flinch; it was a smooth, deliberate pivot that left his hand hanging in the drafty air. The contrast hit her like a physical blow. When Torin touched her, his palms were rough as sandpaper, smelling of woodsmoke, chain-bar oil, and spruce resin. Heavy hands. The kind that left warm, lingering impressions on her skin that made her feel solid, like she was finally anchored to the earth. Clive’s touch just felt like a draft of cold wind through a keyhole.</p>
+<p>"I’m drawing, Clive," she said, her voice flat. "What do you have for me?"</p>
+<p>Clive lowered his hand, his mouth thinning into a hard, straight line. "The gallery director needs your signature on the insurance waivers for the sub-arctic series. And..." He stopped, squinting at her. "You look different, Imogen. You’ve lost weight. And your hair... you haven't colored it."</p>
+<p>"I like the silver," she said.</p>
+<p>"It makes you look..." He hesitated, trying to find a polite euphemism and failing. "...older. Harder. It’s a bit of a shock after the way you used to keep yourself."</p>
+<p>A year ago, that little needle would have sent her straight to the bathroom mirror, checking her reflection with a sinking sense of shame, wondering how she could fix herself to fit his standard of a smooth, ageless companion. Now? She felt only a dull, distant pity.</p>
+<p>"I am older, Clive. And I’ve spent the last three months in a place where survival doesn't depend on hair dye," she said. She grabbed the papers from his hand, signed them quickly against the kitchen counter with a cheap ballpoint pen, and shoved them back at him. "Is that all?"</p>
+<p>Clive looked down at the signature, then back up at her. "You don't have to live like this, you know. In this drafty little box. The house on Mercer Island is just sitting there. We could talk about the division of assets again. We could try to—"</p>
+<p>"No." The word was a heavy timber falling into place. It didn't waver. "The house was a cage, Clive. A beautiful, expensive cage. I’m done living in cages."</p>
+<p>Clive’s jaw tightened. He realized, perhaps for the first time, that the quiet, accommodating woman who had managed his household and smoothed over his moods for twenty years was gone. He muttered a polite goodbye and let himself out.</p>
+<p>When the door clicked shut, Imogen let out a breath she felt she’d been holding since she landed at Sea-Tac airport. She walked back to her drafting table, picked up her charcoal, and drew a thick, dark line across the page, anchoring the roots of her mountain avens deeper into the sketched earth.</p>
+<p><em></em>*</p>
+<p>The gallery opening on Friday night was a suffocating blur of black silk, expensive pinot noir, and the low, collective hum of polite city conversation. Imogen stood near the back of the room, wearing a simple dark green dress that showed the strength in her shoulders—shoulders that had spent weeks carrying water buckets and hauling firewood.</p>
+<p>Her series, <em>The Edge of the Wild</em>, hung along the main wall. Twelve pieces. All of them detailed, visceral drawings of sub-arctic flora surviving in the harshest conditions on earth. Next to each piece was a small red dot.</p>
+<p>Every single one had sold before the opening night was even half over.</p>
+<p>"It’s the raw texture," a man in a velvet blazer whispered to his companion, gesturing toward her drawing of a stunted black spruce tree. "You can almost feel the frostbite in the ink. It’s so... unsparing."</p>
+<p>Imogen listened, a faint, dry smile touching her lips. They thought it was an intellectual exercise. They thought she had sat in a heated cabin with a thermos of tea, looking out a double-paned window. They didn't know about the cold that got into your bones until your teeth clicked. They didn't know about the smell of wet wool drying near a woodstove, or the desperate, fierce heat of a man’s body pressing her into a mattress while a blizzard threatened to tear the roof off.</p>
+<p>The gallery owner, a tall woman with sharp glasses, slid up beside her and handed her a small, folded piece of paper. "Your percentage of the presales, minus our commission. It’s already been wired to your account, Imogen. You’re a sensation. We need to talk about a second exhibition. Perhaps something from the high desert?"</p>
+<p>Imogen looked at the number on the paper. It was more money than she had earned in five years of part-time teaching. It was financial independence, written in clean, black digits. She didn't have to ask Clive for anything ever again. She didn't have to worry about rent or groceries or the cost of carbon paper.</p>
+<p>She looked back at the drawing of the black spruce. The branches were twisted, bent by northern winds that could freeze a wet thumb to an ax handle in seconds. But the bark was thick, protecting the sap inside.</p>
+<p><em>You’re strong enough,</em> she thought.</p>
+<p>She didn't stay for the after-party. She left her own gallery while the wine was still flowing, walking out into the cool, damp Seattle night. The city air felt thick, heavy with the exhaust of cars and the greasy smell of restaurant vents. She walked ten blocks back to her apartment, her boots clicking against the pavement.</p>
+<p>When she reached her room, she didn't turn on the lights. She walked straight to her laptop, opened her browser, and booked a one-way ticket to Fairbanks, leaving in thirty-six hours.</p>
+<p>She wasn't going back to Alaska to be saved. She was going back because she was finally strong enough to stand in the wind beside him.</p>
+<p><em></em>*</p>
+<p>The bush plane’s engine was a deafening, vibrating roar that rattled Imogen’s teeth as they flew over the jagged teeth of the white peaks. Below them, the Alaskan wilderness was a vast, unforgiving ocean of white and dark green. The pilot, a silent man with a grey beard, didn't speak to her except to point out the drop zone.</p>
+<p>When the skis of the plane touched down on the frozen riverbed three miles from Torin’s cabin, the snow was powdery and deep. The pilot unloaded her heavy canvas pack, shook her hand with a brief, hard squeeze, and was gone within minutes, leaving her in a silence so thick it felt physical.</p>
+<p>Imogen strapped on her snowshoes, adjusted the straps of her pack, and began to walk.</p>
+<p>The temperature was fifteen below zero. The air burned her throat with every breath, but it was a clean, sharp pain that made her feel intensely, vibrably alive. Her thigh muscles burned with the effort of breaking trail through the fresh powder, but she didn't stop. She knew the way now. Her body remembered the rhythm of the wilderness.</p>
+<p>By the time she reached the clearing, the sun was dropping behind the ridge, painting the snow in shades of violet and deep amber. A thin trail of grey smoke drifted from the cabin’s stovepipe.</p>
+<p>Torin was outside. He was splitting birch logs, his canvas coat dark with sweat under the arms despite the freezing cold. He was thirty-four, his body thick and powerful, built for the heavy labor of the woods. He lifted the heavy splitting maul, his muscles bunching beneath the heavy wool of his shirt, and brought it down with a sharp, echoing <em>crack</em>.</p>
+<p>Imogen stopped at the edge of the trees. "Your form is off," she called out, her voice carrying across the quiet snow.</p>
+<p>Torin froze. The maul remained embedded in the log. He slowly turned his head, his dark eyes wide, his face going pale beneath the stubble and the frost clinging to his beard. He stared at her as if she were a ghost conjured from the white silence.</p>
+<p>"Imogen?" His voice was a low rasp, rough from weeks of disuse.</p>
+<p>She walked out of the shadow of the spruce trees, her snowshoes crunching softly. She took off her wool cap, letting her hair fall down—dark, silver-streaked, and damp with sweat from the trail.</p>
+<p>He dropped his hands from the handle of the maul and took two heavy steps toward her, then stopped, his jaw tightening as his old defenses clawed their way back to the surface. "What are you doing here? You went back. You had your life. Your city."</p>
+<p>"My city was dead, Torin," she said, walking right up to him until she could smell the birch sap and the cold grease on his coat. "And I’m not letting you stay out here in the dark just because you’re afraid of what happens if you let yourself feel something again."</p>
+<p>"I told you I’m a ruin," he growled, his voice trembling slightly. "I told you I don't have anything to give you."</p>
+<p>"I don't need you to give me anything," she said, her voice dropping, filled with the absolute certainty of her forty-five years. "I have my own money, my own work, and my own strength. I didn't come back for a caretaker, Torin. I came back for you."</p>
+<p>He stared at her, his breathing coming in shallow, white puffs in the freezing air. He looked at her lined, beautiful face, her steady eyes, and the sheer, unyielding confidence in her posture. The guilt that had kept him isolated for years—the heavy, suffocating weight of his past—shattered against her determination.</p>
+<p>With a low, choked sound, he reached out, his heavy, gloved hands grasping her waist and lifting her clear off the snow.</p>
+<p>He carried her into the cabin, slamming the door shut with his heel, shutting out the freezing twilight. The cabin was warm, the woodstove radiating a deep, dry heat. He set her down on her feet, but he didn't let go. His hands scrambled with the buckles of her heavy pack, letting it drop to the floor with a dull thud.</p>
+<p>"Imogen," he whispered against her hair, his face buried in her neck. "I’ve been going out of my mind. Every corner of this place... I see you. I smell you."</p>
+<p>"Then look at me," she commanded gently.</p>
+<p>He pulled back, his dark eyes fierce with a hunger that was raw and entirely undisguised. He stripped his heavy gloves off, throwing them onto the floor, and reached for the buttons of her wool coat. His fingers, usually so steady with a knife or an ax, were shaking.</p>
+<p>Imogen smiled, a slow, sensual curve of her lips. She reached up and unbuttoned his canvas coat, pushing it off his broad shoulders. She wanted him close. She wanted the heat of him to erase the chill of the city.</p>
+<p>He peeled her coat back, his hands finding the soft wool of her green dress. He didn't hesitate. He pulled the fabric down, exposing the curve of her collarbone, the pale skin of her shoulders, and the fullness of her breasts rising and falling with her heavy breath.</p>
+<p>"You're beautiful," he muttered, his voice thick. His calloused thumbs brushed over her nipples, which hardened instantly under his touch. "God, Imogen. You're so beautiful."</p>
+<p>She gasped, her head falling back as his mouth found her neck. He bit gently at the sweet spot where her shoulder met her throat, his stubble scratching her skin in a way that made a deep, heavy ache bloom low in her belly. She wasn't twenty; her body had the fullness of a woman who had lived, who had birthed, who knew the value of every single sensation. She didn't try to hide her belly or the softness of her hips. She pressed herself against his hard, ridged abdomen, wanting him to feel every inch of her.</p>
+<p>Torin groaned, his hands sliding down to her hips, his fingers digging into the flesh through her skirts. He lifted her easily, setting her back against the heavy wooden table in the center of the room—the very table where she had sketched her plants, where they had eaten their silent meals.</p>
+<p>He pushed her dress up around her waist. Imogen reached down, her fingers tangling in his thick hair, pulling his mouth up to hers. Their kiss was desperate, a collision of teeth and tongues that tasted of salt and the heat of the woodstove. There was no hesitation now, no polite holding back. They were two adults who knew exactly what they wanted, stripping away the distance of the past months with every touch.</p>
+<p>Torin unbuckled his trousers, his breath coming in hot, ragged pants. His penis was thick, fully erect, and heavy as it pressed against her thigh. Imogen reached down, her warm fingers wrapping around his length, guiding him to her. She was slick, wet with a fierce, ready heat that surprised them both.</p>
+<p>"Now, Torin," she whispered against his lips. "Please."</p>
+<p>He didn't wait. He drove into her with one deep, heavy thrust that filled her completely. Imogen’s breath hitched, her fingers clawing into the muscles of his back as she arched her spine, welcoming the stretch and the solid, stretching fullness of him inside her.</p>
+<p>He stayed still for a moment, his forehead pressed against hers, his chest heaving. "Imogen... I don't want to hurt you."</p>
+<p>"You won't," she breathed, her legs wrapping around his hips, pulling him deeper. "Drive into me, Torin. I’m not made of glass."</p>
+<p>The words broke whatever restraint he had left. He began to move, his strokes long, deep, and rhythmic. The heavy wooden table creaked under their combined weight, the sound echoing in the warm, quiet cabin. Torin’s hands gripped her thighs, holding her open, his thumbs pressing into her skin to leave dark, passionate bruises she knew she would look at tomorrow with pride.</p>
+<p>Every thrust was a reclamation. She felt the friction of his skin against hers, the dry heat of the room, and the intense, focused attention of his gaze. He didn't look away from her. He watched her face—the way her eyes fluttered shut, the way her lips parted as she gasped for air, the deep flush of pleasure rising from her chest to her cheeks. He wanted all of her—her age, her maturity, her strength, and her surrender.</p>
+<p>"You're mine," he grunted, his pace quickening, his thrusts becoming harder, more urgent. "Tell me you're staying."</p>
+<p>"I'm staying," she cried out, her voice breaking as the tension inside her began to coil tight, a hot, heavy knot gathering in the center of her being. "I'm staying, Torin."</p>
+<p>She tilted her hips, meeting him stroke for stroke, her body supple and alive under his hands. The pleasure was intense, a deep, pulsing wave that started in her core and spread outward until her fingers tensed in his hair and her thighs squeezed his waist with a desperate strength.</p>
+<p>He felt the sudden, tight contraction of her inner muscles wrapping around him. He let out a low, wild growl, his movements becoming frantic. He pushed deep, his hips slamming against hers as Imogen’s climax broke over her, a long, shivering release that made her cry out his name into the quiet room.</p>
+<p>The sight of her face in the grip of her pleasure was more than he could withstand. Torin gave two more heavy, desperate thrusts, his head burying in her neck as his own release tore through him, his body stiffening as he poured himself deep inside her warmth.</p>
+<p>They stayed like that for a long time, the quiet of the cabin returning slowly, broken only by the sound of their ragged breathing and the soft crackle of the wood in the stove. Torin remained heavy inside her, his chest rising and falling against her breasts.</p>
+<p>He slowly lifted his head, his face softened, the dark shadows in his eyes replaced by a quiet, deep peace. He reached up, his calloused hand gently tucking a damp lock of silver-threaded hair behind her ear.</p>
+<p>"You're a stubborn woman, Imogen Kelp," he whispered, a faint, genuine smile touching his lips.</p>
+<p>"I had to be," she said, her voice soft but filled with the strength of the wild inside her. "To survive you."</p>
+<p>The handlebars of the rented utility snowmobile didn't just vibrate; they rattled the calcium in Imogen Kelp’s wrists, a persistent, marrow-deep ache that kept time with the cold stinging her nose beneath her visor. She clamped her gloved fingers tighter around the throttle. Her forty-five-year-old shoulders were already knotted from fighting the wind. The machine was a heavy, rusted pig of a thing, secured at the trailhead only after she’d spent twenty minutes arguing with a stubborn local operator who clearly thought a woman her age belonged near a radiator, not wrangling a three-hundred-pound engine through a freeze.</p>
+<p>Clive had called her a fool, though he’d used prettier words. <em>A schoolgirl chasing a phantom.</em> That was his phrase, delivered back in the city while he stood in her gallery, smelling of expensive vetiver and dry-cleaned wool. He’d leaned against the pristine white partition of her latest exhibition, hands deep in his pockets, his voice carrying that slow, patronizing drag she’d spent a decade mistaking for sophistication.</p>
+<p><em>“He’s a recluse, Imogen. A distraction. You’ve spent twenty years building a reputation, raising a family, and finally getting your freedom. Why throw your peace into a frozen hole in the dirt?”</em></p>
+<p>Peace? No. That wasn't peace. It was stagnation. It was the polite, suffocating silence of an empty nest where the dust settled in perfect, undisturbed lines on the mantelpiece. A daily reminder that her primary job description had expired. Then she’d met Torin Haldane, and the silence had shattered. Thank God.</p>
+<p>She jerked the machine onto the unplowed logging trail. The engine shrieked, laboring against three feet of fresh powder. The blizzard had died hours ago, red-lining the sky into a hard, metallic blue, leaving the mountains looking like jagged pieces of broken porcelain. Her thighs burned from bracing against the sudden, hidden dips in the snow. It was a brutal, sweaty kind of work she hadn't done in fifteen years. But she liked it. It was a blunt, physical proof that her body still worked—that she could still force her way toward something she wanted.</p>
+<p>The cabin appeared after a sharp bend, looking small and miserable under a massive drift. A pencil-thin line of grey smoke rose from the stone chimney.</p>
+<p>Imogen killed the ignition.</p>
+<p>The silence that followed was heavy enough to make her ears ring. Then, the rhythmic <em>thwack</em> of an axe.</p>
+<p>She climbed off the machine. Her left boot sank up to the hip in a powdery drift before she managed to drag herself onto the narrow path Torin had shoveled. Her lungs burned with the dry, sub-zero air.</p>
+<p>Torin was at the woodpile. He didn’t have his coat on—just a faded flannel shirt with the sleeves rolled up, exposing forearms reddened by the frost. He was thirty-four, with the kind of lean, ropey strength that came from hard, daily labor, but today his movements were heavy. Dragging. He looked thinner than he had a month ago. The stubble along his jaw was patchy and dark, and his eyes—usually that clear, piercing grey—looked sunken, fixed on a stubborn block of frozen birch like it was a personal insult.</p>
+<p>He swung the maul. The wood split with a wet, heavy crack.</p>
+<p>"You’re going to blow out your rotator cuff swinging like that," Imogen said. Her voice sounded thin in the cold, but she kept it level.</p>
+<p>Torin froze. The maul stayed buried in the chopping block. Slowly, his head turned. The look on his face wasn't just surprise; it was the raw, naked terror of a man who thought he’d successfully locked the door against the world, only to find the world standing on his porch. His knuckles turned white on the ash handle.</p>
+<p>"Imogen," he said. His voice was a dry croak, the sound of vocal cords that hadn't been used for anything but sighing in days. "What are you doing here? The pass is closed."</p>
+<p>"The pass is open if you have enough momentum," she said, pulling off her gloves and stuffing them into her pockets. She took a step closer, watching his face. The dark shadows under his eyes looked like charcoal smudges. "You look like hell, Torin."</p>
+<p>"You shouldn't have come," he muttered, dropping his hands from the axe. "I told you. When the storm broke, we were done. You have the gallery. You have a life that actually makes sense. You don't belong out here in the scrub."</p>
+<p>"Don't do that," she said, her voice dropping an octave. This was the tone she’d used on her kids, on her ex-husband, on every man who’d ever tried to manage her borders. "And don't use your guilt to play the martyr. I’m forty-five years old, Torin. I’ve raised two children, survived twenty years of a marriage that slowly turned into dry drywall, and built a business from nothing. I didn't ride a vibrating tin can through fifteen miles of freezing pine trees to let you hide behind your self-pity."</p>
+<p>Torin flinched. He swallowed, his throat moving hard. "You don't get it. I’m rot, Imogen. I survived when the others didn't. Every time I try to look at you—every time I think about anything other than wood and survival—it feels like a betrayal of the dead."</p>
+<p>"Then betray them," she said, taking another step. She was close enough now to smell him—pine sap, woodsmoke, and the sour tang of cold sweat. She could see the tiny crystals of frost caught in his eyelashes. "Because the alternative is sitting up here and rotting while your heart is still beating. And I'm not going to let you do that. Not after what happened in that cabin during the storm."</p>
+<p>"I have nothing to give you," he growled. He reached out and grabbed her by the shoulder—not to push her, but to hold himself up. He was shaking. "Look at me. I'm a decade younger than you, and I feel like an old man waiting for the end. You need someone who can walk into a room without dragging the weight of this mountain behind them."</p>
+<p>"I don't want someone who walks easily," she said. She reached up, her bare palm pressing against his cold, stubbled cheek. He shuddered, his eyes closing as if the heat of her hand physically hurt. "I want you. I want the silence, the noise, the heavy hands. I want the whole mess. But you have to stop running."</p>
+<p>His eyes snapped open. The cold grey was gone, replaced by something hot and desperate. He didn't speak. He just lunged, his arms locking around her waist, lifting her boots right off the hard-packed snow.</p>
+<p>He kissed her hard, a clumsy, starved collision of teeth and cold skin. It tasted of salt and frost and woodsmoke. Imogen let out a sharp gasp, her arms wrapping around his neck, her fingers tangling in the cold, thick hair at the nape of his neck. He held her like he was falling off a cliff.</p>
+<p>"Inside," he muttered against her mouth, his breath hot and frantic. "Before we freeze."</p>
+<p>He didn't let go of her waist. He hauled her toward the cabin door, kicked it open, and shoved it shut behind them, the heavy latch clicking into place with a dry, solid thud.</p>
+<p>The cabin was dim, smelling of cedar and old coffee. The only light came from the dull orange eye of the woodstove and the grey glare of the snow outside the window.</p>
+<p>Torin pinned her back against the log wall. His hands were shaking as he fumbled with the zipper of her heavy winter coat.</p>
+<p>"Let me," she whispered, her fingers covering his. They worked together, stripping the heavy layers off until they pooled on the floorboards. Torin’s hands went straight back to her, sliding under her heavy wool sweater, his palms scorching hot against her bare ribs.</p>
+<p>He looked down at her. Really looked. He took in the flush on her cheeks, the silver threads at her temples, the fine lines around her eyes.</p>
+<p>"I thought I made you up," he whispered, his voice thick. "Down in the city. I thought my mind was just playing tricks on me because I was lonely."</p>
+<p>"I’m here," she said, her hands moving to the buttons of his flannel shirt. She popped them open, her palms pressing against the hard, warm plane of his chest. His heart was hammering. "I'm real."</p>
+<p>He groaned, burying his face in the crook of her neck. He bit gently at the muscle where her neck met her shoulder, making her breath hitch. At forty-five, Imogen knew her body. She knew she wasn't twenty anymore; there was a softness to her belly now, a different weight to her hips. But the way Torin looked at her—the slow, reverent way his hands traced the curve of her waist—made all of that disappear.</p>
+<p>He lifted her, her thighs wrapping around his hips, her back sliding against the rough log wall as he carried her the three steps to the low bed by the hearth.</p>
+<p>They tumbled onto the pile of wool blankets. The smell of sheep's wool and dry cedar was thick. Torin stripped his shirt off, throwing it into the dark. His shoulders were scarred, knotted with muscle from years of clearing trails.</p>
+<p>"You're beautiful," he muttered, his hand reaching for the hem of her sweater.</p>
+<p>She pulled it over her head, followed by her thermal shirt, until she was sitting in her simple bra. For a second, a tiny, familiar prickle of self-consciousness hit her—the awareness of her age, of the light. But Torin’s hands were already there, warm and heavy on her hips, pulling her toward him.</p>
+<p>He unclipped the bra, his mouth finding her nipple, sucking her in with a slow, heavy heat that sent a sharp line of tension straight to her lower belly. She arched her back, her fingers digging into his shoulders.</p>
+<p>He got rid of his boots and trousers, then helped her slide her leggings off. When they were bare, the cool air of the cabin draft felt sharp against their skin, making the heat where their bodies touched feel even more intense.</p>
+<p>Torin hovered over her, his chest heaving. He reached down, his fingers finding the wet warmth between her thighs. She was already slick, her hips tilting up to meet his hand.</p>
+<p>"Imogen," he whispered, his voice rough as gravel.</p>
+<p>"I'm here," she said, looking straight into his eyes. "I'm not going anywhere."</p>
+<p>He guided himself to her. He didn't rush. He pushed in slowly, his eyes locked on hers, his jaw clenched as he filled her. Imogen let out a long, shuddering sigh, her legs locking around his waist to pull him deeper. The feeling of him—thick, solid, and incredibly warm—made her chest ache with a sudden, sharp pressure.</p>
+<p>He began to move. It wasn't the frantic, shallow rhythm of youth. It was slow, heavy, and deliberate, each thrust driving deep into her. The only sounds in the cabin were the creak of the wooden bedframe, the crackle of the stove, and their own ragged breathing.</p>
+<p>"Tell me," he muttered, his forehead pressed against hers, sweat dripping from his temple. "Tell me what you need."</p>
+<p>"Just this," she gasped, her hands gripping his hips, pulling him down. "Don't stop."</p>
+<p>He didn't. He pinned her wrists to the mattress, his fingers locking through hers, and increased the pace. The pleasure was a physical weight, coiling tighter and tighter until she couldn't breathe. She arched her back, her eyes closing as the tension finally broke, her body clamping around him in tight, shuddering waves.</p>
+<p>Torin let out a low, guttural sound, burying his face in her hair as he drove deep one last time and held her, his body shaking with his own release.</p>
+<p>They lay together as the light outside turned from grey to a deep, bruised violet. Torin pulled the heavy wool quilts over them, tucking her against his side.</p>
+<p>"I don't know how to do this," he said quietly into the dark. "The city... I don't fit there. I don't want to lose this, but I don't know how to live in your world."</p>
+<p>Imogen turned, her head resting on his chest, listening to the slow, steady thump of his heart.</p>
+<p>"We don't have to choose," she said. "We'll split the difference. I’m taking over my own exhibitions anyway—Clive can find another gallery to patronize. We’ll spend the winters up here in the quiet, and the summers in the city when the mud dries. We’ll build a bridge, Torin. We don't need anyone else's permission."</p>
+<p>Torin was silent for a long moment. Then, his hand found hers under the heavy blankets, his fingers locking with hers.</p>
+<p>"A bridge," he murmured. "I can build that."</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Horizon - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">Cold Horizon</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>Cold Horizon</h1>
+<p>The metal skin of the 1953 DeHavilland Beaver was cold enough to strip the skin right off your palms.</p>
+<p>Eight o’clock in the morning in Whitehorse. The sun was nothing but a pale, watery smudge bruised against the jagged peaks of the horizon. Twenty below zero. Every breath Avery Blackwood took tasted like broken glass.</p>
+<p>She grunted, throwing her whole weight against the propeller blade to pull it through.</p>
+<p><em>One.</em></p>
+<p><em>Two.</em></p>
+<p><em>Three.</em></p>
+<p>It was a miserable, backbreaking chore. She had to clear the thick oil from the radial engine’s bottom cylinders before she even dared to turn the starter. Her leather mitts were black with grease and stiff from the frost, but she kept moving. If she stopped, she froze.</p>
+<p>"Come on, sweetheart," she muttered. Her breath puffed out in thick white clouds, freezing instantly on the collar of her worn canvas parka. "Don't do this to me today."</p>
+<p>Then, without warning, the furnace lit.</p>
+<p>It didn't start in the engine. It started at the base of her neck—a sudden, blinding wave of heat that rushed upward like a grass fire. Within seconds, she was boiling. Underneath her heavy wool base layer, her thermal shirt, and her thick fleece sweater, her skin broke into a slick, itching sweat. The freezing wind that had been biting at her cheeks a moment ago suddenly felt like a joke.</p>
+<p>"Damn it," Avery whispered. She leaned her forehead against the cold metal of the propeller.</p>
+<p>The aluminum sucked some of the heat from her skin, but the sudden shift made her head spin. At forty-four, her body was playing by a new set of rules. Rules she had never agreed to. Perimenopause in the Yukon was a cruel, sick joke. One minute she was shivering so hard her teeth clicked, and the next she was peeling off layers in the middle of a snowdrift, feeling like she might spontaneously combust.</p>
+<p>She stood there for a full minute, eyes closed, waiting for the tide to recede.</p>
+<p>She didn't have time for this. She had a business to run. Or, more accurately, a business to drag kicking and screaming back from the edge of the grave.</p>
+<p>Twelve months ago, the divorce papers had cleared. Her ex-husband—a slick Vancouver lawyer who had spent fifteen years chipping away at her self-worth—had walked away with their home, their savings, and her dignity. He had left her with Blackwood Aviation. A money-bleeding charter company in the far north, and this single, temperamental airplane. He’d figured she would sell the Beaver, crawl back to the city, and beg him for alimony.</p>
+<p>He didn't know the Yukon. And he sure as hell didn't know Avery.</p>
+<p>She pulled off her mitts. Her bare fingers trembled as she wiped the cold sweat from her forehead. Her skin was flush, her heart hammering too fast. She looked down at her hands. They were the hands of a woman who worked. The knuckles were thick. The skin was dry and lined from windburn and aviation fuel, with a small white scar across her left thumb from a slipped wrench. They weren't the soft, manicured hands she’d kept during her years in Vancouver, trying to play the part of the perfect corporate wife.</p>
+<p>These hands belonged to her. They knew how to fly, how to survive, and how to rebuild.</p>
+<p>She pulled her mitts back on, took a deep, freezing breath that cleared the lingering heat from her lungs, and climbed up onto the cabin step.</p>
+<p>The Beaver was her sanctuary. Inside the cockpit, the smell was a comforting mix of old leather, hydraulic fluid, and the faint, sweet scent of gasoline. Up in the air, there were no lawyers. No bank notices. No whispers about a woman her age trying to make it in a man's game. Up there, it was just her, the wind, and the machine.</p>
+<p>She turned the key. The engine coughed—a heavy, metallic rattle that vibrated right through the soles of her boots. It cleared its throat with a puff of blue smoke, then settled into a deep, roaring rumble that shook the entire fuselage.</p>
+<p>Avery smiled. The tension in her shoulders eased just a fraction.</p>
+<p>"Good girl," she murmured, patting the instrument panel.</p>
+<p><em></em>*</p>
+<p>The office of Blackwood Aviation was a small, cedar-sided shack attached to the main hangar. Inside, a drum-shaped wood stove glowed a dull, comforting red in the corner, filling the room with the sharp, sweet scent of burning birch.</p>
+<p>Beryl Blackwood was sitting behind the laminate desk, a steaming mug of black tea clutched between her weathered hands. At sixty-eight, Avery’s aunt looked like she had been carved out of Yukon spruce. She wore a thick flannel shirt, her grey hair pinned back in a messy bun. Her eyes, sharp as a hawk's, tracked Avery the moment she stepped through the door.</p>
+<p>"You look like hell," Beryl said, her voice a gravelly drawl earned from decades of northern winters. "The Beaver start?"</p>
+<p>"She's warming up now," Avery said. She shed her heavy parka and hung it on the wooden peg by the door. She immediately felt another faint ripple of heat across her collarbone, but she ignored it, grabbing the kettle from the top of the stove to pour herself some hot water. "Any calls?"</p>
+<p>Beryl sighed. It was a heavy, deflated sound that made Avery’s stomach drop.</p>
+<p>"The bank called. Miller. He was polite, which is always worse. Says if we don't make the quarterly payment on the hangar lease by Friday, they're going to start the repossession."</p>
+<p>Avery closed her eyes, letting the steam from her mug warm her face. "We have four days."</p>
+<p>"And about three hundred dollars in the operating account," Beryl added gently. "Unless a miracle walks through that door with a fat wallet and a need to fly into the high country, we're done, Avery. I'm sorry."</p>
+<p>"No," Avery said, her jaw tightening. "We are not done. I didn't let that bastard strip me of my life in Vancouver just to lose this. I'll find a client. I'll haul freight for the mining camps. I'll fly timber surveys in a blizzard if I have to."</p>
+<p>"The mining camps have their own contracts, Avery. And the big outfits down south are squeezing out the independents." Beryl looked at her niece, her expression softening. "You've worked yourself to the bone this year. You're exhausted. I see you up at three in the morning, checking the weather maps, drinking cold coffee. You can't keep running on fumes."</p>
+<p>"I have to," Avery said softly.</p>
+<p>She sat down on the squeaking vinyl chair opposite Beryl, cradling her tea. Her body ached. Her lower back was a constant, dull throb from the vibration of the pilot's seat, and her joints felt stiff in the mornings. Sometimes, she felt every single one of her forty-four years. She felt the weight of her failed marriage, the quiet emptiness of her life now that her daughter was off at university in Toronto, and the terrifying realization that she was entirely on her own.</p>
+<p>There was no safety net. No one was coming to save her.</p>
+<p>She looked out the small, frosted window. The runway was a long, white scar cutting through the dark green of the pine forests. Beyond it, the mountains rose like sleeping giants, their peaks jagged and white against the pale sky. It was beautiful, but it was a brutal, unforgiving kind of beauty. It didn't care if she succeeded or failed. It didn't care if she froze.</p>
+<p>Suddenly, the crunch of heavy tires on hard-packed snow broke the silence.</p>
+<p>Avery stood up, peering through the frosted glass. A brand-new, charcoal-grey Ford F-350 had pulled into the gravel lot. It was immaculate, devoid of the mud and salt that coated every local vehicle. The doors were customized, the engine purring with a quiet, expensive power.</p>
+<p>"We expecting anyone?" Avery asked, her pulse spiking.</p>
+<p>"Not unless the tax man bought a sixty-thousand-dollar truck," Beryl muttered, leaning forward.</p>
+<p>The driver’s side door opened, and a man stepped out into the biting cold.</p>
+<p><em></em>*</p>
+<p>Avery’s breath caught.</p>
+<p>He did not look like he belonged in the Yukon. He wore a dark, heavy wool coat that cut a sharp, tailored silhouette against the snow, and leather boots that cost more than Avery’s monthly fuel budget. He wasn't wearing a hat, and the wind stirred his dark, thick hair, which was cut short and neat.</p>
+<p>But he wasn't some delicate city boy. As he turned toward the office, Avery took in the sheer breadth of his shoulders, the solid, heavy frame that carried itself with a quiet, powerful confidence. He was tall—easily six feet two—and he moved with an athletic, easy grace that spoke of strength, energy, and a body that had never known the slow, wearing aches of manual labor but was built for power nonetheless.</p>
+<p>He was young. Not a boy, by any means, but a man in his absolute prime. He looked thirty-four, maybe thirty-five, and the contrast between his youthful vigor and her own lived-in, seasoned maturity felt instantly stark.</p>
+<p>"Well, well," Beryl murmured, a slow grin spreading across her face. "Maybe that miracle just walked in."</p>
+<p>The office door opened, and a gust of freezing air swept into the room, bringing with it the scent of him. He smelled of expensive cedarwood, cold leather, and something uniquely clean, like winter rain on stone.</p>
+<p>He stepped inside, closing the door behind him with a solid click. He paused, his dark eyes scanning the small, cluttered office before settling on Avery.</p>
+<p>For a second, the world seemed to tilt. Avery felt the air leave her lungs. His eyes were a deep, piercing hazel, framed by thick lashes and set beneath a strong, heavy brow. He had a rugged, incredibly handsome face, with a jawline that looked like it had been carved from granite, shadowed by a neat, dark stubble.</p>
+<p>But it was the way he looked at her that made her blood run hot.</p>
+<p>It wasn't the dismissive, looking-past-her glance she usually got from male clients who expected a male pilot. It wasn't the polite, distant respect of a stranger. His gaze was slow, deliberate, and incredibly intense. It swept down her body, taking in her faded flannel shirt, her grease-stained jeans, and her heavy work boots, before coming back up to lock onto her eyes.</p>
+<p>A heavy, electric silence filled the room. Avery felt a sudden, familiar warmth bloom in her chest—but this wasn't a hot flash. This was a deep, liquid heat that pooled lower, in the pit of her stomach, a sensation she hadn't felt in so long she had almost forgotten what it was.</p>
+<p>"Can I help you?" Avery asked, her voice steadier than she felt.</p>
+<p>The man stepped forward, pulling off his leather gloves. His hands were large, his fingers long and strong. "I'm looking for Avery Blackwood."</p>
+<p>His voice was a deep, rich baritone that vibrated through the small room, sending a shiver straight down her spine. It was a voice used to giving orders, a voice that expected to be obeyed.</p>
+<p>"You're looking at her," Avery said, crossing her arms over her chest, trying to shield herself from the sheer force of his presence. "And you are?"</p>
+<p>"Kieran Brooks," he said.</p>
+<p>Avery felt Beryl stiffen beside her.</p>
+<p>Even in the remote Yukon, the name Brooks meant something. Kieran Brooks was the head of Brooks Industries, a massive, ruthless Manhattan-based conglomerate that had been buying up mineral rights across the north. He was a corporate titan, a man known for hostile takeovers and stripping companies down to their bones. He was young, fabulously wealthy, and completely merciless.</p>
+<p>"Mr. Brooks," Avery said, her tone cooling instantly. She knew his type. Power, money, and a belief that everything in the world was for sale. "What brings a Manhattan billionaire to a dirt-floor hangar in Whitehorse?"</p>
+<p>Kieran’s lips curved into a slow, dry smile. It was a dangerous, seductive look that made him look younger, yet somehow more formidable. "I need a pilot. And I was told you're the best bush pilot in the territory."</p>
+<p>"I am," Avery said without hesitation. "But I don't usually fly corporate suits who don't know the difference between a spruce and a pine."</p>
+<p>Kieran took a step closer. The heat radiating from him was palpable, or maybe it was just her own body reacting to his proximity. He was close enough that she could see the gold flecks in his hazel eyes, the faint, intriguing scar just above his left eyebrow.</p>
+<p>"I don't need to know the trees, Ms. Blackwood," he said, his voice dropping to a low, intimate murmur that seemed meant for her ears alone. "I need someone who can fly me into the MacMillan Pass in a blizzard and get me out alive. I'm told you're the only one with the guts to do it."</p>
+<p><em></em>*</p>
+<p>Avery did not back down. She held his gaze, her chin tilted up, refusing to be intimidated by his height, his wealth, or the raw, masculine energy that seemed to fill every inch of the small office.</p>
+<p>"The MacMillan Pass is treacherous this time of year," she said, her voice hard. "The weather changes in seconds. It’s a death trap for anyone who doesn't respect the mountain."</p>
+<p>"I respect the mountain," Kieran said, his eyes locked onto hers. "But more importantly, I respect competence. And I'm willing to pay for it."</p>
+<p>He reached into his breast pocket and pulled out a sleek leather wallet. He drew out a check, pre-signed, and slid it across the laminate desk toward Beryl.</p>
+<p>Beryl looked down at the check, and Avery saw her aunt's eyes widen. Her fingers trembled slightly as she picked it up. She looked at Avery, her face pale, and nodded slowly.</p>
+<p>"Ten thousand dollars," Beryl whispered. "For a three-day charter."</p>
+<p>It was more than enough to cover the hangar lease. It was enough to keep them afloat for the next three months. It was a lifeline.</p>
+<p>But Avery felt a cold dread settle in her stomach. A man like Kieran Brooks did not throw that kind of money around out of the goodness of his heart. He wanted something. He wanted control. And Avery had spent the last year fighting with every breath in her body to ensure no man would ever control her again.</p>
+<p>"Why me, Mr. Brooks?" Avery asked, ignoring the check. "There are bigger outfits in town. Great Northern has a fleet of modern turboprops. They have heated hangars and pilots who wear uniforms."</p>
+<p>Kieran’s gaze did not waver. He stepped even closer, until he was standing right in front of her. The scent of him—that clean, expensive, powerful scent—wrapped around her like a blanket.</p>
+<p>"Great Northern refused to fly," Kieran said. "They said the weather window was too tight. They said it was too risky."</p>
+<p>"And you think I'm stupid enough to take a risk they won't?"</p>
+<p>"I think you need the money," Kieran said softly.</p>
+<p>The honesty of his words was like a slap in the face. It was brutal, direct, and entirely true. He had researched her. He knew she was struggling. He knew about the divorce, the debts, the desperate state of her business. He was using her vulnerability against her.</p>
+<p>Avery’s temper flared, a hot, liquid anger that burned away her hesitation. She stepped into his space, her chest almost touching his. She had to look up to meet his eyes, but she did not feel small.</p>
+<p>"Listen to me, Mr. Brooks," she hissed, her voice low and dangerous. "I don't care how many billions you have in the bank. Up in that sky, I am the captain. My word is law. If I say we turn back, we turn back. If I say we don't fly, we don't fly. You do not command me. You do not buy my judgment. Do you understand?"</p>
+<p>Kieran did not flinch. In fact, his eyes darkened, a sudden, fierce spark of desire flaring in his hazel depths. He looked down at her mouth, his breath warm on her face. Avery’s heart hammered against her ribs, her body betraying her with a sudden, violent throb of anticipation.</p>
+<p>He liked it. He liked that she was fighting him.</p>
+<p>"I understand perfectly, Avery," he said, using her first name for the first time. His voice was a low, rough caress. "I wouldn't have it any other way."</p>
+<p>He held out his hand.</p>
+<p>Avery looked at his palm. It was wide, strong, the skin of a man who was young and powerful, yet there was a hardness to it that surprised her. Slowly, she reached out and took his hand.</p>
+<p>The moment their skin met, an electric shock ran up her arm. His hand was warm, wrapping completely around hers, his grip firm and steady. Her smaller, rougher hand felt alive in his grasp. She felt the calluses on her own palms rubbing against his smooth, warm skin, a contrast that felt intensely, vibrantly sensual.</p>
+<p>She wanted to pull away, but she couldn't. She stood there, frozen, staring into his eyes, her hand clasped in his, feeling the heat of him seep into her bones.</p>
+<p>"We leave in one hour," she said, her voice a little breathless.</p>
+<p>"I'll be ready," Kieran replied, his gaze lingering on her lips for one more second before he let her go.</p>
+<p><em></em>*</p>
+<p>The cold air of the hangar was a relief. Avery stood by the wing of the DeHavilland Beaver, checking the fuel levels with a wooden dipstick. Her hands were shaking, and it wasn't from the cold.</p>
+<p>She could hear Kieran behind her, unloading his gear from the back of his truck. He was moving heavy metal cases with an easy, fluid strength that she couldn't help but watch. He had taken off his heavy wool coat, now wearing a thick, dark grey cashmere sweater that hugged the contours of his chest and shoulders. The fabric clung to his back as he bent over, revealing the play of muscles beneath.</p>
+<p>He was thirty-four. He had his whole life ahead of him, a mountain of wealth and power at his fingertips. And she was a forty-four-year-old divorced pilot with a failing business and a body that felt like it was constantly changing on her.</p>
+<p><em>Why is he looking at me like that?</em> she thought, a sudden wave of insecurity washing over her.</p>
+<p>She wasn't the kind of woman men like Kieran Brooks looked at. She didn't wear makeup, her hair was a sun-bleached brown pulled into a practical ponytail, and her face bore the fine lines of a life lived in the sun and wind. She was mature. She had lived.</p>
+<p>But when he looked at her, she did not feel old. She felt... wanted.</p>
+<p>"Where do you want these?"</p>
+<p>Kieran’s voice broke her out of her thoughts. He was standing right behind her, carrying two heavy aluminum gear cases as if they weighed nothing. He was so close she could feel the heat radiating from his body in the chilly hangar.</p>
+<p>Avery cleared her throat, pointing to the rear cargo door of the plane. "In the back. Secure them with the straps. I don't want anything sliding around if we hit turbulence."</p>
+<p>"Got it," he said.</p>
+<p>He stepped past her, his shoulder brushing against hers. Even through their thick clothing, the contact felt like a spark of electricity. Avery watched him climb into the cargo bay, his long legs disappearing into the dark interior of the plane.</p>
+<p>She followed him, standing at the door to supervise.</p>
+<p>The space inside the Beaver was tight. Kieran was too big for the cabin, his head nearly touching the ceiling as he maneuvered the cases. He knelt on the metal floor, his thighs stretching the dark fabric of his trousers. As he reached up to pull a cargo strap, his sweater rode up, revealing a strip of lean, tanned skin at his waist.</p>
+<p>Avery’s breath hitched.</p>
+<p>She stared at the smooth, hard muscle of his lower back, the way his spine curved as he worked. She felt a sudden, wild urge to reach out and touch him, to run her rough hands over that smooth, warm skin. It was an urge so primal, so intense, it frightened her.</p>
+<p>She had spent years in a marriage where she had been treated like a piece of furniture, a decorative asset to be shown off and ignored in private. She had forgotten what it felt like to want someone this way. She had forgotten what it felt like to be a physical being, a woman with desires of her own.</p>
+<p>Kieran finished securing the cases and turned around. He was still kneeling, placing his face at her eye level. The cargo bay was dim, the only light coming from the open door where she stood.</p>
+<p>His hazel eyes locked onto hers, dark and intense.</p>
+<p>"Is that to your satisfaction, Captain?" he asked, his voice low, a playful but heavy undercurrent running through his words.</p>
+<p>Avery stood in the doorway, her hands resting on the frame. She felt her body warming up again, but she didn't care. She looked down at him, her heart thumping against her ribs.</p>
+<p>"It'll do," she said softly.</p>
+<p>He did not move to get up. He stayed there, looking at her, his gaze dropping to her chest, which was rising and falling with her shallow breathing. He could see how she was affecting him. He could see the flush on her neck, the way her fingers clutched the door frame.</p>
+<p>"You're shivering," he said, his voice softening, a sudden, unexpected warmth in his tone.</p>
+<p>"I'm not cold," Avery said, and it was the truth.</p>
+<p>Kieran slowly stood up, stepping closer to her in the cramped cabin. He had to bend his head slightly to avoid the ceiling. He was so close she could feel the air shifting between them, the heavy, electric pull that seemed to draw them together.</p>
+<p>He reached out. For a second, Avery thought he was going to touch her face. Her breath caught, her eyes widening.</p>
+<p>But he only reached past her to grab the edge of the door, his arm brushing against her side.</p>
+<p>"Let's get this show in the air," he murmured, his eyes holding hers for one more long, burning moment before he climbed down onto the snowy hangar floor.</p>
+<p>Avery stood in the cabin, her heart racing, her skin tingling where he had brushed against her. She looked out at the cold, white horizon of the Yukon, the mountains waiting for them in the distance.</p>
+<p>She was walking into a storm, she knew that. But as she watched Kieran walk toward the copilot's seat, she realized the real danger wasn't the weather.</p>
+<p>It was the fire he had just lit inside her.</p>
+<p><em></em>*</p>
+<p>The takeoff was rough. The wind was howling down the valley, throwing sheets of dry, powdery snow across the runway. Avery sat in the pilot's seat, her hands firm on the yoke, her feet working the rudder pedals with practiced ease.</p>
+<p>Beside her, Kieran sat quiet, his long legs cramped into the small copilot’s space. He wasn't looking at the instruments; he was looking at her.</p>
+<p>"Hold on," Avery called out over the roar of the engine.</p>
+<p>She pushed the throttle forward. The Beaver surged, the old radial engine screaming as it fought the drag of the snow. The plane bumped and rattled, the skis sliding over the ice, before the lift took hold and they broke free of the earth.</p>
+<p>The ground fell away, a white, frozen wilderness opening up beneath them.</p>
+<p>Avery leveled the plane, setting their course toward the dark, jagged teeth of the mountains. The air was turbulent, the plane bouncing in the updrafts. She held the yoke steady, her forearm muscles tensing under her sleeve.</p>
+<p>"You're good," Kieran said through the headset, his voice clear and deep in her ears.</p>
+<p>"Of course I'm good," Avery replied, not looking at him. "I told you, I'm the best."</p>
+<p>"I like a woman who knows her worth," Kieran said.</p>
+<p>There was a heavy, intimate weight to his words that made her throat dry. She looked over at him. He was leaning back in his seat, his gaze relaxed but intense, studying her profile.</p>
+<p>"Why are you really going to the MacMillan Pass, Kieran?" she asked, using his name for the first time. "A man like you doesn't risk his life in a bush plane just to look at some rocks."</p>
+<p>Kieran’s smile faded, his expression turning serious. "There's a gold deposit up there. The largest untapped vein in the territory. My competitors want it. I want it more."</p>
+<p>"And you don't care who you have to step on to get it?"</p>
+<p>"I do what needs to be done," he said simply. "That's how you survive."</p>
+<p>"That's not survival," Avery said, her voice quiet. "That's greed."</p>
+<p>Kieran looked at her, his eyes searching her face. "And what about you, Avery? Why are you still here? You could sell this plane, go back to Vancouver, live a comfortable life. Why stay in the cold?"</p>
+<p>Avery looked out the window at the vast, empty sky, the white mountains stretching out as far as the eye could see.</p>
+<p>"Because down there, I was nothing," she said, her voice thick with emotion. "I was a wife, a hostess, a shadow. Up here, I'm free. Nobody owns me. Nobody tells me who to be."</p>
+<p>She looked back at him, her eyes fierce and proud.</p>
+<p>"I'd rather freeze to death up here than go back to being a ghost."</p>
+<p>Kieran stared at her, his expression unreadable. But there was something in his eyes—a deep, burning respect, a raw admiration that made her chest tighten. He did not see a struggling, middle-aged woman. He saw a survivor. He saw a warrior.</p>
+<p>He reached out, his large, gloved hand resting on the center console, just inches from hers.</p>
+<p>"I don't want to own you, Avery," he said softly through the static of the headset. "I just want to see how high you can fly."</p>
+<p>The words hung in the air, heavy and loaded with a promise that made her blood run hot.</p>
+<p>Ahead of them, the mountains loomed, dark and majestic, a cold horizon waiting to be conquered. Avery gripped the yoke, her heart wild and free, and flew straight into the storm.</p>
+<p>Cold didn't care about leather. The socket wrench bit straight through Avery Copeland's work gloves, icy and relentless. She leaned her entire weight into the tool, bracing her boots against the aluminum stepladder. A hard yank. The stubborn bolt on the Cessna’s engine cowling finally gave way with a sharp, metallic crack. Avery let out a long, ragged breath that blossomed into a ghost of steam in the drafty hangar.</p>
+<p>Forty-four wasn't old, but the Yukon winters had a way of adding interest to every past injury. A heavy, dull ache throbbed across her shoulder blades—yesterday’s souvenir from hauling fuel drums across frozen gravel. She didn't mind it. It was a clean sort of pain. Honest. She’d earned every single ache keeping Copeland Air aloft in a country that actively tried to kill anything stupid enough to stay.</p>
+<p>She smeared grease across her cheek with her sleeve, tucking a stray lock of silver-streaked hair behind her ear. The hangar was too quiet. Ever since Wren had boarded the flight to Vancouver for college three months ago, the silence had a weight to it. The cabin up on the ridge was worse. No floorboards vibrating with bass. No half-dead mugs of herbal tea abandoned on the windowsills. Just... nothing. Nineteen years of living entirely for someone else, suddenly hollowed out. Shrunk down to a single pair of boots clicking on concrete.</p>
+<p>Avery liked the quiet. Or she lied to herself and said she did. It kept things simple.</p>
+<p>The latch on the side door slammed. The hangar door shrieked open, throwing a spray of dry, needle-sharp snow across the floorboards. The wilderness rushed in with it—the sharp sting of crushed spruce, frozen granite, and the iron smell of an incoming blizzard.</p>
+<p>And then came the man.</p>
+<p>He didn't ask permission to be there; he just occupied the space like he owned the deed. Avery didn't budge from her ladder. She kept her wrench in her hand and watched him pull off a pair of shearling-lined gloves. His hands were pale and clean. No calluses. No grease under the nails. A city man's hands, yet they didn't look soft.</p>
+<p>He wore a dark, tailored overcoat that probably cost more than her fuel dock’s entire winter inventory. His boots were pristine leather, the kind of designer gear meant for walking from a town car to a heated lobby, not wading through northern slush. Under a heavy, dark brow, his eyes were cold as slush—a sharp, critical gray that mapped the hangar in three seconds flat before locking onto her.</p>
+<p>"You Avery Copeland?" His voice had the fast, clipped edge of New York. Impatient. Unused to waiting.</p>
+<p>Avery stayed on her rung. Why give up the three feet of height? "I am. And you're tracking snow onto my floor."</p>
+<p>He didn't apologize. Instead, he reached into his inner coat pocket, pulled out a heavy cardholder, and flicked a gold-lettered card onto her workbench. "Heath Radcliffe. I need a pilot."</p>
+<p>Avery glanced down at the card, then back up. Heath Radcliffe. The name had been rattling around the local radio broadcasts all week—some high-finance shark who’d bought out the majority shares of the Blackwood mine. Up close, the corporate-predator label fit. He had a hard, blunt jaw shadowed by a day's worth of dark stubble, and his mouth was a flat, tight line. He looked like something built in a factory to break things.</p>
+<p>"Mr. Radcliffe," Avery said, resting her forearm on the cowling. "The hangar is closed. There's a wall of white rolling in from the pass, and nothing with wings is leaving Whitehorse today."</p>
+<p>Radcliffe took three long strides and stopped at the base of her ladder. Up close, he smelled of expensive cedar wood, cold wool, and the kind of high-end cologne that didn't belong within five hundred miles of the Yukon.</p>
+<p>"I didn't ask for a weather report, Ms. Copeland. I need a flight to the Blackwood Ridge lodge. There's a board meeting tomorrow at dawn. If I'm not on that mountain, a three-hundred-million-dollar buyout falls apart."</p>
+<p>"Then let it fall apart," Avery said. She took one step down the ladder, putting her eyes right at his level.</p>
+<p>He had tight, exhausted lines bracketed around his eyes and a tense pulse ticking in his temple. He was clearly a man who got his way by raising his voice or writing a check. But Avery had spent twenty years flying through mountain gaps that didn't care about his net worth.</p>
+<p>Their eyes locked. The air between them went instantly still, thick and heavy. It wasn't the usual irritation she felt with pushy tourists. It was something sharper. More electric. His gaze dropped for a split second, tracking the line of her throat down to the open collar of her flannel shirt, before snapping back to her eyes.</p>
+<p>Avery felt a sudden prickle of heat under her collar. It had been a long time since anyone had looked at her like that—not as a reliable local mechanic, not as Wren's tired mother, but simply as a woman.</p>
+<p>She swallowed hard, refusing to let him see she was rattled. "The canyon is already a washing machine of snow. Wind shear is hitting forty knots at the ridge. My Cessna can take a beating, but I don't fly suicide missions."</p>
+<p>Radcliffe took another step. He was close enough now that she could feel the heat radiating off his wool coat. "Ten thousand dollars."</p>
+<p>Avery let out a dry bark of a laugh. "No."</p>
+<p>"Fifteen."</p>
+<p>"You don't get it, do you?" She stepped down from the last rung, landing right in his space. Even with her thick-soled boots, he towered over her. "Out here, your money doesn't buy the barometric pressure. It doesn't stop the ice from freezing our wings. If we engine-stall in that pass, we don't get a late fee. We freeze to death in thirty minutes. And nobody finds our bones until May."</p>
+<p>"I've spent my entire life betting against the odds, Ms. Copeland," Radcliffe said, his voice dropping to a quiet, rough murmur. "I don't lose. And I don't hide in a hangar."</p>
+<p>"Then you're a fool," she shot back, her pulse hammering. It felt good to say it. For nineteen years she’d been the sensible one, the cautious mother, the reliable pilot who never took risks. Fighting this arrogant bastard felt like throwing a match into a dry forest. "A rich, stubborn fool who thinks his checkbook can override aerodynamics."</p>
+<p>Radcliffe’s eyes tracked down to her lips, then slowly back up. He didn't look angry at all. If anything, his mouth twitched with something like amusement. "You're not afraid of me."</p>
+<p>"I've flown through active volcanic ash clouds, Mr. Radcliffe. A man in a four-thousand-dollar coat doesn't even make my top ten."</p>
+<p>A slow, crooked smile broke through his stubble. It completely changed his face, taking the cold, corporate edge off him and replacing it with something far more dangerous: charm. "Good. I hate dealing with people who scare."</p>
+<p>He reached out, his bare fingers brushing the heavy canvas of her sleeve. It was a brief, light touch, but Avery felt it all the way down to her heels.</p>
+<p>"Twenty-five thousand," Radcliffe murmured, leaning in just enough that she could feel the heat of his breath. "Half now, half when the skids touch the snow. You fly me up. If it's truly impossible, you make the call to turn back. But we try."</p>
+<p>Avery stared at him. Twenty-five grand. That was half a year's income in the off-season. It would cover Wren’s tuition for the next two semesters and pay for the overhauled cylinder heads she’d been putting off.</p>
+<p>But it wasn't just the money, and she knew it.</p>
+<p>She looked at Heath Radcliffe. He wasn't looking at her like she was a tired, middle-aged bush pilot struggling to keep her head above water. He was looking at her like she was a mountain he wanted to climb.</p>
+<p>Her chest tightened, her pulse drumming a fast, forgotten rhythm. She felt alive. Actually alive, for the first time since she’d watched the taillights of Wren’s bus disappear down the highway.</p>
+<p>"Three conditions," Avery said, her voice dropping to a flat, hard clip.</p>
+<p>"Name them."</p>
+<p>"First, we load the heavy survival gear. Extra arctic bags, rations, and the emergency locator. If we go down, we go down prepared."</p>
+<p>"Agreed."</p>
+<p>"Second," she stepped closer, her chin up. "The second I say we turn back, we turn back. No arguments. No threats of lawsuits. You sign the liability waiver before we pre-flight."</p>
+<p>"Done," Radcliffe said, his gray eyes narrowing. "And the third?"</p>
+<p>"In that cockpit, I am God," she said, looking him dead in the eye. "You don't speak unless I ask you a question. You don't touch the controls. And you remember that your money stops working the second our wheels leave the dirt."</p>
+<p>Radcliffe’s jaw tightened. A slow, dark intensity flared in his eyes—the look of a man who loved a challenge more than he loved winning. He gave a single, slow nod.</p>
+<p>"Understood, Captain," he said.</p>
+<p>Avery held his gaze for one more second before she turned back to her workbench, her fingers slightly less steady than she liked as she grabbed her pre-flight clipboard.</p>
+<p>"Get your bags, Mr. Radcliffe," she said, her voice crisp. "We tax out in twenty minutes."</p>
+<p>The metal started screaming in Willa’s heels before she felt it in her teeth.</p>
+<p>It wasn’t the steady, fat thrum of the Beaver's radial engine. This was a wet, grinding shudder. A rhythmic choking through the floorboards, straight up into her thighs.</p>
+<p>"Willa?"</p>
+<p>Graham’s voice was too quiet. Back in Seattle or Chicago or wherever he ran his boardrooms, a whisper like that probably made people scramble. Out here? Suspended in a bucket of bolts inside a whiteout over the Yukon? He was just a guy with cold feet and too much money. His long legs were cramped into the co-pilot’s side, his knuckles white where he gripped the instrument panel.</p>
+<p>"I hear it," Willa said.</p>
+<p>She didn't look at him. Looking away from the instruments right now was a quick way to die.</p>
+<p>The world outside the windshield was gone. The blizzard had swallowed the ridges ten minutes ago, turning the sky into a thick, swirling bucket of milk. She was forty-four, and she’d spent twenty of those years flying these valleys, hauling oil drums, canned goods, and rich tourists who thought a platinum card could buy off the weather. She had survived engine hiccups before, but this sound—this low, metal-on-metal screech—was different. It sounded like the end.</p>
+<p>The oil pressure needle didn't just drop; it fell like a stone.</p>
+<p>"Hold on," she muttered.</p>
+<p>She gripped the yoke. Her knuckles were raw, split wide from twenty winters of cold hangar air and aviation fuel. No fancy manicures here. Just scarred, ugly hands. But they were the only things keeping them from becoming a grease spot in the black spruce below.</p>
+<p>The engine coughed. It spat a greasy black smear across the side window. Then, it died.</p>
+<p>The silence was heavy. It pressed against her eardrums. Just the hiss of the wind through the struts. A high, mocking whistle.</p>
+<p>"We’re gliding," Graham said.</p>
+<p>He wasn’t asking. He was staring at the altimeter, watching the needle spin backward.</p>
+<p>"We are," she said. She pulled her headset down around her neck. Her brain was already running through the map she’d kept in her head for half her life. "There’s a flat shelf about a mile ahead. An old forestry strip. Overgrown, but it’s what we’ve got. I’m dropping the skis."</p>
+<p>"Can you see it?"</p>
+<p>"No," she said. "But I know it’s there."</p>
+<p>She saw his face out of the corner of her eye. His jaw was locked. He was a good-looking guy—the kind who usually had a smirk pasted on his face because life had never told him no. Now his eyes were wide, dark, and hollowed out with pure terror. He wasn't looking at her like a hired pilot anymore. He was looking at her like she was the only thing between him and the ground.</p>
+<p>"I trust you," he whispered.</p>
+<p>It felt strange. Hot. A sharp jolt right down her back, cutting through the cold. It had been a long time since anyone had looked at her that way. Her ex certainly hadn't. He’d spent their last three years together telling her she was too hard, too stubborn, too set in her ways.</p>
+<p>"Keep your harness tight," she barked.</p>
+<p>She pushed the nose down. Keep the speed up. Don't stall. The whiteout swirled, a blinding, chaotic mess. Her shoulders, stiff with the dull ache of a forty-something back, strained against the controls. She didn't have the easy bounce-back energy of her twenties anymore. But she had grit. She had a deep, bitter stubbornness that wasn't going to let this mountain have her.</p>
+<p>Then, the black, jagged tops of the trees broke through the white directly below.</p>
+<p>"Brace!"</p>
+<p>She yanked the yoke back, flaring at the last second. The skis hit the drifts with a bone-shattering slam. The Beaver bounced, floated for one horrible, silent second, then came down hard. The left wing caught a drift. The world spun—a dizzying whirl of white, gray, and screaming metal—and then they stopped.</p>
+<p>Silence returned. Only the sound of their own ragged breathing.</p>
+<p>Willa let out a long breath. Her hands shook as she cut the fuel and the master switch. She turned. Graham was staring straight through the windshield, his chest heaving under his fancy coat.</p>
+<p>"You alive, city boy?"</p>
+<p>He turned his head. The terror in his eyes broke, replaced by something warm and sharp that made her stomach dip. "You’re a miracle worker," he said.</p>
+<p>"Not yet," she said, fumbling with her harness. Her fingers were stiff. "We’re down, but the plane is dead, and the storm is just warming up. We have to move."</p>
+<p><em></em>*</p>
+<p>The cold hit them the second she cracked the door. It wasn't just cold; it was a physical blow. It took the breath right out of her lungs. It was thirty below, easily, and the wind was driving snow like tiny glass needles.</p>
+<p>She dragged the heavy survival pack from the back. Graham reached for it, but she shoved him away.</p>
+<p>"I carry my own weight, Graham. Just grab the snowshoes from the rack."</p>
+<p>He didn't argue. The big-shot businessman was gone. He followed her out into the drifts, his leather boots sinking up to his thighs. He stumbled, his face turning pale as the air stole his body heat.</p>
+<p>"Stay in my tracks!" she yelled over the roar. Her hair had escaped her cap, dark strands mixed with silver whipping across her eyes. She didn't care about the gray. Out here, those gray hairs meant she had survived every stupid thing she’d ever done. "There’s a ranger cabin about a quarter-mile into the trees. We stay in the plane, we freeze. Simple as that."</p>
+<p>It was a brutal, slow-motion crawl. The snow got into their eyes and noses. Willa’s lungs burned. Her knees clicked with every heavy step, but she kept going.</p>
+<p>Behind her, Graham was fading. His breath was a dry rattle. He fell twice, face-first into the powder. Both times she turned around, grabbed his collar, and hauled him back up.</p>
+<p>"Come on," she muttered, her face inches from his. His eyes were glassy, his lips a soft, bruised blue. "Don't die on me. I have a business to run."</p>
+<p>"Wouldn't dream of it," he whispered, his jaw shaking so hard he could barely get the words out.</p>
+<p>The dark shape of the cabin appeared through the gray trees. It was small, old, its roof sagging under a heavy mattress of snow, but it looked like a palace.</p>
+<p>Willa threw her weight against the door, breaking through the drift on the threshold. They stumbled inside, and she slammed it shut, dropping the heavy wooden bar across the frame.</p>
+<p>It was quiet, but the air inside was just as freezing.</p>
+<p>Graham slid down the wall, collapsing onto the dusty floorboards. He was shaking so hard his teeth rattled like dice. Willa dropped her pack and got down beside him, touching his cheek. Cold as ice.</p>
+<p>She glanced around. There was an iron stove in the corner, but the chimney was choked with solid ice. No chimney draft meant a room full of blinding smoke.</p>
+<p>"We can't use the stove," she said, her own voice starting to shake. The adrenaline was wearing off, leaving her shivering. "The pipe is frozen solid. We have to use the emergency bag."</p>
+<p>She tore open the pack and pulled out the heavy, double-lined down sleeping bag.</p>
+<p>There was only one.</p>
+<p>"We’re going to have to share it," she said, looking at him.</p>
+<p>Graham nodded, his head jerking. "Whatever... whatever you say, Captain."</p>
+<p>"We need to get out of these clothes," she said, her voice dropping. "The sweat on your skin will freeze. We go down to our base layers."</p>
+<p>He hesitated. Just for a second. Then she saw it—that sudden, sharp shift in his eyes. A sudden awareness of how small the cabin was, how dark it was, and how they were completely alone.</p>
+<p>Willa didn't wait. Modesty was a luxury for people who weren't freezing to death. She unzipped her heavy flight jacket and let it drop. Then her flannel shirt, leaving her in a black thermal top that hugged her body. She wasn't a girl anymore. Her waist didn't curve like a model’s, and her breasts sat heavier, but she was solid, strong, and very much alive.</p>
+<p>She caught him looking. Even through his shivering, his gaze was locked on her, thick and dark.</p>
+<p>He tried to unbutton his shirt, but his fingers were useless blocks of wood. Willa knelt in front of him, pushing his hands away.</p>
+<p>"Let me," she whispered.</p>
+<p>She worked the buttons. Her warm fingers brushed his chest. Under the layers, he was built well—solid, broad shoulders, the body of a younger man who took care of himself. But he was trembling.</p>
+<p>She helped him slide out of the sleeves, her hands sliding over his arms. His pulse was jumping under his skin.</p>
+<p>"You’re freezing," she said.</p>
+<p>"Not anymore," he murmured, his eyes fixed on hers.</p>
+<p>She pulled her thermal pants off, leaving her in just her underwear and top, and helped him do the same. Willa unzipped the big down bag and crawled inside, the cold lining making her skin goosebump.</p>
+<p>"Get in," she said.</p>
+<p><em></em>*</p>
+<p>He slid in beside her. She pulled the zipper tight, locking them in.</p>
+<p>The heat was instant, and so was the shock of it.</p>
+<p>There was no room to move. They were pressed together from chest to toe. Graham’s long legs tangled with hers, his cold skin brushing her thighs. He groaned, a low, shaky sound, and buried his face against her neck.</p>
+<p>"God, you’re warm," he muttered.</p>
+<p>Willa wrapped her arms around him, pulling his chest against her. She felt every line of him—the hard muscle of his ribs, the soft curve of her own body pressed flat against him. For years, she had felt like a ghost, a middle-aged pilot running a struggling company in a corner of the world nobody cared about. But right now, she felt real. Extremely real.</p>
+<p>"Just breathe," she whispered, rubbing his back. His hair was damp and soft under her fingers. "Let the bag do the work."</p>
+<p>The shivering stopped. The heat built up inside the heavy down, creating a small, private world while the storm rattled the window glass outside.</p>
+<p>Then, the mood changed.</p>
+<p>Every rise and fall of his chest rubbed against her skin. Her nipples hardened against the thin fabric of her top. She knew he could feel it.</p>
+<p>Graham pulled back just enough to look at her. In the dim, gray light, his eyes were incredibly dark.</p>
+<p>"I’ve never met anyone like you, Willa," he said, his voice deep and rough. "You saved my life. You didn't even hesitate."</p>
+<p>"It’s my job," she said. Her breath was coming shallow now.</p>
+<p>"No, it’s not," he said. He reached up, his hand warm now, and cupped her face. His thumb moved over her cheekbone, slow and gentle. "You’re fierce. You’re real. In my world, everyone is wearing a mask. But you... you’re the realest thing I’ve ever touched."</p>
+<p>Her heart hammered. "Graham, I’m ten years older than you. I’ve got grease under my fingernails and a stack of bills I can’t pay. I’m not some dream."</p>
+<p>"You’re exactly what I want," he whispered.</p>
+<p>He leaned down and kissed her.</p>
+<p>It wasn't a gentle, polite kiss. It was hungry. Desperate. Full of the adrenaline of almost dying. Willa gasped, and he moved closer, his tongue sliding into her mouth, tasting of salt and heat.</p>
+<p>She groaned, her hands climbing his back, her fingers digging into his shoulders. She pulled him down, wanting the weight of him. It had been so long since anyone had touched her like this. Not like she was a chore, or a habit, but like she was something valuable.</p>
+<p>Graham’s hand slid down her side, tracing the curve of her hip. He didn't care about the soft parts; his grip tightened, his fingers pressing into her skin with a heat that made her whimper.</p>
+<p>"You are so beautiful," he murmured against her lips.</p>
+<p>He pulled her top up, his warm palms finding her bare skin, cupping her breasts. Willa arched into his touch, a soft sound escaping her throat as his thumbs brushed her nipples. A sharp, sweet ache pooled low in her belly.</p>
+<p>"Graham," she breathed.</p>
+<p>"Let me," he pleaded, his eyes dark with it. "Please."</p>
+<p>She didn't use words. She reached down, her hand sliding inside his boxers, wrapping her fingers around him. He was hot, hard, and thick in her palm. He gasped, his head falling back against the survival pack as she moved her hand in a slow, steady stroke.</p>
+<p>"Willa..."</p>
+<p>He kicked his underwear free, and she slid hers down, until there was nothing left between them but skin and heat.</p>
+<p>She parted her thighs, and he settled between them. The tip of him brushed against her, wet and ready. She let out a ragged breath. She was slick, her body aching for him with a raw, simple need.</p>
+<p>He paused, looking down at her, his chest heaving. He was waiting, giving her the choice, letting her call the shots.</p>
+<p>"Yes," she whispered, looping her arms around his neck. "Now, Graham."</p>
+<p>He pushed forward, sliding slowly and deeply inside her.</p>
+<p>Willa’s eyes closed as her body stretched to take him in. The fullness of him filled her up, a throbbing weight that made her lift her hips to meet him. He groaned—a deep, thick sound—and began to move.</p>
+<p>The friction was intense. In the tight space of the bag, every touch was amplified. The smell of them—musk, skin, and cold air—filled the tiny cocoon.</p>
+<p>Graham found a heavy, rolling rhythm, his hips pressing hard against hers. Willa lost herself in the rhythm. She wasn't thinking about the crashed plane, or the storm, or her bank account. She was just this heat, this man, this life.</p>
+<p>"Look at me," Graham whispered, his voice tight.</p>
+<p>She opened her eyes, meeting his gaze.</p>
+<p>"I want to see you," he muttered, his pace quickening. His thrusts went deeper, harder.</p>
+<p>Willa gripped his hips, her nails sinking into his skin. The tension inside her wound tighter and tighter, a brilliant, hot knot ready to break. Her thighs trembled.</p>
+<p>"Graham... I’m going to..."</p>
+<p>"Go," he growled, his movements turning frantic. "Come for me, Willa."</p>
+<p>With a hard, deep push, she broke. The release shattered through her, a wave of pure heat that made her cry out, her body tightening around him in fierce, squeezing pulses. The sight of her coming was the last straw; with a low groan, Graham drove deep one last time, his body going rigid as he came, his heat flooding her as they clung to each other in the dark.</p>
+<p><em></em>*</p>
+<p>The wind still howled outside, but inside the down bag, it was quiet and warm.</p>
+<p>Willa rested her head on his chest, listening to the slow, steady beat of his heart. His arm was wrapped around her shoulder, his fingers tracing lazy circles on her bare arm.</p>
+<p>For the first time in years, the quiet didn't feel lonely.</p>
+<p>She looked up. He smiled down at her—a real, soft smile that had nothing to do with boardrooms or money.</p>
+<p>"We’re going to be okay," he said, kissing her forehead.</p>
+<p>Willa smiled, resting her face against his chest. They still had a long way to go. The rescue crews wouldn't find them until the storm cleared, and they had a freezing night to get through. But looking at the man holding her, and feeling the steady, strong beat of her own heart, she knew she’d never been more ready.</p>
+<p>The wool blanket was scratchy, smelling of old cedar and wet dirt. Rowan Croft dragged her thumb along the window frame. A razor-thin hiss of freezing air slipped through the rotting pine, biting at her skin.</p>
+<p>"Hand me the caulking cord," she said, her voice dry.</p>
+<p>Rhys Mercer didn't move. He stood by the small wood stove, staring at its rusty, cast-iron belly as if he could solve the thing with a hard look. His expensive wool coat already had soot on the cuffs. The fine leather of his city boots looked ridiculous against the rough floorboards. But he didn't complain. He reached into the canvas tool bag, pulled out the gray, clay-like strip, and stepped over.</p>
+<p>His fingers brushed hers. His skin was warm. Infuriatingly so. Her own hands were stiff, the joints throbbing with that deep, aching winter chill that had started settling into her bones.</p>
+<p>Forty-four wasn't ancient. Not even close. But the Yukon adds miles to a body, and Rowan felt every single one of those miles today. Her lower back burned from stacking firewood. Her knees ground in quiet protest as she knelt to stuff the gray putty into the drafty seam.</p>
+<p>"You're shivering," Rhys said.</p>
+<p>His voice had that low, quiet pitch. Back in Vancouver, it probably commanded boardroom tables. Out here, with miles of frozen spruce pressing in from all sides, it just sounded crowded. Too close.</p>
+<p>"I'm fine," she muttered. She shoved the putty into the crack with the heel of her hand. "You want to freeze tonight, Mercer? Because if we don't seal this wall, the wind off the ridge will turn this cabin into a freezer by midnight."</p>
+<p>"I don't plan on freezing," he said. He knelt beside her.</p>
+<p>The scent of him hit her—rich leather, cedar, and something clean and expensive. It belonged in a high-rise, not here, but it completely wiped out the smell of the damp wool. He took the putty from her.</p>
+<p>"Show me. My hands are bigger. I can press it deeper."</p>
+<p>Rowan watched him. At thirty-four, Rhys had a lean, hard edge to him. He wasn't soft. He didn't have that lazy comfort of people born into money. He was built like a man who ran miles on city asphalt before dawn and fought for every scrap of ground he owned. He had a hunger in his eyes. A restless, desperate drive she recognized because she'd had it once, too. Before the corporate grind stripped her gears and sent her running north.</p>
+<p>"Like this," she said, her voice dropping. She reached out and guided his hand, pressing her fingers over his knuckles to align them with the drafty gap. "Don't just push it. Wedge it in. You have to fill the gap, not just plaster over it."</p>
+<p>Rhys stopped. His hand stayed flat under hers. He looked up, his dark eyes locking onto her face. There was no smirk. No smug pity for her faded flannel shirt or the gray streaks running through her dark braid. He just looked at her. Heavy, deliberate. It made the breath catch in her throat.</p>
+<p>"Like this?" he murmured. His thumb slid against her palm as he worked the cord into the wood.</p>
+<p>"Yes," she whispered.</p>
+<p>She pulled her hand back a second too late. The skin where they'd touched tingled. A sudden, sharp spike of heat bloomed right beneath her collar. It wasn't a hot flash. She knew those. This was a direct, electric jolt of awareness. It made her feel twenty years younger. It made her feel dangerous.</p>
+<p>She stood up fast, wiping her hands on her jeans. "I'll check the food."</p>
+<p>The kitchen was nothing but a plywood counter, a dry sink, and two pine shelves. Rowan ran her fingers over the dusty cans. Pork and beans. A half-empty sack of flour. A small jar of dried moose meat her daughter, Carys, had packed before leaving for college.</p>
+<p>Thinking of Carys brought the real world crashing back. Rowan had spent the last five years pulling double shifts, flying sketchy charter routes through blinding snowstorms, all to pay off the predatory loans keeping Carys in school and their little hangar running. And here was Rhys Mercer. The literal face of the venture capital firm trying to take her DeHavilland Beaver.</p>
+<p>He was the enemy. Simple as that. He was the guy who looked at her life, her hard-won independence, and saw a red line on a spreadsheet to be wiped clean.</p>
+<p>"We have enough for three days," Rowan said, her voice turning cold as she turned around. "Four if we stretch it. If the storm doesn't break and the radio stays dead, we have a real problem."</p>
+<p>Rhys stood up, brushing the sawdust from his knees. He looked at the meager cans on the counter. "I've survived on less."</p>
+<p>"What, in a penthouse with room service?" She couldn't keep the venom out of her voice.</p>
+<p>"In a two-bedroom apartment with five other guys," he said. His voice was dead even. His eyes locked onto hers. "Don't assume you know my life, Rowan. I didn't inherit a dime. I fought for it. Every single inch."</p>
+<p>The raw honesty of it shut her up. She wanted to snap back, but his face stopped her. He wasn't bragging. He was just stating a fact.</p>
+<p>"We need more wood," she said, looking at the woodbox by the door. It was empty. "The pine out back is frozen, but it's dry. We need to split enough to keep the stove hot through the night."</p>
+<p>"I'll do it," Rhys said.</p>
+<p>"You don't know how to split wood, Mercer. You'll take your foot off with the axe."</p>
+<p>"Then show me," he said, taking a step closer. The room felt smaller. The air between them grew warm again. "I learn fast."</p>
+<p>The air outside was brutal. It hit them like a slap, freezing the breath in Rowan’s nose the second they cleared the porch. The sky was the color of dirty slate, heavy with snow. The wind screamed through the tops of the spruce trees—a low, warning roar.</p>
+<p>Rowan walked to the chopping block, her boots crunching on the hard pack. She picked up the splitting maul. It was heavy. Five pounds of forged steel, the hickory handle worn smooth and dark by her own palms.</p>
+<p>"Watch my feet," she told him, planting her boots wide.</p>
+<p>Her shoulders ached, a deep, pulling strain, but she ignored it. She swung the maul high over her head. She let the weight of the steel do the work, bringing it down with a sharp, clean <em>crack</em> into the center of a frozen pine log. The wood split wide, the two halves falling into the snow with heavy thuds.</p>
+<p>She did it again. Fluid. Easy. A rhythm she’d kept for two decades. There was an honest beauty to it—just effort and survival.</p>
+<p>She looked up. Rhys was watching. Not the wood. He was watching her shoulders, the line of her back, the way her chest rose and fell with each breath. There was a raw, heavy look in his eyes that made her feel completely bare.</p>
+<p>"Your turn," she said, her voice tight from the work. She handed him the maul.</p>
+<p>Rhys took the handle. He stepped up to the block, his shoulders stiff as iron. He swung, but he was too rigid. The blade clipped the edge of the wood, sending a jarring shock straight up his arms. He winced.</p>
+<p>"Too stiff," Rowan said, stepping in. She forgot the danger. She forgot the bank, the debt, the divide between them. There was only the tool and the wood. She reached around him, her front brushing his back as she gripped his hands on the hickory handle. "Relax your shoulders. Let the head of the axe fall. Don't force it."</p>
+<p>Rhys went completely still. She felt his muscles bunch, felt his breath catch. He was solid. A wall of pure heat in the freezing air.</p>
+<p>"Like this?" he asked, his voice rough.</p>
+<p>"Yes," she whispered. Her face was so close to his neck she could feel the heat radiating off his skin. "Now. Down."</p>
+<p>He swung. The maul hit dead center. The pine log split with a loud, satisfying snap.</p>
+<p>"Perfect," she said, starting to step back.</p>
+<p>But her boot caught. A patch of black ice, polished smooth by the wind, lay hidden under the light snow. Her foot slid. Her balance was gone in a fraction of a second.</p>
+<p>"Rowan!"</p>
+<p>Rhys dropped the maul. Before she hit the frozen dirt, his arm shot out, catching her around the waist. He yanked her hard against him, digging his boots into the snow to take her weight.</p>
+<p>The impact knocked the wind out of her. She was flushed against his chest, her hands bunching the lapels of his heavy coat.</p>
+<p>The world went dead silent, except for the wind in the trees.</p>
+<p>His grip was like iron, his arm locked around her lower back, holding her so tight she could feel the hard, fast thud of his heart. He was breathing heavily, his face inches from hers. Their breath mingled in white clouds of steam, drifting away in the wind.</p>
+<p>Rowan looked up. His dark eyes were wide, dilated, fierce. His gaze dropped to her mouth. She saw his jaw tighten.</p>
+<p>She should have pulled away. Every survival instinct she’d built over forty-four years told her to get back, to set the boundary, to remember who this man was. He was the threat. But she couldn't move. The sheer physical weight of him, the absolute certainty of his strength holding her up, held her still.</p>
+<p>It had been so long since anyone had held her. So long since she’d been allowed to fall, allowed to be weak, even for a second. She’d had to be the strong one for Carys. The strong one for the hangar. The strong one against the winters and the debt and the empty house.</p>
+<p>"Are you hurt?" Rhys asked. His voice was low, rough, dangerous.</p>
+<p>"No," she breathed, her lips parting.</p>
+<p>He didn't let go. His hand slid slowly up her back, his gloved fingers cradling her neck, tilting her head back. His thumb brushed her cheek, gentle despite the thick leather.</p>
+<p>"You're beautiful," he murmured.</p>
+<p>A dry, quiet laugh slipped out of her. "Rhys, I'm forty-four. I've got crow's feet. My knees ache. I'm—"</p>
+<p>"I don't care about your knees, Rowan," he interrupted, his voice dropping into a low, heavy register that made her chest ache. He leaned down, his forehead resting gently against hers. "I see you. I see how hard you fight. I see what you carry. You are the most magnificent woman I've ever met."</p>
+<p>The words cut right through her defenses like a blade through rotten wood. Her eyes stung with a sudden, hot wave of moisture.</p>
+<p>He leaned closer, his eyes closing, his lips parting. The heat coming off him was an invitation, promising a break from the cold, promising a surrender she wanted more than her next breath.</p>
+<p>Their noses brushed. She felt his breath on her lips.</p>
+<p>Then, the image of Carys's tuition bill flashed in her mind. The blue logo of Mercer Financial on the foreclosure notice. The cold, sterile letters that had landed in her mailbox three weeks ago. Signed by his office.</p>
+<p><em>He owns you,</em> the voice inside her whispered. <em>If you give him this, if you let him in, you lose the only thing you have left. Your pride. Your survival.</em></p>
+<p>With a sharp, desperate shove, Rowan pushed against his chest.</p>
+<p>Rhys let her go immediately. His hands dropped to his sides, though his eyes stayed locked on her, dark and restless.</p>
+<p>Rowan stumbled back, her chest heaving. She yanked her parka straight, her fingers shaking so badly she could barely grip the zipper. The cold rushed back into the gap between them, sharp and merciless.</p>
+<p>"We have enough wood," she said, her voice trembling, though she tried to make it sound like stone. "Grab the logs. We're going inside."</p>
+<p>Rhys didn't move. He stood in the snow, looking down at the heavy maul at his feet, then back at her face. The corporate mask—the cool, smooth wall he usually kept up—was gone. In its place was raw frustration and an aching, deep hunger that mirrored her own.</p>
+<p>"Rowan," he began, taking a step.</p>
+<p>"Don't," she said, raising a hand. "Just... don't, Rhys. You're a Mercer. I'm a Croft. In three days, the storm clears, a plane lands, and you fly back to Vancouver to sign the papers that take my hangar. Let's not pretend this is anything else."</p>
+<p>She turned her back, grabbed a load of the split pine, and walked toward the cabin, her boots sinking deep into the drifts.</p>
+<p>Behind her, the wind roared, shaking the old spruce branches, dumping a shower of freezing needles onto the snow. The temperature was dropping fast. As she hit the porch steps, she realized the hardest part of the winter wasn't the storm outside. It was the fire burning in her own chest—and she had no idea how to put it out.</p>
+<p>The wind didn't just blow against the cabin. It threw its whole weight against the logs, a heavy, freezing brute straight off the St. Elias glaciers. Every ten minutes, a gust slammed the tin chimney pipe. The iron stove rattled, spitting a few orange sparks against the glass door.</p>
+<p>Avery Croft knelt on the hearth. The rough-cut stone bit into her knees. She grabbed a split piece of birch—her thumb catching on the dry, peeling bark—and shoved it into the stove’s white-hot throat. The heat hit her face in a dry wave that made her eyes water. She was forty-four, and her joints knew the weather before the clouds even hit the peaks. Tonight, her left shoulder blade throbbed with a dull, hot ache. That was from wrestling the Cessna’s frozen cowlings in a thirty-knot wind before the snow forced her down.</p>
+<p>Across the narrow room, Damian Mercer watched her.</p>
+<p>He sat on the edge of the low cot, his long legs stretched toward the fire. The grey cashmere sweater he wore under his heavy parka was expensive, but now it smelled of gasoline and spruce woodsmoke. Back in Seattle, that sweater probably looked clean and soft. Here, with the sleeves pushed up to show the dark hair on his forearms and the heavy line of his wrists, he just looked out of place. And too big for the room.</p>
+<p>He was thirty-four. Ten years younger than her, with enough money to buy the entire valley she flew over. He had that quiet, arrogant way of sitting that only comes from never having to ask anyone for anything.</p>
+<p>"You’re going to burn through that wood by midnight if you keep stoking it," Damian said. His voice was low and dry. He didn't sound panicked, which surprised her. Most city men lost their minds when they realized they were seventy miles from a paved road in a blizzard.</p>
+<p>Avery didn't look at him. She adjusted the metal damper, her hand heavy and practiced. "I know how to run my stove, Mercer. If the draft isn't hot enough, the pipe freezes from the top down. Then the carbon monoxide puts us both to sleep for good. I'd rather stay awake."</p>
+<p>"Is that why you're staying on your knees?"</p>
+<p>The question had a soft, sharp edge to it. She turned her head slowly. Her dark hair, shot through with gray at the temples, brushed her collar. "I'm staying here because the floorboards are freezing and this iron is the only thing keeping my fingers moving."</p>
+<p>"Come here then."</p>
+<p>It wasn't an order. He knew better than to try ordering a woman who held his life in her hands every time she cleared a gravel runway. But he patted the wool blanket next to him anyway.</p>
+<p>Avery stood up, her thighs stiff from the day’s tension. The contrast between them felt heavy. She was wearing her grease-stained canvas pants and a gray thermal shirt that had been washed until the seams were crooked. She was a working pilot. She hauled mail, flour, and sometimes wealthy tourists into the high country. Damian was the man who had bought out the timber lease her sister, Beryl, had spent five years trying to save. He was everything she avoided: money, power, and the kind of easy, smooth charm that got under a woman's skin before she could put her guard up.</p>
+<p>She didn't go to the bed. Instead, she walked to the small pine table, poured two fingers of cheap rye into a tin cup, and tossed it back. The liquor burned her throat, leaving a hot, chemical trail down her chest.</p>
+<p>"You're jumpy," Damian said. He hadn't moved. His gray eyes were on her throat, watching her swallow.</p>
+<p>"I don't like being stuck," she said, her voice rough. "Especially in a twelve-by-twelve box with a man who thinks he can buy the dirt under my boots."</p>
+<p>"I don't want your dirt, Avery." Damian stood up. He was tall, his shoulders broad under the wool, but there was no softness to him. He had the hard, clean build of a man who spent money on trainers but still remembered how to lift heavy things. He walked over, his boots quiet on the braided rag rug. "And you aren't thinking about the timber lease right now."</p>
+<p>"No?" She tilted her chin up, refusing to step back as his shadow fell over her. "What am I thinking about?"</p>
+<p>"About how much you want me," he said. "And how much you hate that you can't control it."</p>
+<p>Her breath hitched. She wanted to laugh, to throw some sharp, sarcastic pilot’s insult at him, but the words wouldn't come. The heat coming off him was real, cutting through the cabin's chill. He smelled of rain, wool, and something clean that made her stomach tighten with a sudden, heavy ache.</p>
+<p>"You're thirty-four, Damian," she said, the fight leaving her voice, leaving only the quiet truth. "You have girls in New York who look like they were drawn on paper. Smooth skin, no mileage, ready to do whatever you tell them."</p>
+<p>Damian stopped inches from her. He didn't touch her yet. He just looked down, his eyes scanning her face—the squint lines from years of glare off the ice, the hard line of her jaw, the pale scar on her upper lip from an old prop kickback.</p>
+<p>"I don't want girls," he said, his voice dropping low. "I want a woman who knows what she’s doing. Someone who’s survived something. Someone who doesn't look at me like I'm a bank account."</p>
+<p>He reached out. His fingers brushed her temple, his thumb catching on the gray strands of her hair. His hand was warm, his skin rougher than she expected. Avery shivered, her eyes closing for a second as the warmth of his hand went through her. It had been three years since anyone had touched her. Three years of cold cabins, lonely flights, and the heavy, thick armor she had built around herself.</p>
+<p>"You're too young to know what you want," she muttered, but she didn't pull away. She reached up, her fingers wrapping around his wrist. His pulse was fast, thumping hard against her palm.</p>
+<p>"Try me," he murmured.</p>
+<p>He leaned down and kissed her.</p>
+<p>It wasn't gentle, and it wasn't polite. It was a hard, heavy collision of two people who had been cooped up too long with the fear of the storm outside. Damian tasted of coffee and the cold air. He pulled her against him, his hands grabbing her waist through the thick thermal shirt. Avery let out a low, ragged sound, her mouth opening, her tongue meeting his with a sudden hunger she didn't know she had left in her.</p>
+<p>She was always the one in charge—the one who made the decisions, kept the plane straight in a crosswind, looked after her sister and the business. But as Damian’s arms went around her, lifting her so her boots barely touched the cold floor, she let it go. She didn't have to carry the whole sky right now. She only had to let herself be held by this man who wanted her so much her blood felt hot and thick.</p>
+<p>Her hands tore at his sweater, her short, unpolished nails digging through the wool to find the hot skin of his shoulders. Damian groaned, a deep rumble she felt against her own ribs. He pushed her back, his boots dragging on the floorboards, until her spine hit the thick log wall. The timber was freezing, a sharp shock against her back, but his body was a wall of heat pinning her there.</p>
+<p>"Damian," she gasped, her hands moving down to his waist.</p>
+<p>He didn't answer. He pulled her shirt up, his hands hot and rough against her bare ribs. Avery’s breath caught. For a second, a cold streak of self-consciousness hit her. She wasn't twenty. Her belly had the soft, round curve of a woman who had lived, and her skin wasn't perfect.</p>
+<p>She tried to pull her shirt back down, her fingers shaking. "Damian, wait. The light—"</p>
+<p>He stopped. He grabbed her wrists, his grip firm but not hurting, and held them against the logs above her head. He looked down at her in the orange glow of the stove. The firelight ran over her skin, showing her body, the faint stretch marks on her hips, the soft weight of her breasts.</p>
+<p>There was no judgment in his face. Just a dark, heavy hunger.</p>
+<p>"You're beautiful," he said, his voice raw. He let go of her wrists and cupped her face, making her look at him. "You look like strength, Avery. You're everything I've wanted since I got off that plane."</p>
+<p>He leaned down and kissed her neck, his mouth hot against her pulse. He moved lower, his tongue tracing her collarbone, and then he kissed her breasts. Avery cried out, her fingers twisting into his dark hair, pulling him closer. The feeling was sharp and electric, shooting straight down to the empty, aching space between her thighs.</p>
+<p>She felt her body waking up from a long, frozen sleep. Her skin prickled. She felt the strength in her own legs, the power in her hips as she pressed against him.</p>
+<p>"Get this off," she whispered, tugging at his trousers.</p>
+<p>They stripped each other with a frantic, clumsy rush, the cold air from the floor completely forgotten. The blankets on the cot were rough wool, but when Damian pulled her down onto them, Avery only felt the heavy weight of him landing between her thighs.</p>
+<p>He was hard and hot against her. Avery reached down, her fingers guiding him. She was wet, her body fully awake from the heat of the fire and the sheer rush of him.</p>
+<p>"Look at me," Damian whispered, his face red, his eyes dark.</p>
+<p>Avery looked. She saw this young, powerful man from the city, completely undone by her. She saw the sweat on his forehead, the way his jaw was tight, the look of total surrender in his eyes.</p>
+<p>He pushed inside her.</p>
+<p>The fullness of him made her arch her back, a loud, sharp gasp escaping her. It was a slow, deep push that filled her up, stretching her, making her muscles clamp down on him in a tight, natural grip.</p>
+<p>"Avery," he groaned, his forehead resting against hers as he started to move.</p>
+<p>He moved with a hard, steady rhythm, his hips driving against hers with a raw force that matched the storm outside. The old cot creaked, the wood complaining under their weight. Avery wrapped her legs around his waist, locking him in, her heels digging into his back. She didn't want gentle. She wanted this heavy, hard friction that made the Yukon night feel a thousand miles away.</p>
+<p>Every touch of his skin was a reminder that she was alive. She was forty-four, her body was strong, her heart was slamming against her ribs, and she was matching him throw for throw. There were no boardrooms now, no struggling flight business, no money differences. There was only the smell of woodsmoke, sweat, and the wet, heavy heat of their bodies locked together.</p>
+<p>"Faster," she breathed, her hands sliding down to grip his backside, pulling him deeper. "Damian, please."</p>
+<p>He let out a low growl and went faster. His chest slammed against hers, their sweat slick between them. The pleasure was sharp, building like a storm over the mountains, tightening in her belly until she could barely breathe. She felt the rough wool under her head, the cold draft on her shoulders, and the burning heat of him inside her.</p>
+<p>The finish didn't hit her like a wave; it was a deep, throbbing burn that started in her center and spread outward, her muscles clamping him in tight, shaking spasms. She cried out, her voice loud in the small cabin, her eyes squeezed shut as the physical rush took over.</p>
+<p>Damian let out a choked sound, his whole body going stiff. He gave one last, deep thrust, burying himself, and came with a shaking groan. He held her tight, his chest heaving, his face buried in her neck as the final shakes passed through them.</p>
+<p>They lay there for a long time, the only sound the crackle of the wood in the stove and their own heavy breathing.</p>
+<p>Avery felt his weight, heavy and warm, keeping the room's chill off her skin. Her body felt warm, alive, glowing from the inside. She felt strong. She had taken this man, this guy who threatened her whole world, and brought him to his knees on a rough blanket in the middle of nowhere.</p>
+<p>She ran her hand down his back, her fingers tracing the muscles. "You're going to freeze if you stay on top of me like that without a blanket."</p>
+<p>Damian laughed, a low, easy sound. He slid to the side, pulling the heavy quilt over them both, holding her against him. His arm was under her head, his fingers gently rubbing her bare shoulder.</p>
+<p>"I've never been warmer," he murmured.</p>
+<p>Avery let her head rest on his chest, listening to the steady beat of his heart. For the first time in ten years, she felt her guard drop without feeling like she was losing her grip.</p>
+<p>Then, a sharp, metallic squeal cut through the quiet cabin.</p>
+<p>It wasn't the wind. It was the high-pitched, static-heavy cry of her emergency radio on the shelf by the door.</p>
+<p>Avery sat up, the blanket falling off her shoulders. The radio crackled, a voice cutting through the static, weak but clear enough to understand.</p>
+<p>"...any station... this is... downed aircraft... thirty miles north of Kluane... cockpit ice... need immediate..."</p>
+<p>The static swallowed the rest, leaving only the cold hum of the receiver. Avery’s eyes met Damian’s in the dim orange light, her pilot’s mind instantly freezing the warmth in her blood.</p>
+<p>The silence woke Paige first.</p>
+<p>Not the wind. For three days, that howling gale had rattled the pine logs until the drafty cabin felt like it was breathing. Now? Nothing. Just a heavy, frozen hush pressing against the glass. The storm had finally run out of teeth.</p>
+<p>She lay perfectly still, her back tucked against Jude’s chest. The man was a furnace. Impossibly warm. At thirty-four, his body generated its own steady, effortless heat—the kind of vitality you only see in guys who have never had to scrape by or worry about a bad back. Paige, at forty-four, felt every single year of her mileage this morning. Her right shoulder throbbed with a dull, familiar ache. It was an old souvenir from the winter a heavy wrench had slipped off a frozen Cessna engine, cracking her collarbone. Her knees felt stiff, and the draft sweeping across the floorboards didn't help.</p>
+<p>She tried to slide away, but his arm tightened around her waist. His hand was heavy. His palm rested flat against her belly, fingers spreading over the soft curve she usually hid under layers of oversized flannel and canvas. Yesterday, in the pitch black, he had pressed his mouth right there. He’d kissed her with a raw, desperate hunger. There was no polite hesitation in it, just sheer, basic need. He hadn't treated her like some project or a woman past her prime. He’d held her like she was the only anchor keeping him from spinning off the edge of the world.</p>
+<p>But dawn was coming. A pale, blue-gray light seeped through the frosted windowpane, and the white-hot bubble of the last forty-eight hours began to pop. Reality has a habit of doing that.</p>
+<p>Paige peeled his fingers off her waist and slipped out of the sleeping bag. The sub-zero cabin air hit her like a bucket of ice water. She shivered so hard her teeth rattled. Hurrying, she dragged on her thermals, her heavy flannel shirt, and her stiff canvas pants, then shoved her silver-streaked hair into a messy knot.</p>
+<p>She avoided the cracked mirror over the washbasin. No need to stare at the crows-feet or the pale, pinched look of her face. There was work to do.</p>
+<p>She dragged the beat-up emergency radio across the small wooden table. It was an old, heavy VHF transceiver she’d pulled from a bush plane wreck five years ago. The plastic casing was split, and the wiring inside had taken a beating from the moisture of their own crash three days ago.</p>
+<p>Using the flathead attachment on her pocket knife, she pried off the back panel. A faint smell of old solder, copper, and frozen dust drifted up. Her fingers were stiff, clumsy, and numb. She blew on her knuckles, rubbing her hands together to get the blood flowing.</p>
+<p>"You're shivering."</p>
+<p>Jude’s voice was a gravelly rumble from the cot. Paige didn't look up, but she heard the wool blankets rustle.</p>
+<p>"Stove’s dead," she said, keeping her tone strictly professional. "I need to splice this wire before my fingers stop working."</p>
+<p>His bare feet thudded onto the cold floorboards. Even with the cabin hovering near zero, he didn't rush. He never did. He had that unhurried, moneyed confidence. When he stepped into her line of sight, he was wearing only his dark trousers. His broad chest was bare, goosebumped from the draft. He looked rugged, raw, and way too big for this tiny room.</p>
+<p>He ignored the woodstove and walked straight to her, looming behind her chair. His shadow cut off the weak morning light.</p>
+<p>"Let me," he murmured. He leaned over her shoulders, his large, calloused hands framing hers.</p>
+<p>"I’ve got it, Jude," she said, her voice a little sharper than she intended. "I was fixing radio rigs before you had a driver's license."</p>
+<p>He didn't flinch at the age dig. He just leaned closer, his chest brushing her back. God, the heat coming off him was like a drug compared to the icy draft on her ankles. "I'm sure you were," Jude said softly. "But your fingers are turning blue. Let me hold the lead while you wrap the tape."</p>
+<p>She exhaled a ragged breath, hating how much she wanted to press backward into his chest. "Fine. Hold this blue wire to the terminal. Don't let it touch the copper casing, or we'll fry the motherboard."</p>
+<p>Jude pinched the wire. His hands were rock-steady. It was surprising for a guy who spent his life signing multi-million-dollar buyouts and typing on glass tablets. They worked without speaking, their movements falling into an easy, quiet rhythm. But every time his knuckles grazed her skin, a jolt of static electricity seemed to snap up her arm. It was dangerous. A warning track of how fast she’d let her walls drop.</p>
+<p>"Give it a shot," he whispered, his breath warm against her ear.</p>
+<p>Paige reached out and flipped the heavy steel toggle on the faceplate.</p>
+<p>The speaker didn't just hiss. It shrieked. A high-pitched, tooth-rattling squeal that made them both jump. She scrambled for the plastic tuning dial, her heart slamming against her ribs.</p>
+<p>"Squelch," Jude muttered.</p>
+<p>"I know how to tune a radio," she snapped, though the bite was missing. She twisted the smaller knob, and the shriek died down to a low, rushing ocean of static.</p>
+<p><em>Shhhhhh.</em></p>
+<p>She leaned in until her ear almost touched the rusted speaker grill. "Come on," she muttered. "Talk to me."</p>
+<p>Through the wall of white noise, a voice broken by the high mountain peaks crackled through. It was faint but sharp. Urgently sharp.</p>
+<p>"...searching... sector four... skies clearing... no sign of..."</p>
+<p>Paige’s throat went tight. "Willa," she breathed.</p>
+<p>She grabbed the heavy plastic hand-mic, jamming her thumb onto the black transmitter button. "Willa! Willa, do you copy? This is Paige. We’re at the old trapper cabin near the ridge. Willa, come in!"</p>
+<p>Only static. Loud and deafening.</p>
+<p>"Willa!" Paige shouted, a sudden, cold panic clawing at her throat. "If you can hear this, we're alive. The plane's a total loss, but we have shelter. We're safe!"</p>
+<p>"...Paige?" The voice tore through the noise like ripping cardboard. "...is that... repeat... signal is..."</p>
+<p>Then nothing. Just the flat, dead rush of the airwaves.</p>
+<p>"She's close," Jude said. His hand came down on her shoulder, his fingers digging into her heavy flannel. Strong. Steadying. "Your sister's up there."</p>
+<p>"She’s flying the search grid," Paige said. She hung up the mic, her hand shaking so badly it clicked against the casing. "With the sky clear, she’ll spot our chimney smoke. We’re getting out of here today."</p>
+<p>They were going home. It should have felt like a miracle, a massive weight lifting off her chest. Instead, a cold, heavy knot started to tighten in her gut.</p>
+<p>As she pulled her arm back, her sleeve caught the tuning knob. The dial spun. The static flared, then suddenly locked onto a crystal-clear AM broadcast out of Whitehorse, the high-frequency signal bouncing off the cold sky.</p>
+<p>"...repeating our top story," the news anchor’s voice boomed into the small room. "The search continues for Manhattan investment mogul Jude Mercer, whose private charter went missing four days ago. But the real storm is brewing on Wall Street."</p>
+<p>Jude froze. The warmth of his hand vanished instantly. He pulled his hand off her shoulder, leaving behind a cold patch of skin.</p>
+<p>"Turn that up," he said.</p>
+<p>His voice had completely changed. The gravelly intimacy was gone. It was flat. Hard as iron.</p>
+<p>Paige twisted the dial.</p>
+<p>"...with Mercer missing and feared dead, shareholders have panicked," the radio announcer said. "Vanguard Acquisitions, led by his long-time rival Maxwell Hayes, has launched a hostile takeover of Mercer Global. The board has called an emergency meeting for noon today in Manhattan to vote on a leadership change. If Mercer doesn't show to block the vote, his multi-billion-dollar empire is gone."</p>
+<p>The cabin went dead silent. Even the logs seemed to stop creaking.</p>
+<p>Paige turned to look at Jude, and the breath caught in her throat.</p>
+<p>The guy she’d spent the last forty-eight hours with—the one who had held her in the dark, laughed at her dry jokes, and looked at her with actual, raw tenderness—was gone. In his place stood a total stranger.</p>
+<p>His posture was stiff, his jaw locked so hard the muscles twitched under his dark stubble. His eyes, soft and deep just minutes ago, had narrowed into cold, calculating slits. He looked like a wolf that had just caught the scent of a rival on his border.</p>
+<p>"What time is it?" he demanded.</p>
+<p>He didn't ask. He ordered. It was the tone of a man who owned skyscrapers and commanded boardrooms of hundreds of people. A man who expected instant obedience.</p>
+<p>"It’s... just past eight-thirty," Paige said, hating how small her voice sounded.</p>
+<p>"Eight-thirty here is eleven-thirty in New York," Jude muttered. He began pacing the small floorboards. He wasn't looking at her. His eyes were fixed on the rough log walls, but he wasn't seeing them; he was seeing spreadsheets, stock tickers, and executive suites. "The meeting starts in thirty minutes. If Hayes gets the board to vote, it’s over. I lose everything."</p>
+<p>He stopped, snapping his gaze to her. The sheer force of his look made her want to step back, but she forced her feet to stay put.</p>
+<p>"Can you boost this thing?" he asked, his voice fast and clipped. "Hook it to a satellite relay or a digital link. I need a line to my legal team in Manhattan. Now, Paige."</p>
+<p>A cold bucket of reality washed over her.</p>
+<p>There it was. The divide. The massive wall she’d conveniently ignored while they were tangled up in wool blankets. To him, she wasn't a partner anymore. She wasn't the woman who had pulled him out of a crumpled fuselage or held him through a freezing night. She was a resource. A tool to be managed, directed, and used to solve a crisis.</p>
+<p>She knew this feeling. She knew it in her bones. It tasted like her ex-husband, a guy who’d built a small fortune in real estate and spent a decade treating her like a nice piece of lobby furniture. He used to call her charter business a "cute little hobby," slowly using his money to choke out her independence until she finally walked away with nothing but her plane and her pride. She’d spent ten long years scraping grease from under her fingernails, fixing her own engines, and flying through treacherous mountain passes just to make sure no man would ever order her around again.</p>
+<p>And here was Jude, doing it without even realizing.</p>
+<p>"No," Paige said.</p>
+<p>Jude stopped dead. He blinked at her, like the word was in a foreign language. "What do you mean, no?"</p>
+<p>"I mean, this is a basic analog receiver," she said, her voice leveling out, getting hard. She stood up, keeping the wooden table between them. "It has a ten-mile range on a good day. It doesn't have a satellite uplink, Jude. It doesn't connect to Manhattan. I can't magically pull a digital signal out of a thirty-year-old radio."</p>
+<p>Jude took a step toward her. He was broader, taller, and the sheer momentum of his presence felt like a physical weight in the small room. "There’s always a way. You’re a mechanic. Think. Can we wire it to the Cessna’s battery? Run a copper line up that pine tree for an antenna?"</p>
+<p>"I told you, it's not possible," she said, her jaw tightening. "And stop talking to me like I'm one of your assistants. I don't work for you."</p>
+<p>Jude paused, his chest rising and falling. A flicker of real frustration crossed his face. "Paige, you don't get it. If I don't stop this vote, ten years of my life are gone. Everything I built. Everything I sacrificed."</p>
+<p>"No, you don't get it," she shot back, her voice echoing off the log walls. "Out here, none of that matters. Your billions can't melt the snow, and they can't make this radio transmit to New York. Right now, you're just a passenger in my territory. My only job is to get us back alive, not to save your stock options."</p>
+<p>Jude’s mouth flattened into a hard, grim line. "This isn't about money, Paige. It's about control. I don't let people take what’s mine."</p>
+<p>The words hung in the freezing air.</p>
+<p><em>I don't let people take what's mine.</em></p>
+<p>Paige felt a dull ache right behind her ribs. She looked at him—really looked at him—and saw the truth. To a man like Jude, everything was an acquisition. Every deal, every relationship, every person. In this cabin, during the blizzard, he’d wanted her because she was the only thing there. But the second his world whistled, he belonged to his empire.</p>
+<p>She turned away, her chest feeling hollow. "Stove needs wood," she said flatly. "If you want to be useful, go grab a log."</p>
+<p>She didn't wait for him to answer. She walked to the far corner, grabbed her old leather flight jacket, and shoved her arms into the sleeves. The stiff leather felt like armor—a familiar, tough shield protecting her from the warmth she’d been stupid enough to believe in.</p>
+<p>The next few hours drag-crawled by in a brutal silence.</p>
+<p>Jude stayed near the table, staring at the dead radio like he could force a signal through by sheer willpower. He was coiled tight, vibrating with a frantic, wasted energy. He was thirty-four, in the absolute prime of his life, and being trapped in a freezing shack while his empire was being carved up in Manhattan was clearly pure torture.</p>
+<p>Paige kept busy with small, stupid chores. She packed her survival kit, wiped the grease off her pliers, and swept the gray ash from the stove hearth. She kept her back to him, refusing to look at his reflection in the dirty windowpane.</p>
+<p>All the heat they’d shared was gone, replaced by the cold, static-filled reality of who they actually were.</p>
+<p>"Paige."</p>
+<p>She didn't turn around. "What?"</p>
+<p>"I shouldn't have snapped," he said. His voice was quieter now, the panic dialed down, but still wound tight.</p>
+<p>"Doesn't matter," she said, keeping her spine rigid.</p>
+<p>"It does matter," he said. She heard his boots scrape the floorboards as he stepped closer, stopping just short of her shoulder. "I don't do helpless. When things go sideways in my world, I fix them. I don't sit on my hands."</p>
+<p>"That's the difference between us, Jude," she said, finally turning around. She looked up, her eyes flat and distant. "In your world, you write checks to fix things. In mine, if you don't fix it yourself, you freeze. I don't have a board of directors. If my Cessna goes down, it’s just me."</p>
+<p>She took a step back, putting some distance between them.</p>
+<p>"You’re a powerful guy," she said, her voice quiet but steady. "And powerful guys always want the steering wheel. But I’ve spent the last ten years making sure nobody else holds the reins to my life. I’m forty-four, Jude. I’ve survived men like you before. I'm not going to be a footnote in your comeback story."</p>
+<p>Jude went pale. "Is that what you think this was? A game to pass the time because we were stuck?"</p>
+<p>"I think we were cold, and we were lonely, and we did what we had to do to feel alive," she said, though the words felt like swallowing broken glass. "But the blizzard's over."</p>
+<p>Before he could answer, a low, rhythmic thrum rattled the glass.</p>
+<p><em>Whup-whup-whup.</em></p>
+<p>Paige’s chest went tight. She looked out the frost-edged window.</p>
+<p>A bright red Bell 206 helicopter rounded the mountain ridge, its rotors kicking up a massive, blinding cloud of snow as it hovered over the clearing.</p>
+<p>"They're here," she said.</p>
+<p>Jude didn't hesitate. He grabbed his heavy wool coat, shoving his arms into the sleeves with fast, efficient movements. He was already gone. His mind had already boarded a flight to New York, his thoughts locked on the boardroom brawl waiting for him.</p>
+<p>Paige pulled her collar tight and zipped her jacket to her chin. She threw open the heavy wooden door. The freezing Yukon wind rushed in, instantly dropping the cabin's temperature and blowing away the last warm scent of woodsmoke and skin.</p>
+<p>She stepped out into the thigh-deep snow, her boots crunching as she trudged toward the clearing.</p>
+<p>The chopper touched down, its skids sinking into the fresh powder. The side door slid open and Willa climbed out, her neon-yellow search-and-rescue parka screaming against the white landscape.</p>
+<p>"Paige!" Willa yelled over the deafening roar of the blades, sprinting toward her.</p>
+<p>Paige met her halfway, burying her face in her sister’s shoulder. The smell of cold nylon, sweat, and aviation fuel was the most comforting thing she’d felt in days.</p>
+<p>"Thank God," Willa squeezed her tight, her voice cracking. "We've been flying search lines since first light. Are you okay?"</p>
+<p>"I'm fine," Paige said, pulling back. She looked over her shoulder.</p>
+<p>Jude was coming toward them. He didn't look like a guy who’d survived a crash and spent three days freezing in a shack. He walked with a powerful, commanding stride, his face already set in a hard, executive mask.</p>
+<p>He reached the chopper and looked right at Willa. "We need to get to Whitehorse now," he said, his voice cutting clean through the turbine whine. "I need a satellite uplink and a charter flight to New York. I'll pay whatever it costs. Triple it."</p>
+<p>Willa blinked, taken aback by the cold, commanding tone, then shot Paige a questioning look.</p>
+<p>Paige just gave a tired, brief nod. "Get him what he needs, Willa."</p>
+<p>Jude didn't look at Paige. He climbed into the back of the helicopter, his focus already turned inward, his fingers tapping a fast, impatient rhythm on his knee. He was already back in his high-rises.</p>
+<p>Paige stood in the stinging snow for a long second, watching him through the curved acrylic glass of the window. He didn't look back. He was already thousands of miles away, lost in a world of numbers, hostile takeovers, and board votes.</p>
+<p>She turned and climbed into the co-pilot’s seat next to her sister. She pulled the heavy headset over her ears, the crackle of the intercom filling her head.</p>
+<p>As the helicopter lifted off, tilting its nose toward the south, Paige looked down at the tiny log cabin shrinking into the white expanse of the Yukon. It looked so small from up here. A fragile, brief speck of warmth in a vast, indifferent wilderness.</p>
+<p>She turned her eyes forward, into the empty sky, and let the cold take over.</p>
+<p>The blizzard had swallowed the ridge whole. Outside, nothing but a white, deafening roar. It rattled the cabin’s single window pane until the glass buzzed in its frame. Inside, the cast-iron stove did what it could against the dark. It wasn't much. Just a few orange stripes thrown across the cold pine floorboards.</p>
+<p>Avery sat hunched on the edge of the woodbox, knees pulled tight to her chest to save her own body heat. She spun the plastic dial on the battery-powered radio she’d yanked from her Cessna’s survival kit. Nothing. No music. No scratchy voice from some lonely late-night DJ. Just static. A dry, angry hiss that sounded exactly like the frozen snow currently scouring the cabin's tin roof.</p>
+<p>She clicked the dial back and forth. Still dead. The sky was too thick with ice for a signal to claw its way through.</p>
+<p>"Still dead?" Callum asked.</p>
+<p>He stood by the heavy timber door, shaking a crust of frost off a fresh armful of split spruce. His hair was damp, black strands plastered to his forehead. He was thirty-four, built broad and thick-shouldered, the kind of man who filled up a room just by standing in it. Here, he made the drafty cabin feel the size of a closet. He didn't look like a guy who made his living in glass high-rises. Not right now. His jaw was rough with three days of dark stubble, and the flannel shirt he'd borrowed from the cabin's pegs strained across his shoulder blades every time he moved.</p>
+<p>"Dead," Avery said. She snapped the radio off. No point wasting the batteries. "The Dawson weather station called it a fast-moving front before we went down, but this isn't a front. It's a wall. Search and rescue won't even think about warming up their engines until the wind drops below thirty knots. We’re stuck. Tonight, definitely. Probably tomorrow, too."</p>
+<p>She exhaled, watching her breath plume white before the draft swept it away. Her left shoulder throbbed—a nasty souvenir from their crash-landing three days ago—but the real ache was behind her eyes. It was the constant, ticking math of what this storm was costing her. Her daughter's tuition was due in twelve days. Twelve. The fuel bill for the Cessna was sitting on her grease-stained kitchen table back in Whitehorse, already three weeks past due. Every hour she spent shivering in this shack with a guy who could buy her entire hangar with his pocket change was another hour she wasn’t flying. Another hour she wasn't earning a single dime.</p>
+<p>"You're doing the math again," Callum said. He stacked the spruce logs with a quiet, deliberate neatness that didn't fit his size, then brushed the bark from his palms.</p>
+<p>"I'm thinking about survival," Avery said, her voice sharp enough to cut the chill. "My daughter has midterms next week. She has to eat. I have a mortgage on a hangar with a roof that leaks every time the snow melts. This storm isn't some cozy adventure to tell your friends about in New York, Callum. It’s a padlock on my bank account."</p>
+<p>He didn't argue. He didn't offer to write a check either, which was smart. If he’d reached for his wallet, she probably would have thrown the iron kettle at his head. Instead, he crossed the room and sat on the low bench opposite her. The space was so tight his knees almost brushed hers.</p>
+<p>"I know," he said. His voice was low. "I'm sorry."</p>
+<p>The quiet in his voice threw her. It wasn't the slick, confident tone he’d used when he first walked into her office to rent her plane—the voice of a man who owned the room and knew it. This was different. Gravelly. Heavy with exhaustion.</p>
+<p>Avery looked down at her own hands. They were raw, the skin around her knuckles cracked and black-lined from years of handling freezing wrenches and aviation fuel. She was forty-four years old. Every single hard winter she’d survived in the Yukon was written right there on her skin.</p>
+<p>She stood up to stretch her stiff legs, her knees popping loud in the quiet room. When she reached up to settle her collar, the hem of her thick, oversized wool sweater caught on a splintered corner of the woodbox. The fabric snagged, tugging upward and baring the skin of her hip.</p>
+<p>Callum’s eyes dropped.</p>
+<p>She felt his gaze like a touch. She yanked the wool down instantly, but she wasn't fast enough. The look on his face told her he’d already seen.</p>
+<p>"What’s that?" his voice went quiet, dropping low.</p>
+<p>"Nothing," she said, turning her back to him to pretend she was busy with the stove. "Just a reminder that metal always beats bone."</p>
+<p>"Avery." His boots scraped against the floorboards as he stood up and stepped closer. "Let see."</p>
+<p>She froze, her fingers hovering near her waist. The old defense mechanism flared up instantly, hot and defensive. She hated being stared at. Hated showing off the wreckage she’d spent years hiding beneath baggy flannels and heavy work pants. But there was a heat coming off him in the freezing room, a steady pull she couldn't quite fight off.</p>
+<p>Slowly, she pinched the gray wool and lifted it.</p>
+<p>High on her left hip, carving its way down toward her thigh, was a thick, silver ridge of scar tissue. It was jagged, ugly, and old. A violent, pale mark that broke the soft line of her waist.</p>
+<p>Callum didn't flinch. He just looked. Then he reached out, his fingertips stopping an inch short of her bare skin. "Can I?"</p>
+<p>She nodded, her throat too dry to speak.</p>
+<p>When his fingers touched her, she shivered. His hand was incredibly warm. He didn't rush. He traced the silver line from its jagged start to where it disappeared beneath the waistband of her pants, his thumb lightly brushing the soft flesh of her waist. The air in the cabin was freezing, making his touch feel like fire.</p>
+<p>"A crash?" he asked softly.</p>
+<p>"A fifty-five-gallon drum," she said. Her voice caught, and she had to clear her throat. "The strap snapped while I was loading a de Havilland Beaver. I was in a rush. The sharp metal rim caught me on the way down. I was twenty-six, stupid, and trying to prove I could work just as hard as any man in the territory. I refused to go to the clinic because a doctor's visit meant losing a whole day’s wage."</p>
+<p>"Did you ever go?"</p>
+<p>"After I flew the delivery," she said. She gave a short, bitter laugh. "The clinic doctor told me I was about twenty minutes from bleeding out right over the steering yoke." She looked away. "My ex-husband didn't even show up at the hospital. When I finally hitched a ride home with twelve black nylon stitches in my side and a bottle of cheap painkillers, he was furious. Why? Because I hadn’t picked up his truck from the mechanic on my way back."</p>
+<p>Callum’s fingers stopped moving. His palm flattened against her hip, steady and solid, holding her in place. "He was a damn fool."</p>
+<p>"He was just a guy who wanted a woman who didn't take up so much room," Avery said, the old, sharp poison slipping out before she could check herself. "He wanted soft. He wanted someone who didn't smell like aviation fuel and engine degreaser. For ten years, I tried to make myself small so he could feel big. I even quit flying. Sat at a desk in a shipping office, staring at a wall. I hated every single second of it, but I thought that was the deal. I thought you had to let them clip your wings if you wanted a home."</p>
+<p>She looked up, locking eyes with him. His gaze was dark, heavy, and completely undivided.</p>
+<p>"I promised myself I'd never do it again," she whispered. "I built what I have. It’s a hard life, and half the time I’m exhausted down to my bones, but it’s <em>mine</em>. I don't ask for permission anymore. And I don't let anyone tell me my limits."</p>
+<p>Callum’s hand slid slow around to the small of her back, his fingers hooking into her waistband, pulling her an inch closer. "You think I want to ground you, Avery?"</p>
+<p>"You're a wealthy man, Callum. Guys like you are used to possessing things. You see an empty stretch of land, you want to put a building on it. You see a woman who doesn't need you, and you see a game to win."</p>
+<p>A faint, tired smile touched his mouth. He let his hand drop and took a step back, giving her space, though his eyes never left hers.</p>
+<p>"You think my life is something to want," he said. His voice was flat. Dry. "You think because my name is on the front of a tower, I have some kind of freedom. But honestly? I’ve spent the last ten years feeling like a passenger in my own skin."</p>
+<p>He walked back to the frosty window, staring out into the white, howling dark. "My old man died when I was twenty-two. He left me a firm that was three weeks away from a total collapse, and a mother and brother who expected the checks to keep clearing. I spent twelve years running on pure panic. I learned how to cut throats in boardrooms. I learned how to look at a list of five hundred employees and see nothing but numbers to trim. I did it because I was terrified. Terrified of failing them. Terrified of being weak."</p>
+<p>He turned back around, his shoulders dropping. The sleek executive was gone. He just looked like a tired thirty-four-year-old guy shivering in a drafty cabin.</p>
+<p>"Last month, I finally closed on a townhouse on East Sixty-Fourth," Callum said. "Five bedrooms. Heated marble floors. A kitchen that looks like a museum. On my first night there, I sat on the floor eating a lukewarm turkey sandwich out of a plastic wrapper. I looked at my phone and realized there wasn’t a single person in the world I could call just to talk to. Not one. If I tripped on those fancy stairs and broke my neck, nobody would even notice until Monday morning when my assistant got flagged that I’d missed a Zoom meeting."</p>
+<p>He took a step toward her. His eyes were wide, raw. "Everyone in my life wants a piece of me. A check, a recommendation, a signature. My mother only calls when her card gets declined at some boutique. My brother only calls when his bad investments catch up to him. But you? You looked at me on that frozen tarmac in Whitehorse and just saw an annoying passenger who was going to throw off your weight and balance."</p>
+<p>Avery felt a sharp prick behind her ribs. The massive gap between his millions and her overdue fuel bills didn't feel so wide anymore. It was just paper. They were both running on empty, trying to stay ahead of whatever was chasing them.</p>
+<p>"I don't want to buy you out, Avery," Callum said, his voice dropping to a whisper against the hum of the stove. "I don't want to fix you. I just... I haven't felt like a real human being in a very long time. Not until I climbed into your cockpit."</p>
+<p>The wind slammed against the side of the cabin, but inside, the silence stretched.</p>
+<p>She looked at him. Really looked at him. The youth in his face was buried under dark circles and the hard, bitter lines around his mouth—the kind you get when you start carrying heavy things before you're ready. He wasn't some predator trying to steal her freedom. He was just hungry for something that didn't have a price tag.</p>
+<p>She closed the gap between them. Her boots didn't make a sound on the old pine boards.</p>
+<p>She didn't hesitate. She reached up and pressed her palm flat against his jaw. His skin was hot. His stubble rasped against her skin.</p>
+<p>Callum let out a shaky breath and leaned into her hand, his eyes closing for a second as if he were freezing and she was the fire. When his eyelids flickered back open, the look in his eyes was so heavy it made her chest ache.</p>
+<p>"Avery," he muttered.</p>
+<p>His hands found her waist again, fingers digging in. This time, there was no gentle testing. He pulled her hard against him.</p>
+<p>His chest was a wall of heat against her. Avery reached up, her fingers burying into the thick, damp hair at the back of his neck, and yanked him down to her.</p>
+<p>Their mouths met hard. It wasn't a polite kiss. It was clumsy and desperate, filled with the raw adrenaline of the crash and the three days of waiting for the world to end. He tasted like the bitter spruce tea they’d boiled on the stove. He tasted hot and real.</p>
+<p>She made a small, tight noise in her throat, her hands sliding down his shoulders, feeling the thick muscle under the rough flannel. He was younger than her, stronger, but he wasn't pushing her around. He was moving with her, catching her rhythm.</p>
+<p>He groaned against her lips, his hands sliding down her spine to bunch up the hem of her sweater. His fingers were hot against her bare back. He tugged the wool up, over her head, and tossed it into the dark corner.</p>
+<p>Avery stood there in her faded cotton bra. For a split second, she wanted to cover herself—she was forty-four, her body wasn't tight anymore, her skin carried the soft stretch marks of pregnancy and time.</p>
+<p>But Callum didn't blink. He looked at her like she was water and he’d been dying of thirst in the snow.</p>
+<p>"You're beautiful," he muttered, his voice rough. "You're so damn real, Avery."</p>
+<p>He reached behind her, unclipping the clasp and letting the cotton slip away. He cupped her in his warm palms, his thumbs brushing across her nipples, already hard from the cold. Avery gasped, her head snapping back. A deep, heavy heat settled low in her belly—not the annoying, sudden hot flash of her changing hormones, but something old and sharp.</p>
+<p>She reached for his buttons. Her fingers were shaking, fumbling with the plastic. She ripped the flannel open and shoved it off his shoulders. His chest was broad, pale, and lined with hard muscle. There was a small, white scar near his collarbone, and she pressed her mouth to it, feeling his heart drumming frantic against her lips.</p>
+<p>They stumbled toward the narrow cot in the corner, legs tangling. The rusted springs groaned as they fell onto the rough wool blankets. The air above them was freezing, but where their skin touched, it burned.</p>
+<p>Callum unbuttoned her work pants, his fingers clumsy now. He dragged them down her legs, taking her cotton underwear with them, leaving her bare in the orange glow of the stove grate.</p>
+<p>He knelt over her for a second, just looking. His eyes tracked down to the jagged silver scar on her hip. He leaned down, his breath warm against her thigh, and pressed his lips directly to the raised, rough skin.</p>
+<p>Avery's ribs squeezed tight. A hot knot rose in her throat. Nobody had ever kissed her there. Nobody had ever treated her damage like it was something worth touching.</p>
+<p>"Callum," she whispered, her hands finding his shoulders.</p>
+<p>He slid back up her body, his rough chest scraping against hers, making her gasp. He reached down and shoved his jeans off, kicking them onto the floorboards.</p>
+<p>He pressed his thigh between hers, heavy and solid. He was thick, hot, and smooth against her skin. Avery tilted her hips, her legs wrapping around his waist, guiding him into the wet, dark heat of her.</p>
+<p>"Tell me you want this," he breathed, his forehead pressing against hers. "Tell me it's me."</p>
+<p>"I want you," she said. Her voice didn't shake. "No games, Callum. Just you."</p>
+<p>He let out a low, ragged sound and pushed forward.</p>
+<p>He slid in slow, giving her time to open up. Avery gasped, her fingernails digging into the muscle of his shoulders as he stretched her, filling her completely. He was heavy and solid.</p>
+<p>For a second, they didn't move. They just stayed there, locked together, chests heaving in the dark.</p>
+<p>Then he pulled back and slid in again.</p>
+<p>He set a steady, heavy pace, matching the rhythmic thud of the wind outside. Avery met him every time he came down, her hips lifting. She wasn't some young girl hiding her face in a pillow; she was forty-four, she knew her own body, and she wasn't going to apologize for taking what she needed.</p>
+<p>She arched her back, her hands gripping his hips, pulling him deeper. The friction was pure heat. Callum’s breath turned to short, ragged grunts. He buried his face in the crook of her neck, his teeth catching the skin over her collarbone as his pace went faster, harder.</p>
+<p>The cold, the snow, the overdue bills, the busted wing of her Cessna—it all burned away. There was only the smell of spruce smoke and the wet, heavy sound of their skin hitting skin.</p>
+<p>A tight, hot knot coiled deep in Avery's stomach, spreading down her thighs like a current. She locked her legs around his waist, pulling him in until there was no air left between them.</p>
+<p>"Callum—"</p>
+<p>"I've got you," he growled, his movement turning fierce, desperate. "I've got you, Avery."</p>
+<p>The release hit her hard, a sudden wave that made her back arch off the mattress. Her muscles clamped tight around him. She let out a sharp cry against his neck. Callum shuddered, a low, ragged shout ripping out of him as he drove deep one last time, his whole body locking up before he collapsed against her, his face buried in her damp hair.</p>
+<p>The wind kept screaming, but inside, the noise slowly faded.</p>
+<p>The stove had burned down to a deep, dark red glow. Callum lay heavy on top of her, his forehead wet against her neck, his breathing slowly finding a steady beat. He rolled onto his side, taking her with him, his arm locked around her waist to keep her tucked against his chest. He reached down and dragged the heavy wool blankets over them both, cutting off the draft.</p>
+<p>Avery rested her temple against his chest, listening to his heart slow down. Her body felt warm, heavy, and completely awake in a way it hadn't in ten years. She wasn't calculating the fuel bills. She wasn't worrying about the hangar roof. For five minutes, she was just there.</p>
+<p>She let her eyes close, starting to drift.</p>
+<p>Then, a sharp sound cut through the howl of the storm.</p>
+<p>It wasn't the wind.</p>
+<p>It was a metallic <em>clack</em>—followed by a slow, dragging scrape across the tin roof of the cabin, like iron clawing over metal.</p>
+<p>Against her cheek, Callum's chest stopped moving. He went totally stiff.</p>
+<p>The left knee was always the first to register the drop in barometric pressure. A dull, grinding ache had settled deep behind Avery’s kneecap, a souvenir from a hard landing in a Cessna down in Haines a decade ago. Today, the pain wasn’t just a whisper. It was a rhythmic scream with every step she took into the crusty, wind-scoured snow of the Kluane icefield.</p>
+<p>She was forty-four, and while her muscles were as tough as the seasoned spruce lining the mountain ridges, the Yukon cold didn’t just brush past her anymore. It crept into her bones, finding the old fractures and the worn-down cartilage, reminding her of every single year she had spent fighting the elements to keep her small charter business alive.</p>
+<p>Behind her, the silence of the wilderness was heavy, almost suffocating. It was the same kind of absolute quiet that had filled her house after her daughter, Beryl, left for college in Vancouver. Back then, Avery had thought she wanted the peace. She had spent twenty years doing it all—raising Beryl alone, turning wrenches on old bush planes, hauling fuel drums in freezing rain, and never asking for a single hand. But the empty nest had turned out to be a drafty, quiet place. Now, out here on the ice, the silence felt less like peace and more like a predator waiting for her to slip.</p>
+<p>Tobias Hayes’s boots crunched unevenly in the snow behind her. He was thirty-four, a man in the full, hard prime of his life, but his right leg was dragging. The gash he had taken to his thigh when the plane crashed had been stitched up with survival gear, but the cold was a brutal enemy to healing. Avery could smell the sharp, metallic scent of his sweat mixed with the faint, sweet heat of a fever beginning to bloom.</p>
+<p>"You're dragging," Avery said, her voice dry and flat in the frigid air. She didn't turn around. She kept her eyes on the grey-blue sheet of the glacier toe ahead.</p>
+<p>"I'm keeping pace," Tobias grunted.</p>
+<p>She paused, leaning her weight onto her good leg, and looked back over her shoulder. Tobias stood with his shoulders squared, his expensive canvas parka coated in frozen grit. Even with his pale skin and the dark circles of pain bruising the skin beneath his eyes, he possessed a stubborn, commanding presence. He was a man used to steering boardrooms in Seattle, a corporate titan who bought and sold companies before breakfast. Out here, his money was just paper, but his pride remained intact.</p>
+<p>"You're limping, Hayes," Avery said, her gaze dropping to his thigh. The dark wool of his trousers was stiff with dried blood. "And the ice field ahead doesn't care about your grit. If you fall through a snow bridge, I can't haul you out alone."</p>
+<p>"Then don't," he said, his voice low and tight. He took three heavy steps toward her, his dark eyes burning with a fierce, frustrating intensity. "If I go down, you keep moving toward the outpost. We’ve already established you’re the one who knows how to survive this."</p>
+<p>"I don't leave passengers behind," she snapped, her jaw tightening. "It's bad for business."</p>
+<p>"I stopped being your passenger when the engine failed, Avery."</p>
+<p>She didn't answer. She turned and began the descent onto the ice field.</p>
+<p>The glacier toe was a vast, frozen highway of white and deep, bottomless blue. The surface was a maze of ridges and depressions, polished slick by the relentless wind. Underneath their feet, the ice made low, groaning sounds—a deep bass rumble that vibrated through the soles of Avery’s boots. It was the sound of a sleeping giant shifting its weight.</p>
+<p>With every step, Avery’s hip joint flared with heat. She hated the vulnerability of it. She hated that her body was reminding her of her age right now, in front of a man who looked at her with a raw, uncomplicated hunger that she hadn't felt from anyone in years. Tobias didn't look at her and see a tired, middle-aged bush pilot with crow's feet and grey hair threading through her dark braid. He looked at her as if she were the only thing that mattered in this frozen waste. It terrified her more than the ice.</p>
+<p>A loud, sharp <em>crack</em> echoed across the plateau. It sounded like a rifle shot.</p>
+<p>Avery froze. "Don't move," she whispered.</p>
+<p>The ice beneath Tobias’s boots groaned. A hairline fracture, thin as a spider’s silk, zipped across the blue surface between them, widening into a dark, finger-width gap in a fraction of a second. The sheet beneath Tobias tilted slightly, a slow, sickening tilt of a few degrees.</p>
+<p>"Avery, get back," Tobias commanded. His voice wasn't panicked; it was cold, decisive, the tone of a man making a hard calculation. He shifted his weight to his good leg, trying to push off the shifting slab. "The sheet is shearing. Get to the granite bank. Now."</p>
+<p>"Shut up and give me your hand," she said, stepping forward.</p>
+<p>"I said go!" he roared, his face turning pale as his injured leg buckled under the sudden shift of the ice. He lunged backward, trying to throw his weight toward the stable edge, but his foot slipped on the slick surface. "Leave me, damn it! You have a daughter. You have a life. I'm dead weight out here."</p>
+<p>Avery’s temper erupted, hot and fast, burning away the chill in her veins. She didn't retreat. She dropped her pack, dropped to her knees to distribute her weight, and scrambled across the shifting seam. She grabbed the collar of his heavy jacket with both hands, her knuckles scraping against the rough frost of his collar.</p>
+<p>"Don't you dare tell me what to do," she hissed, her face inches from his. Her breath came in hot, white puffs that mingled with his. "Don't you dare make a decision for me, Tobias Hayes. You don't get to play the tragic hero and write me off. I decide where I go, and I decide who I carry."</p>
+<p>With a hard, screaming heave that strained her shoulders and back, she hauled him forward. Her knees dug into the sharp crust, but she didn't stop until they both slid onto the solid, grey granite shelf at the edge of the ice field.</p>
+<p>They collapsed together against the cold stone, chests heaving, the wind whistling over their heads.</p>
+<p>Tobias lay back, his eyes closed, his face slick with cold sweat. His breath was ragged. "You're an incredibly stubborn woman," he muttered.</p>
+<p>"And you're an arrogant bastard," she retorted, sitting up and rubbing her aching knee. Her heart was hammering against her ribs. "You think because you have a couple of billion dollars in the bank, you get to decide who lives and dies? You wanted to save me? To make yourself feel like a man?"</p>
+<p>Tobias opened his eyes. They were dark, intense, and entirely focused on her. "I wanted you to live, Avery. It has nothing to do with my ego. If one of us has to make it out of here, it should be you."</p>
+<p>"I don't need your charity, and I don't need your sacrifice," she said, her voice shaking with a mix of exhaustion and fury. "I've built my life on not needing anyone. Especially not a man from Seattle who thinks he can manage my survival like a corporate merger."</p>
+<p>The emotional distance between them felt wider than the frozen tundra stretching out to the horizon. She stood up, her joints protesting violently, and looked down at him. He looked battered, his powerful frame slumped against the rock, yet the raw energy radiating from him was palpable. He was ten years younger than her, but the gap between them wasn't about age; it was about power, control, and the walls she had spent her whole life building.</p>
+<p>"We need to get out of the wind," she said, her voice tight. "There's a shallow overhang fifty yards up. We're stopping there to check that leg. If it's infected, we aren't making the outpost anyway."</p>
+<p>She didn't wait for his response. She picked up her pack and limped toward the dark crevice in the granite wall.</p>
+<p>The overhang was small, just deep enough to block the biting wind. It was dark and smelled of dry stone and old pine needles. Avery dropped her gear and pulled out their survival tarp, shaking it out to create a barrier against the frozen ground.</p>
+<p>Tobias crawled in after her, his face tight with agony. He collapsed onto the tarp, his back against the stone wall. He was shivering now, a deep, violent tremor that shook his entire frame.</p>
+<p>"Sit up," Avery ordered.</p>
+<p>She knelt beside him, her knees cracking in the small space. She pulled her hunting knife from her belt. Tobias didn't flinch as she slid the blade through the bloody, frozen wool of his trousers, splitting the fabric from his knee to his hip.</p>
+<p>The wound was ugly. The rough stitches she had put in two days ago were holding, but the skin around them was red, swollen, and hot to the touch. The infection was spreading.</p>
+<p>"It's bad, isn't it?" Tobias asked, his teeth chattering.</p>
+<p>"It's not great," she said softly, her anger fading into the practical concern of a survivalist. She reached into her pack and pulled out their small medical kit, extracting a flask of strong alcohol and a clean bandage. "This is going to burn."</p>
+<p>She poured the alcohol directly over the wound. Tobias let out a sharp, strangled sound, his fingers digging into the fabric of her jacket as his body convulsed with the pain. He didn't pull away, though. He held onto her, his grip so tight her arm went numb.</p>
+<p>Avery leaned into him, using her weight to keep him still. "I've got you," she murmured, her voice dropping its hard edge. "I've got you, Tobias."</p>
+<p>As the pain subsided into a dull, throbbing heat, Tobias didn't let go of her jacket. His hands shifted, his fingers tangling in the heavy wool of her sweater, pulling her closer. His breath was hot against her neck.</p>
+<p>"Avery," he whispered.</p>
+<p>She looked down at him. His eyes were wide, dark with fever and something else—something heavy and desperate.</p>
+<p>"I'm not trying to control you," he said, his voice raw. "I've never met anyone like you. You're... you're everything. I don't want to lose you to this mountain."</p>
+<p>The sincerity in his voice struck her like a physical blow. Avery’s breath hitched. She had spent so long being the strong one, the one who took care of everyone else, that the sheer weight of his regard felt overwhelming. He didn't want to conquer her; he wanted to cherish her. He saw her strength, and he wanted to shelter it.</p>
+<p>Her hand trembled as she laid it against his cheek. His skin was burning hot, but his gaze was steady.</p>
+<p>"You're thirty-four, Tobias," she whispered, the words a quiet defense. "You have a whole world waiting for you back in Seattle. A world I don't fit into."</p>
+<p>"I don't care about that world," he said, his grip tightening, pulling her down until her chest was pressed against his. "I care about this. Right here. With you."</p>
+<p>The tension that had been building between them since the moment his plane clipped the trees broke. It was a sudden, violent snap of hunger. Avery didn't pull away this time. She leaned down and kissed him.</p>
+<p>The kiss was hard, desperate, tasting of salt, wind, and the copper tang of fear. Tobias groaned, his mouth opening under hers, his tongue tangling with hers with a fierce, possessive hunger. He pulled her down onto him, his strong hands moving up her back, finding the soft curve of her waist beneath her layers of wool.</p>
+<p>Avery felt a wave of thick, liquid heat pool in her lower belly, melting the cold that had settled deep in her joints. Her forty-four-year-old body, usually so stiff and predictable, felt alive, sensitized to every touch of his hands. She felt the heavy fullness of her breasts pressing against his chest, her nipples hardening under the friction of their clothes.</p>
+<p>"Avery," he gasped against his mouth, his hands sliding under her sweater, finding the bare, warm skin of her back. His palms were rough, calloused from their days of survival, and the contrast of his hot hands against her skin made her shiver. "I want you. God, I want you."</p>
+<p>"We shouldn't," she whispered, even as she began to pull her sweater over her head. Her skin goosebumped in the cold air of the cave, but the heat radiating from Tobias’s body was like a furnace.</p>
+<p>"We're alive," he said, his voice thick with desire. He reached up, his eyes fixed on her as she unbuttoned her flannel shirt, exposing the mature, heavy curves of her breasts. He reached out, his thumb brushing over one dark, swollen nipple. "You are so beautiful, Avery. So strong. So real."</p>
+<p>The worship in his voice made her throat tight. She leaned down, pressing her bare breasts against his chest, letting him feel the frantic beat of her heart.</p>
+<p>She helped him slide his torn trousers down, careful of his injured leg. His erection was thick and hard, pressing against his belly. Avery felt a familiar, deep ache of desire between her thighs, a slick warmth dampening her underwear.</p>
+<p>She stripped off her own pants, exposing her hips, the soft curve of her belly, and the silver stretch marks from her pregnancy so many years ago. She didn't feel self-conscious. In the dim light of the ice cave, with Tobias looking at her as if she were a goddess, she felt entirely powerful. She was a woman who knew her body, knew what she wanted, and wasn't afraid to take it.</p>
+<p>She straddled his hips, careful to keep her weight off his bad leg. Tobias let out a low growl, his hands gripping her hips, his fingers sinking into her flesh.</p>
+<p>"Avery," he groaned, his head falling back against the stone as she guided his length to her opening.</p>
+<p>She was wet, slick, and ready for him. She lowered herself slowly, her eyes locked on his. He stretched her, filling her completely, a thick, heavy intrusion that made her gasp. She paused, letting her body adjust to the sheer size of him, her muscles contracting around him in a tight, pulsing grip.</p>
+<p>Tobias’s eyes flew open, dark with a pleasure that looked almost like pain. "You're so tight," he choked out, his hips twitching upward, desperate for more. "Please, Avery."</p>
+<p>She began to move. She set the pace, her movements slow, deliberate, and grinding. She used her hips to rub against his pelvic bone, finding the exact angle that sent waves of intense, rolling pleasure straight to her spine.</p>
+<p>The cold of the cave was forgotten. The only reality was the heat of their skin, the sound of their wet, rhythmic friction, and the white puffs of their breath mingling in the dark.</p>
+<p>Tobias’s hands were everywhere—clutching her buttocks, tracing the curve of her spine, pulling her down so he could suckle her breasts. He took one nipple into his mouth, swirling his tongue around the sensitive tip until Avery cried out, her head tossing back as her movements became faster, more desperate.</p>
+<p>"That's it," he whispered, his voice rough and strained. He was holding back, letting her take what she needed, his muscles tense with the effort of restraint. "Take it, Avery. I'm yours. All of me."</p>
+<p>The surrender in his words was the final spark. Avery felt the coil inside her tighten, a deep, throbbing pressure that built with every hard thrust of her hips. She rode him faster, her fingers digging into his shoulders, her skin slick with sweat despite the freezing air.</p>
+<p>"Tobias," she gasped, her voice breaking.</p>
+<p>"I've got you," he growled, his hips lifting to meet her, driving deeper, harder.</p>
+<p>The climax hit her like a physical force. It wasn't a gentle wave; it was a violent, throbbing release that started deep in her core and radiated outward to her fingertips, melting the last of the ache in her joints. She clamped down around him, her inner muscles pulsing in tight, desperate spasms.</p>
+<p>Tobias let out a loud, raw roar, his body stiffening beneath her as he came, his hips lifting one last time to bury himself as deep as possible. He poured himself into her, his fingers digging into her hips with a bruising grip.</p>
+<p>They stayed like that for a long time, tangled together in the dark, their chests rising and falling in unison. The heat of their bodies was a small, fragile shield against the vastness of the Yukon.</p>
+<p>Slowly, the cold began to creep back in. Avery shifted, her joints stiffening as she slid off him, her skin cooling rapidly in the damp air. She quickly pulled her flannel shirt and sweater back on, her fingers trembling with a sudden, sharp return of reality.</p>
+<p>Tobias watched her, his eyes quiet now, the feverish brightness tempered by a deep, lingering exhaustion. He pulled his torn trousers up, his movements slow and painful.</p>
+<p>The silence returned, but it was different now. The physical connection had been real, a powerful, raw moment of survival and desire. But as Avery looked at the dark, swollen skin of his leg, and then out toward the grey, shifting ice field, the reality of their situation settled back over her like a heavy shroud.</p>
+<p>They were still lost. Tobias was still infected. And she was still a forty-four-year-old pilot with nothing but a failing business and a quiet house, while he belonged to a world of steel and glass thousands of miles away.</p>
+<p>"We need to move," Avery said, her voice quiet, returning to its professional, distant tone. She packed their gear with quick, efficient movements, not looking at him. "The wind is dying down. We have to cross the rest of the toe before dark."</p>
+<p>Tobias didn't argue. He slowly stood up, leaning against the stone wall for support. His eyes were fixed on her, searching her face for some sign of the woman who had just held him so fiercely in the dark.</p>
+<p>But Avery kept her face averted, her jaw set, her armor firmly back in place.</p>
+<p>Rotor blades chopped the gray Arctic sky to pieces.</p>
+<p>It was a brutal, mechanical roar that rattled the dry snow off the spruce boughs. For three days, the world had been nothing but the wind whistling through log chinking and the dry snap of pine in the stove. Now, the cabin vibrated under the weight of a search-and-rescue chopper.</p>
+<p>The door kicked open. A freezing wall of white powder and raw Yukon air blasted into the room, and Maren was through first. She was wearing her bright orange flight jacket, smelling of aviation fuel, cold nylon, and three-day-old thermos coffee.</p>
+<p>"Lane!" Her voice had a thin, tight edge to it—the kind of panic she never let show. She didn't even look at her sister. She went straight to the hearth, where Cade Barlow lay buried under a heap of scratchy wool blankets, his face the color of skim milk. Her heavy boots thudded on the floorboards. "Jesus, Lane. You two look like frozen meat."</p>
+<p>Paramedics pushed past Maren, hauling a collapsible gurney and insulated orange rescue wraps. The small room instantly got crowded, smelling of sweat, cold gear, and medical plastic.</p>
+<p>Lane stood back, her hands shoved deep in her pockets so Maren wouldn't see them shaking. Her knuckles were split and raw, the skin white around the cuticles from three days of swinging an axe and melting snow in the kettle. Her toes were finally starting to wake up inside her boots—a sharp, tingle-burn that felt like needles of fire as the blood forced its way back into the frozen tissue.</p>
+<p>"He's got a nasty shoulder wound," Lane told the lead paramedic, her throat dry and gravelly from the woodsmoke. "Infection set in yesterday. I flushed it and boiled up some spruce-needle wash, but he needs a heavy IV of antibiotics. Right now."</p>
+<p>Cade didn’t look much like a high-altitude corporate predator anymore. His dark hair was a matted mess, and his jaw was buried under a thick, black shadow of a beard that made him look like some wild hermit hauled out of the brush. But his eyes—dark, sharp, and entirely too focused—found hers through the scramble of orange jackets and medical gear. He dragged a hand out from under the blankets, his long, scarred fingers reaching through the cold air.</p>
+<p>She stepped forward and took it. His palm was dry, burning with a low, stubborn fever, but his grip was surprisingly tight.</p>
+<p>"Come with me," he rasped. It was a dry whisper, barely cutting through the rustle of the foil trauma blankets they were wrapping around him. "Anchorage. We can fly out together."</p>
+<p>"I've got to secure the cabin, Cade," she said, wrapping her cold fingers around his. "And my plane is still sitting in a drift by the clearing. I've got work to do."</p>
+<p>"Lane—"</p>
+<p>"Go," she said. No room for argument. "Get warm. Let them patch you up."</p>
+<p>They lifted him onto the gurney. Maren stayed behind for a second, her hand dropping onto Lane's shoulder with a heavy, grounding slap. "The chopper's taking him straight to the regional hospital in Anchorage. You want a lift down to the airfield?"</p>
+<p>Lane looked around her small cabin. The woodbox was empty. The kettle was cold. Her body ached in places she hadn't felt in a decade—a deep, heavy exhaustion that settled right into her lower back.</p>
+<p>"No," Lane said. "I'll take the supply truck back to the hangar with you. I need my own space."</p>
+<p>Maren studied her sister's face, searching the tight set of her mouth. Maren knew her better than anyone. "Okay. Let's get you loaded up."</p>
+<p>The chopper lifted, throwing up a blinding, choking whiteout of snow. Lane stood on the porch with her hand flat against her brow, watching the red tail lights blink out against the gray shoulder of the mountain. He was gone. Back to the grid of concrete, high-rises, and boardrooms. She was left with the silence. And God, the silence in the North is heavy.</p>
+<p><em></em>*</p>
+<p>Three days later, the cabin smelled like boiled black tea and fresh birch split.</p>
+<p>Lane sat at the pine table, bare feet propped on a stool near the stove. She wore a gray wool sweater that had belonged to her dad—so stretched out it hung halfway down her thighs. She traced the rim of her favorite mug, letting the heat seep into her palms. The skin on her fingers was peeling slightly from the mild frostbite, but the feeling was back. A sharp, stinging reality that reminded her she was still above ground.</p>
+<p>Maren sat across from her, scraping the grease off a snowmobile carburetor onto a crumpled copy of the <em>Anchorage Daily News</em>. The chemical tang of solvent was thick, but it was a good smell. A normal, working-class smell.</p>
+<p>"You've been quiet," Maren said, not looking up from the parts. "Usually, after a forced landing, you're on the horn screaming at the FAA or threatening the insurance adjuster. You haven't said ten words since we got back."</p>
+<p>"Thinking."</p>
+<p>"About the billionaire?"</p>
+<p>Lane looked out the frost-rimmed window. The sun was low, casting a long, blue shadow across the vast, empty snowfields. "About myself."</p>
+<p>"That's a first." Maren dropped a brass brush onto the newspaper and wiped her greasy palms on a rag. "He offered to clear the books, didn't he? Before you went down? I saw the buyout draft on your desk."</p>
+<p>"He did." Lane took a swallow of the tea. It was lukewarm and bitter. "He wanted to save Croft Air. Clean up all my red ink with a single scribble of his pen."</p>
+<p>"And?"</p>
+<p>"And I'm not signing."</p>
+<p>For five years, Lane had run herself ragged trying to keep her father's hangar from going under. She’d convinced herself that if she accepted help—from anyone—she was giving up the only thing she actually owned: her independence. She'd built a wall so thick and high in her late thirties that she figured no one could climb it. Letting Cade in felt like becoming a line item on his balance sheet.</p>
+<p>But sitting there by the stove, she saw it clearly. The wild hadn't broken her. She’d brought down a dying plane in a whiteout, dragged a two-hundred-pound man into shelter, kept him alive, and walked out on her own two feet. She didn't need a savior.</p>
+<p>She was forty-four. She had deep squint-lines around her eyes from years of high-altitude glare, her hips were broader than they used to be, and her left shoulder gave a nasty click whenever she pulled the starter rope on the generator. But she was whole. Her strength wasn't something she had to protect by keeping people away. It was just hers.</p>
+<p>"I'm not fragile," Lane said, the weight of the realization settling into her chest. "He can't break me."</p>
+<p>Maren looked up, a slow, knowing smirk on her weathered face. "Took you forty-four years to figure that out?"</p>
+<p>"If I let him in," Lane said, her heart doing a strange, heavy roll behind her ribs, "it's not because I need him to rescue me. It's because I want him."</p>
+<p>"Then go get him," Maren said, grabbing her wrench again. "Before he gets on a private jet back to Wall Street and you spend the rest of the winter kicking yourself."</p>
+<p><em></em>*</p>
+<p>The Cessna's engine roared—a deep, tooth-rattling vibration that Lane felt right through the soles of her boots.</p>
+<p>The sky over the Chugach range was a hard, brilliant blue, the peaks sparkling like broken glass under the winter sun. Lane sat in the cockpit, her hands light but firm on the yoke. This was her dirt. The cold air rushed through the cabin vents, smelling of high altitudes and hot engine oil.</p>
+<p>She looked down at the jagged teeth of the mountains. For the first time in her life, she didn't feel the weight of her struggles pressing down on her shoulders. She felt light. She wasn't flying to escape her debts or her past. She was flying toward her future.</p>
+<p>When she landed at the Anchorage airfield, she didn't hesitate. She didn't wash the grease from her fingers or change out of her heavy denim shirt and flannel-lined trousers. She took a cab straight to the hospital on the hill.</p>
+<p>The private wing was quiet, carpeted, and smelled of that expensive lavender soap hospitals use to hide the smell of bleach. Cade's world. Clean, quiet, and completely insulated from the mud.</p>
+<p>She found his room at the end of the hall. The door was cracked.</p>
+<p>She stepped inside.</p>
+<p>Cade was sitting on the edge of the mattress. He wore a pair of dark trousers, but his shirt was off, his left shoulder bound up in clean white gauze. His chest was wide, the muscle thick and shadowed under the fluorescent lights. He looked different here—pale from the blood loss, but there was a restless, coiled energy to him that made the sterile room feel tiny. He was staring at a laptop on his tray table, typing one-handed.</p>
+<p>Lane's boots made a heavy, dry scuff on the linoleum.</p>
+<p>"You're supposed to be resting," she said.</p>
+<p>Cade froze. He slowly turned his head. When his dark eyes met hers, the tension in his jaw vanished instantly. The laptop was forgotten.</p>
+<p>"Lane," he breathed. He started to stand, but his body winced, his hand going to his bandaged shoulder.</p>
+<p>"Stay down," she said, walking into the room and closing the door behind her. She reached back and turned the deadbolt. The click of the lock was sharp, final.</p>
+<p><em></em>*</p>
+<p>She walked over to the bed, her eyes scanning his face. The dark stubble was gone, shaved clean, revealing the sharp, clean lines of his jaw. But his eyes were still the same—hungry, intense, and completely focused on her.</p>
+<p>"You came," he said.</p>
+<p>"I flew," she corrected, stopping just inches from him. "My plane. My fuel. My choice."</p>
+<p>He let out a short, rough laugh, his right hand reaching out to snag her belt loop, pulling her a step closer. "Of course you did."</p>
+<p>"I came to tell you something, Barlow. I'm not selling the hangar. And I'm not taking your money."</p>
+<p>His eyes went dark, but there wasn't an ounce of anger in them. Just an intense, quiet fascination. "No?"</p>
+<p>"No. I'll dig my own way out of the hole. I'll haul the mail, I'll fly the timber, and I'll keep my dad's name on the sign on my own terms. I don't need a white knight."</p>
+<p>Cade stared up at her, his grip tightening on her waist. His thumb rubbed against the rough denim of her pants, sending a shiver of pure heat straight to her core. "I know you don't. I figured that out when you were dragging me through a blizzard. You're the toughest thing in the territory, Lane."</p>
+<p>"Good," she whispered, her voice dropping into a register that made her own skin prickle. She leaned down, her breath warm against his face. "Because since I don't need you... I can just want you."</p>
+<p>Cade’s breath hitched. He reached up, his fingers tangling in her dark hair, pulling her face down to his.</p>
+<p>The kiss was hard, desperate, tasting of the dry air and the raw edge of what they’d survived. Lane groaned, her mouth opening against his, her tongue sliding past his lips to claim him. There was no hesitation now, no fear of losing herself. She knew exactly who she was.</p>
+<p>She moved between his knees, her thighs pressing against the thin hospital mattress. She could feel him through his trousers—thick, rigid, and pressing hard against her belly.</p>
+<p>He groaned, his hand sliding up under her heavy denim shirt. His palm was hot against her skin, tracing the flare of her hip, finding the small of her back. He pulled her flush against him.</p>
+<p>"Lane," he muttered against her throat, his lips hot and wet as he kissed his way down to her collarbone. "I thought you were going to stay in the hills. I thought you were going to shut me out again."</p>
+<p>"I'm done running from things that make me feel alive," she whispered.</p>
+<p>She unbuttoned the denim with quick, impatient fingers, letting the heavy shirt slide off her shoulders and pool on the floor. Underneath, she wore a simple black lace bra. Her breasts were full, her nipples already dark and tight from the chill in the room.</p>
+<p>He looked at her with a quiet, fierce intensity. No judgment. Just pure hunger.</p>
+<p>"You are incredible," he rasped, his hand coming up to cup her breast, his thumb brushing over the lace-covered nipple.</p>
+<p>Lane gasped, a wave of liquid heat pooling deep in her belly. She reached down, her fingers steady as she unbuckled his belt. She slid the zipper of his trousers down, her knuckles brushing against the hot, hard length of him.</p>
+<p>Cade let out a low growl, his head falling back against the pillows as she freed him. He was thick, fully erect, pulsing with a youthful energy. But when his eyes met hers, there was a maturity there, a deep respect for her power.</p>
+<p>"Take me," he whispered. "I'm yours, Lane. However you want me."</p>
+<p>She smiled, a slow, confident curve of her lips. She climbed onto the bed, careful of his bad shoulder, and straddled his lap, her boots hanging off the edge of the mattress. She reached behind her back, popped the clasp of the bra, and tossed it. Her breasts swung free.</p>
+<p>Cade leaned in, his mouth catching one nipple, sucking her deep. Lane arched her back, her fingers locking in his hair as a sharp, heavy ache bloomed in her pelvis. He swirled his tongue against the peak, his hand sliding down to the waistband of her pants.</p>
+<p>"Get these off," he muttered against her skin.</p>
+<p>She lifted her hips, working her jeans and underwear down, kicking them free until she was completely bare below the waist. Her long, strong legs and the dark hair between her thighs were exposed to the sterile light.</p>
+<p>His hand found her. His fingers were hot, sliding through her curls to find the slick, wet heat of her. He parted her, his middle finger sliding slowly into her.</p>
+<p>Lane gasped, her forehead dropping onto his good shoulder. The feeling of him stretching her was almost too much. She was incredibly wet, her body primed by three days of pure adrenaline and survival.</p>
+<p>"You're so hot," he whispered, his thumb pressing against her clitoris, rubbing in slow, heavy circles. "So wet for me."</p>
+<p>"Cade... please," she gasped, her hips rocking against his hand.</p>
+<p>He withdrew his finger, his eyes locked on hers. He gripped her hips and guided her down.</p>
+<p>She lowered herself slowly, feeling the thick head of him part her, sliding past the tight squeeze of her muscles. She let out a long, ragged breath as his full length slid deep inside her. He filled her completely, a heavy, throbbing weight that hit her right where she needed it.</p>
+<p>She sat still for a second, letting her pelvic floor pulse around him, tight and hot.</p>
+<p>He let out a shaky breath. "Lane... you're perfect."</p>
+<p>She began to move, lifting her hips and sliding back down in a slow, heavy rhythm. The friction of their skin, the scent of sex, and the faint smell of hospital soap filled the small corner of the room.</p>
+<p>She took the lead, leaning forward to press her hands on either side of his head on the pillow, her breasts brushing his chest. He caught her nipple in his mouth again as she rode him.</p>
+<p>The rhythm broke into something faster, more urgent. Her hips rocked, her core clenching tight around him with every downward stroke. The pleasure was a sharp, throbbing heat that started deep in her belly and spread to her fingertips.</p>
+<p>He met her strokes, his hips lifting off the bed as his control started to fray.</p>
+<p>"Look at me," she whispered, her voice rough.</p>
+<p>He opened his eyes, dark and wild. He looked at her—forty-four, fierce, sweat dampening her temples, entirely in command of her own body.</p>
+<p>"I love you," he said. It wasn't a corporate promise; it was a confession, torn out of him. "I love you, Lane."</p>
+<p>The words didn't feel like a trap. They felt like a steady hand on the yoke.</p>
+<p>A wave of blinding heat broke over her. Her muscles clamped down on him, contracting in a tight, rhythmic spasm. She threw her head back, a low, ragged cry escaping her throat as the climax took her, shaking her from the inside out.</p>
+<p>Seeing her break, he lost it. He let out a low growl, his hips jerking up as he came inside her, a thick, hot pulse that she felt deep. He held her tight, his good arm locked around her waist, pulling her down against his chest as they both rode out the tremors.</p>
+<p><em></em>*</p>
+<p>Lane lay with her cheek against his chest, listening to his heart slow down.</p>
+<p>"What happens now?" he asked, his voice low against her ear.</p>
+<p>She smiled, her fingers tracing the collarbone on his uninjured side. "Now, you heal. Then you go back to New York and run your empire."</p>
+<p>And you?"</p>
+<p>"I go back to the hangar. I've got a business to run."</p>
+<p>He kissed her temple. "I'm not losing you, Lane."</p>
+<p>"You won't," she said, looking up at him. Her eyes were clear, bright, and completely free of the old, defensive fear. "But we do this on our terms. No buyouts. No mergers. Just you and me. Two separate mountains, sharing the same sky."</p>
+<p>He smiled—a real, unbuttoned smile. "Two separate mountains."</p>
+<p>She leaned down and kissed him, a slow, lingering promise of the winter to come.</p>
+<p>The silence of the private elevator was a stark contrast to the Yukon’s quiet. Up north, the hush felt alive, a deep hum vibrating with the distant groan of glaciers and the almost inaudible whisper of pine needles under a fresh blanket of snow. Here, sixty floors above Manhattan’s concrete grid, the quiet was artificial, pressurized, and spoke of serious money.</p>
+<p>Avery Croft adjusted the strap of her canvas duffel bag, her shoulders dropping an inch as the elevator chimed. Forty-four years old, and she'd spent the last twenty learning, with painful precision, exactly how much space she occupied in the world. Her joints still held the dull, familiar ache of the long commercial flight from Whitehorse, and her hair, pinned up in a hurried, loose twist, felt damp from the sudden late-summer rain that had ambushed her at JFK.</p>
+<p>She didn't bother checking the polished metal walls of the elevator car. No need to look for new lines or search for the silver threads that had begun to pattern her dark hair. She knew they were there. They were the visible tally marks of a life spent flying twin-engine props through mountain passes, of raising her younger sister, Beryl, when their family imploded, and of stubbornly keeping a struggling aviation business in the air.</p>
+<p>The elevator doors slid open with a soft, pneumatic sigh, revealing the expanse of Rory Kavanagh’s penthouse.</p>
+<p>It was a temple built of glass and dark stone. Floor-to-ceiling windows framed a grey, rain-slicked Manhattan skyline that looked less like a city and more like a vast, sprawling circuit board. But Avery’s eyes didn’t linger on the view. They locked onto the man standing in the center of the living room.</p>
+<p>Rory was thirty-four, in the absolute prime of his physical power, but right now he looked utterly undone. His expensive charcoal suit trousers were still perfect, but his white dress shirt was unbuttoned at the collar, sleeves rolled up to reveal the heavy muscles of his forearms. A large leather travel bag sat open on a low Italian sofa, half-filled with folded shirts.</p>
+<p>He held a stack of passports and flight itineraries in his hand. When he turned and saw her, the papers slipped from his fingers, scattering across the polished hardwood.</p>
+<p>"Avery," he breathed.</p>
+<p>The shock in his voice was raw, stripping away the polished, ruthless corporate titan she had first met in her freezing hangar. For a second, he didn't move, as if convinced the sight of her in her worn leather flight jacket, scuffed boots, and faded jeans was some trick of his sleep-deprived brain.</p>
+<p>Avery set her duffel bag down on the pristine floor. The heavy canvas slumped against a minimalist side table, looking gloriously out of place. "You were packing."</p>
+<p>"I was coming back to you," Rory said, his voice thick, gravelly. He took three long, urgent strides toward her, then stopped himself, his hands hovering in the space between them as if he were afraid she would vanish if he reached out. "I had the Gulfstream fueled. I was leaving for Whitehorse in two hours. I couldn't stay here, Avery. Not after the way we left things. Not after..."</p>
+<p>"Not after we realized how big the ocean is between my world and yours?" she asked quietly.</p>
+<p>She walked toward him, her movements steady and unhurried. Her heart hammered against her ribs, but she kept her gaze level, her chin tilted up. She was a woman who had faced down mountain squalls and failing engines; she wasn't about to let the sheer weight of his wealth or the decade of age between them make her feel small.</p>
+<p>"I didn't come here to be rescued, Rory," she said, her voice dropping into a low, firm register. "And I didn't come here to play house in your skyscraper. I have a hangar to run. I have Beryl depending on me to keep the props turning. I have forty-four years of independence built into my bones, and I am not going to let any man, no matter how much I want him, dissolve that."</p>
+<p>Rory’s eyes darkened, a fierce, hungry light igniting in their depths. He didn't look at her with the patronizing softness of a young man trying to protect a fragile thing. He looked at her with absolute, reverent awe. He respected her strength because he knew it was real, forged in frozen winds and hard choices, not inherited or bought.</p>
+<p>"I don't want to dissolve you," he said, his voice dropping to a rough whisper. He closed the remaining distance, his chest nearly brushing hers. The heat radiating from him was a physical force, instantly dispelling the air-conditioned chill of the penthouse. "I don't want a woman I can control, Avery. I’ve spent my entire life surrounded by people who bend whichever way the wind blows. You... you are the only real thing I've ever touched."</p>
+<p>He reached out, his large, warm hand cupping her cheek. His thumb, surprisingly calloused for a man who signed multi-million-dollar deals, traced the fine lines at the corner of her eye. "I don't want you to change. I don't want you to give up a single piece of your sky."</p>
+<p>The touch of his skin against hers made Avery’s breath hitch. A deep, long-dormant ache flared to life in the pit of her stomach. For so many years, she had been the one everyone relied on. She was the pilot, the provider, the rock. To have this powerful, brilliant man look at her as if she were the prize he had spent his entire life searching for—not despite her age, her scars, or her stubbornness, but precisely because of them—was intoxicating.</p>
+<p>"I want you, Rory," she whispered, her fingers wrapping around his wrist, feeling the strong, steady pulse beneath his skin. "On my own terms."</p>
+<p>"Name them," he said, his eyes scanning her face with desperate intensity. "Anything."</p>
+<p>"We don't live in just one of these worlds. We split it. Half the year, you're in my sky, helping me patch engines and learning what it means to sweat for your dinner. The other half, I'm here, letting you remind me what it feels like to be held." She pressed her palm against his chest, feeling the heavy thud of his heart. "But I will always fly my own planes. You don't buy me out. You don't bail me out. We are partners, or we are nothing."</p>
+<p>Rory let out a low, rough laugh, a sound of pure, unadulterated relief. "You think I want to run your hangar? I’d probably crash your favorite Beaver into a pine tree within a week. I want the pilot, Avery. Just the pilot."</p>
+<p>He leaned down, his mouth crashing onto hers before she could reply.</p>
+<p>The kiss wasn't gentle. It was a collision of hunger and relief, weeks of separation and silent longing exploding in a single moment. Rory’s hands tangled in her hair, pulling the pins free until the dark locks tumbled down around her shoulders. Avery groaned against his lips, her arms looping around his neck, pulling his heavy, powerful frame flush against her.</p>
+<p>He tasted of expensive scotch and the clean, sharp bite of mint, but underneath it was the raw, familiar scent of him—skin, heat, and pure desire. He backed her up, his movements urgent but deliberate, until her spine met the cool glass of the window.</p>
+<p>The contrast was staggering. Behind her, sixty stories of concrete and steel fell away into the rainy night, a cold, indifferent city. In front of her was Rory, a solid, breathing wall of muscle and heat, sealing her in.</p>
+<p>"You have no idea what it's been like," he muttered against her throat, his lips trailing down to the sensitive skin just below her jaw. "Every night in this bed, looking out at this empty view, wishing I was freezing to death in your cabin just to be near you."</p>
+<p>Avery's hands found the hem of his dress shirt, tugging it free from his trousers. She wanted to feel him. She wanted the barrier of his tailored world gone. Her fingers slid over the smooth, hard ridges of his abdomen, his skin scorching hot under her touch. At thirty-four, his body was dense and perfectly conditioned, but she didn't feel self-conscious of her own. As his hands slid down to her hips, gripping her through the heavy denim of her jeans, she felt a profound wave of confidence. She was a woman who knew her body, knew what gave her pleasure, and knew how to give it in return.</p>
+<p>"Rory," she gasped, her fingers digging into the muscle of his shoulders as his mouth found the collarbone she had broken years ago in a rough landing. He kissed the pale, raised line of the scar with a tenderness that made her eyes sting.</p>
+<p>He didn't speak. He didn't need to. He unzipped her leather jacket, letting it pool onto the floor beside her bag. His hands found the hem of her simple grey t-shirt, sliding upward over the soft, mature curve of her waist. His fingers were shaking slightly—a detail that sent a thrill of pure power through her. This man, who could silence a boardroom with a single look, was trembling under her hands.</p>
+<p>He lifted the shirt over her head and tossed it aside. For a moment, he simply looked at her. Avery stood before him in her lace bra, her skin flushed, her breathing shallow. Her body wasn't the airbrushed, unblemished ideal of the young women who populated his social circle. She had the soft curve of a mature woman’s belly, the slight stretch marks on her hips from a life of shifting weight, and the muscular, strong shoulders of a pilot.</p>
+<p>To Rory, she was magnificent. He cupped her breasts, his thumbs brushing over the lace of her bra, his gaze locked onto hers.</p>
+<p>"You are beautiful, Avery. God, you are so beautiful."</p>
+<p>The sincerity in his eyes burned away the last vestige of her defense. She reached for his belt, her movements quickening as the heat between them reached a boiling point. "Less talking, Kavanagh."</p>
+<p>A low growl escaped his throat. He stripped off his shirt, revealing his broad chest and the heavy musculature of his arms, before lifting her effortlessly. Avery wrapped her legs around his waist, her boots scraping against the glass window as he carried her across the room toward the massive bed that overlooked the city.</p>
+<p>They tumbled onto the dark silk sheets, a tangle of limbs and gasps. Rory stripped away her jeans, his touch reverent but demanding. When they were finally bare, skin to skin, the difference in their worlds faded into nothing. There was no class divide here, no thirty-four and forty-four, no city and wilderness. There was only the heavy, rhythmic thrum of their breathing and the primal urgency of their connection.</p>
+<p>Rory hovered over her, his eyes dark with a hunger that bordered on pain. He parted her thighs, his fingers sliding down to find her already slick and aching for him. Avery let out a sharp, ragged breath, her hips arching instinctively toward his touch. The sensation of his fingers, skilled and deliberate, tracing her sensitivity made her head roll back against the pillows.</p>
+<p>"Rory, please," she whispered, her voice stripped of its usual control.</p>
+<p>"Look at me," he commanded softly.</p>
+<p>She opened her eyes, locking her gaze onto his. He slowly sank into her, his body thick and unyielding, filling the hollow ache that had kept her awake for weeks. Avery’s grip tightened on his shoulders, her back arching as she took him in. The sheer, solid weight of him was a grounding force, anchoring her to the present, to the reality of what they were building.</p>
+<p>He began to move, his strokes long, slow, and devastatingly deep. Rory didn't rush. He watched her face, reading every twitch of her brow, every hitch in her breath, adapting his rhythm to her pleasure. He wanted her to feel every fraction of his surrender.</p>
+<p>Avery met his thrusts with her own, her confidence guiding her movements. She wasn't passive; she was an equal participant in this storm. She felt the heavy coil of tension tightening deep within her belly, a familiar, burning heat that built with every slide of his skin against hers. The scent of their sweat and desire filled the air, thick and sweet.</p>
+<p>Rory’s pace quickened, his breath coming in ragged, harsh pants. The youth in him showed in the raw, tireless energy of his body, but the maturity of his focus was entirely devoted to her. He slid his hand down between their bodies, his thumb finding the spark that pushed her over the edge.</p>
+<p>With a low, choked cry, Avery shattered. The climax hit her not like a sudden wave, but like a deep, throbbing burn that radiated from her core to her fingertips. She clung to him as her body pulsed around him, her release triggering his own. Rory let out a raw, guttural groan, burying his face in the crook of her neck as he thrust deep one last time, his entire body shuddering as he surrendered everything to her.</p>
+<p>They lay together for a long time afterward, the storm inside having passed, leaving only the quiet patter of the rain against the glass.</p>
+<p>The city lights flickered in the distance, but the penthouse felt insulated, safe. Avery lay with her head on Rory’s chest, the steady, slowing beat of his heart under her ear. His arm was wrapped securely around her shoulders, his fingers gently tracing patterns on her bare arm.</p>
+<p>"I have a confession," Rory murmured into the quiet room, his voice rumbling against her cheek.</p>
+<p>Avery smiled, tracing a line down his collarbone. "What’s that?"</p>
+<p>"I bought a tractor."</p>
+<p>She paused, lifting her head to look at him. "You bought a what?"</p>
+<p>"A tractor," he repeated, a sheepish, boyish grin breaking across his handsome face. "A John Deere. It's currently sitting in a shipping container in Vancouver, waiting to be sent to Whitehorse. I figured... if I'm going to spend half my year up there, I should probably make myself useful. I can't fly, but I can clear your runway in the winter."</p>
+<p>Avery stared at him, the sheer absurdity of the image—this Manhattan billionaire in a high-tech tractor clearing snow in the Yukon—settling into her mind. A warmth, deeper and more permanent than the physical afterglow of their intimacy, bloomed in her chest.</p>
+<p>She let out a soft laugh, her eyes crinkling at the corners. "You bought a tractor."</p>
+<p>"I did." He reached up, cupping the back of her neck and pulling her down for a soft, lingering kiss. "I told you, Avery. I’m in. All the way."</p>
+<p>She leaned down, resting her forehead against his. For the first time in her life, the future didn't look like a solo flight through a heavy storm. It looked like a shared horizon, vast and unpredictable, but entirely theirs.</p>
+<p>"Then we better get some sleep, Kavanagh," she whispered against his lips. "Because tomorrow, you're going to learn how to change the oil on a Cessna."</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

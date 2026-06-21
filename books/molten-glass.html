@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molten Glass - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">Molten Glass</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>Molten Glass</h1>
+<p>The heat snuck up on Jessamy, a sly, internal tide. It started deep in her belly, then bloomed across her chest, a sudden flush that rushed up her neck, even pricked her scalp. Forty-eight. Divorced. And now, furnace-hot inside, even in her drafty studio on a blustery November afternoon. She pressed a cool, damp rag to her temples. The air in the old cannery hung thick with the faint scent of salt and the metallic tang of copper foil. Outside, the Nor’easter was sucking in its breath, the Atlantic a roaring beast just beyond the shingled walls. Her youngest, Nola, was off at college, her marriage a distant echo of shared silence, and this studio, this small, hard-won space, was all that felt real.</p>
+<p>She’d spent the morning hunched over a worktable, piecing together molten red and deep cobalt glass, a commission for the new seafood place down by the docks. Her hands, rough from years of grit but still nimble, moved with the muscle memory of two decades. Stained glass. It wasn’t just a job; it was something wired into her bones, an art that demanded patience, a steady hand, and a willingness to dance with fire. Her annealing kiln, a squat, insulated box essential for slowly cooling the glass, hummed quietly in the corner. Its internal temperature was a carefully watched climb. Everything she had, everything she was trying to build, depended on that kiln.</p>
+<p>A sudden, violent gust slammed into the building, rattling the old single-pane windows. Rain, driven sideways, began to drum a furious beat on the roof. Jessamy flinched, a cold trickle of unease snaking up her spine. This storm wasn’t just a storm; it felt meaner. Angrier. She glanced up, her eyes tracing the ceiling beams, scarred by years of coastal damp. Just as she started to breathe easy, a dark spot blossomed on the raw timber joist right above her kiln. It spread like ink dropped onto old parchment.</p>
+<p>A single, cold drop hit the top of the kiln. Then another. And another.</p>
+<p>Panic, cold and sharp, sliced through the lingering warmth of her hot flash. Not just a leak. A bullseye. Cold water on a hot kiln element wasn’t just bad; it was catastrophic. It could short the electricals, crack the ceramics, leave the whole thing dead. Three thousand dollars, maybe more, for a repair. Money she didn’t have. Not after the divorce. Not with Nola’s next tuition bill looming like a storm cloud of its own.</p>
+<p>She scrambled, grabbing a flimsy plastic tarp, then remembered her dented metal bucket. The tarp wouldn’t do much against this, but it was <em>something</em>. She dragged a step ladder over, her muscles screaming in protest, and tried to wedge the bucket into place. Too late. The water was already spreading, a dark stain quickly turning into a stream. That joist was split, an old wound torn open by the storm’s fury. The rain wasn’t just dripping; it was channeling, finding the path of least resistance directly towards her precious machine. Her heart hammered against her ribs, a frantic, sickening beat of dread.</p>
+<p>Just then, a heavy knock rattled the studio door, cutting through the storm’s roar. Jessamy froze. <em>The insurance adjuster.</em> Of course. Right <em>now</em>. She swallowed, pushing down a hot wave of helpless frustration. She grabbed a shop towel, trying to wipe the dampness from her face and the anxious tremor from her hands.</p>
+<p>The door creaked open, letting in a blast of frigid, salty air and a man who seemed to fill the frame. He was tall, broad-shouldered, dressed in heavy-duty work gear: a dark, thick canvas jacket and water-resistant pants. His gaze, a direct, clear hazel, swept over the organized chaos of her studio—the worktables piled with glass shards, the glowing kiln, the frantic drip-drip-drip into the bucket beneath the rapidly growing stain.</p>
+<p>“Jessamy Roy?” His voice was deep, calm, a solid anchor cutting through the din. “Quinn Connolly. Marine surveyor. Got your report about the storm damage.”</p>
+<p>He looked… formidable. And young. Mid-thirties, maybe. His face was rugged, with a strong jawline and eyes that crinkled at the corners, hinting at an easy smile, though none was present now. He was thirty-four. Fourteen years her junior. Jessamy felt a familiar pang—that sense of being old enough to be someone’s slightly disheveled older sister, rather than a woman whose pulse might still race.</p>
+<p>“Mr. Connolly,” she managed, her voice tighter than she liked. “I, uh, I think the damage is worse than the report says. See here?” She gestured frantically at the deluge forming a small puddle on the concrete floor. “It’s hitting the kiln. If that shorts out, I’m finished.”</p>
+<p>He walked further into the studio, removing a heavy yellow oilskin slicker and a pair of mud-caked work boots by the door, setting them carefully on a scrap of newspaper she kept for sweeping up glass. He moved with a quiet, efficient grace that instantly commanded attention. “Got it. Let me take a look.” He strode towards the leak, his eyes, sharp and assessing, fixed on the ceiling joist. No wasted pleasantries. Jessamy, surprisingly, appreciated that.</p>
+<p>“The report mentioned a compromised section near the chimney, but this looks like a new split,” Quinn said, his gaze fixed upward. He pulled a small, powerful flashlight from his pocket, aiming its beam at the crack. “Water’s getting through a weak spot in the roof sheathing, collecting on the joist, and, well, finding the easy path right over your kiln. Not good at all.”</p>
+<p>“No kidding,” Jessamy muttered, feeling a fresh wave of sick panic. “What do we do? I can’t leave it like this.”</p>
+<p>Quinn turned, his eyes meeting hers. There was a quiet intensity in them, not pity, but a clear understanding of what was at stake. “First thing: stop the immediate problem. We need to brace that joist, temporarily, to spread the load and divert the water. Then, some heavy tarping over that outside roof section, right above it. Do you have any spare two-by-fours, any sturdy lumber, anything for a temporary brace?”</p>
+<p>Jessamy pointed to a stack of seasoned cedar offcuts in a corner. “Just those. And a couple of old sawhorses.”</p>
+<p>“Perfect.” He gave a short, decisive nod. “I’ll need those, your ladder, and if you have a stronger, bigger tarp, that’d be ideal. I’ve got some tools in my truck.”</p>
+<p>He was already moving, his energy a stark contrast to her own bone-deep weariness. She found herself responding, obeying, her body moving on instinct. She dragged the sawhorses, retrieved the lumber, and found the largest, thickest tarp she owned, normally used to cover finished glass panels outside.</p>
+<p>Quinn returned quickly, his arms laden with a small toolbox, a roll of heavy-duty duct tape, and a long, telescopic pole he’d obviously grabbed from his vehicle. He was methodical, his movements precise. He quickly eyed the studio roof from the inside, pinpointing the exact entry point.</p>
+<p>“The main problem is the weight of the water collecting,” he explained, his voice calm amidst the renewed assault of the storm. “The old joist can’t take it. We need to prop it up from below.”</p>
+<p>He used the cedar offcuts, cleverly interlocking them and securing them with the duct tape to create a makeshift but surprisingly sturdy support. He showed her how to position the larger tarp, guiding her hands as she unfolded it. Their fingers brushed, a momentary jolt of unexpected sensation that Jessamy quickly rationalized as simple adrenaline. He smelled faintly of rain, salt, and something woodsy, like pine or cedar.</p>
+<p>He climbed the ladder, his movements agile and sure, despite the awkwardness of the heavy tarp. Jessamy held the ladder steady, her gaze fixed on his back, the broadness of his shoulders, the easy flexing of his muscles as he worked. He moved like a man accustomed to hard physical labor, to facing the elements head-on.</p>
+<p>“Alright, let’s get this above the main leak and try to funnel the water into the bucket,” he instructed, his voice close, directly above her. His arm reached out, his hand brushing her cheek as he shifted the tarp into position. The unexpected touch was light, almost accidental, but it sent a shiver through her, a startling sensation that had nothing to do with the cold.</p>
+<p>Together, they wrestled the heavy tarp into place, securing it to the ceiling joists with more tape and carefully placed clamps. It wasn’t pretty, but it was effective. The stream of water, which had been hitting the kiln, was now diverted, cascading into the bucket with a loud, rhythmic splash. The immediate threat was, for now, averted.</p>
+<p>Quinn descended the ladder, wiping his hands on his pants. He looked tired, a few strands of dark hair falling across his forehead, but there was a deep satisfaction in his eyes. “That should hold for now. It’s a temporary fix, obviously. You’ll need a roofer out here as soon as this storm breaks.”</p>
+<p>Jessamy sagged against a workbench, a profound wave of relief washing over her. Her legs felt like jelly, her hands trembled. “Thank you,” she breathed, the words barely audible over the storm. “Truly. You saved my kiln. My business.” Her voice caught, thick with unexpected emotion.</p>
+<p>He smiled then, a flash of genuine warmth that softened the rugged angles of his face. His hazel eyes crinkled. “Just doing my job, Jessamy. But I get it. This place… it’s more than just a studio, isn’t it?” He gestured around at the vibrant panels, the tools, the glass shards glimmering like scattered jewels.</p>
+<p>She nodded, unable to articulate the depth of her feeling. This studio was her past, her present, and her desperate, fragile hope for a future. After years of putting her ex-husband’s career and her daughters’ needs first, this was <em>hers</em>. Her creativity, her solace, her proof that she was still capable of building something beautiful from broken pieces.</p>
+<p>The adrenaline began to recede, leaving her feeling utterly drained, yet strangely alive. The air in the studio, though still cool, felt warmer now that the direct spray of the rain was gone. The rhythmic drip-drip-drip into the bucket was a strangely soothing sound, a small victory against the storm’s fury.</p>
+<p>Quinn leaned against the workbench opposite her, his arms crossed, watching her. His presence filled the space, a quiet, solid anchor in the ongoing storm. “Rough day for you, huh?” he observed, his voice gentler now. “Hot flashes and a failing roof. Quite the welcome for a new chapter, I imagine.”</p>
+<p>Jessamy blinked, surprised by his candor, and the unsettling accuracy of his observation. A blush crept up her neck. “How did you…?”</p>
+<p>He chuckled softly. “You mentioned the hot flash when I walked in. And the look in your eyes, Jessamy. It’s not just about a roof, is it? It’s about everything.” He met her gaze, and in his eyes, she saw not pity, but something far more valuable: recognition. He <em>saw</em> her. Not as some damsel in distress, but as a woman fighting a battle, and fighting hard.</p>
+<p>The air between them seemed to thicken, charged with an unspoken understanding. The roar of the storm outside softened to a background hum. Jessamy felt a tug, a subtle shift deep inside her, like a long-dormant engine suddenly catching. She hadn’t felt this kind of awareness for another person, this quiet hum of anticipation, in years. Decades.</p>
+<p>“It is,” she admitted, her voice soft. “It’s about everything. This place is… it’s my lifeline.”</p>
+<p>Quinn straightened, moving closer. He didn’t touch her, but his proximity was a palpable thing. “And you fought for it, didn’t you? I can see it. The grit. The fire.” His gaze lingered on her, a slow, encompassing sweep that took in her slightly disheveled hair, the smudges of charcoal on her cheek, the fierce protectiveness in her eyes. It was a look of deep admiration, entirely without judgment.</p>
+<p>Jessamy felt her breath catch. This wasn’t the look of a casual acquaintance, or a professional assessor. This was something else. Something she hadn’t received in a very long time. To be seen, truly seen, as a woman with a history, with scars, with a body that had aged but was still capable of strength and passion… it was unnerving and exhilarating all at once.</p>
+<p>“Fire, yes,” she echoed, a small, wry smile touching her lips. “Sometimes too much. Especially these days.” She gestured vaguely to herself, a nod to the hot flashes, that internal furnace that seemed to rage whenever it pleased.</p>
+<p>Quinn’s smile broadened, and he reached out, not to touch her, but to cup his hand around a piece of raw, iridescent glass on the workbench beside her. “Molten glass,” he mused. “Holds so much heat, then cools into something so beautiful, so strong. Sounds about right.” He looked at her again, his eyes holding hers, a question, an invitation.</p>
+<p>Jessamy’s stomach fluttered. The exhaustion of the day, the tidal wave of relief, the sheer physical exertion—it all combined to create a heady mix of vulnerability and raw, vibrating sensation. She shivered slightly now, a mix of chill from the storm and an unfamiliar heat rising within her again, but this time, it was different. Not a flash. A slow, steady burn.</p>
+<p>He took another step, closing the small gap between them. His eyes dropped to her lips, then back to her eyes, seeking permission. “You’re shivering,” he murmured, his voice a low rumble.</p>
+<p>“A little,” she confessed, her own gaze caught in his. Her throat felt dry. She wanted him to touch her. The desire was a sudden, fierce thing, surprising in its intensity, a sharp contrast to the quiet, muted life she’d been leading.</p>
+<p>He raised a hand, his fingers hesitating for a moment before he gently brushed a stray strand of hair from her face. His touch was feather-light, yet it sent a jolt straight through her, igniting a forgotten longing. “I’m not here to wreck you, Jessamy,” he said, his voice soft, reassuring. “I’m here to help you shore things up.”</p>
+<p>His thumb stroked her cheekbone, a slow, deliberate movement that spoke more than words. Jessamy leaned into it, closing her eyes for a fleeting second, allowing herself to feel the simple, profound pleasure of contact. Her body, often a source of discomfort lately, felt alive under his touch, responsive.</p>
+<p>When her eyes opened, Quinn was even closer, his gaze intense, seeking. “Can I?” he asked, his voice barely a whisper, the question unspoken but clear.</p>
+<p>Jessamy didn’t speak. She simply nodded, a small, almost imperceptible tilt of her head.</p>
+<p>He closed the remaining distance, his other hand coming to rest on the small of her back, drawing her gently against him. Her body pressed against his, and she felt the hard planes of his chest, the warmth radiating from him. He smelled earthy, real. His lips, warm and firm, settled on hers.</p>
+<p>The kiss was slow, exploratory, a gentle pressing and tasting that quickly deepened. Jessamy let out a soft sigh, her hands coming up to grip his shoulders, anchoring herself to him. His mouth moved with a confident rhythm, soft at first, then more demanding, teasing her lips apart. Her breath hitched as his tongue swept inside, a hot, liquid invasion that melted away years of emotional frost.</p>
+<p>She kissed him back with an urgency that surprised her, a hunger that had been buried so deep, she’d forgotten it existed. His hands moved from her back, tracing the curve of her waist, then dipping lower, settling on her hips, pulling her flush against his growing hardness. A low moan escaped her throat, a sound she barely recognized as her own.</p>
+<p>Quinn broke the kiss, just enough to catch his breath, his forehead resting against hers. His eyes were dark, pupils dilated. “Jessamy,” he breathed, his voice rough with desire. “You are incredible.”</p>
+<p>“You have no idea,” she whispered back, her fingers tangling in the dark hair at his nape, pulling him closer. “No idea.”</p>
+<p>He kissed her again, deeper this time, a hungry, possessive claiming that left her breathless and trembling. His hands moved with an easy grace, exploring the curve of her spine, the softness of her knit sweater. She felt the subtle shift in his body, the rising tension mirroring her own.</p>
+<p>“Is there somewhere… warmer?” he asked, his lips tracing the sensitive skin along her jawline. The studio was large, drafty, and still cool despite the lack of direct rain.</p>
+<p>Jessamy’s small office area was just off the main studio, a tiny space with a small electric heater she sometimes used. It was cluttered but had a worn, comfortable armchair. “My office,” she managed, her voice thick. “Just through there.”</p>
+<p>He didn’t hesitate. He swung her up into his arms, carrying her with surprising ease as if she weighed nothing. Jessamy gasped, clinging to him, her face buried against his neck, inhaling his scent. He carried her through the narrow doorway, navigating around stacks of glass and tools, into the tiny office.</p>
+<p>The small electric heater was on, casting a faint orange glow. Quinn set her down gently beside a sturdy, if slightly lopsided, wooden desk, her body still pressed against his. He didn’t release her, his gaze locked on hers, a silent question passing between them.</p>
+<p>“I want you, Quinn,” she said, the words bold, unhesitating. It felt right, an affirmation of a desire she’d long buried.</p>
+<p>A primal sound rumbled in his chest, and he kissed her again, fiercely, desperately. His hands went to the hem of her sweater, tugging it upward. Jessamy helped him, shedding the soft wool, then reaching for the buttons of his shirt. Her fingers fumbled slightly, impatient to feel his skin.</p>
+<p>He pulled back just enough to watch her as she worked, his eyes burning into hers. When her sweater was off, revealing her lace-trimmed camisole, his gaze softened, filled with a deep admiration that made her feel beautiful, cherished. He unbuttoned his shirt, shrugging it off to reveal a powerfully built chest, dusted with dark hair. His body was lean, strong, the muscles defined but not sculpted. Young, vibrant, intensely male.</p>
+<p>Her hands, no longer trembling, reached out to touch him, tracing the warm skin of his chest, feeling the beat of his heart under her palm. He shuddered under her touch, a small groan escaping his lips.</p>
+<p>“You have no idea how beautiful you are, Jessamy,” he whispered, his voice hoarse, his gaze sweeping over her, lingering on the gentle curves of her body, the subtle lines that spoke of a life lived, of motherhood, of resilience. He saw it all, and he wanted it all.</p>
+<p>He pushed her camisole straps down, exposing her breasts, full and soft, still bearing the faint marks of her daughters’ nursing years. Jessamy felt a momentary flicker of self-consciousness, then it vanished under the unwavering heat of his gaze. He looked at her as if she were a masterpiece, newly revealed.</p>
+<p>His head dipped, and his mouth found the curve of her neck, trailing hot, wet kisses downward. Jessamy arched into him, her fingers gripping his hair. When his lips finally closed over one nipple, a gasp tore from her throat. The sensation was exquisite, a jolt of pure pleasure that shot straight through her, pooling hot and heavy between her thighs. He suckled gently, then more firmly, teasing, tasting, drawing forth a deep, aching need.</p>
+<p>She fumbled with the button of his pants, her desire a frantic, insistent drumbeat. He helped her, his fingers quick and adept. His jeans fell to the floor, followed by his boxers, revealing his erection, thick and eager. Jessamy looked at him, at his beautiful, young body, and a thrill, ancient and powerful, ran through her. This man, Quinn, wanted <em>her</em>.</p>
+<p>He lifted her onto the sturdy wooden desk, pushing aside her glass patterns and tools with a reckless abandon that made her smile. Her legs parted, her skirt riding up her thighs. He stood between her legs, his hands finding the snap of her jeans, quickly unzipping them, then peeling them down, along with her panties. The cool air touched her bare skin, followed instantly by the heat of his gaze.</p>
+<p>“You are exquisite,” he murmured, his eyes fixed on her slick, trembling core.</p>
+<p>He knelt between her legs, his fingers finding her, testing her wetness. Jessamy gasped, her hips instinctively bucking. He tasted her, a deep, intimate kiss that sent shivers of delight through her. His tongue, hot and skilled, worked magic on her clitoris, drawing forth deep, guttural moans she hadn’t known she possessed. She wrapped her legs around his head, pulling him closer, desperate for more.</p>
+<p>“Quinn,” she cried out, her body already coiling for release. “Please, I can’t—.”</p>
+<p>He rose, pushing her legs apart slightly, aligning himself. She felt the blunt head of him against her entrance, slick and hot. Her body, already aching, opened to him, a welcoming, hungry cavern.</p>
+<p>He pushed, slow and deliberate, a long, exquisite stretch that brought a sharp intake of breath from both of them. Jessamy gasped, her back arching, her nails digging into the wood of the desk. He filled her completely, a potent, heavy weight that felt like coming home.</p>
+<p>He waited, letting her adjust, letting her body acclimate to the glorious invasion. She looked into his eyes, seeing the raw desire, the deep connection, the pure pleasure he took in her. This wasn’t just physical. This was affirmation. This was being seen, wanted, desired without reservation.</p>
+<p>“Jessamy,” he groaned, his voice thick with emotion.</p>
+<p>She wrapped her legs around his waist, pulling him deeper, demanding more. “Move, Quinn. Please.”</p>
+<p>He began to move, a slow, powerful thrust, then another, picking up the rhythm. Each stroke was pure sensation, a melding of bodies and souls. Jessamy met him thrust for thrust, her hips rising to meet his, her hands clutching his shoulders, her body responding with an instinctual passion she’d thought long dead.</p>
+<p>The pleasure built, a roaring storm inside her, mirroring the one outside. Her muscles clenched, her breath coming in ragged gasps. The feeling of him inside her, pushing, filling, stretching her, was utterly intoxicating. She felt the familiar spiral begin, the tension coiling tighter and tighter in her core.</p>
+<p>“Look at me, Jessamy,” Quinn rasped, his eyes burning into hers.</p>
+<p>She met his gaze, lost in the depths of his hazel eyes, as the first wave of her climax hit. A violent shudder ripped through her, followed by another, and another. Her body convulsed around him, squeezing, milking him. She cried out, a raw, primal sound, as she rode the crest of the wave, shattered and remade.</p>
+<p>Quinn groaned, his own release hitting him hard and fast, a guttural roar escaping his lips as he pulsed deep inside her, emptying himself. He collapsed against her, his head buried in the crook of her neck, his breath coming in ragged gasps.</p>
+<p>They lay there for a long moment, bodies entwined, the echo of the storm outside a distant memory compared to the tempest they had just weathered together. Jessamy felt utterly spent, yet incandescent. Her body still thrummed with the aftershocks of pleasure, and her heart felt ridiculously, gloriously full.</p>
+<p>Quinn stirred, raising his head, his eyes soft, reverent. He kissed her forehead, then her lips, a gentle, tender kiss that spoke volumes. “That,” he murmured, his voice still a little breathless, “was more than just shoring things up, Jessamy.”</p>
+<p>She smiled, a slow, contented curve of her lips. “It was a fuse, Quinn,” she whispered, stroking his damp hair. “A long-dormant fuse, finally lit.”</p>
+<p>The storm still raged, but inside Jessamy’s small, cluttered office, a different kind of heat now burned, bright and fierce, promising a revolution far more profound than she had ever imagined. The kiln might have been saved, but something far more valuable, something vital within her, had just been reignited.</p>
+<p>The soot stayed. It settled deep into the dry cracks of Jessamy’s knuckles, a stubborn grey stain that cold water and cheap soap couldn't touch. She scrubbed her hands at the cast-iron sink anyway, her forty-eight-year-old joints stiff and aching from three straight days of hauling waterlogged pine and shattered glass out to the dumpster.</p>
+<p>Outside, the Atlantic looked flat. Grey. Dead tired, as if the storm had worn the ocean out, too.</p>
+<p>A double-rap on the cedar door shook the frame. Hard.</p>
+<p>Jessamy wiped her hands on her thighs, her old jeans thin at the knees. She took a breath, tucked a strand of silver-threaded hair behind her ear, and pulled the door open.</p>
+<p>The man on the damp deck was big. Mid-fifties, maybe. He wore a canvas jacket stiff with dried salt, boots caked in mud, and a heavy leather satchel slung across his chest like a shield. Silver shot through his dark hair, and his face had that leathered, wind-scoured look of someone who didn't spend much time behind a desk. His eyes were the color of cold coastal water.</p>
+<p>"You Jessamy Roy?" His voice was a low, slow gravel-rumble.</p>
+<p>"Yes," she said. Her heart gave a sudden, hard thud against her ribs. It wasn't just the fear of the inspector. It was him. He had a solid, heavy presence that seemed to block out the cold wind behind him, making her feel small, messy, and very aware of the damp shirt sticking to her back. "You the surveyor?"</p>
+<p>"Quinn Connolly," he said. He reached out.</p>
+<p>His hand was huge. Calloused and dry, but hot. He didn't drop her hand right away. He just stood there, looking at the smudge of soot on her cheek, the exhaustion sagging under her eyes, and the tight set of her shoulders. No pity. Just a quiet, heavy look that made her throat dry.</p>
+<p>"The insurance company sent me to look at the storm damage," Quinn said, letting go of her hand. He stepped inside, his boots thudding on the pine floor. He stopped, looking up at the high rafters, then down at the massive brick furnace sitting in the middle of the room. "You run this place alone?"</p>
+<p>"I do," Jessamy said, shutting the door against the bay breeze. "For five years now. Ever since the divorce went through and my ex took the house. I built the furnace myself. Had a local mason help lay the firebrick, but the rest was me."</p>
+<p>Quinn walked over to the furnace. He ran a thick finger over the cold iron bands holding the brick together. "You blow glass. That’s heavy work. Hot work."</p>
+<p>"Keeps me warm in the winter," she said, trying to sound light. Her chest felt tight. She watched him shrug off his heavy canvas jacket and drape it over a wooden chair. Underneath, his grey flannel shirt stretched tight across a broad chest and thick arms. He was built like someone who had spent decades working with his body.</p>
+<p>"Let's see what the salt did," Quinn said softly.</p>
+<p>He pulled a flashlight and a brass hammer from his satchel. Jessamy followed him through the quiet studio. The air felt thick, heavy with a quiet, sudden tension. Every time he leaned close to inspect a window frame, she caught the scent of him—bay rum, damp canvas, and clean skin.</p>
+<p>"Roof's okay," Quinn said, tapping a timber. "Cedar shingle did its job. But the floor..."</p>
+<p>"It was just a puddle," she lied quickly, her voice tight. "I swept most of it out by midnight."</p>
+<p>Quinn looked down at her. He was half a head taller, his gaze steady. "You shouldn't have been hauling that water alone, Jessamy. Wet fir gets heavy fast."</p>
+<p>"Who else was going to do it?" Her chin lifted. "If the fires go out, I don't eat. Simple as that."</p>
+<p>He stared at her for a long second. His eyes dropped to her mouth, then back up. "I get it," he said quietly.</p>
+<p>He knelt by the southern wall, where the floor sloped toward the bay. Jessamy watched the play of muscles in his thighs as he bent low, shining his light into the narrow gap between the floorboards and the foundation.</p>
+<p>He didn't speak. The only sound was the tide slapping the pilings beneath them, a wet, rhythmic thud. Like a slow heartbeat.</p>
+<p>When Quinn stood up, his face was different. The quiet warmth was gone, his jaw set hard. He rubbed his thumb against his palm, leaving a smear of wet, grey wood rot on his skin.</p>
+<p>"What is it?" Jessamy asked. Her throat was suddenly dry. She stepped closer. "Quinn. Tell me."</p>
+<p>"The main sill plate is gone," he said. His voice was very quiet. "The storm surge didn't just wet the floorboards, Jessamy. It lifted the whole southern joist right off the piling. The timber's split. The whole corner is hanging by a thread."</p>
+<p>The words went straight to her stomach. Jessamy stumbled back, her hand finding the cold brick of the furnace to steady herself. "No. No, it can't be. The floor feels solid."</p>
+<p>"The wood is thick," Quinn said, stepping toward her. He reached out, his large hand coming down on her shoulder. His grip was warm and steady, holding her up when her knees felt like water. "But the foundation is shot. If I write this down, the insurance company will flag the building as unsafe."</p>
+<p>"And if they do that?" she whispered.</p>
+<p>"Nola Dempsey will get the notice," Quinn said. His voice was heavy. "She’s been waiting for this. You know that, don't you? She wants these old shacks gone. She wants to clear the waterfront for those new luxury condos."</p>
+<p>Jessamy felt cold. Nola Dempsey had offered her a buyout twice last year, and Jessamy had refused. This studio was her sanctuary. It was the only place she felt alive. If she lost this lease, she could never afford another space on the coast.</p>
+<p>"She'll evict me," Jessamy said, her voice cracking. "She'll tear it down."</p>
+<p>"Yes."</p>
+<p>"But you don't have to write it that way," she said. Her fingers dug into the sleeve of his flannel shirt. She didn't care about her pride. She looked up into his blue eyes, her breath coming fast. "Can't you say it's just cosmetic? Just the flooring? I can sister the joists myself. Under the radar. Please, Quinn."</p>
+<p>Quinn looked down at her hand on his arm, then up at her face. His breathing had deepened. The distance between them had vanished; she could feel the heat radiating off his chest, wrapping around her in the chilly room.</p>
+<p>"I've got a license to keep, Jessamy," he said, his voice dropping an octave, rough and thick. "If the building collapses under you, it’s my name on the line."</p>
+<p>"It won't collapse," she pleaded, stepping even closer, her body almost touching his. "It's survived fifty years of storms. It just needs time. I just need time."</p>
+<p>Quinn's eyes darkened. He looked at her mouth, his chest rising and falling in a heavy rhythm. His hand on her shoulder tightened, his thumb brushing against the bare skin of her neck where her collar had slipped. His skin was warm and rough, sending a violent shiver straight down her spine.</p>
+<p>"You're asking me to lie for you," he murmured, his face tilting down toward hers.</p>
+<p>"I'm asking you to save me," she breathed.</p>
+<p>He let out a low, ragged growl, the sound tearing from his chest. Before she could speak another word, his mouth came down on hers.</p>
+<p>It wasn't a gentle kiss. It was hard, clumsy, and urgent. It was the kiss of a man who had been starved for something real, and a woman who had forgotten what it felt like to be wanted with such sudden, heavy force. Quinn’s lips were firm, tasting of salt and the cold outside air, but his tongue was hot as he parted her lips.</p>
+<p>Jessamy groaned, her hands sliding up his chest to tangle in his thick, silver-threaded hair. She pulled him closer, her body aching for the solid weight of him. He was heavy and hard against her, his thighs pinning her against the brickwork of the cold furnace.</p>
+<p>The rough brick scraped against her back through her thin shirt, but she didn't care. The contrast of the cold stone and the burning heat of Quinn’s body made her gasp. He took advantage of her parted lips to drink deeper, his hand sliding down her neck to grip her jaw, holding her steady as he claimed her.</p>
+<p>"Jessamy," he muttered against her mouth, his breath hot and ragged. "You're going to ruin me."</p>
+<p>"Let me," she whispered, her fingers tearing at the buttons of his flannel shirt.</p>
+<p>She wanted the rough feel of him. She wanted to feel the skin of a man who knew what it was to struggle, who had lived through his own storms. She pushed the flannel off his broad shoulders, her hands finding the thick, hair-dusted muscle of his chest. He was solid as iron, his heart thudding wild and fast against her palm.</p>
+<p>Quinn didn't wait. He grabbed the hem of her damp shirt and pulled it over her head, throwing it onto the dusty floorboards. He let out a low, appreciative breath as he looked at her. Her body was soft in some places, firm in others, the body of a forty-eight-year-old woman who worked with her hands and didn't hide from the passage of time.</p>
+<p>"You are beautiful," he said, his voice thick with a heavy, physical hunger. His large hands cupped her waist, his thumbs digging into the soft curve of her hips. "So beautiful."</p>
+<p>The words sent a flush of heat blooming across her chest. For years, she had felt invisible, a ghost walking through her own life. Under Quinn’s intense, burning gaze, she felt entirely seen, every inch of her skin coming alive.</p>
+<p>He bent his head, his mouth finding the sensitive spot where her neck met her shoulder. He bit down gently, his teeth scraping against her skin, and Jessamy arched her back, her fingers digging into his muscular shoulders. A soft, desperate sob escaped her throat as his hand slid down her belly, finding the button of her jeans.</p>
+<p>He popped the metal button with an easy flick of his wrist. The zipper hissed open in the quiet studio.</p>
+<p>Quinn slid his hand inside her underwear, his calloused fingers finding her wet and burning. Jessamy gasped, her legs shaking as he touched her. He knew exactly what he was doing. His fingers were slow, deliberate, stroking her with a heavy, rhythmic pressure that made her hips tilt upward, seeking more of him.</p>
+<p>"Please," she whimpered, her hands gripping his hair, pulling him back up to her mouth. "Quinn, now. Please."</p>
+<p>"Hold on," he muttered, his own voice strained with the effort of holding back.</p>
+<p>He kicked off his heavy boots, his movements urgent but steady. He shed his jeans, and when he stood before her, he was thick and rigid, his dark eyes fixed on hers.</p>
+<p>He lifted her easily, his strong arms hooking under her thighs. Jessamy wrapped her legs around his waist, her back pressing against the brick furnace as he held her up. She felt the cool air of the studio on her bare skin, but where their bodies joined, there was nothing but blistering heat.</p>
+<p>He guided himself to her entrance. He paused there for a second, his forehead resting against hers, both of them breathing hard, their sweat mingling in the damp air.</p>
+<p>"This changes things," he warned her, his voice raw. "You know that."</p>
+<p>"I don't care," she said, her eyes locked onto his winter-sea blue ones. "Make me forget, Quinn. Just make me forget."</p>
+<p>He thrust forward, burying himself deep inside her in one slow, heavy stroke.</p>
+<p>Jessamy screamed into his shoulder, her fingers clawing at his back. She was so tight, so filled by him, the sensation so intense it bordered on pain before melting into pure, blinding pleasure. Quinn let out a low groan, his hips driving into hers, his callouses scraping against the sensitive skin of her thighs as he held her tight against him.</p>
+<p>The rhythm was slow and heavy, like the tide outside, but with a crushing, desperate power. Every stroke of his body felt like a promise, a claim. He didn't move with the frantic haste of a younger man; he moved with the steady, deep knowledge of what her body needed, his eyes never leaving hers as he drove them both closer to the edge.</p>
+<p>The brick wall behind her rattled with every thrust. The scent of hot copper, salt water, and their own musk filled her senses. Jessamy lost track of where she ended and he began. She only knew the feel of his thick chest crushing her breasts, the taste of his mouth, and the white-hot coil tightening in her belly.</p>
+<p>"Quinn," she cried out, her head falling back as the tension reached a breaking point. "Quinn, I can't... I can't hold on."</p>
+<p>"Come for me, Jessamy," he growled, his pace quickening, his thrusts becoming hard and fast. "Let it go."</p>
+<p>The release hit her like a wave, a violent, pulsing spasm that started deep inside her and shattered outward. She clung to him, her body shaking as she sobbed his name.</p>
+<p>Hearing her cry, Quinn let out a harsh, guttural shout. He drove deep inside her one last time, his body stiffening as he came, his heat flooding her. He held her tightly, his face buried in her neck, his chest heaving as the aftershocks rippled through them both.</p>
+<p>They stayed like that for a long time, the only sound the slow, ragged gasps of their breathing and the distant slap of the tide against the wood below.</p>
+<p>Slowly, Quinn let her feet touch the floorboards. His hands stayed on her waist, steadying her as her legs trembled. He pulled his flannel shirt off the floor and gently draped it over her bare shoulders.</p>
+<p>Jessamy pulled the warm wool around herself, the scent of him wrapping her in a safe, heavy blanket. The fear and reality of her situation began to seep back into her chest, cold and sharp.</p>
+<p>Quinn looked down at her. He reached out, his thumb gently wiping a tear from her cheek. He looked at the floorboards, then back at her.</p>
+<p>"The report," she whispered, her voice barely audible.</p>
+<p>Quinn was silent for a long moment. He reached down, picked up his leather satchel, and pulled out his clipboard. He looked at the blank forms, then at the pen in his hand.</p>
+<p>"If I sign off on this as cosmetic damage," he said, his voice flat and serious, "Nola Dempsey's inspectors will still come by eventually. It buys you six months. Maybe a year. But you'll have to find a way to reinforce those joists without anyone noticing."</p>
+<p>Jessamy felt her breath hitch in her throat. "You'll do it?"</p>
+<p>Quinn looked at her, his eyes dark with a quiet, fierce intensity. "I'm a fool, Jessamy Roy. But yes. I'll write the report the way you need it."</p>
+<p>He stepped close, his hand cupping the back of her neck, pulling her forehead against his. "But this isn't over. I'm coming back to help you fix those beams. And we aren't done, you and I. Not by a long shot."</p>
+<p>Jessamy closed her eyes, a single, hot tear slipping down her cheek as she nodded against his chest. She had saved her studio, but as she felt the heavy warmth of his hand on her neck, she knew her life would never be the same.</p>
+<p>The iron ring of the trapdoor was freezing. Outside, the August air was thick enough to chew, but this metal had the damp chill of a tomb. Jessamy pulled. She braced her heels against the floorboards and hauled until the pine slab gave a dry, splintering groan and swung up.</p>
+<p>A draft of dead air hit her face. It smelled of coal dust, dry rot, and old rain.</p>
+<p>"Tight down there," she said, looking back at Quinn. She wiped her forehead with her forearm, leaving a smear of black grease across her skin. "But if you want to see what’s actually holding this place up, you have to crawl. The joists are heart pine. They survived the flash flood."</p>
+<p>Quinn stood in the doorway, his broad shoulders cutting off the late afternoon light. He was thirty-four, with the slow, deliberate movement of a man who spent his life on drafty docks and boatyards. He looked at the hatch, then at her. His eyes lingered on her face—the soot on her temple, the messy bun of dark hair shot through with silver, the dust-streaked canvas of her work pants.</p>
+<p>"I’m a marine surveyor, Jessamy," he said. His voice was low. It had a gravelly rasp that she felt in her teeth. "I’ve seen wood that’s been underwater for three days. If those main supports are spongy, the city inspector is going to lock your doors on Monday. I don’t want that. But I can't lie for you."</p>
+<p>"I'm not asking you to lie," she said. Her pulse fluttered against her ribs. Five years ago, after the lawyers cleared the table and her youngest left for state college, she’d sunk every dime of her settlement into this brick shell. It was her kiln. Her sanctuary. She spent twelve hours a day lifting heavy steel blowpipes, sweating out the bitterness of a dead marriage until her arms ached and her brain went quiet. If they shut her down, she had nothing left to go home to. "I'm asking you to look."</p>
+<p>She didn't wait for him to agree. She grabbed the rough ladder and went down into the dark.</p>
+<p>The air changed instantly. The temperature dropped ten degrees, but the ceiling was low—barely three feet of clearance between the packed dirt and the massive floor joists. She dropped to her knees. The dry, silty earth immediately bit into her pants.</p>
+<p>Above her, the ladder creaked under his weight. The hatch fell shut with a dull thud, cutting off the workshop light. The world shrank to the yellow circle of her flashlight.</p>
+<p>"Watch your head," she whispered. The silence down here felt heavy, almost sacred. "It gets lower near the center pier."</p>
+<p>"Got it."</p>
+<p>She crawled forward on her hands and knees. Her knees throbbed. She was forty-eight, and while her biceps were solid from swinging hot glass, her lower back didn't let her forget her age. She felt the heavy, soft pull of her stomach against her waistband, the wider slope of her hips. For a second, a cold spike of shame hit her. She wasn't some slip of a girl. Her skin had softened; her body had settled into middle age.</p>
+<p>Then she heard the heavy, rhythmic scrape of Quinn’s boots. He was right behind her. Close enough that she could feel the heat radiating off his chest, warming her lower back. His breath was slow and steady.</p>
+<p>She stopped and pointed the light upward at a massive, rough-hewn beam. "Look. Heart pine. You can’t even buy this anymore. It’s hard as iron."</p>
+<p>Quinn crawled up beside her. The space was so tight their shoulders pressed together. He smelled of rain-soaked cedar, wool, and sweat. When he took the flashlight from her hand, his fingers brushed hers. A sharp, prickling heat ran straight up her arm and settled in her belly.</p>
+<p>"Dry as a bone," he said. He reached up, his wide palm flat against the ancient wood. His hand was calloused, his wrist thick. "The runoff never touched this section."</p>
+<p>"I told you." Jessamy wasn't looking at the wood. She was looking at his profile. In the reflected beam of the flashlight, his jaw was sharp, covered in a dark shadow of stubble. He didn't look like he pitied her. When he turned his head, his eyes dropped to her mouth, then slid down to her collarbone, where a bead of sweat was tracking through the dust on her skin.</p>
+<p>The silence under the floorboards grew thick. Outside, the rain started again—a soft, rhythmic drumming against the stone foundation. It felt like they were locked in a vault, miles away from the rest of the world.</p>
+<p>"We're very close," Quinn said. His voice had lost its professional clip. It was raw.</p>
+<p>"There's nowhere to go," she said. Her heart was pounding so hard she was sure he could see her shirt moving.</p>
+<p>"Jessamy." He said her name like he'd been holding it in all afternoon. He shifted, his knee heavy and warm against her outer thigh. "I haven't stopped thinking about you since I walked into your shop last week. Watching you by the furnace... you've got this fire in you. It's beautiful."</p>
+<p>A rush of heat flooded her neck. For a decade, she'd been a ghost. To her ex, she was just part of the house, like a washing machine that occasionally complained. To everyone else, she was a quiet, middle-aged woman who made pretty glass bowls. But Quinn was looking at her like he wanted to consume her.</p>
+<p>"I'm not young, Quinn," she said, the words coming out sharp and honest.</p>
+<p>"I don't want young," he said. He reached out, his hand cupping her jaw. His skin was rough, but his touch was incredibly gentle. "I want you. The woman who built this place. The woman with dirt on her face and fire in her hands."</p>
+<p>When he leaned in, her doubts evaporated.</p>
+<p>His mouth found hers, hard and hungry. Jessamy let out a small breath, her lips parting for him. The kiss was deep, hot, tasting of dust and rain. He tangled his fingers in her hair, pulling the silver-threaded dark strands loose from her bun, bringing her flush against his chest.</p>
+<p>He was solid muscle, but he didn't rush. He took his time, tasting her, his tongue sliding against hers in a slow, heavy rhythm that made her belly ache.</p>
+<p>Jessamy’s hands clawed at his shoulders, gripping the damp cotton of his shirt. She wanted his weight on her. Quinn groaned—a low, animal sound in his throat—and pressed her down against the dry earth, his heavy frame pinning her against the floor joist behind her.</p>
+<p>The rough pine bit into her spine, but she didn't care.</p>
+<p>His hand slid down her neck, hooking under the collar of her tank top. He pulled the cotton down, exposing her shoulder and the full, soft slope of her breast to the cold air. Jessamy gasped as his warm palm closed over her skin. His thumb found her nipple, brushing against it until she shivered.</p>
+<p>"So beautiful," he muttered, his mouth tracing a path down her neck. He bit gently at the sweet spot where her neck met her shoulder, and her hips arched off the dirt, searching for him.</p>
+<p>"Quinn, please," she whispered. The sheer force of the want was terrifying. It was a storm she'd kept locked up for years. She didn't want to be sensible. She didn't want to wait.</p>
+<p>He didn't make her. He reached down, his fingers finding the button of her work pants. He undid them quickly, pulling the metal zipper down with a sharp scrape. His hand slid inside her cotton underwear, finding the wet, aching heat between her thighs.</p>
+<p>Jessamy let out a ragged cry, her fingers digging into his shoulders. He was gentle, his fingers parting her, his thumb finding the sensitive center of her and rubbing in slow, heavy circles that made her knees shake.</p>
+<p>"Look at me," he whispered.</p>
+<p>She opened her eyes. His face was tight, his jaw clenched, completely focused on her. He didn't look away as his fingers slid deep inside her, finding her slick and ready.</p>
+<p>"You feel so good," he groaned, forehead resting against hers. "So warm."</p>
+<p>"I want you inside me," she said, her voice cracking. "Now, Quinn."</p>
+<p>He pulled back just enough to rid himself of his pants, his movements urgent but sure. Jessamy watched him in the dim flashlight beam—the thick, heavy length of him, fully aroused.</p>
+<p>He moved between her legs, his hands gripping her hips and lifting her to meet him. She wrapped her thighs around his waist, locking her ankles behind his back, throwing herself completely open.</p>
+<p>When he pushed forward, burying himself deep in her warmth, Jessamy let out a long, broken cry that echoed in the dark crawlspace.</p>
+<p>The feeling of being filled so completely, of having his thick, heavy length driving into her core, made her vision blur. She clenched around him, her body shuddering. Quinn froze, his muscles trembling as he held himself inside her, his chest heaving.</p>
+<p>"Are you okay?" he panted, his eyes dark.</p>
+<p>"Yes," she gasped, her hands pulling at his hips. "Don't stop. Please."</p>
+<p>He began to move, his strokes slow and agonizingly deep in the tight space. Every push of his hips sent a wave of electric heat straight to her chest. Jessamy lost herself in the dirt, the smell of the old earth, the rough timber against her back, and the heavy, honest weight of him.</p>
+<p>She was forty-eight, and she had never felt more alive.</p>
+<p>Quinn’s pace quickened. His breathing turned to rough growls as he drove deeper, his movements losing their gentleness, becoming hard and urgent. Jessamy met him stroke for stroke, her body responding with a wild, untamed hunger she thought had died decades ago.</p>
+<p>"Quinn..." she gasped, her fingernails scratching his back.</p>
+<p>"I've got you," he muttered, his hand reaching down between them, his thumb pressing hard against her center.</p>
+<p>That was it. Jessamy cried out, her body tightening into a fierce, clenching spasm as the orgasm tore through her. She wrapped herself around him, riding the waves of pure release.</p>
+<p>At her cry, Quinn let out a low groan. He drove deep one last time, holding himself hard against her as his own body shook with his release. He collapsed against her, his face buried in her neck, his chest heaving as their heartbeats slowly found the same rhythm.</p>
+<p>For a long time, the only sound was the rain outside and their own ragged breathing.</p>
+<p>Quinn slowly rolled to his side, but he didn't let go. He kept his arm wrapped tight around her waist, pulling her back against his chest on the dry dirt floor.</p>
+<p>"You're incredible," he murmured, kissing her bare shoulder.</p>
+<p>Jessamy smiled, a warm, quiet peace settling in her chest. She placed her hand over his.</p>
+<p>"The building," she said quietly, her voice still a little hoarse. "What are you putting in the report?"</p>
+<p>Quinn let out a low laugh, his fingers tracing her hip. "The main piers are solid. They survived the storm without a scratch. The south wall needs minor reinforcement, but it’s nothing that justifies canceling a lease. I’ll write it up so the landlord has to fix it while you keep working."</p>
+<p>Jessamy turned to look at him, her eyes dark and bright. "Thank you."</p>
+<p>"Don't thank me," he said, reaching up to brush a damp lock of hair from her forehead. "I just reported the truth. This place has a strong foundation. And so do you."</p>
+<p>The heavy timber brace finally took. It slid home with a wet, splintering scrape, wedged tight against the sag of the center beam.</p>
+<p>Jessamy let go of her end, her breath rattling in her throat. She leaned her forehead against the rough, cold pine of the support. Forty-eight years old, and her hands were still tough from thirty years of scored glass, but her lower back was a different story. Her knees throbbed with a dull, sickening heat that didn't go away with a night's sleep anymore.</p>
+<p>"That should hold," Quinn said. His voice was a low rumble in the high, quiet rafters.</p>
+<p>She turned her head to look at him. He stood three feet back, his grey shirt soaked through, the cotton stuck to the broad span of his shoulder blades. Thirty-four. He had that easy, heavy way of moving that made her feel every single one of her years. It wasn't a bad feeling, exactly. Just sharp. Like cold iron. A line of soot ran across his cheek, and his jaw was dark with a couple days of thick stubble. He looked solid. Grounded. The kind of man who didn't spend a lot of time wondering what he looked like in a mirror.</p>
+<p>"I couldn't have lifted that alone," she said, her thumbs hooking into her belt to stretch her lower spine. "Thanks."</p>
+<p>"You shouldn't have tried," he said. He didn't sound like he was scolding. His voice was just flat, matter-of-fact. Those grey eyes of his stayed right on her, heavy and unblinking. It made her throat feel dry. "You're strong, Jessamy, but you aren't made of steel."</p>
+<p>"Some days I have to be," she murmured.</p>
+<p>She went to her workbench. It was a disaster of copper foil, glass cutters, and old rags. She grabbed the dented red thermos. The storm had blown through hours ago, but the warehouse still smelled of wet plaster, damp wood, and the bitter, metallic bite of cold solder. The light outside was dying, leaving long, dirty orange streaks across the sheets of colored cathedral glass stacked against the brick wall.</p>
+<p>"Tea?" She rattled the thermos. "Black. Bitter."</p>
+<p>"Perfect," he said.</p>
+<p>She poured it into the plastic cap and handed it over. For herself, she used a mug with a chipped rim and a faded logo of a hardware store that had gone out of business in the nineties. They sat on a pair of high wooden stools near the cold glass-fusing kiln.</p>
+<p>Quinn wrapped both of his hands around the warm plastic cup. His knuckles were raw, scraped pink from some job he hadn't mentioned. He drank, slow and quiet.</p>
+<p>"You know how to use a hammer," he said, looking up at the rafters.</p>
+<p>"Had to learn," Jessamy said, her eyes fixed on the dark dregs at the bottom of her mug. "Five years ago, right after the papers were signed, I bought this place. My ex told me I was throwing my settlement into a hole in the ground. Said a woman my age belonged in a neat little condo with a maintenance crew, not a drafty brick shell where the roof leaked every time a cloud rolled in."</p>
+<p>"He sounds like a fool," Quinn said.</p>
+<p>Jessamy let out a small, dry sound that was almost a laugh. "He was practical. He liked things clean. I think I was just... too much maintenance for him. Or not enough. By the end, I felt like a sideboard. You know? You buy it, you put it in the dining room, you walk past it every day for fifteen years until you don't even see it anymore. It's just there."</p>
+<p>She looked down at her fingers. The skin was rough, mapped with thin white scars where stray shards of lead glass had bitten her over the years. Her cuticles were stained grey from cement. They were not the soft, clean hands of the girls her ex-husband spent his time with now.</p>
+<p>"What about you?" she asked, wanting the weight off her own chest. "How does a guy who inspects ships end up miles from the water, helping a stranger prop up her ceiling?"</p>
+<p>Quinn stared out the high, grimy window. The sky was the color of a fresh bruise. "Ten years on bulk carriers," he said. His voice was quiet, almost lost in the high ceiling of the warehouse. "You want to talk about quiet? Try forty days at sea with a crew that only speaks Tagalog or Russian. The silence out there gets heavy. It sits on your chest like an anchor."</p>
+<p>He took another sip of the tea, his eyes dark. "You get lonely. A cold kind of lonely that gets into your teeth. You start to wonder if you're actually there, or if you've just turned into a ghost because there's nobody around to look at you and confirm it."</p>
+<p>The words hit her like a physical blow. She knew that silence. She'd lived in it after the kids went to state college, in the cold space of a king-sized bed that felt like a desert.</p>
+<p>"I know," she whispered.</p>
+<p>Quinn turned his head. His eyes dropped to her mouth, lingered, then rose back to hers. "You're not a ghost, Jessamy."</p>
+<p>The air in the room suddenly felt thick, hot, like the draft from the kiln when it was fired up to fifteen hundred degrees. Jessamy's heart gave a hard, erratic thump.</p>
+<p>She stood up too fast, her fingers wrapping too tight around her mug. "We should... we should clean up those lead scraps before the light goes entirely."</p>
+<p>She turned toward the scrap bin under the table. Her mind was a jumble, her boots heavy. Her heel caught on a long, coiled strip of lead came left on the concrete floor.</p>
+<p>She went down.</p>
+<p>She gasped, her foot slipping out from under her. The ceramic mug flew, hitting the concrete with a loud, ringing smash.</p>
+<p>But she didn't hit the floor.</p>
+<p>Quinn moved before she could think. His arm came around her waist, hard as a cedar post, catching her mid-air. The impact jerked her, her hands flying up to grab his shoulders, her fingers bunching the damp cotton of his shirt. Her front was pressed flat against his chest—solid, warm, and smelling of sweat and old rain.</p>
+<p>His hands were what made her freeze.</p>
+<p>They weren't polite. His palms were wide and hot, digging deep into the soft flesh above her hips. She wasn't thin; she had the soft, rounded waist of a woman who had carried two children and stopped worrying about salads five years ago. For years she'd worn heavy canvas aprons to hide it.</p>
+<p>But Quinn didn't hesitate. His fingers pressed deep, molding her against him, holding her like she was something valuable he wanted to keep from breaking.</p>
+<p>"I got you," he muttered. His breath was hot against her neck, smelling of the dark, unsweetened tea.</p>
+<p>She looked up. His face was right there. His jaw was tight, a muscle jumping under his stubble, his grey eyes almost black in the twilight.</p>
+<p>"Thank you," she said. Her voice was gone, just a dry rasp. She should have stood up. She should have laughed, stepped back, and looked for the broom. But her legs felt like water.</p>
+<p>"You're shaking," he said, his voice dropping into a low, rough growl.</p>
+<p>"I... the slip. It startled me."</p>
+<p>"Is that what it is?"</p>
+<p>He didn't let her go. His thumbs moved, tracing the line of her ribs through her shirt, feeling the hard, fast thudding of her heart. He pulled her closer, just an inch, until she felt the hard, heavy ridge of him pressed against her belly.</p>
+<p>The sheer size of him, the heat, was undeniable.</p>
+<p>"Quinn," she breathed, but it didn't sound like a stop.</p>
+<p>"Tell me to get out, Jessamy," he muttered, his lips brushing the soft skin right below her ear. "If you want me to leave, say it. Right now. Because if you don't, I'm staying."</p>
+<p>She let her eyes close, her neck arching slightly. He smelled of salt, woodsmoke, and clean skin. She was forty-eight. She had spent five years pretending she was done with this, that her work and her quiet warehouse were enough.</p>
+<p>It was a lie.</p>
+<p>"Don't," she whispered. "Don't go."</p>
+<p>Quinn let out a low sound, a ragged intake of breath, and lifted her. His hands cupped her bottom, hoisting her onto the edge of the heavy oak workbench. The wood was cold through her jeans, but the heat of his body between her knees was burning.</p>
+<p>He stepped in, parting her thighs, and kissed her.</p>
+<p>It wasn't gentle. It was deep, hungry, and heavy. Jessamy opened her mouth with a soft sound, her tongue meeting his, her fingers tangling in the thick, coarse hair at the back of his neck. She leaned back against the clutter of the bench, her chest heaving, her nipples hardening against her bra.</p>
+<p>Quinn groaned, his hands grabbing the hem of her cotton shirt and pulling it over her head. He tossed it somewhere into the dark.</p>
+<p>The cool air of the warehouse hit her skin. She sat there in her simple, beige lace bra, her stomach soft and lined, her waist thick. A sudden spike of old shame hit her, and she started to bring her arms up to cover herself.</p>
+<p>"No," Quinn said. His voice was rough. He took her wrists, his grip firm but gentle, and pulled them back down. "Don't. You're beautiful. Look at you."</p>
+<p>He leaned down, his mouth tracing her jaw, her throat, down to the slope of her breast. He unclipped her bra with a blunt flick of his fingers, and her heavy breasts spilled free. He cupped one, his calloused palm rough against her skin, and took her nipple into his mouth. He sucked hard, his tongue swirling, and Jessamy gasped, her head falling back as a bolt of pure heat went straight down to her pelvis.</p>
+<p>"Quinn... oh."</p>
+<p>He didn't speak. He reached down, his fingers finding the brass button of her worn jeans. He popped it, the zipper parting with a sharp metallic hiss. He slid his hand down into her underwear, his rough fingers moving through her curls to find the wet, slick heat waiting for him.</p>
+<p>She was soaking. The realization made him let out a low, satisfied grunt.</p>
+<p>"You're so wet, Jess," he murmured, his fingers parting her, sliding easily into her warmth.</p>
+<p>"Please," she whispered, her hips tilting up, searching for his hand. "Please, Quinn."</p>
+<p>He slid two fingers inside her, finding a slow, heavy rhythm, while his thumb worked against her swollen center. Jessamy's breath came in ragged, short pants. She hadn't been touched like this—with this kind of slow, heavy hunger—since she could remember. Her ex-husband's lovemaking had been a Sunday night chore, predictable and quick. This was like being pulled out of a deep, dark well.</p>
+<p>"You're so tight," he muttered, his fingers deep inside her, slick with her.</p>
+<p>She clung to him, her fingers digging into his broad shoulders, her eyes fixed on the dark wooden rafters above as the tension wound tight in her belly. Just as she reached the edge, he pulled his hand away.</p>
+<p>She let out a small, desperate cry.</p>
+<p>"Shh," he whispered.</p>
+<p>He stepped back, his breath coming hard as he kicked off his boots and stripped out of his pants. In the dim light, he was lean, heavy-limbed, and thick with an erection that twitched in the cold air.</p>
+<p>He reached into his pocket, tore a foil packet open with his teeth, and rolled the latex down with quick, practiced movements, his grey eyes never leaving her face.</p>
+<p>"Put your legs around me," he said.</p>
+<p>She did. She wrapped her thighs around his waist, locking her ankles behind his back, opening herself completely.</p>
+<p>He stepped close, the blunt tip of his shaft pressing against her wet skin. He paused, resting his forehead against hers, his shoulders shaking with the effort to hold back. "I haven't thought about anything else since the day I walked in here," he muttered.</p>
+<p>"Don't wait," she begged.</p>
+<p>With a slow, heavy thrust, Quinn buried himself inside her.</p>
+<p>Jessamy's eyes went wide, a sharp, gasping cry escaping her lips as her body stretched around his thickness. He was so big, filling her so completely that she had forgotten a body could feel this full. It was a deep, wonderful ache. Her hips tilted up instinctively, taking him deeper.</p>
+<p>Quinn held still for a long, shaking moment, his eyes shut, his teeth grit. "God, Jess. You're so warm."</p>
+<p>Then he began to move. He pulled back until he was almost clear, then drove back in, slow and deep. The old oak workbench creaked beneath them, a steady, rhythmic groan in the quiet of the warehouse.</p>
+<p>Jessamy met his pace, her body remembering a language she thought she'd forgotten. Every drive of his hips brought his weight against her, sending waves of heat through her chest. She wrapped her arms around his neck, burying her face in his shoulder, biting his collarbone to keep from screaming.</p>
+<p>"That's it," he panted, his hands locking onto her hips, his fingers digging into her soft skin to anchor her. "Take it, Jess."</p>
+<p>The slow pace broke. He began to drive harder, faster, his breath coming in ragged, desperate gasps. Jessamy was lost in it—the smell of him, the hard wood of the bench against her back, the slick, heavy heat of him filling her over and over.</p>
+<p>The climax hit her sudden and hard. Her inner muscles clamped down, pulsing around him.</p>
+<p>"Quinn, I'm... I'm going to—"</p>
+<p>"Go," he growled, his thrusts turning frantic. "Come on, Jess. Let me feel it."</p>
+<p>She broke. A sharp, crying sound came from her throat as the orgasm tore through her, her body shaking hard against him.</p>
+<p>The tight squeeze of her muscles was too much. Quinn gave three more heavy, desperate drives, burying himself to the hilt, and let out a low, animal roar against her neck as he came. His whole body went rigid, his back arching, holding her so tight she could feel his heart hammering against her ribs.</p>
+<p>They stayed like that for a long time. The only sound was their ragged breathing and the far-off hum of a truck on the wet street outside.</p>
+<p>Quinn didn't pull out right away. He kept his face buried in her hair, his arms wrapped around her waist, holding her close. Jessamy ran her fingers slowly up and down his damp back, her skin warm, her body heavy and quiet. The ghost-feeling was gone.</p>
+<p>Finally, he slid out with a soft sigh. He cleaned them both up, pulled his pants on, and reached out to help her down from the bench. He didn't look embarrassed or rushed. He stood close, his hand resting on her bare hip, and kissed her forehead before handing her her shirt.</p>
+<p>"You alright?" he asked.</p>
+<p>"Yes," she said, pulling the cotton over her head. "I am."</p>
+<p>She looked down. On the concrete floor, the pieces of her broken mug lay in the gray dust. The cold air of the room settled back over her. The roof was still sagged. The studio was still a money pit.</p>
+<p>"We should sweep," she said quietly.</p>
+<p>Quinn didn't look at the broom. He took her hand, his thumb tracing the rough, scarred skin of her knuckles.</p>
+<p>"We'll sweep," he said, his grey eyes steady. "We'll fix the rest of it, too."</p>
+<p>He sounded sure. But Jessamy knew that tomorrow, the insurance adjuster would still be coming, and the rain would still be waiting.</p>
+<p>Wind slammed against the south-facing skylight. The iron rafters of the hot shop vibrated, a low, deep rattle Jessamy Roy felt in the soles of her boots. Rain came down in solid sheets, drumming a deafening racket against the corrugated tin roof.</p>
+<p>She stood by the annealer. Inside, the massive oven ticked quiet as it slowly dropped from nine hundred degrees. The air in the studio was thick with its usual ghosts: charred cherry-wood blocks, wet brick, and the sharp, metallic sting of solder. It was a smell she’d lived in for twenty years. Usually, it felt like home. Tonight, with the alley outside flooding and water creeping under the double doors, the place just felt damp and dangerous.</p>
+<p>Across the room, Quinn Connolly was over by the main breaker. Dark hair was plastered to his forehead, rain dripping off his wet canvas jacket. He was thirty-four, broad-shouldered from actual grease-and-iron work, not a gym. He held a yellow legal pad, the pages already bloated and wrinkled from the humidity.</p>
+<p>"The main joist under the casting floor is split, Jessamy," he said. No professional polish left in his voice. Just tired. "I write this up as-is, and the underwriters drop your liability by Monday morning. The landlord will lock the doors."</p>
+<p>Jessamy didn’t move. She adjusted her heavy linen apron, her thumb catching on a frayed seam. Forty-eight. Her knuckles were permanently stained with iron oxide, scarred with the tiny silver tracks where hot glass had spat at her over the decades. Her knees ached when the weather turned. It was the tax the craft demanded.</p>
+<p>"And if you don't write it up?"</p>
+<p>Quinn tossed the pad onto a steel cart. It hit with a wet slap. "Then I'm risking my license for a woman who won't even look me in the eye."</p>
+<p>He walked over, boots squeaking on the slick concrete. The cooling furnaces threw a wall of dry, radiator heat against the cold draft blowing through the window frames. It made the air heavy. Thick.</p>
+<p>Jessamy watched him. She felt every single year of the gap between them. It wasn't just the fourteen-year difference on paper; it was the sheer mileage. She’d raised a daughter, survived a divorce that took her house and her savings, and spent five years rebuilding this business piece by piece. She was tired of being the strong one. She was tired of going home to a quiet apartment that felt as heavy and empty as an old wool blanket.</p>
+<p>"I trust you," she said. Her voice was too quiet, nearly lost to the rain.</p>
+<p>"You don't," Quinn said. He stopped a foot away. He smelled like cedar, sweat, and wet wool. "You see a kid with a clipboard who has the leverage to shut you down."</p>
+<p>"You're not a kid, Quinn."</p>
+<p>She looked up. His eyes were dark, pupils wide in the dim light of the shop. He wasn't looking at her the way the younger glassblowers did—with that polite, distant respect—or the way men her own age looked right through her at community board meetings. He was looking at her like she was the only solid thing left in the room.</p>
+<p>"Good," he said. "Because I haven't felt like one since I met you."</p>
+<p>He reached out. His thumb was rough, calloused from tools, but he wiped a smudge of gray carbon from her cheekbone with surprising gentleness. Jessamy forgot to breathe. Her heart gave a hard, erratic kick.</p>
+<p>"Gwen told me to hire someone older," Jessamy whispered. His fingers slid into her hair, catching the gray strands at her temple. "She said a young surveyor would go strictly by the book."</p>
+<p>"I don't care about the book," Quinn said. His thumb pressed against her bottom lip, dragging it down just enough to expose the wet edge of her teeth.</p>
+<p>That did it. The absolute simplicity of it broke whatever had been holding her together. For years, she had been the anchor. Managing the payroll, keeping the gas lines clear, being the sensible mother, the stoic ex-wife. She had forgotten what it felt like to be wanted. Just wanted.</p>
+<p>She didn't want to think about the lease. Or the split joist. She wanted the heavy, solid reality of him to quiet the noise in her head.</p>
+<p>She grabbed his wrist. Her grip was tight, conditioned by years of turning heavy iron blowpipes. "Then stop talking."</p>
+<p>She pulled him down.</p>
+<p>Their mouths hit hard. A clumsy, desperate collision of teeth and built-up heat. Quinn let out a low, rough sound in his throat, his arms locking around her waist to hoist her up against the edge of the workbench.</p>
+<p>The table was a massive three-inch slab of seasoned oak, scarred by chisels and darkened with beeswax and lead flux. It didn't budge. Jessamy felt the cold wood bite into the back of her thighs as Quinn wedged himself between her knees.</p>
+<p>He tasted like salt and cold rain, but his mouth was hot. His tongue pushed past her lips, heavy and demanding, sparking a deep, heavy ache in her lower belly. Jessamy tore at his canvas jacket, shoving it off his shoulders until it hit the wet concrete floor with a heavy thud. Underneath, his flannel shirt was warm, his back solid and broad.</p>
+<p>Quinn pulled back an inch, his chest heaving. His face was flushed, his eyes fixed on the hollow of her throat where her pulse was jumping. "Jessamy. Tell me to stop. If you don't want this, say it now."</p>
+<p>"Shut up," she said, her fingers already ripping at his shirt buttons. She wasn't guessing anymore. "Don't stop."</p>
+<p>She pushed the flannel off his shoulders, exposing his chest. He had a working man's build—broad, thick-muscled, a mat of dark hair tapering down into his jeans, and a pale farmer's tan from his collar down. She pressed her palms flat against his skin, feeling the heavy, syncopated thump of his heart.</p>
+<p>Quinn didn't wait. He slid his hands under the hem of her linen tunic, his rough palms scraping against her ribs. She gasped as he cupped her breasts. She wasn't twenty; they were fuller, heavier, settling into his hands. He squeezed them, his thumbs brushing over her nipples through her lace bra until they went tight and hard.</p>
+<p>"You're beautiful," he muttered, burying his face in her neck, his teeth catching the skin of her collarbone.</p>
+<p>"I'm too old for you to look at me like that," she said, the words slipping out before she could stop them.</p>
+<p>Quinn pulled back, his eyes dark with a sudden, sharp anger. "Don't say that. Don't ever say that to me. You think I want some girl who doesn't even know who she is yet? You have fire in you, Jessamy. You bend iron. Look at me."</p>
+<p>She looked.</p>
+<p>"I want <em>this</em>," he said, his fingers digging into the soft curve of her hip. He didn't avoid her stomach or the slight softness of her waist. He gripped her with a heavy, unvarnished hunger.</p>
+<p>He unbuckled her belt, his movements fast and impatient. Jessamy kicked her boots off, helping him shove her jeans down until she was standing in nothing but her underwear on the cold floor. The draft hit her skin, making her shiver, but then Quinn’s hands were back, warm and heavy, tracing the faint, silver stretch marks on her belly—the quiet markers of a pregnancy from twenty years ago.</p>
+<p>He didn't look away. He leaned down, his lips brushing the soft skin of her abdomen, kissing those pale lines with a slow reverence that made her throat ache. It wasn't the critical ledger her ex-husband had kept of her aging body. Quinn looked at her like she was a piece of glass that had gone through the fire and come out perfect.</p>
+<p>"Quinn," she choked out, her hands tangling in his damp hair.</p>
+<p>He reached up, hooked his fingers into her underwear, and pulled them down, tossing them onto the oak table. He gripped her thighs, his fingers digging into her skin, spreading her legs against the edge of the wood.</p>
+<p>The contrast was sharp: the cold, unyielding oak under her hips, and the heat of Quinn's mouth as he leaned in. Jessamy let out a sharp cry as his tongue found her.</p>
+<p>She gripped the edge of the table, her knuckles white against the dark wood. The storm outside faded to a dull, rhythmic background thrum, replaced by the rush of her own blood and the wet heat between her thighs. He knew where to press, his tongue heavy and steady, building a tight, coiled spring in her hips.</p>
+<p>"More," she gasped, her hips moving against him. "Please."</p>
+<p>He groaned, his breath hot against her skin. He stood up, stripping out of his jeans with quick, awkward jerks. Jessamy looked at him—the long line of his thighs, the thick, heavy length of him. He was built for hard work, and right now, all that focus was on her.</p>
+<p>He swept a box of glass fragments and a tin of flux off the table, sending them clattering across the floor. He lifted her easily, sliding her back onto the smooth wood. She wrapped her legs around his waist, locking her ankles behind his back.</p>
+<p>"Look at me," he whispered, his hands shaking as he guided himself against her.</p>
+<p>She looked. She saw her own face in his eyes—not a tired woman trying to save a failing shop, but someone powerful, hot, and completely alive.</p>
+<p>He pushed inside.</p>
+<p>He entered her in one slow, deep stroke. Jessamy’s head hit the table, a long, shaky breath escaping her lips as her body stretched to take him. He was thick, filling her entirely, his heat driving out the cold draft of the warehouse.</p>
+<p>"God, Jessamy," Quinn muttered, his eyes closing as he buried himself to the hilt. He stayed still for a second, his chest heaving against hers, letting her adjust.</p>
+<p>She squeezed her inner muscles around him, a slow, deliberate grip that made him grunt. She didn't want him to be careful. She wanted the weight of him.</p>
+<p>"Don't hold back," she whispered, her nails digging into his shoulders. "Don't."</p>
+<p>He didn't.</p>
+<p>He began to move. The strokes were long, heavy, and rhythmic, his hips hitting hers with a solid, fleshy thud that echoed in the quiet corners of the studio. The old oak table groaned under them, a steady, grounding counterpoint to the rain.</p>
+<p>Jessamy met him stroke for stroke, her body opening up with a freedom she hadn't known in years. Every point of contact was electric: the rub of his chest hair, the slick sweat between their bellies, the intense, blinding friction where they joined. She knew what she wanted now. She wasn't twenty, waiting to be shown; she was taking what she needed.</p>
+<p>She arched her back, her fingers clawing the wood behind her as he drove deeper, his thumb pressing hard against her center with every thrust. The pleasure was sharp, almost too much, a tight knot winding tighter and tighter in her gut.</p>
+<p>"I've got you," Quinn muttered, his teeth scraping her earlobe. "Let go, Jessamy. Just let go."</p>
+<p>She did.</p>
+<p>With a ragged, broken cry, her body buckled. The release hit her like a wave of hot glass, thick and pulsing, her muscles clamping down hard around him. She shook, her heels digging into his back as she sobbed his name into the dark.</p>
+<p>The tight squeeze of her climax broke him. Quinn let out a low, rough growl, his back arching as he shoved deep one last time, his hips locking against hers as he came, heavy and hot inside her.</p>
+<p>He held her close, his chest heaving, his heart thumping hard against her ribs. They stayed like that on the scarred table while the rain outside slowly lost its teeth, turning into a quiet, steady drizzle.</p>
+<p>In the corner, the cooling kiln gave one last, soft <em>ping</em>.</p>
+<p>Jessamy opened her eyes, looking up at the black iron rafters. Her skin was damp with sweat and the fine dust of the shop, but she wasn't cold. The silence of the empty nest, the fear of the lease, the gray weight of middle age—it was all gone.</p>
+<p>She felt alive.</p>
+<p>Quinn pulled back slowly, his eyes soft. He didn't reach for his clothes or try to break the quiet with a joke. He just leaned down, kissing her forehead, her nose, and then her mouth.</p>
+<p>"The joist is split," he said, his voice rough and quiet. "But the floorboards... they're solid. This place has good bones."</p>
+<p>Jessamy smiled, her fingers tracing the line of his jaw. "And the report?"</p>
+<p>Quinn reached over, grabbed his flannel shirt, and draped it over her shoulders to block the cold air. "I'll write that the floor needs reinforcement within the next fiscal year. That gives you twelve months to make the landlord pay for it."</p>
+<p>She looked at him, something warm settling in her chest. "You could lose your license."</p>
+<p>"Then I'll build things instead of inspecting them," he said, his thumb catching a tear on her cheek she hadn't felt fall. "I'm not letting you lose this place. And I'm not letting you lose me."</p>
+<p>Jessamy pulled the flannel tight, his scent wrapping around her. She looked toward the high windows, where the rain was finally stopping, letting in the first thin, gray light of morning.</p>
+<p>The shop was still damp. The joist was still split. Her future was still a mess. But looking at Quinn in the quiet light, she knew she had enough fire left to shape it.</p>
+<p>The cold air of the morning always found the gaps in the floorboards first.</p>
+<p>It nipped at her ankles, thin and sharp as a razor.</p>
+<p>Jessamy Roy lay on the narrow cot in the back office of her glass studio, her knees tucked tight to her chest under three layers of scratchy wool. The room smelled different today. Usually, it was just the heavy, flat scent of cold soot, wet plaster from the leak in the south wall, and the faint, rotten-egg smell of sulfur from the cooling ovens. Today, it carried something else. Sea salt. Damp canvas. The sharp, clean sweat of Quinn Connolly.</p>
+<p>She stretched her legs out. Her knees popped—two dry, loud cracks in the silence. Forty-eight years old, and her body was keeping its own tally of the mileage. She felt the dull ache in her lower back from swinging heavy blowpipes all day, the stiff, swollen knuckles, and the silver hair at her temples she hadn't touched with dye in ten years.</p>
+<p>She rolled over. Quinn's side of the cot was empty. The sheets were already cold where his massive frame had been resting. But he’d left his heavy oilskin surveyor’s jacket draped over her desk chair, smelling of diesel and harbor wind.</p>
+<p>He was thirty-four. A young thirty-four, too, all broad shoulders and quick, quiet grins. Her ex-husband had spent the last decade of their marriage looking right through her, like she was a pane of window glass he’d forgotten to clean. But Quinn? Quinn looked at her like she was a lump of molten cherry-red glass fresh from the furnace. Dangerous. Hot. Hard to handle.</p>
+<p>She closed her eyes. Her skin still felt hyper-sensitive where he’d touched her. No rush. Just heavy, calloused fingers finding the soft curve of her hip in the dark.</p>
+<p>The heavy front door of the shop squealed. The brass bell above it gave a dull, dead clink.</p>
+<p>Jessamy sat up, her heart doing a quick, stupid flutter. She scrambled into her flannel shirt and yanked on her boots, her hands shaking so hard she missed the eyelets twice.</p>
+<p>She stepped out into the main studio. The gray morning light was leaking through the high windows, highlighting the mess. Rain still dripped from the ceiling joists, plopping into a line of blue plastic buckets.</p>
+<p>It wasn't Quinn.</p>
+<p>It was her sister, Nola Dempsey, holding two paper cups of cheap diner coffee.</p>
+<p>Nola didn't even look at the sagging roof. She looked at Jessamy. Then she looked at the bare legs sticking out of the oversized shirt, and finally, at the heavy, mud-caked men’s boots sitting by the office door.</p>
+<p>"You look like hell," Nola said, tossing one of the cups onto the nearest table. "Or like you haven't slept in three days."</p>
+<p>"Nice to see you too," Jessamy muttered. She took the cup, pressing her rough, scarred palms against the paper to steal the heat.</p>
+<p>Nola walked over to the main workbench, her boots clicking on the concrete. She dragged a finger through the gray dust on the wood. "The whole town’s talking, Jess. They say the inspector is going to slap a yellow tag on this place by Friday. The whole block is sinking into the marsh."</p>
+<p>"It’s not sinking," Jessamy said. Her voice sounded thin, even to her. "The main joist is fine. The oak is solid. It just needs a sister beam."</p>
+<p>"Jess. Look around." Nola turned, her coat swirling. "You’re forty-eight. You put every single penny of your divorce settlement into these ovens. If the city pulls your permit, you’re done. You can't start over again."</p>
+<p>"I know what I have to lose," Jessamy said, swallowing the bitter coffee.</p>
+<p>"Do you?" Nola stepped closer. "Because I saw the state truck parked down the road. The young guy with the shoulders. The surveyor."</p>
+<p>Jessamy kept her face deadpan. Her heart, though, was hammering against her ribs. "He’s doing his job. He’s the adjuster."</p>
+<p>"He's thirty-four, Jess," Nola hissed, leaning in. "He's beautiful, sure. He looks at you like you’re the prize at the fair. But he's a transient. He writes his little reports, gets his paycheck, and moves to the next harbor town. He isn't going to be here sweeping up the glass when the roof falls in."</p>
+<p>"I didn't ask him to sweep," Jessamy lied. Her fingers crushed the paper cup slightly.</p>
+<p>"Yes, you did," Nola said softly. "You've been hiding in this cold shed for five years, telling yourself these kilns are enough to keep you warm. You're fragile, Jess. Even if you act like iron. Don't let some kid ruin what's left of your life before the city even has a chance to."</p>
+<p>The words felt like sand in Jessamy's mouth. Nola set her cup down. "Think about it. Don't throw away your recovery on a guy who’s already got his bags packed."</p>
+<p><em></em>*</p>
+<p>Outside, the rain turned to sleet, rattling like gravel against the metal roof.</p>
+<p>In the cab of his Ford, Quinn Connolly left the heater blasting. The wipers dragged across the glass, leaving greasy smears.</p>
+<p>His phone was vibrating in the cup holder. <em>Head Office.</em></p>
+<p>He answered. "Connolly."</p>
+<p>"Where’s the Roy report, Quinn?" His boss's voice was dry, crackling through the cheap speaker. "The regional office wants that waterfront strip cleared out. The city wants to redevelop. We need that condemnation signed by noon."</p>
+<p>Quinn stared at the rusted sign swinging outside: <em>Roy Glassworks.</em></p>
+<p>"The structure is sound," Quinn said, his jaw aching from how hard he was clenching it. "It’s a local sag in the southern quadrant. A couple of jacks and a new header will fix it."</p>
+<p>"The city engineer says the foundation under the kiln pad is cracked," the boss snapped. "If that slab shifts while she’s running those ovens, she’ll burn the block down. Sign the condemnation, Quinn. Write it up as a total loss. Let her take the baseline payout and clear out."</p>
+<p>"The baseline payout won't cover her relocation," Quinn said, his voice dropping an octave. "It barely covers the dump fees. If I sign this, she loses her livelihood. Today."</p>
+<p>A long, heavy pause.</p>
+<p>"Are you sleeping with her, Connolly?"</p>
+<p>Quinn’s fingers tightened on the steering wheel until the leather groaned. "I’m doing my assessment."</p>
+<p>"You've been there three days. A standard survey takes four hours. If I don't have that PDF in my inbox by twelve, I'm taking you off the account. I'll send Miller. And I'll have HR look at why you're dragging your feet."</p>
+<p>The line clicked off.</p>
+<p>Quinn stared at the steering wheel. He’d spent ten years building his name. In this state, his signature meant something. If he signed a paper, people believed it.</p>
+<p>He thought of Jessamy. The way she smelled like woodsmoke and old wool. The tiny, stubborn line that appeared between her eyes when she was working a hot gather of glass. She wasn't some girl playing at life. She was real. She had scars, she had gravity, and she made every other woman he’d ever met look like a cardboard cutout.</p>
+<p>He shoved the truck door open and stepped out into the freezing slush.</p>
+<p><em></em>*</p>
+<p>The glass shop was freezing when he walked back in. Jessamy was sweeping, her movements frantic, sending tiny green and blue shards skittering across the concrete.</p>
+<p>The door slammed. She froze.</p>
+<p>She didn't turn around. Her knuckles were white on the broom handle. "My sister was here," she said.</p>
+<p>Quinn walked toward her, his heavy boots squeaking on the wet concrete. He stopped just behind her. He didn't touch her, but he could feel her shivering. "And?"</p>
+<p>"She told me I'm a fool," Jessamy said. She finally turned, her eyes dark, rimmed with red. "She said you're going to write your report, pack your truck, and leave me with a pile of wet lumber."</p>
+<p>Quinn looked at her. His face was pale. "Is that what you think?"</p>
+<p>"I don't know what to think," she said, her voice cracking. "I put everything into this place. If you sign that paper, I'm done. I don't have a backup. There is no plan B."</p>
+<p>"They called me," Quinn said.</p>
+<p>The cold in the room seemed to double. "And?"</p>
+<p>"My boss wants the condemnation signed by noon. If I don't do it, they'll send someone else. Someone who won't even look at the rafters. They'll just see an old building and write it off."</p>
+<p>Jessamy took a step back, her back hitting the heavy assembly table. "So you're going to sign it."</p>
+<p>"No," Quinn said.</p>
+<p>He closed the gap between them. He grabbed her face—his hands were cold from the rain, but his palms were dry and rough against her skin. He tilted her head up, his gray eyes burning.</p>
+<p>"I'm not signing it," he said, his voice raw. "But if I fight them, they’ll look at us. They’ll look at why I'm doing it."</p>
+<p>"Quinn..."</p>
+<p>"I don't give a damn about the company, Jess," he muttered, his thumb tracing the sharp line of her jaw. "I care about this. I care about you."</p>
+<p>The logic went out of her. The fear, the warnings, the forty-eight years of hard-won caution—it just burned up. She didn't want to be sensible. She didn't want to be the smart, safe woman her sister wanted her to be.</p>
+<p>She grabbed his collar, pulling him down.</p>
+<p>Their mouths met hard, with a desperate, clumsy force. It wasn't gentle. It was the kind of kiss you give someone when the ship is taking on water. Quinn groaned, his arms wrapping around her waist, lifting her off her feet.</p>
+<p>He sat her down on the edge of the heavy wooden workbench. The movement pushed her flannel shirt up, her bare skin hitting the cold air.</p>
+<p>She didn't care. She wrapped her legs around his waist, pulling his heavy frame against her. She could feel the hard, thick ridge of him pressing through his canvas work pants, hot and solid.</p>
+<p>"Jessamy," he breathed, burying his face in the crook of her neck. His teeth nipped her skin, his hands scrambling under her shirt, finding the heavy, soft shape of her breasts.</p>
+<p>She gasped, her head hitting the wooden support post behind her. The feeling of his mouth on her skin—warm, wet, and hungry—made her whole body ache.</p>
+<p>She reached down, her hands shaking as she fought with the metal button of his trousers. She pulled his zipper down, her fingers sliding inside his cotton briefs. He was thick, throbbing, and slick with heat. She gripped him, squeezing, and he let out a low, rough growl.</p>
+<p>He didn't wait. He yanked her damp cotton underwear down, throwing them onto the floor. He parted her knees, his large hands gripping her thighs, pushing them back.</p>
+<p>She looked at him. She loved the raw, unpolished weight of him. He didn't look at her body like it was a project; he looked at her like she was water and he was dying of thirst.</p>
+<p>"You're so beautiful," he whispered, his finger sliding over her wet, swollen heat.</p>
+<p>He slid two fingers inside her, testing. She gasped, her inner muscles clamping tight around his hand. She was ready, her body slick and aching.</p>
+<p>"Please," she whispered, her nails digging into the tough canvas of his jacket. "Now, Quinn."</p>
+<p>He pulled his hand back, the wet sound of it sharp in the quiet room. He lined himself up against her.</p>
+<p>With one hard, heavy push, he buried himself inside her.</p>
+<p>Jessamy’s breath caught in a sharp, ragged sob. He filled her completely, stretching her open. Her body, soft and mature, gripped him tight. It was a massive, anchoring weight, pushing out the cold, the fear, and the sound of the rain.</p>
+<p>Quinn held himself still for a second, his chest heaving as he let her adjust to him. His face was flushed red, his jaw tight.</p>
+<p>"God, Jess," he groaned, and then he started to move.</p>
+<p>The rhythm was heavy, blunt, and fast. The wood of the workbench scraped her back through her flannel, but the friction between her thighs was pure heat. He reached down, his thumb finding her, rubbing hard in time with his thrusts.</p>
+<p>The pressure built too fast. The combination of his thick shaft stretching her and the blunt friction of his hand drove her over the edge. Her muscles clamped down, pulsing around him in tight, frantic waves.</p>
+<p>"Quinn!" she cried out, her head shaking as her orgasm took her, a deep, heavy shudder that made the room spin.</p>
+<p>Hearing her cry was the end of his control. He let out a low, animal sound and drove into her three more times, hard and deep, before his body went stiff. He came with a desperate, heavy force, filling her with heat as his forehead rested against her shoulder, his heart hammering against her chest like a trapped bird.</p>
+<p>They stayed like that, locked together, while the rain drummed its steady, relentless beat on the tin roof above.</p>
+<p>Slowly, Quinn pulled back, his eyes soft as he looked down at her. He brushed a stray lock of gray hair from her cheek, his huge hands incredibly gentle.</p>
+<p>Then, from outside, his phone started to ring again, the faint, muffled vibration coming through the thin studio walls.</p>
+<p>The real world was back.</p>
+<p>Jessamy looked toward the window. The gray morning was still there, cold and waiting. Quinn’s hands dropped, his eyes turning toward the door.</p>
+<p>The choice was still waiting for him. And the storm wasn't done with them yet.</p>
+<p>The steady, cold rain had turned into a rhythmic pattering against the high, leaded-glass windows of the studio. Inside, the drafts were getting worse. The small gas heater in the corner hissed and sputtered, its blue flames casting long, flickering shadows across the wooden racks of cathedral glass and the heavy iron workbench. The air smelled of damp brick, zinc flux, and the faint, sweet scent of linseed oil from the glazing putty.</p>
+<p>Jessamy stood by the drafting table, rubbing the back of her neck. A familiar, dull ache was settling into her right collarbone—the one she’d broken fifteen years ago when a wooden ladder had slipped out from under her. In the damp cold of late autumn, her forty-eight-year-old bones always remembered the break. Every single time.</p>
+<p>Across the room, Quinn sat on the edge of a sturdy pine crate, his long legs stretched out in front of him. At thirty-four, he didn't seem to mind the draft. He wore a dark, heavy wool sweater, the sleeves pushed up to his forearms, revealing the corded muscle and the dark hair dusting his skin. He was watching her. Unblinking. There was a quiet intensity in his gaze that always made Jessamy feel slightly exposed, as if he could see right through the layers of her wool shirt and her denim apron to the tired woman underneath.</p>
+<p>"You're quiet," she said, her voice sounding small in the cavernous space.</p>
+<p>Quinn shifted, the wood of the crate creaking under his weight. "Just thinking."</p>
+<p>"About the inspection report?" The words tasted bitter. The threat of losing the lease, of having this sanctuary condemned because of the storm-damaged foundation, was a constant weight in her chest.</p>
+<p>"No," Quinn said softly. He stood up and walked toward her, his boots making a soft, scraping sound on the concrete floor. "Not about the report. About us."</p>
+<p>Jessamy let out a dry, breathy laugh and turned back to her drawing board, tracing the outline of a half-drawn iris on the paper. "There is no 'us,' Quinn. There’s a surveyor who should be writing a very damning report, and a stubborn glassmaker who is too old to be playing these kinds of games."</p>
+<p>He stopped just behind her. The heat radiating from his body was a physical presence, cutting through the chill of the room. He didn't touch her, not yet, but she could feel the air change between them.</p>
+<p>"Is that what you think this is?" His voice was low, slightly rough. "A game?"</p>
+<p>"I don't know what else to call it," she whispered, her fingers trembling slightly against the edge of the drafting table. "You're fourteen years younger than me, Quinn. You live out of a duffel bag. In a few weeks, your assignment here will be over, and you'll move on to some other harbor, some other broken building. And I’ll still be here, trying to piece my life together from the scraps."</p>
+<p>He reached out then, his broad, calloused hand coming down gently over her shoulder, right where the old ache was. He began to squeeze, his thumb digging into the tight knot of muscle with a slow, deliberate pressure that made her breath hitch.</p>
+<p>"I don't have a home, Jessamy," he said quietly. His chest pressed against her back, his chin resting near her temple. "My old man was a salvage diver. We moved every six months. I grew up learning that the only way to keep from getting hurt when things went bad was to leave before they did. I’ve lived my whole adult life that way. I assess the damage, I write the report, and I get on the road."</p>
+<p>His hand slid from her shoulder down to her waist, his fingers curling into the soft fabric of her shirt.</p>
+<p>"I don't know how to stay," he confessed, the admission sounding heavy, like it had been pulled from deep inside him. "The thought of settling down, of putting down roots in one place, scares the hell out of me. I look at this studio, at how you've built a whole world here, and I feel like an outsider looking through a window."</p>
+<p>Jessamy turned around in his embrace, her heart hammering against her ribs. She looked up into his face. He had a strong jaw, shadowed with a few days of dark stubble, and his mouth was set in a hard, serious line. But his eyes were wide, open, and filled with a raw vulnerability that made her throat tighten.</p>
+<p>"And you think I'm safe because I'm older?" she asked, her voice cracking slightly. "Because I should have it all figured out?"</p>
+<p>"No," he said, his hand rising to cup her cheek. His thumb brushed over the small, fine lines at the corner of her eye. "I think you're the first person who hasn't tried to pretend everything is perfect. You're real, Jess."</p>
+<p>She leaned her face into his warm palm, closing eyes. "I'm terrified, Quinn."</p>
+<p>"Of what?"</p>
+<p>"Of being discarded," she whispered, the truth slipping out before she could stop it. "My ex-husband looked at me one day and decided I was too worn out. Too familiar. He wanted something shiny and new, something that didn't have any scars or history. He left me for a girl who wasn't even born when I started my first apprenticeship. And the world feels like that now. Everything is plastic, everything is disposable. Stained glass takes hours, days, weeks. Nobody wants to wait for beautiful things anymore. They just want cheap, quick, and young. I feel like this shop, like this whole building—just waiting for someone to decide I'm not worth the cost of the repairs."</p>
+<p>Quinn’s grip on her waist tightened. He pulled her flush against him, his thighs hard against hers. "You are not disposable," he muttered, his voice thick with sudden, fierce anger. "He was a fool, Jess. A goddamn fool."</p>
+<p>He bent his head, his lips finding hers in a kiss that was entirely different from the fast, desperate encounters they’d shared before. This was slow, deep, and heavy with a quiet promise. He tasted of cold rain and the hot black coffee they’d shared earlier. His tongue parted her lips with a gentle pressure, exploring her mouth with a deliberate, searching tenderness that made her knees go weak.</p>
+<p>Jessamy clutched at his shoulders, her fingers digging into the thick wool of his sweater. She let herself sink into him, letting the warmth of his mouth push away the chill of the studio and the lingering ache in her bones.</p>
+<p>He pulled back just an inch, his breath warm on her wet lips. "Let me show you how much I want you," he murmured. "The whole of you. Not some perfect, untouched thing. You."</p>
+<p>He reached for the hem of her heavy flannel shirt, his hands sliding up under the fabric to touch the bare skin of her ribs. His palms were warm and rough, a beautiful contrast to her own soft skin. Jessamy shivered, raising her arms so he could pull the shirt over her head and toss it onto a nearby chair.</p>
+<p>She stood before him in her simple cotton bra and denim trousers. Her body was that of a forty-eight-year-old woman; her breasts were heavy and soft, her belly bore the faint, silvery stretch marks from her pregnancy two decades ago, and her hips were wider than they had been in her youth. For a fleeting second, the old urge to cover herself, to hide in the dim light, flared up.</p>
+<p>But Quinn didn't let her. He stepped back just enough to look at her, his eyes dark and burning with an intensity that made her skin flush. He reached out and unclipped her bra, letting it fall. His hands cupped her breasts, lifting them, his thumbs brushing over her erect nipples until she gasped, her hands coming up to grip his wrists.</p>
+<p>"You are so beautiful," he growled, his voice thick. He leaned down, his mouth replacing his hands, his tongue swirling over one peak while his fingers pinched the other. Jessamy arched her back, a low groan escaping her throat. The sensation went straight to her core, a heavy, throbbing ache settling between her thighs.</p>
+<p>She reached for his sweater, her hands urgent now. "Get this off," she gasped.</p>
+<p>He pulled the heavy wool over his head and kicked off his boots, his dark trousers following quickly. When he stood before her, his body was lean and packed with dense muscle, his chest broad and marked with a few faint scars from his years working on shipping docks.</p>
+<p>Jessamy reached out, her hands sliding over the warm expanse of his chest, feeling the steady, rapid thud of his heart. She loved the feel of him—the sheer strength of his youth, tempered by the reverence he showed her.</p>
+<p>Quinn reached for the button of her jeans, his fingers steady as he slid the zipper down. He pushed the denim over her hips, his hands tracing the curve of her thighs, lingering on the soft skin of her inner legs. He knelt before her on the cold floor, his face level with her belly. He pressed a warm, lingering kiss to the silver stretch marks on her stomach, his breath hot against her skin.</p>
+<p>Tears prickled behind Jessamy’s eyes, but they weren't tears of sadness. It was the overwhelming rush of being truly seen, of having the parts of her she had deemed ruined treated as something sacred.</p>
+<p>"Quinn," she breathed, her hands burying themselves in his thick, dark hair.</p>
+<p>He didn't answer with words. He slid his hands up to her hips, guiding her back toward the workbench. He lifted her easily, setting her down on the edge of the heavy oak table. The wood was cool against her bare thighs, but the contrast only served to heighten the burning heat of his body as he stepped between her knees.</p>
+<p>He parted her legs, his gaze locked on hers as he slipped two fingers into her wet, waiting heat. Jessamy gasped, her fingers clutching the edge of the wooden bench behind her as he began to move his hand. He found the small, sensitive bundle of nerves at her center, his thumb circling it with a slow, agonizingly perfect rhythm.</p>
+<p>"You're so wet for me, Jess," he whispered, his eyes dark with hunger. "So hot."</p>
+<p>"I want you inside me, Quinn," she pleaded, her voice a ragged whisper. She was tired of waiting, tired of the doubts. She wanted to feel the full, solid weight of him, to anchor herself to his strength.</p>
+<p>He reached down, grabbing a small foil packet from his pocket, his movements swift and practiced. Once he was ready, he leaned forward, placing his hands on either side of her hips on the workbench. He pressed his forehead against hers, their breaths mingling in the cold air.</p>
+<p>"Look at me," he commanded softly.</p>
+<p>She opened her eyes, her vision slightly blurred, locking onto his dark, fierce gaze.</p>
+<p>Slowly, deliberately, he pressed forward. He slid into her, the thick, heavy warmth of him filling her completely, stretching her open. Jessamy let out a long, shuddering sigh, her legs wrapping around his waist to pull him deeper. The feeling of him inside her was absolute; it swept away the quiet, empty corners of her life, replacing the silence of her empty nest with the wet, sliding friction of their joined bodies.</p>
+<p>Quinn groaned, his eyes closing for a brief second as he withdrew almost completely, only to push back in with a deeper, harder thrust. The workbench creaked beneath them, a steady, solid sound that grounded them in the reality of the room.</p>
+<p>He began to move in a slow, heavy rhythm. He didn't rush. Every stroke was deep and deliberate, his hands moving to her waist to guide her hips against his. Jessamy clung to him, her fingers scratching against his back, her head tilting back as the pleasure began to build, tight and sharp, in her lower belly.</p>
+<p>The gray light of the afternoon was fading into twilight, the shadows deepening around them. The only sounds in the studio were the rattling of the sleet against the roof, the hum of the heater, and the ragged, desperate sound of their breathing.</p>
+<p>"Jessamy," he groaned, his voice raw. He buried his face in the crook of her neck, his teeth gently nipping the soft skin there as his thrusts grew faster, harder.</p>
+<p>She could feel the tension tightening inside her like a spring, the heat building to a fever pitch. She watched the muscles of his shoulders bunch and flex with every movement, his youthful energy driving them both toward the edge. She felt powerful in her surrender, knowing that her maturity, her responsiveness, was what was driving him to this point of madness.</p>
+<p>"Now, Quinn," she whispered, her voice tight with the coming peak. "Please."</p>
+<p>He gave a hard, deep thrust, his thumb finding her sensitive core once more and pressing down. That was all it took. The world fell away as Jessamy’s body convulsed around him, her inner muscles clamping down on him in tight, rolling waves of release. She cried out, her voice echoing in the rafters of the old building.</p>
+<p>Hearing her cry, Quinn let out a low, feral growl. He pushed into her one last time, burying himself as deep as he could go, his whole body locking tight as he spilled himself inside the latex barrier. He held her close, his chest heaving against hers, his heart hammering like a trapped bird.</p>
+<p>They stayed like that for a long time, the silence of the studio returning slowly as their breathing settled. The rain outside seemed softer now, a gentle murmur against the glass.</p>
+<p>Quinn didn't pull away immediately. He kept his arms wrapped around her, his head resting against her shoulder, his skin warm and slick with sweat.</p>
+<p>Jessamy traced the line of his spine with her fingertips, feeling the tension slowly drain from his muscles. For the first time in years, she didn't feel the weight of her age as a burden. She felt it as a strength—a rich foundation that allowed her to hold this man, to understand his fear of staying, and to offer him a sanctuary, if only for an hour.</p>
+<p>Slowly, Quinn withdrew and helped her down from the workbench. He grabbed his sweater from the floor and gently draped it over her bare shoulders. It was far too large for her, the hem reaching her thighs and smelling of sea salt, wool, and him.</p>
+<p>He looked down at her, his eyes quiet and thoughtful. He reached out, his fingers gently tucking a loose lock of her hair behind her ear.</p>
+<p>"I don't know what tomorrow looks like, Jess," he said, his voice rugged and honest. "But I'm not leaving tonight."</p>
+<p>Jessamy smiled, pulling the warm sweater tighter around herself. The draft in the studio was still cold, and the inspection report still hung over her head like a blade. But looking at the man standing before her, she knew that some things were worth the struggle to rebuild.</p>
+<p>The kiln didn't just hum; it vibrated right up through the soles of Jessamy’s bare feet, a low, heavy vibration that felt like a second heartbeat in the drafty concrete studio. Outside, the bay was nothing but a cold gray smear where the sky met the water. Inside, everything was amber, soot, and dry, radiating heat.</p>
+<p>Quinn’s hands were broad and calloused, resting on the flare of her hips. He stepped in close, pressing his chest against her spine, tucking his chin right into the crook of her neck. He was thirty-four. His skin always ran hot, like he had some private furnace burning under his ribs. It made her feel cold by comparison—cold and old, though she’d never admit it to him.</p>
+<p>"You’re quiet," he muttered. His breath smelled faintly of the chicory coffee he’d brewed ten minutes ago.</p>
+<p>Jessamy leaned back, letting her weight settle against him. She was forty-eight. Some mornings her knees clicked like dry twigs, her lower back throbbed from hoisting seventy-pound irons, and her belly had the soft, deflated curve of a woman who’d raised two kids and survived a miserable divorce. Her ex had spent his final years with her looking at her like she was a carton of milk past its expiration date. But Quinn? He held her like she was the only solid thing in the room.</p>
+<p>"Just watching the heat rise," she lied.</p>
+<p>"Liar." He spun her around, his thumb catching the edge of her jawline. His eyes were still heavy with sleep, dark and messy. "You’re thinking about the lease."</p>
+<p>"I’m always thinking about the lease," she said, her voice dropping. "If the insurance company doesn’t pay out for the storm damage by Friday, I can’t clear the winter deposit. No deposit, no studio. I’m done."</p>
+<p>"I told you, I’m on it," he said, his grip tightening just enough to quiet her. "My preliminary report is sitting on the supervisor's desk right now. I wrote it clean. A couple of sistered joists, some new tar paper on the roof. They’ll clear the check, Jess. Trust me."</p>
+<p>She wanted to. God, she wanted to. But forty-eight years had taught her that nothing was more fragile than a man’s promise when his own neck was on the line.</p>
+<p>He didn't give her room to worry. He leaned down and bit her bottom lip—not hard enough to hurt, but just enough to make her gasp—and then he was kissing her, tasting of bitter coffee and salt air. Jessamy’s hands found his chest, her fingers tangling in the rough flannel of his shirt, then digging into the thick hair at the back of his neck.</p>
+<p>He hoisted her up onto the oak workbench. The wood was freezing against the back of her thighs, a sharp shock that made her arch her back as his hands slid up under her skirt, hot as coals.</p>
+<p>"Someone," she panted, her knuckles turning white against the scarred wood of the table, "is going to see."</p>
+<p>"Nobody’s awake yet," he whispered against her collarbone. "Just us."</p>
+<p>He parted her knees, stepping into the gap. She felt the sudden, stark contrast between them—his shoulders wide and smooth, untarnished by the slow erosion of the years, while she carried the silver stretch marks of her pregnancies and the faint, permanent creases around her eyes. But when Quinn looked at her, he wasn't looking for flaws. He looked hungry.</p>
+<p>He unbuckled his belt with a quick, impatient jerk. When his hand slid between her thighs, his fingers were warm, finding her already slick and waiting. Jessamy let out a ragged breath, her head hitting the brick wall behind her.</p>
+<p>"Look at me," he muttered, his voice dropping into a rough register that sent a shiver straight down her spine.</p>
+<p>She opened her eyes, locking onto his hazel gaze as he guided himself in. He entered her in one slow, heavy push that filled her so completely she had to grab his shoulders to keep her balance. Her legs wrapped around his waist, locking him in.</p>
+<p>They moved in the dark, dusty heat of the shop, their rhythm matching the steady hiss of the gas. He held her hips, his fingers digging into her skin—she knew she’d have small, dark bruises there tomorrow, and the thought made her chest tighten with a strange, fierce pride. The smell of beeswax, scorched iron, and raw sweat hung thick in the air.</p>
+<p>"Quinn," she whimpered, her fingers clawing at his back as the coil in her belly wound tighter, hot and sharp.</p>
+<p>He didn't slow down. He drove harder, his chest heaving against her breasts, his skin slick with sweat. The friction was a beautiful, agonizing burn. When she broke, her body clamped tight around him, a sudden, breathless sob escaping her lips as the pleasure hit her in waves. A heartbeat later, Quinn let out a low growl, burying his face in the crook of her neck as his body shuddered, spilling into her.</p>
+<p>They clung to each other in the quiet aftershock, the only sound the steady, deep roar of the kiln and the frantic thud of their hearts against each other.</p>
+<p><em></em>*</p>
+<p>The peace lasted exactly fifty minutes.</p>
+<p>Jessamy was using the long iron tongs to pull a fresh run of cane from the annealing oven when she heard the crunch of tires on gravel. It was too heavy for Quinn's small pickup. This was the deep, rumbling idle of a commercial V8.</p>
+<p>Quinn, who was sitting on the stool by the desk buttoning his shirt, went stiff.</p>
+<p>Through the salt-filmed window, a white utility vehicle with a municipal seal on the door pulled to a stop. A man in a high-vis vest and a hard hat got out, a thick yellow clipboard tucked under his arm.</p>
+<p>"Who’s that?" Jessamy’s stomach bottomed out.</p>
+<p>Quinn muttered a curse, his eyes darting to the floor. "That’s Miller. Senior structural guy for the city. He doesn’t do field calls unless..." He stopped, his face losing its color.</p>
+<p>"Unless what, Quinn?"</p>
+<p>He didn't get a chance to answer. The heavy metal door rattled on its tracks and slid open, letting in a gust of damp, freezing ocean air.</p>
+<p>Miller stepped inside, his mud-slicked boots leaving wet tracks across her swept floor. He didn’t even look at Jessamy. He just squinted up at the roof, his eyes tracing the bowed ceiling joists, the water-damaged drywall, and the deep, jagged crack running down the main support column near the big furnace.</p>
+<p>"Can I help you?" Jessamy asked. Her hand instinctively tightened around her blowing iron. It was cold now, but it still felt like a weapon in her palm.</p>
+<p>Miller looked down at his clipboard. "Jessamy Roy? I’m with the Municipal Building Safety Division. We got a high-priority referral from Apex Insurance. The initial survey on this address indicates a major structural failure of the load-bearing foundation."</p>
+<p>The air left Jessamy’s lungs in one cold rush. She stared at Quinn. "A referral? From Apex?"</p>
+<p>Quinn took a step forward, hands raised in a placating gesture. "Miller, hold on. I’m the surveyor on this file. I haven’t submitted the final yet. I was still running the secondary tests."</p>
+<p>Miller let out a dry, humorless snort. "Your office locked you out of the file, Connolly. The automated system flags any commercial draft with a foundation rating under four. The corporate managers pulled your upload yesterday afternoon. They saw you were trying to sugarcoat a structural failure to keep the tenant in. They flagged it for the city immediately to cover their own asses."</p>
+<p>The room seemed to spin. Jessamy’s eyes locked onto Quinn’s pale face.</p>
+<p><em>They pulled your upload. Yesterday afternoon.</em></p>
+<p>"Quinn," she said, her voice barely a whisper. "What draft did you upload?"</p>
+<p>"Jess, look," Quinn said, his hands shaking slightly as he reached toward her. "I had to input the initial field data to keep the file active in the database. It’s automatic. I was going to go back in and overwrite it once I figured out a workaround."</p>
+<p>"You wrote down the real damage," she said, the truth hitting her like a physical blow to the sternum. "You put it in black and white. You told them the foundation was rotting."</p>
+<p>"I had to log the initial findings!" Quinn’s voice cracked. "If I lied on the official entry and the roof came down, I lose my license. I go to jail, Jess. But I was going to fix it, I swear—"</p>
+<p>"But you wrote it," she repeated. The warm, golden light of the studio now felt like a spotlight on a crime scene. "You put the truth in their machine. And you knew exactly what they’d do with it."</p>
+<p>Miller wasn’t interested in the autopsy of their relationship. He walked over to the concrete support column, tapped it with a small ball-peen hammer, and shook his head as a chunk of rotten plaster flaked off. "This place is a dead trap. The tide’s been eating these joists for a decade. You run these furnaces at two thousand degrees, you’re looking at a floor collapse and a gas fire that’ll burn half the block down."</p>
+<p>He reached into his pocket and pulled out a large, fluorescent orange sticker. With a wet, sticky slap, he plastered it right across the glass of the front door.</p>
+<p><strong>CONDEMNED. UNSAFE FOR OCCUPANCY.</strong></p>
+<p>"You’ve got forty-eight hours to clear your personal gear," Miller said, scribbling a date and time on the orange vinyl. "And the gas company’s already on their way to shut off the main line."</p>
+<p>"No," Jessamy gasped, taking a step toward him. "You can’t. My glass is in the ovens. If the temperature drops too fast, it’ll shock. It’ll all shatter. Years of work, ruined."</p>
+<p>"Forty-eight hours, Ms. Roy," Miller said, not even looking up as he flipped his clipboard shut. "I’d get to packing."</p>
+<p>He turned and left, leaving the heavy door wide open. The wind howled off the bay, cutting through the fading warmth of the room.</p>
+<p>Jessamy stood frozen. The low, steady hum of the kiln suddenly sputtered. A faint, metallic hiss sounded from the street—the sound of a wrench turning the main valve. Inside, the bright orange coils in the warming oven began to dull, fading into a cold, lifeless gray.</p>
+<p>"Jess," Quinn said, reaching for her sleeve.</p>
+<p>"Don’t," she said. She didn’t yell. Her voice was flat, empty.</p>
+<p>"Jess, please. I didn’t know they’d pull the draft early. Usually, I’ve got three days to finalize. I was trying to buy us time. I was going to find a contractor who’d do the joists under the table before the city got wind of it—"</p>
+<p>"You were saving your own skin," she said, looking at him. Really looking at him.</p>
+<p>The fourteen years between them had never felt wider. He was thirty-four. He had a clean record, a rising career, a whole life of second chances ahead of him. He could afford to play the romantic hero, mess up, and walk away with nothing but a bruised ego.</p>
+<p>But her? She’d poured every dime of her divorce settlement into this lease. She’d spent three years breathing in silica dust and burning her forearms to build something that was hers. This studio was her survival.</p>
+<p>"Of course I had to protect my license!" Quinn’s face flushed a deep, angry red. "But I was trying to save this place for you, too!"</p>
+<p>"You can’t do both, Quinn. You can’t be the good little corporate employee and my savior." A hot, angry tear slipped down her cheek, and she hated herself for the wetness of it. "I was an idiot. I actually let myself believe a thirty-four-year-old kid cared about a middle-aged woman with a failing shop and a tired body. I let you make me soft."</p>
+<p>"That’s bullshit," he snapped, his jaw tight. "This isn’t about how old we are. This is about a rotten floor and a city bureaucrat. I love you, Jess. I did what I could."</p>
+<p>"You wrote the words that ruined me," she whispered.</p>
+<p>The door slid open again, and Nola stepped inside. She had her wool coat pulled tight against her chin, her eyes wide as she looked at the bright orange sticker on the glass.</p>
+<p>"Jessamy?" Nola whispered, looking from her sister to Quinn. "I saw the city truck... Oh, God. No."</p>
+<p>Jessamy kept her eyes on Quinn. "Get out."</p>
+<p>"Jess, we can appeal this," he pleaded, his voice cracking. "I know people in the county office—"</p>
+<p>"I said go, Quinn." She pointed a shaking finger at the open door. "I have forty-eight hours before they lock me out of my own life. I don’t have time to play house with you anymore."</p>
+<p>Quinn flinched, the word <em>house</em> hitting him like a physical blow. He looked at Nola, who stood by the door with her mouth pressed into a thin line, then back to Jessamy.</p>
+<p>"If that’s what you really think of me," he said, his voice dropping to a hard, cold register, "then I guess we’re done."</p>
+<p>He snatched his jacket off the back of the chair. He walked past her, his shoulder brushing hers—a brief, agonizing flash of the heat they’d shared only an hour ago. He didn’t look back as he stepped out into the freezing gray morning.</p>
+<p>Jessamy watched him go until the tail lights of his truck disappeared down the coastal road. Her knees finally gave out, and she slid down against the cool, dark workbench.</p>
+<p>Nola was there a second later, wrapping her arms around her. "Oh, Jess. I’m so sorry."</p>
+<p>Jessamy didn’t cry. She couldn’t. She just stared at her hands—rough, calloused, stained with carbon and grease. The heat was gone. The cold was moving in, settling deep into her bones.</p>
+<p>The cold in the studio felt heavy today. It wasn't just the damp draft whistling through the cracks in the north wall. It was the dead quiet of a furnace that had gone cold.</p>
+<p>Jessamy Roy wrapped a sheet of thick bubble wrap around a hand-blown vase. Cobalt glass. Swirling, deep, catching what little gray light squeezed through the grimy skylight. She ripped a strip of packing tape. <em>Screeech.</em> The sound bounced off the high, bare brick walls like a slap.</p>
+<p>Her lower back was screaming. A dull, grinding ache she’d earned. Forty-eight wasn't dead, but packing up five years of a hard-won life made every bone feel ninety. She rubbed her knuckles against her thigh, her work pants rough under her palms. These hands were dry. Scarred with those tiny, silver-white lines from stray shards. Calloused from holding heavy, red-hot iron blowpipes.</p>
+<p>For twenty years, she’d kept her hands soft. Her hair neat. Her voice quiet. All for a husband who eventually traded her in for a younger, shinier model. When she walked away with nothing but a tiny settlement check and a cracked heart, she’d found this drafty, run-down brick warehouse. She built the kilns. She learned to sweat. She burned herself, bled, and made beautiful things out of sand.</p>
+<p>Now, it was all going into cardboard boxes.</p>
+<p>She picked up her favorite jacks—the heavy steel tongs she used to shape hot glass. They fit her palm perfectly, worn smooth in all the right places. She squeezed them. The cold metal bit back.</p>
+<p>The last three days had been a blur of pure panic. She’d convinced herself that losing this leaky roof meant losing who she was. But looking at the empty steel workbench and the dark, cold mouth of the furnace, something clicked.</p>
+<p>The magic wasn't in the building. The bricks didn't know how to turn liquid sand into light.</p>
+<p><em>I did that.</em></p>
+<p>The heat, the strength, the vision—it didn't belong to the landlord. It was in her arms. It was in the steady rhythm of her breath, and the scars on her skin. She wasn't some broken woman getting kicked to the curb. She was an artisan. She was tempered, tough, and she’d survived the cooling oven before.</p>
+<p>The heavy wooden door groaned open, scraping a track through the dust on the concrete floor.</p>
+<p>Jessamy's shoulders tensed.</p>
+<p>Nola Dempsey stepped inside, her bright yellow slicker a loud shout of color against the gray gloom. She carried a cardboard tray with two steaming paper cups and a grease-stained bakery bag. Her boots left wet, muddy prints on the floorboards.</p>
+<p>"You look like you're prepping for a wake," Nola said, her voice dropping like a heavy book in the quiet room. She set the coffee on a clean crate. "Stop packing. Seriously. Before you throw a hip out."</p>
+<p>Jessamy let out a dry, rusty laugh, wiping her forehead with her sleeve. "My hips are fine, Nola. It's my pride that's bruised."</p>
+<p>Nola pulled off her wet hood, her short curly hair springing back to life. She looked around at the half-filled boxes, then up at the ceiling where a temporary timber post braced the structural beam. Her face softened. The bossy, sisterly edge melted away, leaving something heavier.</p>
+<p>"I went down to the county office this morning," Nola said, handing Jessamy a cup. "And then I stopped by the insurance office. Wanted to see who I had to bribe to get a look at the official structural report."</p>
+<p>Jessamy took a sip. Hot, bitter, cheap. It felt good hitting her dry throat. "And? Are they printing the eviction notices yet?"</p>
+<p>"No," Nola said. She leaned against the workbench, her eyes locking onto Jessamy’s. "They told me the surveyor resigned."</p>
+<p>Jessamy stopped mid-swallow. The paper cup crinkled under her thumb. "What?"</p>
+<p>"Quinn," Nola said, her voice deliberate. "He refused to sign the condemnation order. His boss—that greasebag Miller—wanted this place shuttered by Friday so the developers could buy the lot cheap. Quinn told him the report was garbage, that the main supports could easily be retrofitted, and he wouldn't sign off on a forced eviction."</p>
+<p>Jessamy’s heart did a hard, painful thud. "He did what?"</p>
+<p>"Miller told him to sign it or clear out his desk," Nola said, a small, smug smile touching her lips. "So Quinn cleared his desk. Threw his keys on Miller's desk and walked. Because he knew if he signed it, you’d be locked out by tonight. By quitting, he threw a wrench into the whole system. The paperwork is dead in legal limbo. It buys you at least three months. Three months to find a new place, fight the lease, or just pack up without killing yourself."</p>
+<p>The room seemed to tilt. The cold air suddenly felt too thin to breathe.</p>
+<p><em>Quinn.</em></p>
+<p>He was thirty-four. He had a career to build, a reputation, a mortgage. He had looked at her—with her older, tired body, her messy life, and her stubborn streak—and he’d thrown his livelihood in the trash to protect hers.</p>
+<p>Her ex-husband wouldn't have thrown her a life preserver if she were drowning unless he could write it off on his taxes. But Quinn—with his bright, fierce eyes, his calloused hands, and that easy, quiet strength—had stood in the gap. He hadn't patronized her. He hadn't tried to play the big hero saving a weak little woman. He just respected her. Her art, her space, and the raw, heavy connection they’d made on her workbench.</p>
+<p>"He's at his place," Nola said softly, touching Jessamy's arm. "The cottage down by the salt marshes. His truck was there when I drove past. Jessamy... a man doesn't blow up his life for a woman unless he's gone."</p>
+<p>Jessamy looked at her hands. They were shaking. Not from the packing, and not from the cold. It was the sudden, terrifying spark of hope.</p>
+<p>For years, she’d played it safe. She’d taken the crumbs, believing that after forty, a woman’s job was just to fade quietly and survive. But the memory of Quinn’s mouth on hers, the heavy, sweet weight of him crowding her against the wood, the way he looked at her like she was the only beautiful thing in a dark room—it flared hot and wild in her belly.</p>
+<p>"I need your truck," Jessamy said. The hesitation was gone.</p>
+<p>Nola’s eyes lit up. She fished the keys out of her pocket and tossed them onto the crate. "Take it. Go. Don't let him get away, Jess. He's too good for this town anyway."</p>
+<p><em></em>*</p>
+<p>The drive to the marshes was a blur of gray drizzle and the rhythmic slap of worn-out wipers. Jessamy gripped the steering wheel of Nola’s beat-up truck, her chest tight with an urgency she hadn't felt in twenty years.</p>
+<p>The road wound down toward the coast. The pine trees here grew stunted, twisted sideways by the salt wind. She pulled into the gravel driveway of Quinn’s cottage. It was a weathered, cedar-shingle place with a porch facing the flat, gray marshgrass. His black truck sat by the side, a stack of split pine logs under a blue tarp next to it.</p>
+<p>She killed the engine. The cab fell silent, save for the steady, metallic patter of rain on the roof.</p>
+<p>She got out. Her boots sank into the wet gravel. The wind whipped her dark hair across her face, cold and tasting of salt. She didn't care. She climbed the steps and knocked.</p>
+<p>The door swung open almost immediately.</p>
+<p>Quinn stood there. Gray t-shirt, dark canvas work pants. His dark hair was messy, like he’d been running his hands through it, and a shadow of dark stubble lined his jaw. When he saw her, his gray eyes flared with a sudden, sharp heat before he pulled back, cautious.</p>
+<p>"Jessamy," he said, his voice low, a little rough. "What are you doing out here in this?"</p>
+<p>"You're an idiot, Quinn Connolly," she said, her breath coming fast.</p>
+<p>He blinked, a slow, crooked smile tugging at the corner of his mouth. "Probably. But you'll have to be more specific."</p>
+<p>"You quit," she said, stepping inside before he could ask. She pushed the door shut behind her, locking out the wind and sealing them in the warm, wood-scented cabin. "Nola went to the county. She found out. Why did you do that? You have a career. You have a life."</p>
+<p>Quinn let out a long breath, rubbing the back of his neck. The muscle in his shoulder bunched under his shirt. "I have a license, Jessamy. I can get another job. What I couldn't do was sign a paper that would ruin you. I saw what you built in that studio. I saw <em>you</em>. If I signed that paper, I would’ve been the one putting out your fire. I couldn't live with that."</p>
+<p>He looked down at her. His gaze was intense, stripping away her armor. He didn't look like some kid playing at romance. He looked like a man who knew exactly what he wanted.</p>
+<p>"You're forty-eight," he said softly, stepping closer until she could smell woodsmoke, rain, and clean skin. "And you think you have to do everything alone. You think you have to fight the whole world because everyone else let you down. But I'm here. I'm not going anywhere."</p>
+<p>Jessamy’s breath hitched. The last of her doubts, the stupid fear of her age, of her past, of being "too late," evaporated.</p>
+<p>"I don't want to fight anymore," she whispered. "At least not right now."</p>
+<p>She reached out, her fingers bunching the soft cotton of his shirt, pulling him down to her.</p>
+<p>Quinn didn't hesitate. His arms locked around her waist, thick and solid, lifting her off her feet as his mouth came down on hers.</p>
+<p>The kiss was hungry, deep, heavy with the weight of the last three days. He tasted of rain and heat. His tongue slid against hers, demanding, familiar. Jessamy let out a low, ragged sound, her hands scrambling up his neck, burying themselves in his thick hair. He was so warm. His chest was a broad, hard wall against her.</p>
+<p>He carried her backward, his boots thudding against the pine floorboards, until her hips hit the edge of the heavy wooden dining table. He didn't let go. He cupped her face with both hands, his thumbs tracing her cheekbones, his kisses turning slow, deep, and possessive.</p>
+<p>"I've been going crazy," he muttered against her lips, his breath hot and ragged. "Thinking about you in that freezing studio."</p>
+<p>"I'm done packing," she said. Her hands slid down to the hem of his shirt. She pulled the cotton up, desperate to feel his skin.</p>
+<p>Quinn yanked the shirt off, tossing it somewhere onto the floor. His chest was broad, dusted with dark hair that tapered down into his pants. Lean, hard muscle, his shoulders tanned from outdoor work. He reached down, his fingers finding the buttons of her heavy denim shirt. His hands were steady but fast, popping them open one by one until the fabric parted.</p>
+<p>He stopped. His breath caught.</p>
+<p>Jessamy felt that old, familiar prickle of insecurity—the softness of her belly, the faint silver lines of stretch marks, the fullness of a woman’s body that had lived. But Quinn’s eyes didn't look for flaws. They burned.</p>
+<p>He bent his head, his lips tracing her collarbone, then sliding lower. He kissed the sensitive skin above her bra, his hands gripping her hips with a firm, heavy pressure that made her arch into him.</p>
+<p>"You are so beautiful," he growled against her skin, his hand moving to the button of her pants.</p>
+<p>She gasped as his warm fingers slid beneath the denim, brushing against her skin. The contrast of his rough palms against her skin made her knees weak. She unbuckled his belt, her fingers clumsy with haste, pushing his trousers down.</p>
+<p>Quinn let out a low, rough groan. He lifted her easily, setting her on the edge of the wooden table, her thighs parting for him. He reached into his pocket, his movements hurried as he readied himself, his gaze never leaving hers.</p>
+<p>Jessamy watched him, her heart hammering against her ribs. She felt completely, electrically alive. Every nerve ending was on fire. This was her body, mature and full of desire, and this was his, young and fierce and entirely hers.</p>
+<p>He stepped between her thighs, his hands gripping her hips to anchor her.</p>
+<p>"Look at me," he whispered, his eyes dark and focused.</p>
+<p>Jessamy looked up, her fingers digging into his shoulders.</p>
+<p>He pushed forward, slowly, sliding into her heat. She let out a sharp, breathless cry, her hips tilting naturally to take him in. He was so warm, filling her completely, stretching her in a way that made her head fall back, her eyes closing in sheer pleasure.</p>
+<p>"No," Quinn murmured, his voice tight with restraint. "Keep your eyes on me."</p>
+<p>She opened them, her gaze locking onto his as he began to move. He drew back, almost all the way, before plunging deep again, his thrusts slow, deliberate, and heavy. The friction was incredible, a thick, throbbing heat building between them.</p>
+<p>Jessamy wrapped her legs around his waist, pulling him deeper. She felt the hard muscle of his thighs shifting against her, the sweat starting to bead on his forehead. Every stroke felt like a promise. A physical guarantee that he was bound to her, that she wasn't alone anymore.</p>
+<p>"Quinn," she gasped, her hands sliding down his back, feeling the long, smooth muscles of his spine bunch and release. "Oh, Quinn..."</p>
+<p>"I've got you," he panted, his pace quickening. The table creaked beneath them, the rhythmic sound filling the quiet room.</p>
+<p>He leaned down, his mouth catching hers again, swallowing her moans as his thrusts grew harder, faster. The pleasure wasn't just physical; it was a release of the years of loneliness, of being told she was discardable. Here, in his arms, she was everything.</p>
+<p>She felt the tightening in her belly, the coil winding tighter and tighter. Her skin was hot, flushed, her breath coming in short, sob-like gasps.</p>
+<p>"Quinn, I'm... I'm close," she whispered against his neck.</p>
+<p>He didn't slow down. He gripped her hips harder, his fingers leaving faint red marks on her skin, and drove into her with a fierce, deep rhythm. "Go," he growled. "Come for me, Jess."</p>
+<p>The release hit her like a wave of liquid fire, starting deep in her core and pulsing outward through her limbs. Her internal muscles clamped tightly around him, pulsing in sweet, hard waves. Quinn let out a loud, guttural groan at the sensation, his body stiffening as he buried himself deep inside her one last time, his own release taking him, his shoulders shaking as he poured himself into her.</p>
+<p>He buried his face in her neck, his breath hot and heavy against her skin, his chest heaving as they slowly rode the aftershocks together.</p>
+<p>Jessamy held him, her arms wrapped tight around his broad shoulders. Her skin was damp with sweat, her heart settling into a deep, steady rhythm. The rain outside seemed softer now, a gentle murmur against the glass.</p>
+<p><em></em>*</p>
+<p>Later, the gray light faded into a soft, blue twilight.</p>
+<p>They lay on the small mattress in the corner of the living room, wrapped in a heavy wool blanket. The woodstove crackled, casting a warm, orange glow across the pine floorboards.</p>
+<p>Jessamy lay with her head on Quinn’s chest, listening to the steady, comforting beat of his heart. His arm was wrapped around her shoulders, his fingers lazily tracing patterns on her bare arm.</p>
+<p>"So," Quinn said, his voice deep and rumbling against her ear. "What's the plan, boss?"</p>
+<p>Jessamy smiled. A real, unburdened smile that actually reached her eyes. For the first time in years, she felt light.</p>
+<p>"We have three months."</p>
+<p>"Three months for what?"</p>
+<p>"To find a new place," she said, lifting her head to look at him. His gray eyes were warm, filled with a quiet contentment. "A bigger place. With a better roof. And maybe room for an office for an independent marine surveyor who needs a place to write his reports."</p>
+<p>Quinn’s smile spread slowly, his eyes crinkling at the corners. He reached up, his fingers gently tucking a strand of dark hair behind her ear.</p>
+<p>"I like the sound of that," he said softly. "But it's going to be a lot of work."</p>
+<p>"I'm not afraid of work," Jessamy said. Her voice was strong, sure. She leaned down, pressing a soft kiss to his lips. "I've spent my whole life working for things that weren't mine. It's time I started building something that is."</p>
+<p>Quinn cupped her neck, pulling her down for another kiss, slow and full of promise. The furnace in her old studio might have gone cold, but the heat in this room wasn't going anywhere.</p>
+<p>Jessamy Roy’s boots hit the rotting deck of the pier with a hollow, wet thud. The wind off the Atlantic didn't just bite; it bruised. It tasted of diesel oil, dead kelp, and the sulfur stench of low tide. She shoved her hands deeper into her pockets, her fingers stiff inside cheap wool gloves. Her lower back throbbed. Forty-eight years old, and her body was keeping score of every heavy crate she'd hauled out of the ruins of her studio.</p>
+<p>A damp day always had a price. Today, she was paying it in her knees and shoulders. But that physical ache was nothing next to the sick, sour heat rising in her throat.</p>
+<p>Quinn Connolly's rust-spotted Ford was parked by the commercial slip. Quinn himself was up on the deck of his cutter, hoisting a thick coil of stiff hemp over his shoulder. God, he made it look easy. At thirty-four, he still had that smooth, effortless grace that usually made her feel every single one of her years. Today, it just pissed her off. He was wearing his oilskins, collar turned up against the salt spray, his jaw dark with three days of stubble. He looked solid. Untouchable. Like a man who hadn't just wrecked her life.</p>
+<p>"Quinn!"</p>
+<p>The wind snatched the name from her mouth, making it sound thin and pathetic.</p>
+<p>But he heard. He froze, the rope slipping an inch before his fingers locked down hard on the fibers. He turned slowly. When those dark eyes found hers, he didn't look away. He didn't even flinch. He just dropped the coil—it hit the deck with a heavy <em>slap</em>—and vaulted over the rail. The floating dock groaned under his boots as he landed.</p>
+<p>"Jessamy." His voice was sand and sea salt. He didn't crowd her—he knew better—but the way he looked at her made the air in her lungs vanish. "I didn't think you'd come down here."</p>
+<p>"What, you thought I'd let you just slip out of the harbor?" She marched right up to him, her boots splashing through a puddle of greasy bilge on the planks. She stopped so close she could feel the heat radiating off him. "Nola told me about the insurance report, Quinn. The real one. You lied to the county board. You took the fall for the structural damage."</p>
+<p>"I didn't lie," he said. His voice was level, almost stubborn. "I just changed their focus. The center beam is fine if you brace it right. Miller's money-men wanted an excuse to tear the place down. I wasn't going to help them do it."</p>
+<p>"They fired you, Quinn!" A gull shrieked overhead, mocking her. "You lost the county contract. Your name—"</p>
+<p>"My name is fine," he said, cutting her off. He took a half-step closer. He smelled of pine smoke, diesel, and that sharp cedar soap he always used. He reached out, his big, scarred hand twitching toward her face before he dropped it back to his side. "And I don't give a damn anyway. I wasn't going to stand there and watch them bulldoze your studio. Not that place. Not where you work."</p>
+<p>"It's gone anyway!" The cold wind bit her cheeks, turning her tears to ice. "The landlord sold out. The shop is empty. I've got nothing left but some cardboard boxes of blown glass stacked in Nola's damp garage. I'm forty-eight, Quinn. I don't have another lifetime to start over."</p>
+<p>He didn't look beaten. Not even close. Instead, his mouth twitched into a tight, hard little grin. He reached deep into his oilskin pocket and pulled out a heavy chunk of weathered wood with a massive, rusted brass key screwed into the end.</p>
+<p>"Not all of it," he said.</p>
+<p>She stared at the key. "What is that?"</p>
+<p>"Come on. Let's take a walk."</p>
+<p>He didn't wait for her to argue. He reached down and wrapped his warm, bare fingers around her gloved hand, pulling her along the gravel path that wound past the fish houses. His grip was steady and hard, but he wasn't dragging her. She could have pulled away. She didn't. She kept pace, her boots grinding into the wet gravel, her graying hair blowing across her eyes.</p>
+<p>They walked half a mile past the harbor, around the bend where the granite cliffs shielded a quiet, rocky cove. Tucked against the stone wall sat an old, two-story boathouse. Its cedar shingles were weathered to a deep pewter gray, and the massive double doors faced the open water, sitting on thick pine pilings driven straight into the sand.</p>
+<p>"The old McAllister place," Jessamy whispered, stopping short. "It's been empty for a decade. The town wanted to tear it down."</p>
+<p>"They wanted to," Quinn said, guiding her up the creaking wooden ramp to the side door. "But it's zoned for historic maritime use. No developer can touch it. The foundation is solid granite bedrock. It stood through the '78 gale and the northeaster last month without losing a single shingle."</p>
+<p>He shoved the heavy brass key into the padlock. It gave a dry, loud <em>crack</em> as it turned. He pushed the heavy door open and stood back.</p>
+<p>The moment Jessamy stepped inside, the wind died. The silence was absolute. The air smelled of dried salt, old copper, and aged pine. Pale winter light cut through the high windows, showing dust motes drifting through the rafters. The space was massive. The overhead beams were thick, hand-hewn spruce, strong enough to hold a crane.</p>
+<p>"Look at the floor," Quinn said, stepping up behind her. He was close enough that his chest brushed her shoulder blades, his heat soaking through her heavy wool coat.</p>
+<p>She looked down. The floor was thick pine planking, but right in the center, near the water doors, sat a huge, solid concrete pad where a steam winch had once been bolted down.</p>
+<p>"It's reinforced," she whispered, her hands going to her mouth. "For a kiln."</p>
+<p>"For three kilns," Quinn corrected. His voice was low, vibrating right through her bones. "And a glory hole. I spent the last three days arguing with the McAllister lawyers. I used the cash I had saved for the new boat. The lease is secured for ten years, Jessamy. With an option to buy."</p>
+<p>She spun around, her heart hammering against her ribs. Her face was hot from the cold air, her eyes wide. "You bought this? For me?"</p>
+<p>"For us," he said, his eyes dark and completely serious. "A partnership. You bring the fire and the art. I handle the building, the wood, and the heavy lifting. We build your shop together. No landlords. No town boards."</p>
+<p>Jessamy looked at him. Really looked at him. The lines at the corners of his eyes from squinting into the glare of the water, the hard set of his jaw, the raw strength in his arms. Her ex-husband had spent years making her feel like a burden, treating her work like an expensive, annoying hobby. And here was a man fourteen years younger, standing in a drafty boathouse, handing her a future because he believed in what her hands could make.</p>
+<p>A tear slipped down her cheek, hot and fast. "Quinn..."</p>
+<p>"Don't tell me it's too much," he whispered, stepping into her space and cupping her face in his hands. His thumbs were rough, wiping the wetness from her skin. "And don't tell me you aren't worth it. I've watched you work, Jessamy. I've seen what you can do with raw heat and a pipe. You aren't some temporary thing to me. You're the whole damn foundation."</p>
+<p>The last of her anger crumbled. She didn't feel forty-eight; she didn't feel young, either. She just felt like herself—a woman who had survived the worst of the storms, whose body was marked by the years, but whose fire was still burning hot.</p>
+<p>"Take me to your cabin," she breathed, her fingers locking onto his coat. "Right now, Quinn."</p>
+<p><em></em>*</p>
+<p>His cabin sat a quarter-mile up the cliff, hidden in the stunted pines. It was a simple place—one room, a sleeping loft, a stone hearth, and windows looking out over the whitecaps of the bay.</p>
+<p>The door had barely latched before he had her against it. His mouth came down on hers with a hard, hungry desperation that made her gasp. She tasted the salt on his lips, the heat of him, his tongue sliding deep and demanding everything she had to give.</p>
+<p>She made a small sound in her throat, her arms locking around his neck, her fingers tangling in the thick, damp curls at his collar. The freezing air of the cabin disappeared as his hands tore at the buttons of her wool coat. He stripped it off her shoulders, letting it hit the floor, and kicked his own jacket aside.</p>
+<p>"I thought I lost you," he groaned against her neck, his mouth burning a trail down to the collarbone. His stubble rasped against her skin, a sharp, electric friction that made her arch into him. "When you walked out of the studio, I couldn't breathe."</p>
+<p>"I'm here," she whispered, her hands sliding under his flannel shirt to find the hard, smooth muscle of his chest. He was burning up. She pressed her palms flat against his ribs, feeling his heart pounding like a trapped bird. "I'm right here."</p>
+<p>He pulled her sweater over her head in one motion, leaving her in her lace bra. Quinn stepped back for a second, his breath hitching. His eyes went dark as he looked at her.</p>
+<p>Jessamy felt that old, familiar hesitation creep in. Her stomach wasn't flat anymore; her breasts had the heavy slope of a woman who had lived, and her hips were softer, wider. But there was no judgment in his eyes. Only a raw, hungry worship.</p>
+<p>"You are so beautiful," he muttered, his hands coming down to grip her hips, his fingers digging into her skin through her jeans. "So damn beautiful, Jessamy."</p>
+<p>He unclipped her bra and let it drop. He cupped her breasts in his large, calloused hands, his thumbs grazing her nipples until they went tight. Jessamy gasped, her head hitting the wooden door as a bolt of heat shot straight down to her core. It was the same heat she felt when she pulled a cylinder of molten glass from the furnace—heavy, alive, and consuming.</p>
+<p>He leaned down, taking her nipple into his mouth. He sucked hard, his tongue swirling over the tip until she cried out, her fingers clawing his shoulders, her knees turning to water.</p>
+<p>"Quinn... please."</p>
+<p>He didn't make her wait. He dropped to his knees, his hands working the button and zipper of her jeans. He peeled the denim down her legs, taking her underwear with it, leaving her bare against the door. He didn't stand up. He stayed on his knees, his hands parting her thighs.</p>
+<p>The cold draft of the cabin hit her wet, aching skin, but then his hot breath replaced it. Quinn leaned in, his fingers gently opening her. He looked up at her, his eyes dark and dilated.</p>
+<p>"Let me," he murmured.</p>
+<p>Before she could answer, his tongue found her clitoris. Jessamy shrieked, her fingers clutching his hair as her hips jerked forward. He didn't let up. His tongue was thick and warm, using deep, firm strokes that had her panting, her thighs shaking against his shoulders. He didn't use a light, tentative touch; he pressed hard, building the heat deep in her bones.</p>
+<p>She felt the pressure gathering, a tight, heavy coil ready to snap. Her breath came in short, ragged hitches. "Quinn... I'm going to—"</p>
+<p>"Go," he growled against her skin, his tongue pressing harder while his fingers slid inside her, stretching her, finding her rhythm.</p>
+<p>With a sharp cry, her body broke. The climax hit her like a sudden, blinding flash of light, her muscles pulsing hard around his fingers. Quinn held her steady, his mouth pressed against her skin until the shaking stopped and she slid down the door, panting, her skin damp with sweat.</p>
+<p>He stood up, his chest heaving. He stripped his pants off in one urgent motion, his length thick, heavy, and wet with anticipation.</p>
+<p>Jessamy looked at him, her heart swelling with an old, primitive hunger. She reached out, her fingers wrapping around him, feeling the hard, heavy throb of his pulse. "Come here."</p>
+<p>He reached into his pocket, his fingers shaking slightly as he tore open a condom and rolled it on. He lifted her easily, his strong arms hooking under her knees, and carried her the two steps to the big, wooden bed near the hearth.</p>
+<p>The mattress was covered in a heavy wool blanket, rough against her back but solid. Quinn climbed over her, settling his weight between her thighs. He paused, resting his forehead against hers, his breath hot.</p>
+<p>"This is for keeps, Jessamy," he whispered, his eyes locking onto hers. "No more running. We build this together."</p>
+<p>"Yes," she breathed, wrapping her legs around his waist, pulling him down. "Yes, Quinn. Now."</p>
+<p>He guided himself to her entrance. She was wet, swollen, and ready. With one slow, deliberate push, he slid all the way inside.</p>
+<p>Jessamy let out a long, shaking sigh, her eyes closing as her body stretched to take him. He felt massive, hot, and perfect. He didn't rush. He stayed deep inside her, letting her get used to his size, his hips pressing hard against her pelvic bone.</p>
+<p>"Look at me," he said softly.</p>
+<p>She opened her eyes. He began to move, a slow, heavy grind that had her arching off the mattress. The friction was electric. She lifted her hips to meet him, her hands sliding down his back to grip the tight muscles of his backside, guiding his depth.</p>
+<p>The pace grew faster, harder. The cabin was quiet except for the crackle of the wood stove, the wind rattling the glass, and the wet, rhythmic sound of their bodies hitting. Jessamy felt the tension building again, but this time it wasn't just physical. It was a deep, emotional locking of gears. She was forty-eight, and she was being held with a wild intensity that made her entire past look like a shadow.</p>
+<p>"Quinn, you're... you're too much," she gasped, her head rolling back on the pillow. "I can't... I can't hold back."</p>
+<p>"Don't hold back," he gasped, his face tight with the effort of staying slow. His movements turned short and hard, driving deep into her core, hitting her sweet spot with every stroke. "Come with me. Let it go."</p>
+<p>She arched her back, her fingers clawing his shoulders as another wave of hard contractions took her. She cried his name into the quiet room, her body tightening like tempered glass under a hammer.</p>
+<p>Seeing her break, Quinn let out a low, rough growl. He made one last, deep thrust, burying himself to the hilt, his body freezing as his release pulsed deep inside her. He held her tight, his face buried in the crook of her neck, both of them panting like they'd run a mile uphill.</p>
+<p><em></em>*</p>
+<p>They lay together as the fire in the stove died down to a dull, red glow. The storm outside kept beating against the window, but inside, the air was warm, smelling of woodsmoke and clean sweat.</p>
+<p>Quinn lay on his side, his arm wrapped around Jessamy's waist, pulling her back against his chest. His fingers traced the soft curve of her hip, his touch light and easy.</p>
+<p>"We have a lot of work to do," Jessamy whispered, her eyes half-closed, feeling a deep, solid peace she hadn't known in years.</p>
+<p>"We do," Quinn agreed, his lips brushing the back of her shoulder. "But the foundation is solid."</p>
+<p>She smiled, turning in his arms to face him. She didn't need to say anything. For the first time in her life, she knew that the pieces of her life weren't shattered—they were just waiting to be melted down, reshaped, and put back together into something stronger.</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

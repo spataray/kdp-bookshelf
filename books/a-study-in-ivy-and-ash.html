@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Study In Ivy And Ash - Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --header-bg: rgba(253, 253, 253, 0.9);
+            --border-color: #eaeaea;
+            --font-size: 1.15rem;
+            --max-width: 680px;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(18, 18, 18, 0.9);
+            --border-color: #2c2c2c;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.65;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Outfit', sans-serif;
+        }
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .control-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        main {
+            max-width: var(--max-width);
+            margin: 100px auto 80px auto;
+            padding: 0 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 45px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.85;
+        }
+        ul, ol {
+            font-size: var(--font-size);
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn">⬅️ Bookshelf</a>
+        <span class="book-title">A Study In Ivy And Ash</span>
+        <div class="controls">
+            <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
+            <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
+            <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
+            <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
+        </div>
+    </header>
+    <main id="manuscript-content">
+        <h1>A Study in Ivy and Ash</h1>
+<p>The basement of Blackwood University’s library smelled of decaying vinegar, rotting cellulose nitrate, and the cold, mineral sweat of foundational limestone. Ruin, to anyone else. To Keziah Alder, it smelled like a paycheck.</p>
+<p>She laid out her tools on the scarred oak workbench. No rushing. This was a liturgy. Her fingers traced the curved edge of her favorite bone folder—carved from a piece of polished ox bone she’d bought for three pounds in a rainy London stall twenty-three years ago. Next came the micro-spatula, the scalpel with its drawer of #11 blades, the camel-hair brushes, and the heavy little jars of wheat starch paste she’d boiled on her studio apartment's hotplate that morning.</p>
+<p>Starting over at forty-five is a quiet, humiliating business.</p>
+<p>Six months ago, a court-mandated asset division had skinned her alive. The Portland Victorian with the wrap-around porch and the blue hydrangeas she’d spent fifteen years coaxing out of acidic soil? Gone. Sold to pay off her ex-husband’s speculative real estate disasters. Her savings had been drank dry by a divorce lawyer who billed in fifteen-minute increments. Even her daughter, Tamsin, was gone, off at college in Chicago, leaving Keziah with an empty house that had felt less like a nest and more like a crime scene.</p>
+<p>So here she was. A six-month temporary contract at Blackwood. Meager hourly pay. No benefits. Her home was a rented studio that smelled of thirty years of other people’s fried bacon. But her hands were on the leather and paper again. That had to be enough.</p>
+<p>Then came the fire.</p>
+<p>It didn’t creep; it dropped like an anvil. A sudden, malicious spike of heat bloomed deep in her sternum and roared outward. Within three seconds, her collarbones were slick. A dark, prickling flush climbed her neck, crowding into her cheeks until her ears throbbed with her own pulse.</p>
+<p><em>Not now. Please, not in front of the archives.</em></p>
+<p>She set the bone folder down before she dropped it. Her palms were greasy with sweat. The basement air, which had been drafty and damp a moment ago, suddenly felt thick as wet wool.</p>
+<p>Keziah didn’t care about decorum. She peeled off her heavy tweed cardigan and flung it onto the metal stool behind her. Underneath, she was wearing a dark green silk camisole. It was an expensive, silly thing from her marriage, worn today only because it was light enough to let her skin breathe when the furnace kicked on inside her.</p>
+<p>She backed up against the limestone pillar. The stone was freezing. She pressed her bare shoulder blades against the rough, cold rock, closing her eyes as the chill bit through the silk.</p>
+<p>It was exhausting. It was embarrassing. But she refused to apologize to herself for this body. This forty-five-year-old casing had grown a child, survived a betrayal, and still kept her upright. It was hers, faulty wiring and all.</p>
+<p>The heavy oak fire door at the end of the corridor groaned on its iron hinges.</p>
+<p>Keziah opened her eyes. She didn’t scramble for the cardigan. She just stood there, hands flat against her thighs, watching the shadows stretch down the concrete aisle.</p>
+<p>Othella Pyre, the Director of Special Collections, stepped into the pool of yellow fluorescent light. Othella looked like she had been carved out of the same granite as the university chapel—unyielding, gray, and smelling faintly of mothballs.</p>
+<p>Behind her came Bramwell Knox.</p>
+<p>Keziah’s stomach did a slow, complicated flip.</p>
+<p>Bramwell was thirty-four. Younger, yes, but there was nothing green about him. He had a heavy, quiet presence that Keziah had spent the last three weeks trying very hard to ignore. He was broad-shouldered, usually squeezed into dark flannel shirts that had seen better days, with thick, dark hair that looked permanently mauled by his own fingers. His hands were huge, but when he handled a seventeenth-century ledger, he had the delicacy of a surgeon.</p>
+<p>"Keziah," Othella said. Her voice was dry as dry leaves. Her eyes flicked to the bare shoulders, the green silk, the flush on Keziah's chest. She didn't blink. "Bramwell. Step away from the benches for a moment, please."</p>
+<p>Bramwell stopped three feet from her. He looked at her. Really looked. He saw the sweat at her hairline, the bright red across her collarbones, the way her chest was rising and falling. There wasn’t a smirk on his face. Just a slight, heavy knitting of his brow—a sudden, quiet intensity that made the heat in Keziah’s chest flare all over again, and this time, biology had nothing to do with it.</p>
+<p>"The board met this morning," Othella said, locking her fingers together. "The university is staring down a massive endowment shortfall. The library's operating budget for next year has been slashed by forty percent."</p>
+<p>Forty percent. Keziah felt the cold of the limestone column sink straight into her spine. "Forty?" she asked.</p>
+<p>"Which means," Othella continued, "we cannot keep two temporary conservators. In fact, we’re cutting the temp budget entirely. By December, there will be exactly one position left. A permanent, full-time senior conservator. Full benefits, pension, three-year contract."</p>
+<p>A life raft. Security. Health insurance. It was everything Keziah needed to stop her descent.</p>
+<p>"The board will award the position based on your output over the next six weeks," Othella said. "You’ll each be assigned half of the Falconer Collection—the sixteenth-century botanical folios damaged in the pipe burst last winter. Your speed, your structural choices, and your digital archiving will be graded. One of you gets the contract. The other is done here."</p>
+<p>The silence in the basement was absolute.</p>
+<p>"Do your job," Othella said, her voice dropping. "The Falconer folios are irreplaceable. I trust you won't let your... personal circumstances get in the way. Good day."</p>
+<p>She turned, her sensible heels clicking a sharp, military rhythm against the concrete until the heavy door clicked shut.</p>
+<p>Keziah stood frozen. The air in the room felt incredibly thin. One position.</p>
+<p>She looked at Bramwell. He was staring at his boots, his jaw clenched so hard a cord pulsed under the dark stubble. He was thirty-four, trying to build an independent practice in a city where a studio apartment cost more than a kidney. He was living on black coffee and hope. He needed this just as much as she did.</p>
+<p>They were wolves in the same small cage, and only one of them was going to get fed.</p>
+<p>"Well," Keziah said. Her voice didn't shake. Thank God for small miracles. "That cuts through the polite bullshit."</p>
+<p>Bramwell looked up. His eyes were incredibly dark under the basement lights. He took a slow, heavy step toward her. "Keziah."</p>
+<p>"Don't," she said, raising a hand. She felt horribly naked in the silk camisole now, but she’d rather die than put the cardigan back on. To cover up now was a surrender. "No polite dances, Bramwell. We both need this. I'm not going to play nice, and I don't expect you to."</p>
+<p>"I don't expect you to play nice," he said. His voice was a low, gravelly baritone that seemed to vibrate in the damp air. "I've read your monograph on Carolingian bindings, Keziah. I know what you did at the Getty. I'm not stupid enough to underestimate you."</p>
+<p>"Good."</p>
+<p>He kept moving, stopping just on the other side of her workbench. He smelled of cedarwood, linseed oil, and warm skin—an earthy, alive smell that cut right through the vinegar rot of the room.</p>
+<p>"But you're shaking," he murmured.</p>
+<p>Keziah looked down. Her fingers were trembling. She balled them into fists and pressed them against her thighs. "Adrenaline. And the heat."</p>
+<p>"You're still burning," he said, his eyes dropping to her throat, tracing the path of a single bead of sweat that was creeping down toward the lace of her camisole.</p>
+<p>"I'm fine," she whispered. "My personal climate change. I don't need your sympathy, Knox."</p>
+<p>"It's not sympathy." The words were heavy, thick with something that made her look up.</p>
+<p>Bramwell was staring at her mouth. There was a hunger there that had nothing to do with sixteenth-century vellum. It was a raw, adult desire she hadn't seen directed at her in a decade. Her ex-husband had stopped looking at her years before the papers were signed, treating her body like a piece of reliable, boring hallway furniture. Bramwell looked at her like she was the only thing in the room.</p>
+<p>"You've been hunched over that lightbox for six hours," he said, his voice dropping an octave. "Your shoulders are locked."</p>
+<p>"They're fine," she lied. Her upper back felt like cured concrete.</p>
+<p>"They're not." He walked around the bench.</p>
+<p>Keziah’s heart hammered. She should tell him to back off. They were competitors. If Othella walked back in—if anyone saw them—</p>
+<p>But he didn't wait. He stepped up behind her, his large frame blocking out the drafty air of the basement.</p>
+<p>"Bramwell," she said, but it sounded like a sigh.</p>
+<p>"Just let me," he murmured. "Before we have to hate each other. Let me do this."</p>
+<p>His hands came down on her bare shoulders.</p>
+<p>Keziah gasped, her eyes snapping shut. His palms were broad, dry, and incredibly hot. He dug into the tight muscles at the base of her neck, finding the iron knot near her left scapula instantly. He pressed his thumb in with a slow, heavy pressure that made her whimper.</p>
+<p>"Jesus," he muttered. His breath was warm against her hair, sending a jolt straight down her spine. "You're a tight knot of stress. Breathe, Keziah."</p>
+<p>She tried, but her lungs were shallow. The feel of his warm, rough hands against her damp skin was too much. It felt dangerous. It felt illicit.</p>
+<p>"You're strong," she whispered, letting her head drop forward to give him room.</p>
+<p>"Have to be," he said, his thumbs moving in slow, rhythmic circles, grinding out the tension with a quiet, practiced confidence. "Those folio boxes aren't light." He leaned in, his chest brushing her back. The heat off him was different from her hot flash; it was solid, external, and she wanted to sink into it. "And you carry too much. You carry everything."</p>
+<p>"No one else is going to carry it," she said, her voice cracking.</p>
+<p>"I know."</p>
+<p>His hands slid up her neck, his fingers tangling in the damp curls at her nape. He tilted her head back, gently, his thumbs tracing the line of her jaw. Keziah looked up at him.</p>
+<p>From this angle, his jaw was sharp, shadowed with dark stubble, his lips parted. The air between them was pulled so tight it felt like a wire about to snap. He wanted to kiss her. She could see it in the way his grip tightened in her hair, the slight twitch of his mouth.</p>
+<p>And she wanted it. God, she wanted it. To feel that mouth on hers, to feel the weight of him pressing her back against the oak workbench, to forget about the budget, the divorce, the tiny apartment, and the terrifying cliff she was standing on.</p>
+<p>But she couldn't.</p>
+<p>She reached up, wrapping her fingers around his wrist. His pulse was thrumming, fast and heavy under his skin.</p>
+<p>"Bramwell," she said, keeping her voice steady. "We can't."</p>
+<p>He stared at her for a long, agonizing beat. The silence of the archive seemed to press in on them.</p>
+<p>Slowly, his hands slid down her neck, his thumbs brushing her collarbone one last time before he stepped back, letting the cold air rush into the gap between them.</p>
+<p>"I know," he said, his voice rough. He cleared his throat and walked back to his side of the aisle. "We can't."</p>
+<p>Keziah grabbed her cardigan, pulling it over her shoulders. The wool was scratchy, but it was armor. She needed it.</p>
+<p>"Tomorrow," she said, her professional mask firmly back in place, "Othella brings the folios."</p>
+<p>"Yes," Bramwell said. He was leaning against his bench, his knuckles white against the wood. "She will."</p>
+<p>"I'm going to beat you, Knox."</p>
+<p>A slow, sharp smile touched his lips. It was the look of a man who loved the fight, who respected her too much to offer anything less than a war.</p>
+<p>"I’d be insulted if you didn't, Alder," he said. "Let the best restorer win."</p>
+<p>"She will," Keziah said.</p>
+<p>She turned back to her tools, gripping her bone folder until her fingers ached. The fire in her chest was gone, replaced by a cold, sharp needle of focus. She had six weeks to save herself. And she would do it, even if she had to break Bramwell Knox to get there.</p>
+<p>The vibration didn’t start in Keziah Alder’s ears. It began in the soles of her boots—a low, tectonic shudder that traveled up her calves to settle as a cold, greasy knot in her stomach.</p>
+<p>Then came the sound.</p>
+<p>It wasn't the sharp, clean crack of the thunder that had been rattling the stained glass of the upper quad all afternoon. This was a wet, heavy thud. The sound of three hundred years of river-soaked masonry finally giving up the ghost.</p>
+<p>"Keziah!"</p>
+<p>Bramwell Knox’s voice cut through the dimness of Vault Four, completely stripped of its usual academic self-assurance. Before she could even turn toward the doorway, a rush of stale, frigid air blew out her lantern. The darkness that followed was absolute. It was thick as velvet, smelling instantly of damp mortar and pulverized limestone.</p>
+<p>A dry, metallic shriek echoed through the corridor. The emergency fire door—a massive slab of Edwardian iron—had dropped into its frame as the structural sensors registered the collapse.</p>
+<p>"Bramwell?" Keziah reached out, her fingertips scraping the rough, humid stone of the shelving units. Her heart hammered against her ribs. It was a frantic, clumsy rhythm that felt entirely too loud in the sudden, dead silence.</p>
+<p>"I’m here. Don’t move."</p>
+<p>The scratch of a match. A small, amber flare illuminated Bramwell’s face. He was thirty-four, all sharp angles and competitive arrogance, though right now his dark eyes were wide, blown out with adrenaline. He held the match high, his other hand gripping a heavy iron flashlight. When he clicked it on, the beam sliced through a thick fog of suspended dust.</p>
+<p>"The retaining wall in the outer corridor," Bramwell said. His breath hitched as he directed the light toward the sealed iron door behind them. "The old drainage pipe must have burst under the pressure of the storm. The corridor is filled with rubble. The emergency seal is locked down."</p>
+<p>Keziah walked toward the door, her knees aching from three hours of crouching over the Bishop's ledgers. She pressed her palms against the iron sheet. It was ice-cold and utterly unyielding. "The manual release?"</p>
+<p>"Deformed," Bramwell said grimly, shining the beam on the warped steel lever. "The pressure from the collapse shifted the frame. We’re not getting this open from the inside. Not a chance."</p>
+<p>She closed her eyes, leaning her forehead against the cool metal. "Othella Pyre won't even realize we’re down here until the morning shift. She’s too busy drafting the departmental obituary to check the vaults."</p>
+<p>"Then we wait," Bramwell said. He sounded calmer than she felt, but she could see the tight line of his shoulders under his damp tweed jacket. "The ventilation is still working, but the climate control..." He pointed the flashlight at the digital wall humidor. The green LED display flickered once, then died. "The power grid to the sub-basement is gone. The backup generator is only keeping the air circulating. It’s going to get cold. Fast."</p>
+<p>It was already happening.</p>
+<p>The subterranean vaults of Saint Jude’s were built directly into the bedrock beneath the river. They were designed to keep a constant, dry fifty-five degrees, but without the heating coils, the dampness of the autumn storm would seep through the stone walls within the hour. For the delicate, vellum-bound manuscripts of the collection, the rising humidity was a slow death sentence. For Keziah and Bramwell, it was going to be an endurance test.</p>
+<p>"The wool blankets," Keziah said, her pragmatic mind kicking into gear. "In the preservation locker. We have the emergency rolls for transporting materials."</p>
+<p>She walked back to the metal cabinet at the end of the aisle, her boots clicking on the damp concrete. Her limbs felt incredibly heavy. At forty-five, the physical toll of forty-eight hours of hyper-focused labor—trying to prove to Othella Pyre that she, and not the younger, more technically adept Bramwell, deserved the single remaining preservationist post—was catching up to her. Her lower back was a tight band of pain; her eyes burned from hours of reading faded Latin script under magnifying loupes.</p>
+<p>When she opened the cabinet, she found only two heavy, gray utility blankets. They were thick, industrial wool, smelling of mothballs and sheep’s grease.</p>
+<p>"Two," she muttered, pulling them out. "We’ll have to partition the shelves first. If we can seal off Vault Four’s main archway with the canvas drops, we can trap what little heat is left in this alcove."</p>
+<p>Bramwell was already moving, his athletic frame swinging up onto the lower rung of the steel shelving to pull down the canvas curtains meant for dust protection. He worked with a quiet, efficient grace that Keziah had spent the last six months pretending to ignore. He wasn't just young; he was capable. He had a master's in digital preservation from Oxford, a clean slate, and none of the emotional baggage that she carried like a second skin. He didn't have a divorce that had stripped his savings, or a daughter who had just left for university, leaving behind an echoing, empty house that felt more like a tomb than a home.</p>
+<p>"Got it," Bramwell said, dropping down beside her. His shoulder brushed hers, and a sudden, unexpected jolt of heat flared through her chest.</p>
+<p>Together, they rigged the canvas across the archway, creating a small, enclosed space of about ten by ten feet around the central examination table. The air inside the makeshift tent was already growing frigid, their breath blossoming into pale, ghostly plumes of white.</p>
+<p>"Here," Keziah said, shaking out one of the wool blankets and draping it over her shoulders. She sat on the wooden bench beside the table, tucking her legs up to keep her boots off the freezing concrete.</p>
+<p>Bramwell stood in the center of the space, his flashlight resting on the table, pointing upward to bounce a soft, diffuse light off the vaulted ceiling. He looked at her, his expression unreadable in the shadows. He was shivering, his thin-soled loafers offering absolutely no protection against the floor.</p>
+<p>"Sit down, Bramwell," she said, her voice softer than she intended. "There’s no prize for contracting hypothermia."</p>
+<p>He hesitated, then sat on the bench beside her. He was large—broader in the chest and shoulders than her ex-husband had ever been—and the bench was narrow. Their thighs pressed together through their trousers. The heat radiating from him was immediate, a powerful, living contrast to the dead stone around them.</p>
+<p>"You're freezing," he said quietly.</p>
+<p>"I'm forty-five, Bramwell. My joints have their own weather forecasting system, and right now they’re predicting a blizzard." She tried to laugh, but it came out as a breathy sigh.</p>
+<p>He didn't laugh. He reached into his coat pocket and pulled out a small, scratched metal flask. "It’s not single malt. It’s whatever was on sale at the corner shop on my way in. But it burns."</p>
+<p>He unscrewed the cap and handed it to her. Keziah took it, her fingers brushing his. His skin was warm, his touch steady. She took a long drag of the whiskey. It was cheap, sweet, and hot, spreading a slow fire down her throat and into her belly. She gasped, wiping her mouth with the back of her hand, and handed it back.</p>
+<p>"Good god," she murmured. "That’s practically paint stripper."</p>
+<p>"It does the job," he said, taking a swallow himself. The line of his throat swallowed, and Keziah found herself watching the movement of his Adam's apple, the dark stubble along his jawline. He set the flask down between them. "I know you think I'm trying to push you out, Keziah."</p>
+<p>The sudden honesty was like a splash of cold water. She looked down at her hands, where the calluses from years of handling old paper and sheepskin were stark in the flashlight's glow. "Aren't you?"</p>
+<p>"No," he said, his voice dropping an octave. "I’m trying to survive. Just like you. If I don't get this position, my visa is up at the end of the term. I go back to Leeds with nothing to show for five years of post-doc work but a mountain of debt and a CV that says I'm overqualified for library assistant jobs."</p>
+<p>Keziah turned her head to look at him. In the dim, amber light, his eyes were dark and intense, fixed on her with a seriousness that made her breath catch. "I didn't know about the visa."</p>
+<p>"I don't advertise it," he said, a bitter edge to his tone. "Othella Pyre likes her subordinates desperate. It makes us agreeable. But I’m not trying to ruin you. I respect you, Keziah. More than anyone else in this miserable department."</p>
+<p>"Respect?" She let out a soft, self-deprecating sound. "I'm a relic to Othella. A line-item expense she can cut to buy a new high-speed scanner. I’ve spent twenty years preserving the physical history of this place, and now I’m being told that unless I can digitize three thousand scrolls in a semester, I’m obsolete."</p>
+<p>"You could never be obsolete," Bramwell said. He shifted closer, his arm pressing against hers. "The way you handled the 14th-century Psalter last week... you didn't just scan it. You knew exactly where the sheepskin had been stretched too thin, where the scribe had rested his palm and left oil that would degrade the ink over centuries. No machine can see that. No twenty-four-year-old tech-hire can feel that."</p>
+<p>His words struck something deep inside her, a place that had been numb for years. To be seen—not just as a competent colleague, but as someone with a rare, valuable intuition—felt like a hand reaching into her chest and squeezing her heart. She hadn't realized how starved she was for appreciation, for a look that wasn't dismissive or patronizing.</p>
+<p>A violent shiver racked her body, her teeth chattering before she could stop them. The temperature had plummeted again.</p>
+<p>Bramwell didn't ask. He reached out, taking the edge of his wool blanket and pulling it over her shoulders, effectively wrapping them both in a double layer of heavy wool. He drew her against his side.</p>
+<p>"Bramwell," she whispered, her hands pressing against his chest to hold him at bay, though her fingers curled into the fabric of his damp flannel shirt.</p>
+<p>"We need to share warmth, Keziah. It's basic physics," he said, his breath warm against her temple. "Don't let your pride freeze us both."</p>
+<p>She let her hands flatten against him. Beneath the layers of wool and cotton, she could feel the solid, heavy beat of his heart. He was so incredibly warm. She let her head rest against his shoulder, her nose catching the scent of him—rain, cedarwood, the sharp tang of the whiskey, and something deeply masculine that made her lower abdomen tighten with a sudden, fierce ache.</p>
+<p>It had been so long since she had been held. Since she had allowed herself to be small in someone else's space. Since her divorce three years ago, her life had been a relentless march of self-reliance. She was the one who paid the mortgage, the one who dealt with the leaking roof, the one who sent her daughter off to college with a smile while her own chest felt hollowed out.</p>
+<p>"You're very quiet," Bramwell murmured. He shifted slightly, his hand coming up to rest on her hip, holding her securely against him. The weight of his palm was intoxicating.</p>
+<p>"I'm just... thinking," she said, her voice trembling slightly.</p>
+<p>"About what?"</p>
+<p>"About how long it's been since I felt warm."</p>
+<p>Bramwell’s hand stilled on her hip. Slowly, his fingers tightened, pressing into the soft curve of her waist. "Keziah," he whispered, his tone changing, the professional distance evaporating completely. "Look at me."</p>
+<p>She lifted her head. Their faces were inches apart. In the shadows, his eyes searched hers, hungry and intensely focused. There was no pity in his gaze, no deference to her age or her position. He looked at her as a man looks at a woman he has wanted for a very long time, with a raw, undeniable hunger that made her pulse spike.</p>
+<p>"I've watched you for six months," he said, his voice a low, gravelly rasp. "I've watched you walk through the library, watched the way you hold yourself like you don't need anyone. But I see you. I see how tired you are. And I see how beautiful you are."</p>
+<p>His hand moved from her hip, sliding up her ribcage, his thumb brushing the underside of her breast through her silk blouse. Keziah gasped, her eyes closing as a wave of heat flooded her thighs.</p>
+<p>"Bramwell, we shouldn't... this is..."</p>
+<p>"A mistake?" he murmured, his lips brushing her cheek, tracing a path down to her jawline. "We're trapped in a vault under ten tons of rubble. The world is gone, Keziah. There's just you. And me."</p>
+<p>He kissed the hollow beneath her ear, his breath hot against her sensitive skin. A soft whimper escaped her lips. She turned her head, her mouth finding his.</p>
+<p>The kiss was not gentle. It was a release of months of pent-up rivalry, of academic stress, of loneliness and unspoken desire. Bramwell tasted of cheap whiskey and heat. His tongue parted her lips, bold and demanding, and Keziah met him with a desperation that shocked her. She wrapped her arms around his neck, pulling him closer, her fingers tangling in the thick curls at the nape of his neck.</p>
+<p>He groaned, his hands dropping to her waist and lifting her onto his lap. The movement was effortless, his youthful strength striking her with a thrill of pure submission. She sat astride him, her thighs framing his hips, the rough wool of the blankets draping over them like a tent.</p>
+<p>The contrast between them was electric. He was all hard muscle and clean lines; she was soft, her body carrying the voluptuous curves of maturity, her hips wider, her breasts full and heavy against his chest. When he pressed his palms against her lower back, pulling her flush against his groin, she felt the hard, thick ridge of his erection straining against his trousers.</p>
+<p>"You are so beautiful," he muttered against her lips, his hands sliding under her blouse, finding the bare skin of her back. His palms were warm, slightly rough, sending shivers up her spine. "So soft."</p>
+<p>"Bramwell," she breathed, her hands coming down to unbutton his shirt, her fingers clumsy with desire. She needed to feel him. She needed to strip away the armor of their professional lives.</p>
+<p>She pushed his shirt off his shoulders, exposing his chest—smooth, broad, with a line of dark hair disappearing into his waistband. She pressed her palms to his skin, absorbing his heat, her nipples hardening to painful points against her bra.</p>
+<p>He didn't wait. He reached between them, undoing the button of her trousers, his hand sliding down into her underwear. When his fingers found her, she was already slick, dripping with a heat that surprised them both.</p>
+<p>"Ah," he let out a low, victorious sound, his middle finger sliding easily into her tightness while his thumb found her swollen clitoris, rubbing in slow, deliberate circles.</p>
+<p>Keziah arched her back, her head falling back as a wave of intense pleasure rippled through her. "Oh... Bramwell... please."</p>
+<p>"I've dreamed of this," he whispered, his face buried in her neck as his fingers worked her, sliding in and out, finding the rhythm that made her hips tilt helplessly against his hand. "Every time you looked at me like I was just a boy. I wanted to show you what a man could do for you."</p>
+<p>"You're not a boy," she cried out softly, her fingers gripping his shoulders so hard her nails dug into his skin. "Bramwell... please, I want you inside me."</p>
+<p>He pulled his hand back, his fingers wet with her. With a fierce, focused efficiency, he pushed her trousers and underwear down her hips, kicking his own trousers down to his knees.</p>
+<p>He lifted her slightly, his hands gripping her buttocks, his thumbs digging into the soft flesh. He guided himself to her opening. He was thick, hot, and blunt against her wetness.</p>
+<p>"Look at me, Keziah," he commanded.</p>
+<p>She opened her eyes, her breath coming in shallow, ragged gasps. He was looking at her with an intensity that bordered on reverence.</p>
+<p>"You are mine tonight," he said.</p>
+<p>Then he pressed upward.</p>
+<p>She stretched around him, a tight, full sensation that made her groan, her eyes fluttering closed for a second before she forced them open to meet his gaze. He sank into her to the hilt, his hips locking against hers. The sensation of being completely filled, of his thick heat stretched inside her, was so intense that she felt tears prick her eyes.</p>
+<p>He stayed still for a moment, letting her adjust, his thumbs gently wiping her cheek. "Are you okay?" he asked, his voice raw.</p>
+<p>"Yes," she gasped, her hands sliding down his back to his waist, pulling him deeper. "Yes. Move."</p>
+<p>He began to lift her and let her slide back down, a slow, agonizingly deep rhythm. The wet friction of their bodies was loud in the small canvas tent. Keziah threw her head back, her body taking over, her hips moving in sync with his. She wasn't thinking about Othella Pyre, or her mortgage, or her empty house. She was alive, vibrant, her body a temple of pleasure that he was worshiping with every thrust.</p>
+<p>"Keziah... you're so tight," he groaned, his pace quickening. His thrusts became harder, shallower, driving her toward a precipice she hadn't visited in years.</p>
+<p>She could feel the climax building, a tight coil of tension in her lower belly, radiating down her thighs. The scent of their sex mingled with the wool and the cold air of the vault, creating a cocoon of pure sensation.</p>
+<p>Bramwell’s hands moved to her hips, his grip bruising as he drove himself into her with a desperate, wild energy. "Come for me," he whispered, his teeth brushing her earlobe. "Let me feel you."</p>
+<p>She did. The orgasm hit her like an physical wave, her internal muscles contracting around him in violent, rhythmic spasms. She cried out his name, her voice echoing off the ancient stone, her head burying in his neck as she shuddered against him.</p>
+<p>The tightness of her release broke him. With a low, guttural roar, Bramwell thrust deep one last time, his body stiffening as he came, filling her with hot, thick pulses that sent a second, softer wave of pleasure through her.</p>
+<p>They clung to each other, their breathing ragged, their skin slick with sweat that quickly cooled in the vault's damp air.</p>
+<p>Slowly, Bramwell let his head fall forward against her shoulder, his chest heaving. He didn't pull away. He held her close, his arms wrapping around her waist, keeping her locked against his body as the warmth of their union slowly settled between them.</p>
+<p>Under the heavy wool blankets, the cold world outside the canvas didn't exist.</p>
+<p>Keziah rested her hand on his cheek, her fingers tracing the line of his jaw. Her body felt soft, used, and entirely reborn. For the first time in years, she felt like a woman who was not only capable of surviving, but of being desired, of living fully in her own skin.</p>
+<p>"We still have to face tomorrow," she whispered into the darkness, her voice steady but soft.</p>
+<p>Bramwell lifted his head, his dark eyes looking at her with a quiet, fierce warmth. "Tomorrow can wait. Right now, we’re still warm."</p>
+<p>The conservation lab in November always smelled of vinegar, isopropyl alcohol, and the faint, sweet rot of animal-hide glue. Keziah Alder used used to find that comforting. It was the smell of dead things kept safe from the wind. Today, though? Today the air was just dry. Static heat rattled through the radiators of the St. Jude’s archives, making the hairs on her arms stand up.</p>
+<p>Above them, the board's ultimatum didn't just hang—it festered. One permanent position. One salary with dental. Two conservators who had spent their lives learning how to touch old paper because they couldn't figure out how to touch people.</p>
+<p>Keziah pushed her magnifying visor up. The plastic nosepiece left a raw, red dent that didn't fade as fast as it used to. That was the thing about forty-five: your body stopped whispering its complaints and started shouting them. There was the dull, iron ache in her lower back from twenty-five years of hunching over lightboxes. There were her knuckles, stiffening every time the damp salt air rolled off the bay. Her daughter was at university in Chicago, barely texting. Her ex-husband was in Seattle, busy with a new mortgage and a thirty-something yoga instructor. Keziah had become a ghost in her own skin—quiet, reliable, and completely out of print.</p>
+<p>Then came Bramwell Knox.</p>
+<p>He was sitting less than a foot away, his broad shoulders rounded as he checked the digital hygrometer on the humidification chamber. He was thirty-five. He had that unhurried, heavy-set strength that made Keziah feel both incredibly safe and deeply, physically annoyed. He didn't have the jittery, resume-building desperation of the post-grads. He moved slowly. His hands were wide—thick fingers, blunt nails—but they held four-hundred-year-old vellum with the delicacy of a thief.</p>
+<p>He was her rival. The man hired to make her obsolete. He was also the only person in the building who didn't look at her like she was part of the furniture.</p>
+<p>"Sixty-eight percent," Bramwell said. His voice was a low, gravelly rasp that vibrated right through the heavy oak of the bench. "But look at folio twelve. The margins are dry as potato chips. If we go in with the Japanese tissue now, we're going to pull the carbon right off."</p>
+<p>Keziah leaned in, her shoulder catching his. He wore a heavy, faded flannel shirt that smelled of woodsmoke and cheap detergent, and she could feel the heat coming off him. Why did men always run so hot? It was like sitting next to a woodstove.</p>
+<p>"If we humidify it any further, the iron-gall ink is going to bleed," she muttered. She pointed her micro-spatula at the page. "Look at the capitals. The copper content is already migrating. One drop of excess water and we’ve got a black smudge instead of a sixteenth-century gospel."</p>
+<p>"So we use the gel," Bramwell said. He turned his head. Behind his tortoiseshell reading glasses, his eyes were a messy, speckled green-brown. He was too close. "Cold-water gellan. We cut it to the margins, let it draw the soot out without wetting the fibers."</p>
+<p>"It’s a high-wire act," she said, her chest tightening. "One slip of the scalpel when you're lifting the gel, and you peel the skin right off the page."</p>
+<p>"I don't slip."</p>
+<p>He didn't say it like a brag. He said it like a physical law.</p>
+<p><em></em>*</p>
+<p><strong>The Unwritten Rules of the St. Jude's Archives:</strong> 1. <em>Never touch the margins with bare fingers; the oils in your skin are a slow-acting poison.</em> 2. <em>If the ceiling leaks, the 17th-century folios get the plastic tarps first; the staff can buy umbrellas.</em> 3. <em>Never let them see you shake.</em></p>
+<p><em></em>*</p>
+<p>Keziah reached for the scalpel anyway. She had to. If she didn't take the lead on the St. Gall fragments, Othella Pyre would have her desk cleared out by Christmas. Experience had to mean something. Twenty-five years of breathing in mold spores had to be worth more than a thirty-five-year-old's clever shortcuts.</p>
+<p>"I'll do it," Keziah said. "I did the St. Gall restoration back in ninety-eight. I know how this skin behaves."</p>
+<p>Bramwell looked at her for a long, quiet second. His eyes searched her face—not just her eyes, but the dry skin around her mouth, the grey hair escaping her silver clip. Then he set the handle down and slid it toward her. "The floor is yours, Keziah."</p>
+<p>She took a breath, settling onto her stool. Her lower back gave a sharp, nasty pinch. She ignored it, locking her elbow and bringing the magnifying visor down. Under the bright, blue-white glare of the halogen lamp, the burnt edge of the vellum looked like a charcoal cliff face.</p>
+<p>She sliced a tiny, transparent strip of the gellan gel. It was small—no bigger than a fingernail clipping.</p>
+<p>Her hand was supposed to be stone. It had been stone for twenty years.</p>
+<p>But as the steel tip hovered over the black margin, her hand gave a sudden, erratic twitch. A tiny tremor.</p>
+<p>In their world, a millimeter of twitch was a tragedy. She froze, her throat closing up. She tried to ease her grip, but her forearm was stiff as iron. The panic hit her then—not a slow build, but a cold, heavy drop in her stomach. If she ruined this leaf, she was done. No references. No pension. Just an empty apartment with her daughter's old high school track trophies and a kitchen that stayed too quiet.</p>
+<p>The blade trembled.</p>
+<p>"Keziah," Bramwell murmured.</p>
+<p>Before she could pull back or make some humiliating excuse, he moved. He didn't grab the tool. He just slid his stool sideways until his thigh was hard against hers, and then he put his hand over her hand.</p>
+<p>His hand was enormous. It swallowed hers completely—warm, slightly rough from emery boards, and heavy with a solid, calm weight that stopped her shaking instantly.</p>
+<p>"I've got you," he whispered.</p>
+<p>His breath hit the side of her neck, right where her hair was thinning near the temple. A sharp, hot jolt went straight down her spine, settling deep in her pelvis with a suddenness that made her draw in a sharp breath. Her heart wasn't pounding with panic anymore; it was thudding with a dry, long-buried hunger.</p>
+<p>"Bramwell," she said, her voice dry. "The vellum..."</p>
+<p>"The vellum's fine," he said, his voice dropping into that heavy, quiet register that made the small room feel like a closet. "But you're holding your breath. Breathe."</p>
+<p>He didn't let go. He guided her wrist, his thumb rubbing the small, sensitive bone on the inside of her arm. He could feel her pulse. He had to. It was jumping like a caught bird under his thumb. But he didn't pull away. He leaned closer instead, his chest pressing against her shoulder blade, bringing with him the smell of cold rain, coffee, and the salt of his own skin.</p>
+<p>For ten years, Keziah had told herself she was finished with this. The awkward, messy business of bodies. She had convinced herself that her skin had gone dry and dry-pressed like the specimens in the herbarium downstairs. But the weight of him against her back was loud. It was heavy. He wasn't looking at her as an old hand who was slowing down; he was pressed against her like he wanted to sink into her.</p>
+<p>"Now," he whispered. "Together."</p>
+<p>With agonizing, slow pressure, he moved her hand. The scalpel met the gel. They lifted it. The black soot of a fire that had burned when Henry VIII was a boy came away cleanly, leaving the white, creamy skin of the calfskin intact beneath.</p>
+<p>Keziah barely saw it.</p>
+<p>She let the scalpel go. It dropped onto the green cutting mat with a tiny <em>clink</em>. She didn't move away. She stayed right there, her back against his chest, her breath coming fast and shallow.</p>
+<p>"Your hands are like furnaces," she whispered. Her voice sounded thin, stripped of all her professional armor.</p>
+<p>"You're cold," he said. He turned her hand over, his thumb tracing the blue veins on the back of it, then the calluses on her fingertips. "But these are the best hands in the state. I’ve watched you work, Keziah. The way you handle this stuff... it’s like you’re trying to keep them from hurting."</p>
+<p>She turned on her stool, her knees brushing his. He had pushed his glasses up into his hair. Without them, his eyes were dark, the pupils huge. The white light of the conservation lamp hit them from above, but in the shadow of the hood, they were completely in the dark.</p>
+<p>"Bramwell, I'm forty-five," she said. The words came out before she could stop them—a raw, ugly confession of the thing that kept her awake at three in the morning. "I have lines. My skin..."</p>
+<p>"I know how old you are," he said. He reached out and put his palm against her cheek. His skin was rough, but his touch was incredibly soft. His thumb moved over the crows-feet at her temple, not ignoring them, but tracing them like they were lines on an old map. "You think I don't see you? I've been sitting across from you for six months, Keziah. You have this... this stillness. When you walk into a room, you don't have to make noise to exist. You're like a library after hours. All that history, just waiting."</p>
+<p>He leaned down, his eyes on her mouth. "And I want to read it."</p>
+<p>The space between them closed. It wasn't the polite, cautious space of colleagues anymore. The air felt thick, smelling of old paper and the sharp, sudden heat of two people who had been alone for too long.</p>
+<p>He didn't rush her. He let his lips brush hers once—just a dry, light pressure that made her stomach drop—before he committed.</p>
+<p>When he actually kissed her, her brain went quiet.</p>
+<p>It was deep, heavy, and full of a quiet, desperate hunger that had nothing to do with being polite. Bramwell groaned, his hand sliding into her hair, pulling the silver clip out so her curls fell down around her neck. He pulled her against him until her breasts were flattened against his flannel shirt. He tasted like the mints he kept in his top drawer, but underneath that was something warm and salt-wild.</p>
+<p>Keziah let out a small, wet sound, her fingers knotting into the thick wool of his shirt. She wanted him to bruise her. She wanted to feel the hard, real weight of a man's body after years of nothing but drafts and cold sheets.</p>
+<p>He reached down, his hands catching her hips, and lifted her off the stool. He set her back against the heavy oak workbench. The edge of the wood bit into her thighs, cold and hard, while his body was a wall of heat pressing her down.</p>
+<p>"Keziah," he muttered against her mouth, his hands sliding up under her wool sweater. His fingers were hot against the soft, slightly loose skin of her stomach.</p>
+<p>For a second, she wanted to pull down her shirt, to hide the softness left behind by her pregnancy twenty years ago, the body that had yielded to time. But Bramwell didn't care about the gravity. He pressed his palms flat against her waist, his eyes closed as if he were touching something he'd been starving for.</p>
+<p>"You're so warm," he whispered. He put his face into her neck, his teeth catching her skin just above her collarbone, making her arch her back until her head hit the shelf behind them.</p>
+<p>He worked her skirt up, his hands heavy and sure. When he slipped his hand into her cotton underwear, his fingers finding her wet and ready, she let out a loud, ragged cry that echoed off the high ceiling of the cubicle.</p>
+<p>He was patient. He used his thumb, finding the spot that made her legs shake, while his other hand held her jaw, forcing her to look at him through the dark.</p>
+<p>"Look at me," he commanded. "Stay right here."</p>
+<p>She looked. She saw the sweat on his forehead, the dark gold of his eyes, the real, raw desperation of a thirty-five-year-old man who didn't want a girl—he wanted her.</p>
+<p>The tension in her pelvis coiled, tight and hot, until she was clinging to his shoulders, her knees hooked around his hips, her body moving against his hand in a rhythm she thought she'd forgotten.</p>
+<p>"Bramwell—"</p>
+<p>"I've got you," he whispered, his thumb pressing harder, his mouth coming down to catch her scream as she broke.</p>
+<p>The orgasm went through her in long, heavy waves that felt less like pleasure and more like relief—a deep, physical unlocking of ten years of cold storage. She sobbed into his shoulder, her fingers digging through his shirt until her nails marked his back.</p>
+<p>When it was over, she lay against him, her face wet, her breath rattling in her throat. Bramwell didn't move. He kept his arms wrapped tight around her, his chin resting on her messy hair, his chest heaving against hers. He was still hard—she could feel him thick and heavy against her thigh—but he just held her, his hand rubbing the small of her back under her shirt.</p>
+<p>"You okay?" he asked.</p>
+<p>She nodded, her forehead pressed into his collarbone. "I forgot," she whispered. "I forgot I was still here."</p>
+<p>"You're here," he said. "You're not going anywhere."</p>
+<p>Then came the knock on the frosted glass.</p>
+<p><em>Tap. Tap. Tap.</em></p>
+<p>"Keziah? Bramwell?"</p>
+<p>Othella Pyre’s sharp, dry-rot voice cut through the silence like a scalpel.</p>
+<p>They froze. The cold room rushed back in—the dust, the light, the board meeting, the single salary.</p>
+<p>"I need the St. Gall reports by five," Othella said through the door. "The board is meeting at nine tomorrow. Are you both in there?"</p>
+<p>Keziah scrambled, her fingers slick as she pulled her skirt down and smoothed her hair. Bramwell stepped back, his face instantly settling into that flat, professional mask, though his eyes were still dark and his breathing was heavy.</p>
+<p>"We're here, Othella," Bramwell called out. His voice was steady—infuriatingly steady. "We're just wrapping up the stabilization on folio twelve. We'll have the folders on your desk by four-thirty."</p>
+<p>"Make sure you do," Othella snapped. Her footsteps retreated down the linoleum corridor, clicking like dry teeth.</p>
+<p>Keziah leaned against the bench, her hand resting on the cold glass of the humidification chamber. The warmth of the last ten minutes was already evaporating in the drafty air of the lab. Tomorrow, one of them would be kept. One of them would be let go.</p>
+<p>Bramwell reached out, his hand catching hers. He squeezed her fingers—hard enough to hurt.</p>
+<p>"We still have to get through tomorrow," he said.</p>
+<p>Keziah looked down at the charred vellum between them, its blackened edges holding onto the words of a scribe who had died five hundred years ago.</p>
+<p>"I know," she said. "Give me the spatula."</p>
+<p>The ache in Keziah Alder’s lower back wasn't some poetic metaphor. It was a dull, rhythmic throb. Fourteen hours hunched over crumbling ledger plates in the basement of the university library will do that to a forty-five-year-old spine. Her body didn't bounce back from double shifts anymore. Her shoulders felt cast in the same damp limestone she’d been scraping since noon, and her fingers, stained with iron gall ink and gritty with dried mortar dust, were stiff at the joints. She could barely curl them into a fist.</p>
+<p>Beside her, Bramwell Knox turned the heavy brass key in the archive wing's oak door. <em>Snap.</em> The lock caught with a heavy, metallic click.</p>
+<p>He looked wrecked. But at thirty-four, his exhaustion had teeth. It was a lean, hungry kind of tired that Keziah found both thrilling and incredibly annoying. He was her rival. Simple as that. In three weeks, Othella Pyre would look at their respective preservation portfolios, choose one of them, and fire the other. The loser got the cold comfort of freelance restoration—no health insurance, no security, just a slow drift into obscurity.</p>
+<p>Yet, as they stepped out into the biting November drizzle, Bramwell didn't head for the tram. He shifted his leather satchel and fell in beside her.</p>
+<p>"Go home, Bramwell," she said. Her throat was raw from a day of inhaling pulverized eighteenth-century paper. She yanked her woolen scarf tighter, her rough fingers catching on the stray gray hairs escaping her braid. "Othella isn't watching. There are no extra credit points for chivalry."</p>
+<p>"It’s past midnight, Keziah," he said. His voice was low, rough around the edges. "Your street has three broken streetlights and a reputation. I’m not letting you walk it alone. Being your competitor doesn't mean I have to be a bastard."</p>
+<p>"Doesn't it?" She squinted against the rain, her boot heel sinking into a soft patch of mud between the cobblestones. "I thought that was the whole point of the cage match."</p>
+<p>He let out a short, dry bark of a laugh that evaporated into a cloud of pale steam. "Othella Pyre can rot. I'm sick of her, and I'm sick of pretending I care about the department's quarterly allocation."</p>
+<p>They walked. Their boots struck the wet stones in a ragged syncopation that gradually smoothed into a single rhythm. It was a pattern they’d learned over years of working side by side in the dead silence of the basement, communicating in half-whispers to protect fragile vellum. She knew his hands. She knew the calluses on his thumbs from the bone-folders, the exact, unhurried weight he applied to a split calfskin spine. He was slow. Meticulous.</p>
+<p>And lately, he was the only thing she thought about when she lay awake in her cold bed at 2:00 AM.</p>
+<p>When had she last been touched like that? Not since the divorce, surely. Or had it been even before that, during those final, sterile years of her marriage?</p>
+<p>Ever since the divorce—and the subsequent, quiet departure of her daughter to a college three thousand miles away—Keziah’s life had been an exercise in sealing things off. She preserved books. She preserved a tidy, dust-free routine. She preserved the lie that she preferred the silence of her five-hundred-square-foot apartment. She’d convinced herself that the physical cravings of her youth were a closed archive. A text she’d read, analyzed, and shelved.</p>
+<p>But walking next to him, feeling the heat radiating off his shoulder through his damp coat, that lie felt incredibly thin.</p>
+<p>They reached her building—a narrow, brown-brick walk-up with peeling paint on the sills and a front door that rattled in its frame. The rain was coming down in earnest now, drumming a frantic beat against the metal bins in the alley. Keziah stopped on the first step. It gave her an extra four inches, bringing her eyes level with his.</p>
+<p>"I'm home," she said, her voice dropping. "See? Undamaged."</p>
+<p>Bramwell didn't move back. He stood on the wet pavement, his dark hair clumped against his forehead, his chest rising and falling under his heavy coat. He was looking at her. Really looking. Not the cool, diagnostic stare he used on uncatalogued folios, but something hot and heavy.</p>
+<p>"You're shaking," he said.</p>
+<p>"It's cold."</p>
+<p>"Keziah." He took the step. Now he was close enough that she could smell the wet wool of his coat, the bitter tang of the cheap black coffee they’d both been drinking to survive the shift. He reached out, his bare fingers surprisingly warm as he tucked a wet strand of hair behind her ear. His skin was rough. "Stop it."</p>
+<p>"Stop what?"</p>
+<p>"Pretending we aren't both starving." He didn't drop his hand. His thumb grazed her cheekbone, leaving a streak of heat behind. "I've spent six months watching you. Six months wanting to touch you. I'm not walking back to my empty flat tonight. Not unless you tell me to."</p>
+<p>She didn't have the energy for games. At forty-five, the coy, exhausting dances of her twenties seemed like a waste of breath. She wanted him. She’d wanted him since July, when she’d looked up from her magnifying lens and caught him staring at the crook of her neck, his eyes dark with a hunger he’d forgotten to hide.</p>
+<p>She turned the key in the lock, pushed the heavy door open, and looked back at him. "Come inside."</p>
+<p>The stairwell smelled of old floor wax and steam radiators. They climbed the three flights without a word. The silence wasn't comfortable; it was thick, vibrating with a pressure that made her chest ache. By the time she got her keys into her own deadbolt, her hands were shaking so badly the brass clinked against the plate.</p>
+<p>She didn't bother with the lights.</p>
+<p>The moment the latch clicked, his hands found her. He grabbed her waist, his fingers digging into her hips, and pulled her hard against him. His mouth came down on hers. It wasn't a gentle, polite kiss. It was a hard, bruising collision—the product of too many months of silence, of tucked-away glances across a library desk. Keziah let out a low, ragged sound, her hands immediately burying themselves in his wet hair.</p>
+<p>He tasted of rain and chicory coffee. He tasted like a beginning.</p>
+<p>She shoved his heavy coat off his shoulders, letting it thud to the floor. Her hands ran down his back, finding the solid line of his spine through his shirt. He was solid. He was real. She backed up, dragging him with her, until the backs of her knees hit the low frame of her velvet sofa.</p>
+<p>They went down together in a clumsy tangle of limbs and damp fabric. Bramwell pulled back just an inch, his breathing shallow, his eyes wide in the gloom.</p>
+<p>"Are you sure?" he rasped. "Keziah. Tell me."</p>
+<p>"I'm forty-five, Bramwell," she muttered, her hands gripping the back of his neck, pulling him down. "I don't have time for things I'm not sure about. Get my clothes off."</p>
+<p>He knelt over her, his hands surprisingly steady as he worked the stubborn plastic buttons of her cardigan. He peeled the wet wool away, then her silk blouse, leaving her shivering in the dim gray light from the street.</p>
+<p>For a second, the old panic flared. This wasn't a twenty-year-old’s body. Her thighs were softer; her breasts had the heavy sag of middle age; her stomach bore the faint, silvery tracks left by her daughter's birth twenty-four years ago. She started to cross her arms, a reflex born of a world that tells women they expire at forty.</p>
+<p>Bramwell caught her wrists.</p>
+<p>He didn't squeeze, but his grip was firm. He pinned her hands gently against the velvet cushions, his eyes moving over her. There was no polite hesitation in his face. Just a quiet, intense focus.</p>
+<p>"You're beautiful," he whispered. His voice was thick. "Do you have any idea how beautiful?"</p>
+<p>He leaned down, burying his face in the crook of her neck. His lips were hot against her skin, tracing the line of her collarbone down to the lace of her bra. He found the front clasp, popped it, and his hands took her weight.</p>
+<p>He didn't handle her like a fragile manuscript. His touch was heavy, greedy, his thumbs rubbing her nipples until she arched off the sofa with a sharp gasp. When his mouth closed over her, pulling her in, she dug her fingers into his shoulders, her mind going entirely blank.</p>
+<p>She’d forgotten this. She’d forgotten how loud her own body could be. For years she’d been a mother, an archivist, a survivor—always looking backward, always preserving. Under his hands, she was just skin and heat.</p>
+<p>"Your shirt," she muttered, her hands fumbling with his collar. "Get it off."</p>
+<p>He pulled it over his head, throwing it into the dark. His chest was lean, lightly haired, his heart hammering against his ribs like a trapped bird. She slid her hands down to his belt, her fingers brushing the hard, hot ridge beneath his trousers. He groaned, a low, animal sound, his forehead dropping against her shoulder as she worked the buckle.</p>
+<p>"Keziah," he gasped. "Slow down."</p>
+<p>"No." She pulled his trousers down, her confidence a hot, sharp thing in her chest. "I don't want to go slow."</p>
+<p>They shed the rest of their clothes in a hurried, awkward rush, their socks and trousers left in a heap on the floorboards. When he came back to her, his naked skin felt scalding.</p>
+<p>He reached down, his fingers finding the slick warmth between her thighs. He touched her, testing, and she closed her eyes as a violent shiver went through her.</p>
+<p>"Please," she whispered. "Bramwell. Now."</p>
+<p>He shifted, his knees pushing her legs apart. He looked down at her, his face tight, his eyes dark. "Look at me."</p>
+<p>She opened her eyes. She wanted to see the truth of it.</p>
+<p>He braced himself on his forearms and pushed in.</p>
+<p>Keziah gasped, her hips rising to meet him as she took his weight. He was thick, hot, and heavy, filling her with a blunt force that made her chest ache. It was a physical shock, a sudden end to the long, quiet years of emptiness.</p>
+<p>He stopped, his muscles trembling as he held himself inside her. "Okay?" he whispered.</p>
+<p>"Yes," she breathed, her legs wrapping around his hips, locking him in. "Don't you dare stop."</p>
+<p>He began to move. It was a slow, grinding rhythm, the friction of his skin against hers generating a heavy, localized heat. Her nails bit into his shoulders. She loved the weight of him. She loved the sweat dripping from his chin onto her collarbone, the creak of the old sofa springs, the raw, unpolished sound of his breathing. There was nothing clean about this. It was damp, heavy, and real.</p>
+<p>"Keziah," he choked out, his pace picking up, his hips hitting hers with a dull, rhythmic thud. "I can't... I'm not going to last."</p>
+<p>"Then don't," she said.</p>
+<p>She met his thrusts, her body remembering its own rhythm, climbing toward something sharp and inevitable. The tension in her lower belly tightened like a pulled wire.</p>
+<p>He reached down, his thumb finding her, pressing hard, and that was the end of it. The world broke. Keziah let out a sharp, ragged cry, her back arching off the sofa as her body convulsed around him in tight, uncontrollable waves. Hearing her, Bramwell lost whatever grip he had left. He buried his face in her hair and drove deep, his body locking up as he came, his breath escaping in a long, rattling groan.</p>
+<p>Afterward, the apartment was dead silent save for the rain on the glass and the rattle of the radiator.</p>
+<p>Bramwell didn't pull away. He rolled slightly to the side, taking her with him, his arms locked around her waist. His hand tangled in her hair, pulling the damp strands away from her forehead.</p>
+<p>Keziah lay there, her skin cooling, her heart slow and heavy. For the first time in ten years, the silence in her apartment didn't feel like a vacuum. It felt like space.</p>
+<p>"You're quiet," he murmured.</p>
+<p>"Just thinking."</p>
+<p>"About Othella?"</p>
+<p>"About the archives," she said, her voice small but steady. "About tomorrow."</p>
+<p>He kissed her forehead—a dry, warm press of skin. "Tomorrow can wait. Tonight, let the paper rot."</p>
+<p>Keziah closed her eyes and let her head rest against his chest, listening to the steady, rhythmic beat of his heart. Outside, the rain washed the city clean. Inside, the heat stayed.</p>
+<p>The basement conservation lab always smelled of lavender oil, sour vinegar, and the dry, dead-skin rot of centuries-old parchment. For twenty-three years, Tamsin Mercer had used that olfactory cocktail as an anchor. But this damp October morning, beneath the familiar workspace chemistry, she could smell him. It was a faint, clean note of shaved cedar and warm skin—a phantom trace of the night before that made her collarbones ache with a sudden, humiliating vulnerability.</p>
+<p>She stood rigid over her workbench. The early light barely fought its way through the high, lead-glass windows, leaving the university’s overgrown courtyard in a gray haze. Her lower back throbbed with a dull, familiar heat—the standard tax of a life spent bent over vacuum tables, stereo-microscopes, and crumbling vellum. At forty-five, your body stops bargaining with you. It doesn't drop subtle hints; it speaks in the blunt realities of stiff joints in the autumn damp, the silver hairs at her temples she’d abandoned trying to dye, and the soft, heavy curve of a waist that had long since forgotten its twenties.</p>
+<p>For half her life, she’d treated her body as an instrument—a specialized tool designed solely to preserve the thoughts of long-dead men. But last night had ruined that tidy, sterile field. It had broken everything.</p>
+<p>The heavy oak door of the archive groaned, and the draft in the room shifted.</p>
+<p>Rory Hale stepped inside, easing the latch back into place with a quiet, deliberate click. He was thirty-four, possessed of that lean, coiled tension that belongs to men who still think they're invincible. Broad shoulders, dark hair still damp from the drizzle outside. In the beginning, the eleven-year gap between them had felt like an absolute chasm—a constant, mocking reminder of her own ticking clock and his greenness in the faculty hierarchy. But when Rory looked at her, there was no academic deference. There was none of that polite, patronizing pity younger men so often hand down to women of her generation. He looked at her like he wanted to strip her bare and memorize the damage.</p>
+<p>“You’re early,” Tamsin said. She kept her eyes locked on the bone folder in her hand, though her fingers were trembling against the polished ivory.</p>
+<p>“I couldn’t sleep.” Rory’s voice was gravelly, thick with the leftover weight of dreams. He walked toward her, his heavy, rubber-soled boots scraping against the old stone. When he stopped behind her, the heat off him was a physical pressure, cutting through the basement damp. He didn’t touch her yet. He didn't have to. She could already feel the phantom press of his hands sliding under her waist. “I kept thinking about how you tasted.”</p>
+<p>The skin along her spine prickled. She turned slowly, her hip catching the edge of the workbench. Rory stood so close she could see the fine, dark stubble along his jaw. He reached out, his long, calloused fingers—hands that spent eight hours a day handling fragile 12th-century bindings—gently cupping her face.</p>
+<p>“You look incredible in this light,” he muttered, his thumb brushing her lower lip. “Like a secret.”</p>
+<p>“Don’t,” she whispered, even as she leaned her cheek into his palm, her eyelids fluttering shut. “I have twenty years of library dust on me, Rory. I’m a tired woman who has spent too much time in the dark.”</p>
+<p>“You’re warm,” he said, his lips grazing her forehead, then sliding down to the sensitive dip right beneath her ear. “And you’re real. I don’t want anything else.”</p>
+<p>The words broke something loose. The exhaustion of their months-long rivalry, the looming threat of the department's budget cuts, the dry rot of her own loneliness—all of it dissolved the moment his mouth found hers.</p>
+<p>This wasn’t a cautious, polite kiss. It was deep, heavy, and thick with the desperation of two people who knew they were standing on a rotting scaffold. Rory’s hands slid down her spine, his palms hot through her wool sweater, pulling her flush against his chest. She gasped into his mouth, her fingers tangling in the thick hair at the nape of his neck, anchoring herself as she felt the hard, thick ridge of him pressing against her thigh.</p>
+<p>With one easy lift, he hoisted her onto the edge of the heavy oak workbench. A stack of blotting paper slid to the floor with a soft hiss, but neither of them looked down. Tamsin wrapped her legs around his waist, her thighs locking him in. The contrast was stark—her soft, heavy curves giving way to his hard, athletic frame.</p>
+<p>Rory groaned, his hands sliding up under her wool skirt, his palms searing against her bare thighs. The shock of his cold-weather skin against hers made her shudder. She had spent so long being the responsible one—the dutiful daughter caring for her dying mother, the patient mentor to a dozen arrogant interns. To be taken like this, with such raw, unvarnished hunger, sent a spike of pure adrenaline straight to her core.</p>
+<p>“Rory, someone might—” she gasped as his mouth moved down her throat, his teeth grazing her collarbone.</p>
+<p>“The deadbolt is thrown,” he muttered against her skin, his breath hot and ragged. “And Vivian won’t be in the building for another hour. Let me. Please, Tamsin.”</p>
+<p>She couldn’t have stopped him if she wanted to. She was already slick, her body aching for the weight of him. She reached down, her fingers fumbling with the buttons of his trousers, freeing him. He was thick, hot, and already leaking tension. When she guided his hand to the silk of her underwear, finding her already soaked, he let out a low, ragged breath.</p>
+<p>“You’re so wet for me,” he whispered, his fingers parting her, tracing the swollen, sensitive heat. “Look at me, Tamsin.”</p>
+<p>She opened her eyes, her breath hitching as he slid two fingers deep inside her, stretching her. He watched her face, his gaze burning into hers as he moved his hand, finding a rhythm that made her hips arch off the oak table. She didn’t care about looking perfect. She didn’t care about the gray in her hair or the softness of her waist. She let her head fall back, her throat tight with a stifled moan as he drove her higher.</p>
+<p>“Rory… now. Please.”</p>
+<p>He didn’t hesitate. He pulled her underwear aside, lining himself up against her wet warmth. With a slow, heavy push, he sank into her.</p>
+<p>The sheer fullness of him filled the empty, aching hollow inside her. Tamsin cried out, her hands gripping the edge of the table as he began to move. He was slow at first, savoring the tight, wet heat of her, his eyes locked on hers. He watched every flit of emotion across her face, capturing her whimpers with his lips.</p>
+<p>“You are perfect,” he growled, his pace quickening, his hips driving hard against hers. “Every inch of you.”</p>
+<p>The rhythm became frantic, a desperate dialogue between their bodies. She lifted her hips to meet him, her inner muscles clamping tightly around him. The pleasure was intense, building in her lower abdomen like a gathering storm. She felt the rise of her climax, the sudden, sharp tightening of her senses.</p>
+<p>“I’m close,” she whispered, her voice breaking.</p>
+<p>“Go,” he urged, his thrusts turning hard and deep, driving into her with a fierce, possessive energy. “Come for me, Tamsin.”</p>
+<p>She broke. The orgasm shattered through her in waves, her internal muscles pulsing violently around him. Rory let out a guttural sound, his body shaking as he buried himself deep inside her one last time, his own release spilling hot and thick inside her.</p>
+<p>They clung to each other as the room slowly stopped spinning, their breath mingling in the cool archive air. Rory buried his face in her neck, his chest heaving against hers. Tamsin held him, her fingers tracing the smooth muscles of his back, feeling a profound, terrifying tenderness for this younger man who had somehow cracked open her heavily fortified heart.</p>
+<p><em></em>*</p>
+<p>The transition back to reality was abrupt and cold.</p>
+<p>They had barely put themselves back together—Tamsin adjusting her skirt and smoothing her hair, her skin still flushed and tingling, while Rory rearranged his clothes with a quiet, protective focus—when the heavy brass handle of the archive door rattled violently.</p>
+<p>Fortunately, Rory had indeed thrown the bolt. He shot Tamsin a warning look, then stepped toward the door, unlocking it just as a sharp, demanding knock sounded.</p>
+<p>Dr. Vivian Gable stood in the doorway.</p>
+<p>The university’s director of special collections looked as though she had slept in her clothes, though her sharp, gray bob was immaculate as always. Her face was pale, her dark eyes flashing with a cold, predatory energy that instantly made Tamsin’s stomach drop. Vivian did not step into the room; she stood on the threshold like an omen of ruin.</p>
+<p>“Step out,” Vivian said, her voice a whip-crack in the quiet basement. “Both of you. Now.”</p>
+<p>Tamsin felt the lingering warmth of Rory's body evaporate, replaced by a sudden, icy dread. She smoothed her wool skirt again, her fingers cold. “Vivian? What is it? We were just prepping the solvents for the—”</p>
+<p>“The conservation lab is closed,” Vivian interrupted, her eyes darting between Tamsin and Rory, lingering for a fraction of a second on the slightly disheveled state of Rory’s collar. But her focus was too sharp, her panic too deep, to dwell on their indiscretion. “The university board has ordered an immediate lockdown of the vault. I need you both in my office.”</p>
+<p>Rory stepped forward, his protective instinct visible in the slight squaring of his shoulders. “Vivian, what happened?”</p>
+<p>“The 14th-century botanical folio,” Vivian said, her voice dropping to a harsh whisper. “The illuminated manuscript from the Avignon collection. It’s gone.”</p>
+<p>The silence that followed was suffocating.</p>
+<p>Tamsin felt the blood rush from her head, a high-pitched ringing filling her ears. The Avignon botanical folio was the university's crown jewel, valued at over two million dollars. It was the centerpiece of the upcoming exhibition, the very project that she and Rory had been hired to restore.</p>
+<p>“Gone?” Tamsin managed to say, her throat dry. “How? The vault has dual-layered biometric security and digital keycard logs. No one can just walk out with a medieval folio.”</p>
+<p>“Exactly,” Vivian said, her gaze fixing on Tamsin with a cold, dissecting intensity. “The digital logs were pulled by campus security thirty minutes ago. The vault was accessed last night at 11:14 PM. Long after official hours. The keycard used belonged to you, Tamsin.”</p>
+<p>The accusation hung in the air, heavy and lethal.</p>
+<p>“That’s impossible,” Tamsin whispered. “I was home by eight. I... I left my keycard in my desk drawer. I didn't want to carry it home because the clasp on my bag was broken.”</p>
+<p>“In your desk drawer?” Vivian’s eyebrow arched, a cynical, damning movement. “An unlocked drawer in an office you share with a dozen rotating student assistants and interns? An office that you, specifically, have unrestricted night access to?”</p>
+<p>“Vivian, listen to yourself,” Rory intervened, his voice rising, thick with anger. “Tamsin has dedicated twenty-five years to this field. She wouldn't steal a manuscript. She lives for this work.”</p>
+<p>“I am not the police, Rory,” Vivian said coldly. “But the university board is treating this as an inside theft. The board knows about your mother's estate debts, Tamsin. They look at your late-stage mortgage notices, and they see a motive.”</p>
+<p>Tamsin felt as if she had been slapped. Her private shame—the forty-two thousand dollars in outstanding medical bills left behind by her mother’s long battle with cancer, the pink letters from the bank warning her of a potential foreclosure on the small craftsman house she had lived in for decades—was suddenly public property. The university administration knew everything. They kept meticulous records of their employees' credit checks for high-security positions.</p>
+<p>To them, she wasn't a dedicated preservationist. She was a desperate, aging woman whose bills were piling up, who had unrestricted access to a multi-million-dollar artifact that could easily be sold to an unscrupulous private collector overseas.</p>
+<p>“They think I took it to sell,” Tamsin said, the realization tasting like ash in her mouth.</p>
+<p>“The board is convening an extraordinary session at noon,” Vivian said, her tone devoid of sympathy. “Because of the budget cuts, the board is already looking for reasons to trim the department. A scandal like this... well, it simplifies their decisions. Tamsin, you are suspended pending the internal investigation. You are to pack your personal belongings immediately. Rory, you are to remain on duty to assist the board's security team in auditing the remaining vault contents.”</p>
+<p>Vivian turned on her heel, her heels clicking sharply against the stone floor as she walked away down the corridor. “My office. Ten minutes. Do not be late.”</p>
+<p><em></em>*</p>
+<p>The door to the archive clicked shut, leaving Tamsin and Rory in a heavy, desperate silence.</p>
+<p>Tamsin sank onto the stool, her knees no longer able to support her weight. She covered her face with her hands, her shoulders shaking. The contrast of the morning—the intense, life-affirming intimacy they had just shared, followed by this absolute ruin—was too much to bear.</p>
+<p>“I didn't do it,” she whispered into her palms. “Rory, I swear to God, I didn't do it. I love that manuscript. I would never hurt it.”</p>
+<p>Rory was on his knees before her in an instant, pulling her hands away from her face, his grip tight and grounding. “I know. Tamsin, look at me. I know you didn't do it. You don't have to convince me.”</p>
+<p>But as she looked into his eyes, she saw the shadow there. It wasn't doubt of her innocence; it was the sudden, terrifying realization of what this meant for him.</p>
+<p>The board was already looking for a reason to eliminate one of their positions. If Tamsin was suspended, if she was implicated in a theft, her candidacy for the permanent, benefit-eligible position was dead. The job would default to Rory.</p>
+<p>How could he not want it? It was everything he’d spent his entire thirties begging for. A real salary. Tenure track. A dental plan. His own precarious existence—the endless string of temporary academic appointments, the lack of health insurance, the constant moving from city to city—would be over. He would have a home, a future, a career.</p>
+<p>At her expense.</p>
+<p>“They're going to use this to destroy me,” Tamsin said, her voice hollow. Her eyes scanned the familiar room—the jars of wheat starch, the bone folders, the Japanese tissue paper she had spent decades mastering. This room was her life. Without it, she was just a forty-five-year-old woman with a mountain of debt and a ruined reputation. Who would hire a disgraced archivist?</p>
+<p>“No,” Rory said, his jaw tightening. “We'll find who did it. Someone must have taken your card. It could have been one of the graduate students. Or maybe someone from the evening custodial crew.”</p>
+<p>“The digital log only shows my card, Rory,” she said, her voice flat with despair. “They won't look any further. They have their scapegoat, and they have their budget solution all wrapped up in one neat package. If I'm gone, the university saves my tenure-track salary and benefits. They can keep you on for a fraction of the cost, or just consolidate the department entirely.”</p>
+<p>Rory stood up, pacing the narrow aisle between the workbenches. His hands were clenched into fists, his chest rising and falling rapidly. “I can't let them do this to you.”</p>
+<p>“You don't have a choice,” she said, looking up at him. The youth in his face seemed to have vanished, replaced by a grim, hard maturity. “If you defend me too loudly, they'll think you're complicit. Or they'll just fire you, too. You need this job, Rory. You told me yourself, your savings are gone. You can't afford to lose this.”</p>
+<p>He stopped pacing, turning to look at her. The silence stretched between them, thick with the weight of his agonizing choice.</p>
+<p>If he stayed quiet, if he let the investigation take its course, he would win. The rivalry would be over, solved not by merit, but by a cruel twist of fate. He would have the stability he had craved his entire adult life. He could finally stop running.</p>
+<p>But he would lose her.</p>
+<p>He walked back to her, reaching down to cup her face in his hands. His eyes were dark, swirling with an intense, protective fury. “I don't care about the job if it means building my life on your ruin. Tamsin, I fell in love with you. Not just the brilliant conservator, but <em>you</em>. The woman who makes me feel like I finally have a place to land.”</p>
+<p>The word <em>love</em> hung in the air, sweet and terrifying. Tamsin’s heart clenched. She wanted to believe him, wanted to lean into his strength, but the harsh, practical reality of her age and her circumstances pulled her back down.</p>
+<p>“Love doesn't pay the mortgage, Rory,” she whispered, a single tear escaping and tracking down her cheek. “Love won't clear my name when the police come to question me.”</p>
+<p>“Then we fight,” he said, his voice fierce, his thumb catching the tear before it could fall. “We find the folio. Together.”</p>
+<p>The heavy footsteps of Vivian Gable returning down the corridor put an end to their desperate whispers.</p>
+<p>Tamsin stood up, straightening her spine, pulling the armor of her maturity back around herself. She looked at Rory one last time—at the fierce, youthful determination in his eyes, and the deep, mature sorrow that matched her own.</p>
+<p>“Let's go,” she said softly.</p>
+<p>As they walked out of the archive and toward Vivian's office, Tamsin felt the cold draft of the university corridors chilling the lingering warmth of their intimacy. The stakes were no longer just their careers, but their very survival. And as Rory walked beside her, his hand brushing against hers in a silent promise, she wondered if their fragile, newborn connection could survive the storm that was about to break.</p>
+<p>The heels were coming from the east corridor. Sharp, rapid strikes on the herringbone parquet, like dry bone hitting wood. Dr. Gable’s trademark cadence.</p>
+<p>Keziah Alder stood frozen in the vault of the third-tier stacks, her palms flat against the empty cedar tray. The <em>Leiden Aratea</em> was gone. The fifteenth-century vellum folio—the star of the university’s rare collection, the very piece she had spent the last three weeks stabilizing with wheat starch and Japanese tissue—was simply not there.</p>
+<p>A hollow cradle. A dead career.</p>
+<p>If Agatha Gable, the university’s chief financial officer and the architect of the impending departmental purge, found the display case empty, Keziah’s life was about to become very public and very ruined. She was forty-five. Her daughter Lulu’s sophomore tuition bill at UChicago was sitting unpaid on her kitchen counter, and her mortgage already swallowed seventy percent of her monthly university stipend. There are no second acts for middle-aged preservationists in a market that prefers high-definition PDFs to sheepskin.</p>
+<p>"Keziah?"</p>
+<p>The voice wasn’t Gable’s. It was low, dry, and carried the distinct, grounding scrape of Jonas Cole.</p>
+<p>She turned so fast her linen apron caught on the brass latch of the cabinet. Jonas stood at the mouth of the bay, his broad frame nearly blocking the gray light filtering through the leaded windows. He looked like he always did: slightly rumpled, wearing a charcoal wool crewneck with the sleeves shoved up to his elbows, his forearms still smudged with iron-gall ink. He was thirty-four, possessed the raw, heavy shoulders of someone who spent his weekends hauling himself up sandstone cliffs in Wisconsin, and was her only direct competitor for the single tenured conservation seat left on the budget.</p>
+<p>"It's gone," Keziah whispered, the air in her lungs feeling dry and thin. "Jonas, I put it back in the deacidification press last night. I locked the case. I know I did."</p>
+<p>His dark eyes, usually so guarded behind his professional armor, swept over her face. He didn't gloat. He didn't take notes. For six months they had circled each other like stray dogs over a single scrap of meat, but right now, looking at her white knuckles, his expression shifted into something hard and focused. He took three long strides into the bay.</p>
+<p>"Gable is in the rotunda," Jonas said, his voice dropping to a gravelly murmur. "She’s got the state trustees with her. They’re doing a spot-audit of the high-value assets. Specifically the ones with six-figure insurance valuations."</p>
+<p>"If she sees this—"</p>
+<p>"She won't." Jonas gripped her wrist. His hand was warm, heavy, and slightly calloused. "Come on."</p>
+<p>"We have to search the lower vault, Jonas. If someone took it—"</p>
+<p>"We will. But not while Gable is ten feet away with a clipboard." He pulled her toward the dark rear of the stacks, past the oversized folios of nineteenth-century engineering plans.</p>
+<p>Behind the architectural blueprints lay a dead-end alcove—a five-foot pocket of space left over from the building’s 1880 remodel. It held nothing but a sagging horsehair bench, a low desk, and three dozen boxes of uncataloged municipal tax receipts from the Great Depression.</p>
+<p>Jonas shoved her gently into the shadow of the brick archway and stepped in after her, dragging the heavy, dust-choked green velvet curtain shut behind them.</p>
+<p><em></em>*</p>
+<p>The alcove was tiny. They were packed together so tightly that the rough wool of his sweater scraped against the front of her apron with every breath. The air inside smelled of decaying leather, stale tea, and the sharp, metallic tang of the cold limestone walls.</p>
+<p>Outside, the click of Gable’s heels grew louder.</p>
+<p>"Dr. Cole?" Gable’s voice cut through the damp air of the stacks. It had that thin, nasal tone of an administrator who viewed seven-hundred-year-old manuscripts merely as depreciating physical assets. "Mrs. Alder? Are either of you in the restoration bay?"</p>
+<p>Keziah’s spine went rigid against the mahogany shelf behind her. The corner of a heavy ledger dug straight into her shoulder blade, but she didn’t move. She couldn't. Every nerve in her body was suddenly, violently tuned to the man standing three inches from her nose.</p>
+<p>Jonas planted his palm on the wood beside her ear, effectively pinning her in the shadow. In the sliver of light that pierced the curtain, she could see the faint shadow of stubble along his jaw, the slight crook in his nose from some old break, and the dark, steady heat in his eyes.</p>
+<p>"Don't move," he breathed. His lips were so close she felt the warmth of his breath against the temple where her silver-streaked hair was pinned back.</p>
+<p>She nodded, her throat too tight to reply. Her heart was hammering a frantic, stupid rhythm against her ribs—a panic that had nothing to do with Gable and everything to do with the heavy weight of Jonas’s thighs pressing against her skirt.</p>
+<p>For five years, since her husband had packed his bags and left her with a house she couldn't afford, Keziah had been invisible. A fixture of the basement. A quiet machine that mended the tears other people made. But here, crammed into the dark with the one man who had the power to take her job, she felt exposed. Raw.</p>
+<p>The footsteps stopped right outside the curtain. They heard the rustle of Gable's papers, the low, boring murmur of an auditor asking about fire suppression systems.</p>
+<p>Keziah’s hand shook. To steady herself, her fingers bunched into the coarse wool of Jonas’s sweater. His chest was broad, solid as oak. He let out a low, ragged catch in his throat and shifted his weight, his thigh sliding directly between hers.</p>
+<p>The heat of him was sudden and total. It cut through the drafty chill of the library, bypassing twenty years of polite distance she had kept between herself and the world. She was forty-five; her body wasn't some smooth, airbrushed thing. Her midsection was soft from carrying a child, her knuckles were swollen from cold mornings in the lab, and there were deep lines of strain around her mouth. Yet, as Jonas’s gaze dropped to her lips, she felt a sudden, fierce spike of heat that made her skin prickle.</p>
+<p>"Jonas," she breathed, half-plea, half-warning.</p>
+<p>"She's turning toward the east wing," he whispered, his eyes locked on her mouth. "We have three minutes."</p>
+<p>"We shouldn't."</p>
+<p>"We shouldn't do a lot of things." His hand left the shelf, his fingers sliding into the hair at the back of her neck, his thumb tracing the sensitive skin just behind her ear. A long, slow shiver traveled down her spine. "But I've wanted to do this since the day you told me my binding technique looked like it had been done by a blacksmith."</p>
+<p>"It was," she whispered, her lips parting.</p>
+<p>"I know."</p>
+<p>Then his mouth was on hers.</p>
+<p>It wasn't a polite, tentative kiss. It was heavy, desperate, and tasted of dark coffee and the cold rain he’d walked through to get to work. Jonas’s tongue parted her lips with a confident, blunt pressure that made her knees slacken. She let out a small, muffled sound, her arms climbing up his chest to lock behind his neck, pulling him down until the front of his trousers pressed hard against her pelvis.</p>
+<p>He groaned, the sound vibrating in his throat as his hands found her hips, bunching her heavy tweed skirt in his fists and pulling her up against him.</p>
+<p>The contrast was dizzying—his youth, his thick-shouldered strength, and the sheer, focused hunger he had for her. Not for a fantasy, but for her. He didn't treat her like she was fragile. He gripped her thighs, lifting her slightly until she was resting against the edge of the old oak desk. The wood gave a low, agonizing creak, but neither of them stopped.</p>
+<p>Jonas reached down, his fingers sliding under the silk of her slip, his palm hot against her bare thigh. "You're so warm," he muttered against her neck, his lips dragging down to her collarbone, his teeth grazing her skin until she shivered. "Keziah. Tell me to stop now, or I'm not going to."</p>
+<p>"Don't," she gasped, her hands tangling in his dark hair. "Don't stop."</p>
+<p>The sheer risk of it—the threat of Gable returning, the dust rising from the tax boxes, the years of quiet loneliness—boiled over. She reached for his belt, her fingers clumsy but determined as she unbuckled the leather, popping the brass button of his trousers. Her hand slid inside, wrapping around his thick, pulsing heat.</p>
+<p>Jonas leaned his forehead against her shoulder, his jaw clenching as a long tremor went through him. "God, Keziah."</p>
+<p>He didn't wait. He lifted her higher, her legs wrapping around his hips as he guided himself to her entrance. He paused, his eyes burning into hers in the dimness of the alcove.</p>
+<p>"Look at me," he whispered.</p>
+<p>She did. Her vision was blurred, her chest rising and falling in short, desperate hitches. In his eyes she saw no pity, no calculation—only a raw, consuming desire that made her feel more alive than she had in a decade.</p>
+<p>With a slow, heavy thrust, he sank into her.</p>
+<p>Keziah arched her back, her breath leaving her in a soft, choked cry that she buried in his shoulder. The fullness of him, the friction of skin on skin, was almost too intense. Jonas held her hips, his fingers digging into her flesh, anchoring her as he began to move in deep, steady strokes.</p>
+<p>The smell of old parchment vanished, replaced by the scent of clean sweat and the musk of their skin. Every thrust was deliberate, filling her completely, dissolving the ache in her lower back and replacing it with a tight, coiled heat that built rapidly at her core. She clung to him, her fingers digging into his shoulders, her hips rising to meet him as his pace quickened.</p>
+<p>"Jonas," she sobbed softly.</p>
+<p>"I’ve got you," he panted, his chest heaving against hers. "Come on, Keziah. Let it go."</p>
+<p>The release hit her like a physical break. Her muscles clamped around him in tight, rhythmic waves that made her head fall back. She cried out, the sound lost against his neck as the pleasure washed through her in hot, sweet pulses. Jonas let out a low, rough growl, thrusting deep one last time as his own release took him, his body shaking with the force of it as he came inside her.</p>
+<p><em></em>*</p>
+<p>They stayed like that for a long time, their chests heaving in unison, the only sound the slow, rhythmic click of the radiator pipe in the corner.</p>
+<p>Slowly, the chill of the vault returned. The reality of the dust motes. The smell of old ink.</p>
+<p>Jonas withdrew slowly, his hands steady as he helped her slide down from the desk. He pulled her skirt down, his hand lingering on her hip with a quiet, protective weight. He quickly adjusted his trousers, his movements lacking any of the awkward embarrassment that usually follows a rushed hookup.</p>
+<p>Keziah leaned against the desk, her knees still trembling as she adjusted her underwear and smoothed her apron. "Jonas... I don't even know what to say."</p>
+<p>He reached out, his thumb catching a damp curl near her ear and tucking it behind her temple. "You don't have to say anything." His face grew serious, the lines around his mouth deepening. "But we need to talk about the <em>Aratea</em>."</p>
+<p>"Gable—"</p>
+<p>"Gable didn't find it," he said, his voice dropping. "Because I have it."</p>
+<p>Keziah went cold. She pulled back, her eyes narrowing. "You took it? Why? Jonas, if this was some play to get the position—"</p>
+<p>"No," he said, catching her hands. "Listen to me. I didn't do it to sabotage you. I did it because I found three emails Gable left on her assistant’s desk last Friday. She’s planning to report the <em>Aratea</em> as stolen during this audit. She’s going to use the 'loss' of a high-value asset to prove the conservation department is negligent, write off the collection for the insurance payout, and outsource the entire restoration lab to a digital archiving firm in Chicago."</p>
+<p>Keziah stared at him, the air leaving her chest. "She was going to frame me."</p>
+<p>"Yes," Jonas said. He looked down at their hands, his expression tight with an old, familiar bitterness. "I took the folio and logged it into the off-site vault under my own cataloging ID. If she tries to claim negligence, the paperwork shows the book is exactly where it’s supposed to be—but under my name. If anyone gets the axe for 'misfiling' it during an audit, it’ll be me."</p>
+<p>"But your career," she whispered. "If she fires you, you'll never get another archive gig."</p>
+<p>Jonas let out a dry, self-deprecating laugh. He sat down on the horsehair bench, his shoulders dropping. "It wouldn't be the first time."</p>
+<p>He rubbed his face with his hands. For a second, he looked far older than thirty-four.</p>
+<p>"Six years ago, I was at Yale," he said, his voice barely carrying over the hum of the climate control. "I was the golden boy of the paleography department. I found out my dissertation advisor was quietly selling off duplicate sixteenth-century folios from the Beinecke Library and replacing them with high-end facsimiles. I tried to report him to the dean."</p>
+<p>Keziah watched him, her heart aching at the raw, flat tone of his voice.</p>
+<p>"He was tenured, and his family name was on the donor list for the library wing," Jonas said. "He turned it on me. By the time they finished the investigation, he retired with a full pension, and I was blacklisted. I spent three years working demolition in Chicago just to pay my rent. This job—this crumbling, underfunded basement—was the only place that would look past the red flag on my record."</p>
+<p>He looked up at her, his eyes dark and completely open.</p>
+<p>"I’ve spent every day here terrified someone would look up my old department head and ask questions," he said. "But when I saw Gable setting you up... I couldn't watch it happen again. Not to you."</p>
+<p>"Why not to me?"</p>
+<p>Jonas stood up, stepping close enough that she could feel the heat radiating from his chest again. He reached out, his hand resting on her waist.</p>
+<p>"Because you're the only person in this place who actually gives a damn about the history," he said softly. "You don't do this for the publications or the tenure track. You touch these books like they're alive. And..." He swallowed, his voice cracking slightly. "You're the first person in six years who made me feel like I wasn't just a ghost hiding in the stacks."</p>
+<p>Keziah looked at him—at the bruised, stubborn pride in his jaw, the hands that could mend five-hundred-year-old paper or haul his own weight up a cliff. The protective walls she had built around herself since her divorce didn't just crack; they vanished.</p>
+<p>"We aren't going to let her do this," Keziah said, her voice firmer than it had been in years. She laid her palm flat against his chest, right over the steady, heavy beat of his heart. "Neither of us is leaving this basement. We're going to use your cataloging log to prove the book was moved for climate stabilization, and then we're going to take those emails to the dean."</p>
+<p>Jonas looked down at her hand, a slow, genuine smile breaking through his exhaustion. "Is that a plan, Mrs. Alder?"</p>
+<p>"It is, Dr. Cole," she whispered, leaning up to press her lips to his jaw. "Now, let’s go deal with the CFO."</p>
+<p>The ache in Keziah Alder’s lower back wasn’t a sudden flare. It was a low, stubborn hum—the physical tax levied by twenty-five years spent hunching over decaying vellum and brittle linen thread. She stood at the high, slate-topped conservation table, her shoulders knotted under a faded linen shirt, her fingers coaxing a bone folder along the stubborn crease of a seventeenth-century folio.</p>
+<p>At forty-five, Keziah knew the exact geography of her own wear and tear. The soft, giving curve of her belly that had carried a daughter; the silver threads shot through the dark, heavy weight of her hair; the fine lines around her eyes that deepened whenever the basement fluorescent lights flickered. The university archives had always been her sanctuary. It was a place where decay wasn’t a tragedy, just a process you could slow down if you had the right tools and enough patience.</p>
+<p>But lately, the silence of her empty house had been replaced by a different kind of quiet here. A heavy, administrative silence. The rumors of budget cuts hung over the department like damp mold. Only one permanent, benefit-eligible position would survive the merger. One.</p>
+<p>"You’re pressing too hard on the gutter."</p>
+<p>The voice was low, rough around the edges, and far too close to her ear.</p>
+<p>Keziah didn’t jump. She’d learned the exact rhythm of Bramwell Knox’s stride over the last year—the slight heel-strike, the faint scent of cedar shavings and bitter black coffee that arrived thirty seconds before he did. He was thirty-four, all lean muscle and restless, sharp-edged energy. In this cramped, subterranean lab, he always made the ceiling feel a little too low.</p>
+<p>"I am not pressing," she said, her voice dry, though a quiet heat bloomed behind her collarbone. "I am persuading. Vellum doesn’t care about force, Bramwell. It requires time. Something your master’s program apparently omitted."</p>
+<p>"My program?" Bramwell let out a short, quiet laugh and stepped closer. He didn't back away from the line she tried to draw. He never did. And he didn't look at her with that polite, exhausting deference younger academics usually reserved for women they considered part of the furniture. When Bramwell looked at her, his eyes had a heavy, focused weight that made her skin twitch. "I’ve been in the field twelve years, Keziah. I know how to handle things that might break."</p>
+<p>"Is that what I am to you? Fragile?" She turned her head. Her breath hitched. He was much closer than she’d realized.</p>
+<p>"Never," he murmured. "You’re stubborn. Beautifully so. And you’ve been ignoring me since noon."</p>
+<p>"We have three weeks to catalog the entire collection," she said, but her hand wobbled, the bone folder slipping a millimeter against the ancient paper.</p>
+<p>Bramwell reached out. His hand was larger, calloused from dry-scraping hides, and warm—unbelievably warm compared to the chill of the basement. He didn't pull the tool from her grip. Instead, he covered her hand with his, guiding her fingers, shifting the angle of the bone folder by a fraction of a degree.</p>
+<p>"There," he whispered, his breath stirring the loose hairs near her temple. "Feel that? You have to let the fibers yield. If you fight them, they tear."</p>
+<p>"I know how to do my job, Knox," she said, but she didn’t pull away.</p>
+<p>She couldn’t. The heat between them had been simmering for months over lukewarm thermoses of tea, late-night shifts, and fierce, pedantic arguments about nineteenth-century adhesive formulas. The professional rivalry that should have kept them at arm's length had twisted into something thick, heavy, and impossible to ignore.</p>
+<p>"I know you do," Bramwell said, his voice dropping into a rougher, darker register. "But you don't know what you do to me when you look at a page like you're trying to save its soul. I want you to look at me like that."</p>
+<p>Before she could gather her defenses, he took the bone folder from her limp fingers and set it on the slate. His hands came to her waist, his fingers digging into the flesh above her hips. No hesitation. No polite, tentative asking. He pulled her flush against his chest, and Keziah let out a small, defeated sound as she leaned into him.</p>
+<p>The kiss was hard, deep, and heavy with the desperation of two people who knew they were playing with matches in a room full of dry paper. Bramwell’s tongue slid against hers, tasting of the strong roast he drank all day, his hands moving down to cup her rear and lift her slightly, pressing her thighs against the edge of the heavy oak table.</p>
+<p>Keziah tangled her fingers in the short, thick curls at the back of his neck, pulling him closer. A wild, long-buried ache flared in her lower belly, burning away every sensible boundary she had spent twenty years constructing. She was forty-five, yes, but in his grip, she felt electric, heavy, and absolutely necessary.</p>
+<p>"Keziah," he groaned against her mouth, his lips tracing a path down her jaw to the sensitive dip beneath her ear. He nipped at her skin, making her arch her back, her fingers clutching at the wool of his sweater. "Tell me to stop. If we do this here, I’m not going to be able to pull myself back."</p>
+<p>"Don't," she breathed, her voice cracking. "Bramwell, don't stop."</p>
+<p>He didn't ask twice. With one sweeping movement, he cleared a section of the slate table, sending a stack of acid-free blotters fluttering to the concrete floor. He lifted her onto the cold stone, his fingers already working the small bone buttons of her shirt. He pushed the linen back, his eyes darkening as he looked at her—at the lace of her bra, the soft, mature curve of her breasts, the faint silver stretch marks on her hips that she usually hid under high-waisted trousers.</p>
+<p>"You are incredible," he whispered, his voice raw. He leaned down, pressing his mouth to the swell of her breast, his thumbs brushing over her nipples through the lace until they went rigid.</p>
+<p>Keziah’s chest rose and fell in ragged gasps. She unbuckled his belt with clumsy, shaking fingers, her nails scraping his stomach as she pushed his trousers down. When her hand closed around him, thick and throbbing under his knit boxers, Bramwell shuddered, his forehead resting against her collarbone as he swore under his breath.</p>
+<p>"You’re going to ruin me," he muttered, his hands sliding under her knees, parting her legs wide.</p>
+<p>He stepped between her thighs, his gaze locked on hers as he pulled her underwear down and dropped them onto the floor. The cool, damp air of the archive hit her skin, but the chill was gone the second Bramwell leaned in, his fingers spreading her open. She was already slick, aching for him. He ran his thumb over her center, and Keziah’s hips bucked off the table, a sharp cry echoing off the concrete walls.</p>
+<p>"Look at me," he commanded softly, his chest heaving with the effort of holding himself back.</p>
+<p>She opened her eyes, her vision slightly blurred. He aligned himself against her, the hot, blunt head of him nudging her entrance. Slowly, with an agonizing deliberateness, he sank into her. He filled her so completely, stretching her tight warmth, that she felt the pressure deep in her pelvis.</p>
+<p>Keziah let out a long, ragged moan, her legs wrapping around his hips to pull him deeper. "Bramwell... please."</p>
+<p>He began to move. His strokes were long, slow, and devastatingly deep. He knew her body—he’d spent weeks watching her movements, learning the exact way she tilted her head or caught her breath, and he used that knowledge now, hitting the exact angles that made her head spin. The contrast of his younger, aggressive strength against her deep, receptive surrender created a rhythm that felt less like sex and more like a reckoning.</p>
+<p>For years, her ex-husband had made her feel like an ornament that had lost its shine—a sensible, quiet fixture in a life that had eventually moved on without her. But Bramwell held her like she was the only thing that mattered in the entire building, his face flushed, his muscles locking as he drove himself into her.</p>
+<p>"I've wanted this since the first day you corrected my cataloging," he whispered, his pace turning harder, faster, more urgent. "Since I saw how much you cared. You're everything, Keziah."</p>
+<p>The words cut through her, sweet and terrifying. She gripped his shoulders, her back arching off the slate as the coil inside her wound tighter and tighter. The clean, sharp smell of their sweat mingled with the scent of old paper and leather dressing—life blooming in a basement full of dead things.</p>
+<p>"Bramwell, I'm... I'm right there," she gasped, her fingers digging into his back.</p>
+<p>"Do it," he growled, his thumb finding her clitoris again, pressing down with a heavy, rhythmic friction as he drove deep one last time.</p>
+<p>The orgasm hit her like a physical blow, breaking her vision into fragments of white light. She cried out, her internal muscles clamping down on him in tight, desperate waves. The sheer force of her release broke his restraint; Bramwell let out a low, guttural roar, his body stiffening as he came deep inside her, his heart hammering against her ribs like a trapped bird.</p>
+<p>They stayed joined for a long time, the quiet of the basement settling back over them, broken only by the sound of their ragged, slowing breaths. Bramwell buried his face in her neck, kissing her skin with a quiet, lingering tenderness.</p>
+<p>"I love you," he murmured against her collarbone.</p>
+<p>Keziah’s heart gave a strange, painful hitch. She didn't say it back. Instead, she just held him tighter, wishing she could lock the heavy oak door and keep the rest of the world from finding them.</p>
+<p><em></em>*</p>
+<p>But the world always finds a way in.</p>
+<p>An hour later, the warmth had evaporated into the drafty air of the lab. Keziah had buttoned her shirt and pinned her hair back into its usual neat twist, though her skin still felt tender and flushed. Bramwell was back at his desk across the room, sorting through a box of dry-cleaning sponges, when the heavy outer door groaned open.</p>
+<p>Othella Pyre, the university’s chief benefactor and the head of the restructuring committee, stepped into the room. She was a woman of sharp angles, immaculate gray tailoring, and a cold, administrative efficiency that made the temperature in the room drop five degrees.</p>
+<p>"Dr. Knox," Othella said, her voice like dry autumn leaves scraping pavement. "A word, please. In the preservation office."</p>
+<p>Bramwell stood, throwing a quick, reassuring look toward Keziah. "Of course, Ms. Pyre. Right away."</p>
+<p>As they walked out, Bramwell paused at the threshold, giving Keziah a small, private smile—the kind that promised they would talk later. But as the door clicked shut, a cold, heavy knot began to form in Keziah’s stomach.</p>
+<p>She tried to focus on her work, but the silence felt different now. Heavy. Expectant. After ten minutes, she realized she’d left her custom bone folder—the one carved from rosewood that her father had given her when she finished her doctorate—on the desk in the anteroom of the preservation office.</p>
+<p>She walked down the dim stone corridor. The door to the inner office was heavy oak, but the wood had warped over the winters, leaving a narrow gap near the brass hinges.</p>
+<p>As she reached for the outer door handle, she stopped.</p>
+<p>"...the endowment is locked in, Bramwell," Othella Pyre’s voice cut through the gap, crisp and perfectly clear. "The Board of Trustees has signed off on the funding for a permanent, chair-level preservationist. No more begging the state for crumbs. No more living hand-to-mouth."</p>
+<p>Keziah’s hand stayed frozen on the brass latch. Her lungs felt suddenly empty.</p>
+<p>"And the catch?" Bramwell’s voice was lower, hesitant, but there was no anger in it.</p>
+<p>"The administration wants a clean slate," Othella said smoothly. "We can't fire a tenured specialist like Keziah Alder without a massive union fight. We don't have the time or the money for a public dispute. But if you sign this incident report... the one documenting her 'negligent' handling of the seventeenth-century Knox folio... it gives the dean the leverage he needs. Her contract can be terminated immediately, with cause. It saves the department’s budget, and it secures your chair here. Permanently."</p>
+<p>Keziah’s blood went cold. The warmth left her face so fast she felt dizzy, her fingertips numb against the brass handle.</p>
+<p>She waited for him to speak. She waited for him to raise his voice, to tell Othella Pyre that Keziah Alder’s hands were the most precise in the state. She waited for him to defend the woman he had just held on a slate table an hour ago.</p>
+<p>Instead, there was only the low hum of the dehumidifier. A long, terrible silence.</p>
+<p>"If Keziah is..." Bramwell’s voice was quiet, practical. "This would clear the administrative hurdle. The funding would protect the rest of the archive."</p>
+<p>"Exactly," Othella said, her voice dripping with satisfaction. "A simple signature, Bramwell. A very small price to pay for survival."</p>
+<p>Keziah didn't stay to hear the rest.</p>
+<p>The words spun in her head, a grotesque echo of a conversation she’d heard twelve years ago in a different hallway. <em>A small price to pay.</em></p>
+<p>Suddenly, she wasn't forty-five in an archival basement. She was thirty-three, standing outside her husband's study, listening to him explain to his co-author why leaving Keziah’s name off the grant application was "just strategy" to secure the funding. <em>She’ll understand,</em> he had said. <em>It’s for our future.</em></p>
+<p>But there had never been an <em>our</em>. There was only his. And the pattern was repeating itself with surgical precision.</p>
+<p>The betrayal hit her like a physical blow to the solar plexus. The intimacy they had just shared—the whispered words, the heat of his skin, the way he had looked at her like she was sacred—felt cheap. Weaponized. Had it been a distraction? A way to keep her quiet while he signed her professional death warrant?</p>
+<p>She backed away, her boots silent on the stone. Her chest heaved as she fought for air. She couldn't let them see her like this. She couldn't let them see her break.</p>
+<p>With numb, mechanical movements, Keziah walked back into the main lab. The space that had been her home for twenty-five years felt like a tomb.</p>
+<p>She didn't cry. The pain was too cold for that, a solid block of ice freezing her from the inside out. She reached for her canvas tool roll, spreading it out on the slate table where her sweat had just dried.</p>
+<p>One by one, she began to pack.</p>
+<p>She took the rosewood folder, the English bone folders, the fine sable brushes she’d bought with her own money. She packed her specialized pigskin scrapers, her magnifying loupes, and the small bottle of lavender leather dressing she used for her personal projects. These were her tools. Her hands. Her identity. They didn't belong to the university, and they sure as hell didn't belong to Bramwell Knox.</p>
+<p>Each tool slid into its pocket like a key turning in a lock.</p>
+<p>She rolled the canvas tight, tying the leather cords with steady, cold fingers. She grabbed her coat, her bag, and her wool scarf.</p>
+<p>She didn't leave a note. There was nothing left to say.</p>
+<p>As she walked out of the lab, she didn't look at the folio resting on the table, its vellum pages still holding the memory of her touch. She walked down the long, dim corridor, past the closed door of the preservation office where the muffled voices still drifted through the wood.</p>
+<p>She pushed open the heavy steel fire door and stepped out into the evening. A cold, sharp autumn rain was beginning to fall, the drops stinging her face as she walked toward her car. She pulled her coat tight, got into the driver's seat, and drove away, leaving the archives—and Bramwell Knox—behind in the dark.</p>
+<p>The halogen lamp didn't show mercy. Under its blue-white glare, the fibers of the disputed seventeenth-century folio looked less like historical treasure and more like a dissected heart on an autopsy table.</p>
+<p>Keziah Alder leaned over the stereomicroscope. Her fingers were stiff. Six hours in a windowless basement lab will do that to a person. Her fingertips were a mess—dry, cracked, stained with yellow smears of mild ethyl solvent and the fine, gray soot of three-hundred-year-old rag paper.</p>
+<p>She pushed her glasses up the bridge of her nose. Progressives. She’d fought getting them for two years, treating the purchase like a moral failure rather than a basic tax on turning forty-five. Her eyes felt like someone had rubbed dry sand into the lids. Her lower back was a tight knot of resentment, the inevitable result of a spine kept hunched over light tables and binding cradles. At her age, the body doesn't negotiate; it simply demands. But tonight, she wasn't listening. When the adrenaline is this cold and this sharp, you don't feel the creaks in your bones until the work is finished.</p>
+<p>She went back to the eyepieces. Chain lines. Wire intervals. The language of old paper is silent, but it never lies.</p>
+<p>Here’s the thing most people miss about seventeenth-century paper: a hand-carved wooden sieve from 1642 is imperfect. It leaves a slightly blurred, organic impression where the wet linen pulp settled unevenly over the wire. But the watermark on this folio? It was too crisp. The edges were too uniform. It had the sterile perfection of a machine. The paper itself was genuine—likely blank flyleaves cut from some worthless, water-damaged theological tract of the same decade—but the ink was a lie. Whoever did this had used iron gall, yes, but they’d stabilized it with a synthetic polymer binder. Under the high-intensity UV rig she’d jerry-rigged over the specimen tray, the polymer was finally breaking down, glowing like cheap paint under a club light.</p>
+<p>Then she found the paper trail.</p>
+<p>Keziah had spent the pre-dawn hours dragging herself through the uncataloged acquisitions of 1974, buried in the university’s locked vault. Under forty years of coal-smoke dust and dead silverfish, she found the signature. It belonged to the former chief archivist—a man who had retired to a suspiciously grand villa in Tuscany on a standard academic pension. He’d logged the folio as "irreparably damaged during restoration" and written it off. But the original shelf-list slip hadn't been destroyed. It had been carefully sliced out with a scalpel, scraped thin, and pasted into the back of a completely different ledger—a collection of dull seventeenth-century sermons that no living scholar had requested in fifty years.</p>
+<p>It wasn't a modern theft. It wasn't a blunder by Bramwell Knox, either.</p>
+<p>This was a fifty-year-old cover-up for a high-value forgery, executed decades before either of them had ever set foot on the St. Jude’s campus.</p>
+<p>She sat back. The leather stool creaked in the silence. A quiet, heavy stillness settled over the basement. The sheer exhaustion of the last month—the sleepless nights, the terror of watching her reputation systematically dismantled, the hollow ache of the empty house since her daughter left for university—it all seemed to evaporate, leaving behind a sharp, diamond-hard clarity.</p>
+<p>Her joints popped as she stood up. She packed the spectral analysis charts, the photos, and the dusty 1974 ledger into her leather satchel.</p>
+<p>The administration wing of the university was dead quiet. It smelled of expensive lemon beeswax polish and old, self-satisfied institutional wealth. Keziah didn't bother knocking when she reached the top floor. She simply pushed open the heavy oak door of the vice chancellor's office.</p>
+<p>Othella Pyre sat behind an expansive slab of polished mahogany. The woman was composed entirely of sharp angles, tailored charcoal wool, and silk scarves that looked like they could double as ligatures. She didn't look up immediately. When she did, her gaze was dry and clinical.</p>
+<p>"Keziah," Othella said. "Our meeting isn't until Tuesday. I’m currently preparing for a board presentation."</p>
+<p>"Cancel it," Keziah said.</p>
+<p>She walked straight to the desk, ignoring the unspoken invitation to wait. She dropped the heavy leather satchel. It hit the mahogany with a solid, satisfying thud that made Othella’s silver pen stand rattle.</p>
+<p>Othella’s eyebrows arched. "If this is about your resignation, the board has already agreed to accept it without further inquiry. It’s the most dignified path available to you, Keziah. It protects your pension."</p>
+<p>"My dignity doesn't require your protection, Othella," Keziah said. Her voice was quiet, even, and entirely free of the defensive tremor that used to plague her when dealing with administration. "And neither does my pension. Because I didn't lose the folio. And neither did Bramwell."</p>
+<p>She unzipped the bag and laid out the high-resolution micro-spectroscopy images directly over Othella’s tablet screen.</p>
+<p>"This is the watermark of the folio currently sitting in your secure vault. It’s a fake. The original paper was harvested, but the ink contains a modern synthetic binder that didn't exist before the mid-twentieth century. The real folio was sold off in 1974 by your predecessor."</p>
+<p>She flipped to the next page, pointing to the chemical signatures and the recovered 1974 ledger with the re-pasted shelf-list slip.</p>
+<p>"The transaction was buried by misfiling the documentation in the uncataloged theological archives. It was an inside job, executed fifty years ago. Your administrative search was looking for a modern scapegoat, when the theft had already been built into the university's financial foundations."</p>
+<p>Othella reached for her reading glasses. For a single, beautiful second, her polished composure cracked. She turned the pages, her eyes darting across the data, the spectral curves, the unmistakable handwriting of the late emeritus archivist.</p>
+<p>"This is..." Othella hesitated, her perfect manicure tightening on the edge of the report. "This is a serious accusation against a deceased faculty member of high standing."</p>
+<p>"It's forensic fact," Keziah said. "And I’ve already uploaded the digital copies of this entire dossier to the regional archival preservation board’s secure server. If you try to bury this to protect the capital campaign, the press will have the full report by noon."</p>
+<p>Othella sat back. Her face hardened into a mask of pure, pragmatic calculation. In the corner, a grandfather clock ticked with a heavy, rhythmic thump. Finally, she folded her hands over the file.</p>
+<p>"The permanent preservationist position is yours, Keziah," Othella said, her tone shifting to a smooth, conciliatory purr. "The funding is secure. We can overlook the... administrative friction of the past few weeks. In fact, I can personally fast-track your tenure track."</p>
+<p>Keziah looked at her. She looked at the expensive wood-paneled walls, the leaded glass windows overlooking the historic, ivy-covered quad. For twenty years, she had craved this validation. She had sacrificed her weekends, ignored her own physical limits, and let her marriage dissolve under the quiet, lonely weight of her dedication to this institution.</p>
+<p>Now, looking at the prize, she felt absolutely nothing. Just a clean, liberating indifference.</p>
+<p>"Keep your position," Keziah said.</p>
+<p>Othella blinked. "I beg your pardon?"</p>
+<p>"I don't want it," Keziah said, her voice light. "I’ve spent half my life preserving the dead thoughts of men who wouldn't have allowed me to sit in their libraries. I know my worth, Othella. I don't need your budget-restricted, benefit-dwindling crumbs to prove it. I am taking my consulting credentials and starting my own private practice."</p>
+<p>She leaned down, her hands flat on the desk, looking directly into the older woman's eyes.</p>
+<p>"But you will write a formal letter of apology to Bramwell Knox. You will clear his name of any administrative negligence, and you will guarantee his contract through the end of the academic year. If you don't, the forgery scandal becomes front-page news."</p>
+<p>She didn't wait for an answer. Keziah took her satchel, turned on her heel, and walked out. With every step down the marble staircase, the invisible weight she had carried for years—the feeling of being discarded, of being too old to start over, of being invisible—simply evaporated.</p>
+<p>Outside, a soft, persistent autumn rain was falling, turning the limestone buildings into dark, glistening monoliths. Keziah walked through the quad without an umbrella, letting the cool water wash over her face. Her heart was hammering, a wild, intoxicating rhythm of pure freedom.</p>
+<p>She knew exactly where she was going.</p>
+<p>Bramwell’s apartment was located in the old industrial district, a converted brick tannery three blocks from the river. The air down here smelled of wet brick, river silt, and wood smoke.</p>
+<p>She climbed the creaking wooden stairs, her breathing slightly heavy. Her knees gave a small, familiar protest on the final landing, but she ignored it, reaching his door and knocking. Her hand was trembling now, not from weakness, but from the sudden, sharp anticipation of what was to come.</p>
+<p>When the door opened, Bramwell stood there. He was thirty-four, his dark hair damp from a recent shower, wearing a faded gray flannel shirt with the sleeves rolled up to his forearms, revealing the strong, ink-stained skin of his wrists. His hazel eyes were clouded with worry, but the moment he saw her, the tension in his shoulders shattered.</p>
+<p>"Keziah," he breathed, pulling her inside. "You're soaked. What happened? Did Othella—"</p>
+<p>"It's over," she said, her voice breathless. She shut the heavy door behind her, the latch clicking shut, sealing them into the warm, quiet space of his loft. The room smelled of cedarwood, linseed oil, and the rich, dark coffee he always kept brewing.</p>
+<p>"What do you mean?"</p>
+<p>"I found the ledger. The folio was misfiled in seventy-four to cover a forgery." She slid her wet trench coat off, letting it drop over a wooden chair. "I gave Othella the forensic report. She offered me the permanent seat."</p>
+<p>Bramwell’s face fell. A flicker of raw pain crossed his features before he quickly masked it with a forced, supportive smile. "You got it. Keziah, that's... that's everything you've worked for."</p>
+<p>"I turned it down," she said.</p>
+<p>He stared at her, his lips parting. "You... what?"</p>
+<p>"I don't need them, Bramwell." She walked toward him, her movements deliberate, closing the space between them. "I don't need their validation. I don't need their crumbling walls. I survived them. But I realized something else while I was looking at those watermarks under the light."</p>
+<p>"What?" he whispered.</p>
+<p>"I realized that the only part of that dusty, miserable place that was real, the only part that mattered to me, was you."</p>
+<p>Bramwell’s breath hitched. He didn't speak. He reached out, his large, warm hand cupping her cheek. His thumb, rough from years of manual restoration work, gently brushed the fine lines at the corner of her eye.</p>
+<p>"You are the most magnificent woman I have ever known," he said, his voice thick with an intensity that made her chest tighten. "I didn't care about the university. I only cared about you. I couldn't bear the thought of them breaking you."</p>
+<p>"They didn't," she said, leaning her face into his palm. Her eyes closed as she breathed in his scent—clean skin, faint soap, and the dark, earthy musk that was entirely his own. "You kept me whole."</p>
+<p>He pulled her closer, his other hand finding the small of her back, pressing her body against his chest. The warmth of him seeped through her damp silk blouse, igniting a sudden, fierce heat in her belly.</p>
+<p>Keziah felt the familiar, delicious thrum of desire wake up inside her, a sensation she had thought was a relic of her youth, but now felt deeper, heavier, and far more urgent.</p>
+<p>"I want you, Bramwell," she whispered, looking up into his eyes. "No boundaries. No professional rivalries. Just you."</p>
+<p>He didn't hesitate. His mouth came down on hers, hungry and possessive, yet filled with a profound reverence that made her knees weak. His tongue parted her lips, tasting of dark coffee and sweet warmth. She let out a soft groan, her fingers tangling in his thick, dark hair, pulling him closer, desperate to erase every fraction of space between them.</p>
+<p>He lifted her slightly, and she wrapped her legs around his hips, marveling at the strength in his younger frame. He carried her toward the bedroom, never breaking the kiss, their breaths mingling in the quiet apartment.</p>
+<p>The bedroom was warm, lit only by the amber glow of a streetlamp filtering through the rain-streaked window. He set her down gently on the edge of the mattress, his eyes never leaving hers as he began to unbutton his flannel shirt.</p>
+<p>Keziah sat there, her heart racing. For a fleeting second, the old, insidious insecurities tried to whisper in her ear—the soft curve of her abdomen that had never quite returned to its original tightness, the faint silver threads at her temples, the pale stretch marks on her hips.</p>
+<p>But as Bramwell looked at her, his gaze was so hot, so filled with absolute adoration, that those whispers died instantly. He did not look at her like she was a relic; he looked at her like she was the standard of everything he had ever wanted.</p>
+<p>He knelt before her, his hands sliding up her calves, pushing her skirt up slowly. His fingers were warm against her skin, leaving a trail of fire in their wake.</p>
+<p>"You are so beautiful, Keziah," he murmured, his voice husky as he pressed a kiss to her knee, then higher, to the soft skin of her inner thigh. "Every line of you. I've spent weeks dreaming of this. Of having the right to touch you like this."</p>
+<p>"You have the right," she gasped, her hands gripping his shoulders as a wave of heat washed through her. "Bramwell, please."</p>
+<p>He stood up, pulling her with him, and together they stripped away the remaining barriers of fabric.</p>
+<p>When she stood before him naked, the amber light of the window catching the curves of her mature body, he let out a low, ragged breath. He reached out, his palms sweeping over the fullness of her breasts, his thumbs brushing across her nipples, which hardened instantly under his touch.</p>
+<p>She gasped, her back arching slightly. "Bramwell..."</p>
+<p>"You are perfect," he whispered, his lips following his hands. He leaned down, taking one dark nipple into his mouth, sucking gently, his tongue swirling around the sensitive peak.</p>
+<p>A sharp, electric jolt of pleasure shot straight to her core. She clung to his shoulders, her fingers digging into his muscles. The contrast of his smooth, youthful skin and her softer, more voluptuous curves felt incredibly sensual, a celebration of her womanhood.</p>
+<p>He moved down, his hands tracing the curve of her waist, the fullness of her hips, before his fingers slid down between her thighs. She was already slick, her body fully awake and aching for him.</p>
+<p>When his fingers found her clitoris, brushing against the swollen center of her desire with a master’s touch, her head fell back, a cry escaping her throat.</p>
+<p>"You're so wet for me, Keziah," he muttered, his eyes dark with desire as he watched her face. He slid two fingers inside her, testing her tightness, his thumb maintaining a rhythmic, torturous pressure on her sensitive node.</p>
+<p>She rocked her hips against his hand, the pleasure building so quickly it threatened to overwhelm her. "I want you inside me. Now, Bramwell. No more waiting."</p>
+<p>He pulled back, his own breathing ragged. He reached for a drawer in his nightstand, his movements hurried but precise.</p>
+<p>A moment later, he was back, hovering over her on the bed.</p>
+<p>Keziah looked up at him, her eyes wide, her breath coming in shallow pants.</p>
+<p>He guided himself to her entrance, pausing for a second, his eyes locked on hers, seeking her consent, her readiness.</p>
+<p>"Yes," she whispered, her hands sliding down to grip his hips. "Take me."</p>
+<p>He pushed forward, sliding slowly, deeply into her warmth.</p>
+<p>Keziah let out a long, shuddering sigh as her body stretched to accommodate him. The sensation of fullness, of being completely possessed and possessing him in return, was exquisite.</p>
+<p>He began to move, his strokes long and deliberate at first, his hips grinding against hers, creating a friction that sent ripples of pleasure through her lower abdomen.</p>
+<p>She wrapped her legs around his waist, pulling him deeper.</p>
+<p>The rhythm quickened. The mattress creaked, the sound lost in the steady patter of the rain outside. The scent of their sweat and desire filled the small room.</p>
+<p>"Look at me," Bramwell commanded softly, his chest heaving as he stared down at her.</p>
+<p>She opened her eyes, seeing the raw devotion, the fierce passion in his gaze. He wasn't just seeking his own release; he was worshiping her.</p>
+<p>"You're mine, Keziah," he groaned, his pace becoming more urgent, his thrusts harder, driving deeper into her core. "Only mine."</p>
+<p>"Yours," she cried out, her fingers clawing at his back.</p>
+<p>The pleasure coiled tighter and tighter, a golden wire pulling taut in her chest and belly. She felt the edge approaching, that beautiful, terrifying precipice of release.</p>
+<p>"Bramwell, I'm... I'm close," she gasped, her hips moving in frantic, desperate alignment with his.</p>
+<p>"Go," he whispered, his own pace turning frantic. "Come for me, Keziah. Let me feel you."</p>
+<p>With a final, deep thrust that hit her sweet spot perfectly, she shattered.</p>
+<p>Her internal muscles clamped around him in tight, rhythmic spasms as her orgasm washed over her in waves of pure, golden light. She cried his name, her voice cracking with the sheer intensity of the release.</p>
+<p>Hearing her cry, Bramwell let out a low, guttural growl. He gave two more deep, powerful thrusts, his body stiffening as he came inside her, his chest pressing hard against hers as his own release overtook him.</p>
+<p>They lay there together, hearts hammering against each other, the rain continuing its quiet vigil outside.</p>
+<p>The room had grown cooler, but under the heavy down quilt, Keziah felt completely warm, insulated from the rest of the world.</p>
+<p>Bramwell lay beside her, his arm wrapped around her waist, his face pressed into the crook of her neck. His breathing had finally slowed to a steady, deep rhythm.</p>
+<p>She ran her fingers through his dark hair, feeling a profound sense of peace.</p>
+<p>"What happens now?" he murmured, his voice sleepy but clear.</p>
+<p>"We leave," she said quietly. "We start our own restoration firm. I have the contacts, the forensic expertise. You have the structural knowledge and the drive. We don't need the university's bureaucracy, Bramwell. We can do this on our own terms."</p>
+<p>He lifted his head, looking down at her, a slow, brilliant smile spreading across his face. "A study in ivy and ash," he said softly. "But without the ivy."</p>
+<p>"Just the ash," she agreed, her lips curving up. "And the fire that comes after."</p>
+<p>He kissed her, a sweet, lingering promise that tasted of their shared future.</p>
+<p>Keziah smiled into the kiss. At forty-five, she had thought her life's chapters were mostly written, that she was simply editing the final, predictable pages. But looking at Bramwell, feeling the strength of her own body and the clarity of her own mind, she realized the best part of the book was only just beginning.</p>
+<p>The dust in the Grand Archive didn't settle. It just hung there, suspended in the cold shafts of October light cutting down from the high clerestory. Keziah Alder squeezed her eyes shut, then slid her jeweler’s loupe back into place. Her lower back was a dull, hot ache—forty-five years of gravity, the last twenty spent hunched over rotting calfskin and vinegar-soaked vellum.</p>
+<p>She was entirely alone in this corner of the basement. It smelled of beeswax, dry rot, and the sour chemical tang of degrading cellulose. This deep pocket of the university’s oldest library was her bunker. Up across the quad, in the wood-paneled administrative offices, the board of trustees—bankrolled by Othella Pyre’s predatory "endowment"—was currently deciding her fate.</p>
+<p>At forty-five, you learn to read the margins. You know exactly how institutions operate: they suck the marrow out of your twenties and thirties, then trade you in for a shinier, cheaper model. When the restructuring was announced, pitting her against Bramwell Knox for the single remaining tenured preservation seat, she hadn't even been angry. Just tired. She was the veteran; she had a pension tier they wanted off the books. Bramwell was thirty-four, hungry, cheap on paper, and possessed the kind of effortless charisma the admissions brochures loved to plaster on the back cover.</p>
+<p>But the board had miscalculated. They wanted a dogfight. Instead, she and Bramwell had spent the last six months sharing silent, lingering looks over seventeenth-century parish registers, their hands brushing as they passed the bone folders.</p>
+<p>The heavy oak door at the far end of the archive groaned on its hinges.</p>
+<p>She didn't look up right away. She didn't want him to see how fast her pulse was thudding against her collarbone. But she knew the stride. Long, heavy, slightly dragging on the left heel.</p>
+<p>"Keziah."</p>
+<p>His voice was a low, dry rasp. She let the loupe drop, the silver chain clinking against her collarbutton. Bramwell stood under the shadow of the brick archway. His tweed coat was unbuttoned, his dark hair a messy tangle where he’d clearly been clawing at it. At thirty-four, he still looked like he belonged on a timber crew rather than a library annex—broad-shouldered, thick-wristed, with a hard, angular jawline that only softened when he looked at her.</p>
+<p>"The senate adjourned?" she asked, her voice thinner than she wanted. She anchored her palms flat on the scarred oak of the restoration table. "Pyre’s lawyers were supposed to sign off on the line-item budget an hour ago."</p>
+<p>He walked toward her, his boots loud against the flagstones. The space between them shrank, the air growing thick with the scent of wool, cold rain, and the faint smell of tobacco he always tried to hide.</p>
+<p>"The money’s gone," Bramwell said. He stopped a foot away. "Or rather, I told them where to shove it."</p>
+<p>She stared. "You did what? That grant was the only thing keeping the climate controls running in the vaults, Bramwell. If you rejected Pyre's stipulations—"</p>
+<p>"Pyre wanted a fire sale," he spat. "She wanted the physical collection crated up and shipped to a private vault in Munich for 'safekeeping,' while we spend the next five years churning out low-res PDFs for her corporate tax shelter. The board was already passing around the Montblanc pens. They were going to name me director of some hollowed-out 'Digital Heritage Center.' And you? They had a severance agreement drafted before the first pot of coffee was brewed."</p>
+<p>A cold, familiar numbness crept down her neck. Her life's work, reduced to a line item on a spreadsheet. "And you walked out."</p>
+<p>"It was a joke," he said, his hand coming down over hers on the table. His skin was rough, calloused from scraping vellum, but his grip was steadying, hot. "A gilded tomb. And it didn't include you."</p>
+<p>She looked at his hand—broad, tanned, veined with a strength that felt almost ridiculous in this graveyard of old paper. "Bramwell, you have twenty years of funding ahead of you. You don't throw away a director’s chair over a matter of administrative ethics."</p>
+<p>"I didn't do it for the ethics," he said, his voice dropping, rough and direct. "I stood up, looked Othella Pyre in her face, and told her that her money was rot. I told them this department isn't the masonry or some server rack in the cloud. It’s the work. It’s what you taught me. I told them I wouldn’t be the face of a coup that put you out on the street."</p>
+<p>Keziah’s throat went dry. "You resigned."</p>
+<p>"I did."</p>
+<p>He reached into his breast pocket and pulled out a sheet of heavy, cream-colored linen paper. He unfolded it with one hand, smoothing it flat on the table between them. It was a charter, written in his precise, draft-style print.</p>
+<p>At the top: <em>Alder &amp; Knox, Archival Conservators.</em></p>
+<p>"We don't need their budget," Bramwell said, his eyes drilling into hers. "We don't need Pyre’s blood money or the dean’s quarterly reviews. The historical societies in the valley are drowning in damp rot. Half the private estates in the state don't even know what they have in their attics. We have the tools. We have the licenses. We are the only two people within three hundred miles who can restore a seventeenth-century spine without ruining the grain. An equal partnership. Fifty-fifty. Everything."</p>
+<p>She looked at the ink. It was fresh—he’d written this this morning, before the meeting even started. The sheer, terrifying gall of it. For years she’d felt like she was playing a losing hand of survival, shrinking herself to fit into whatever corner the university left unguarded. Now, looking at this man, she felt a sudden, sharp spike of adrenaline.</p>
+<p>"Alder and Knox," she said, her voice shaking slightly. "My name first?"</p>
+<p>"Always," he whispered. "You're the master. I'm just the hand."</p>
+<p>The space between them vanished. The six months of polite distance, of careful, professional handoffs of ancient texts, dissolved.</p>
+<p>She reached up, her fingers tangling in the thick, coarse hair at the back of his neck. "Bramwell," she said.</p>
+<p>He didn't wait. He brought his mouth down on hers with a hard, desperate weight. His lips were dry, tasting of cold coffee and salt. He kissed her like a man who had been starving in silence, his tongue pushing past her teeth with a blunt, heavy insistence that took her breath away. Keziah groaned, her hands clawing into the rough wool of his shoulders, her body suddenly alive in a way she had forgotten it could be. The years of quiet, empty rooms, the long nights with nothing but the hum of the dehumidifier—it all burned away in the heat of his mouth.</p>
+<p>Bramwell groaned against her cheek, his hands dropping to her waist, lifting her slightly, pressing her hips hard against his. He was solid, unyielding.</p>
+<p>"I've wanted this," he muttered, his breath hot against her ear, "since the first day I watched you piece together that Mercator map. You were so precise. So beautiful."</p>
+<p>"Bramwell, the door," she whispered, even as her fingers worked the bone buttons of his waistcoat.</p>
+<p>"It's locked," he said. His lips dragged down her jaw, biting gently at the tendon of her neck. "They're all in the administration hall. No one's coming down here."</p>
+<p>With a sudden, sweeping motion, he cleared a section of the massive seventeenth-century table, sending a stack of dry blotting sheets and a brass paperweight clattering onto the flagstones. The noise cracked through the silence of the vault.</p>
+<p>He lifted her, his hands hooking under her thighs, and set her back on the edge of the oak table. The wood was cold through her skirt, a sharp shock against her skin. Keziah wrapped her legs around his waist, pulling him in. There was no hesitation, none of the fragile self-doubt of her twenties. She knew exactly what she wanted, and she knew the power she held over him.</p>
+<p>Bramwell paused, his chest heaving, his face dark with a heavy, focused heat. He slid his hand up her thigh, bunching the fabric of her skirt, his fingers finding the edge of her underwear. He slid his hand beneath, his palm warm and calloused against her skin.</p>
+<p>She was slick, already aching, a low hum of heat radiating from her lower belly. He found her with two fingers, sliding deep into her warmth, his thumb pressing hard against her sensitive center. Keziah gasped, her head dropping back against the dark, leather-bound spines of the reference books behind her.</p>
+<p>"Please," she whispered.</p>
+<p>He didn't hesitate. He unbuckled his belt, freeing himself with a quick, jerky motion. He was thick, hot, the tip of him brushing against her wetness. He stopped for one agonizing second, his eyes locking onto hers, wide and dark.</p>
+<p>"Keziah," he breathed. "Look at me."</p>
+<p>She kept her eyes on his as he pushed inside.</p>
+<p>He slid in with a slow, heavy pressure that filled her completely. She was tight, wrapping around him as he sank to the hilt. A long, shuddering breath escaped her, her fingers digging into his forearms. The sheer physical presence of him was overwhelming—he was deep, anchoring her to the wood of the table, to the heat of the room, to the present.</p>
+<p>He began to move. Slow, heavy thrusts that made the old oak table creak beneath them. Every stroke was a direct, friction-heated pulse that built a fire in her belly.</p>
+<p>Keziah tightened her thighs around his hips, pulling him deeper, matching his pace. She wasn't some delicate thing to be preserved; she was alive, her body moving with a fierce, experienced grace. She met his weight with her own, her hands sliding under his shirt to feel the hard, damp skin of his back.</p>
+<p>"Harder," she whispered.</p>
+<p>His rhythm broke, turning fast and urgent. He drove into her, his breath coming in ragged, desperate gasps. The scent of sex—salt, musk, and clean skin—filled the small space between them, blotting out the smell of decaying paper.</p>
+<p>She felt the tension building, a tight, hot coil at the base of her spine. She clung to him, her world narrowing to the hard press of his chest against hers, the friction of their skin, the desperate, beautiful noise of their breathing.</p>
+<p>"Now," he groaned, his forehead pressed against hers. "Keziah, now."</p>
+<p>The release hit her like a sudden, blinding light. Her muscles clamped around him in tight, rhythmic waves, a sharp, undone cry escaping her throat.</p>
+<p>Bramwell let out a low, guttural sound, burying his face in her neck as he gave three more deep, frantic thrusts, his entire body shuddering as he spilled himself inside her. He held her tight, his chest heaving, his heart hammering against her ribs like a trapped bird.</p>
+<p>The quiet of the archive returned, settling over them with the dust.</p>
+<p>For a long time, neither of them moved. He remained inside her, his forehead resting on her collarbone, his breathing slow and heavy. Keziah ran her fingers through his damp hair, her body humming with a deep, quiet satisfaction she hadn't felt in twenty years.</p>
+<p>He pulled back slowly, his eyes soft and dark. He kissed her forehead, then her lips—a slow, quiet promise.</p>
+<p>"We have a lot of work to do," he said, his hand resting on the paper charter beside them.</p>
+<p>Keziah looked at the ink on the page, then at the man standing between her thighs. The future wasn't some shrinking corridor of compromises anymore. It was wide open.</p>
+<p>"Yes," she said, her voice steady. "We do."</p>
+    </main>
+
+    <script>
+        const body = document.body;
+        const btnDec = document.getElementById('btn-dec');
+        const btnInc = document.getElementById('btn-inc');
+        const btnTheme = document.getElementById('btn-theme');
+        const btnSpeak = document.getElementById('btn-speak');
+        const btnStopSpeak = document.getElementById('btn-stop-speak');
+
+        // Font scaling
+        let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
+        const setFontSize = (size) => {
+            currentSize = Math.max(0.9, Math.min(1.6, size));
+            document.documentElement.style.setProperty('--font-size', `${currentSize}rem`);
+            localStorage.setItem('reader_font_size', currentSize);
+        };
+        setFontSize(currentSize);
+
+        btnDec.addEventListener('click', () => setFontSize(currentSize - 0.05));
+        btnInc.addEventListener('click', () => setFontSize(currentSize + 0.05));
+
+        // Theme management
+        let theme = localStorage.getItem('reader_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const setTheme = (t) => {
+            theme = t;
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('reader_theme', theme);
+        };
+        setTheme(theme);
+
+        btnTheme.addEventListener('click', () => {
+            setTheme(theme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Web Speech API Read Aloud Controls
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
+        let currentParaIdx = 0;
+
+        function highlightParagraph(idx) {
+            paragraphs.forEach((p, i) => {
+                if (i === idx) {
+                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
+                    p.style.borderRadius = '4px';
+                    p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    p.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function clearHighlights() {
+            paragraphs.forEach(p => {
+                p.style.backgroundColor = '';
+            });
+        }
+
+        function speakParagraph(idx) {
+            if (idx < 0 || idx >= paragraphs.length) {
+                stopSpeaking();
+                return;
+            }
+
+            currentParaIdx = idx;
+            highlightParagraph(idx);
+
+            const textToSpeak = paragraphs[idx].textContent;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            utterance.onend = () => {
+                if (isSpeaking && !isPaused) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            utterance.onerror = (e) => {
+                console.error("SpeechSynthesis error:", e);
+                if (isSpeaking) {
+                    speakParagraph(currentParaIdx + 1);
+                }
+            };
+
+            synth.speak(utterance);
+        }
+
+        function toggleSpeak() {
+            if (!isSpeaking) {
+                isSpeaking = true;
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(0);
+            } else if (isPaused) {
+                isPaused = false;
+                btnSpeak.innerHTML = '⏸️ Pause';
+                synth.resume();
+            } else {
+                isPaused = true;
+                btnSpeak.innerHTML = '▶️ Resume';
+                synth.pause();
+            }
+        }
+
+        function stopSpeaking() {
+            synth.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            btnSpeak.innerHTML = '🔊 Read';
+            btnStopSpeak.style.display = 'none';
+            clearHighlights();
+            currentParaIdx = 0;
+        }
+
+        btnSpeak.addEventListener('click', toggleSpeak);
+        btnStopSpeak.addEventListener('click', stopSpeaking);
+
+        // Stop reading if page is unloaded or hidden
+        window.addEventListener('beforeunload', () => {
+            synth.cancel();
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                synth.cancel();
+                if (isSpeaking) {
+                    stopSpeaking();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
