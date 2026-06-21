@@ -69,12 +69,12 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 40%;
+            max-width: 30%;
         }
         .controls {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
         .control-btn {
             background: none;
@@ -86,8 +86,30 @@
             font-size: 0.9rem;
             padding: 4px 10px;
             transition: all 0.2s ease;
+            font-weight: 500;
         }
         .control-btn:hover {
+            background-color: var(--border-color);
+        }
+        .divider {
+            width: 1px;
+            height: 20px;
+            background-color: var(--border-color);
+            margin: 0 4px;
+        }
+        .control-select {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            padding: 4px 6px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        .control-select:hover {
             background-color: var(--border-color);
         }
         main {
@@ -138,6 +160,61 @@
         li {
             margin-bottom: 8px;
         }
+        .active-speaking {
+            background-color: rgba(33, 150, 243, 0.15) !important;
+            border-radius: 4px;
+            padding: 4px 8px;
+            margin-left: -8px;
+            margin-right: -8px;
+            transition: background-color 0.3s ease;
+        }
+        #manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li {
+            transition: background-color 0.2s ease, border-left 0.2s ease;
+            border-left: 3px solid transparent;
+            padding-left: 8px;
+        }
+        #manuscript-content p:hover, #manuscript-content h2:hover, #manuscript-content h3:hover, #manuscript-content li:hover {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-left: 3px solid #2196F3;
+        }
+        [data-theme="dark"] #manuscript-content p:hover, 
+        [data-theme="dark"] #manuscript-content h2:hover, 
+        [data-theme="dark"] #manuscript-content h3:hover, 
+        [data-theme="dark"] #manuscript-content li:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #2196F3;
+        }
+        
+        @media (max-width: 768px) {
+            .book-title {
+                display: none;
+            }
+        }
+        @media (max-width: 540px) {
+            header {
+                height: auto;
+                padding: 12px 16px;
+                flex-direction: column;
+                gap: 8px;
+                align-items: stretch;
+            }
+            .back-btn {
+                align-self: flex-start;
+            }
+            .controls {
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .control-select {
+                max-width: 45%;
+                flex-grow: 1;
+            }
+            main {
+                margin-top: 130px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -148,10 +225,21 @@
             <button class="control-btn" id="btn-dec" title="Decrease Text Size">A-</button>
             <button class="control-btn" id="btn-inc" title="Increase Text Size">A+</button>
             <button class="control-btn" id="btn-theme" title="Toggle Light/Dark Theme">🌓</button>
+            <div class="divider"></div>
+            <select class="control-select" id="tts-voice" title="Select Voice" style="display: none; max-width: 140px;"></select>
+            <select class="control-select" id="tts-rate" title="Speech Speed" style="width: 70px;">
+                <option value="0.75">0.75x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="1.75">1.75x</option>
+                <option value="2.0">2.0x</option>
+            </select>
             <button class="control-btn" id="btn-speak" title="Read Aloud (Text to Speech)">🔊 Read</button>
             <button class="control-btn" id="btn-stop-speak" title="Stop Reading" style="display: none;">⏹️</button>
         </div>
     </header>
+
     <main id="manuscript-content">
         <h1>Somatic Reset: The 10-Minute Daily Nervous System Protocol to End Chronic Burnout, Calm Anxiety, and Reclaim Your Body's Natural Energy</h1>
 <h1>Chapter 1: The Physiology of Burnout: Why Mindset Hacks Fail When the Body is in Survival Mode</h1>
@@ -749,6 +837,8 @@
         const btnTheme = document.getElementById('btn-theme');
         const btnSpeak = document.getElementById('btn-speak');
         const btnStopSpeak = document.getElementById('btn-stop-speak');
+        const ttsVoice = document.getElementById('tts-voice');
+        const ttsRate = document.getElementById('tts-rate');
 
         // Font scaling
         let currentSize = parseFloat(localStorage.getItem('reader_font_size')) || 1.15;
@@ -783,21 +873,54 @@
         let paragraphs = Array.from(document.querySelectorAll('#manuscript-content p, #manuscript-content h2, #manuscript-content h3, #manuscript-content li'));
         let currentParaIdx = 0;
 
+        // Populate voices dropdown
+        function populateVoices() {
+            if (!synth) return;
+            const voices = synth.getVoices();
+            // Filter English voices as preference, but show all if none
+            const englishVoices = voices.filter(v => v.lang.startsWith('en'));
+            const displayVoices = englishVoices.length ? englishVoices : voices;
+            
+            ttsVoice.innerHTML = '';
+            
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = '';
+            defaultOpt.textContent = 'System Default Voice';
+            ttsVoice.appendChild(defaultOpt);
+            
+            displayVoices.forEach(voice => {
+                const option = document.createElement('option');
+                option.value = voice.name;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                ttsVoice.appendChild(option);
+            });
+            
+            if (displayVoices.length > 0) {
+                ttsVoice.style.display = 'inline-block';
+            }
+        }
+
+        if (synth) {
+            populateVoices();
+            if (synth.onvoiceschanged !== undefined) {
+                synth.onvoiceschanged = populateVoices;
+            }
+        }
+
         function highlightParagraph(idx) {
             paragraphs.forEach((p, i) => {
                 if (i === idx) {
-                    p.style.backgroundColor = 'rgba(21, 101, 192, 0.15)';
-                    p.style.borderRadius = '4px';
+                    p.classList.add('active-speaking');
                     p.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } else {
-                    p.style.backgroundColor = '';
+                    p.classList.remove('active-speaking');
                 }
             });
         }
 
         function clearHighlights() {
             paragraphs.forEach(p => {
-                p.style.backgroundColor = '';
+                p.classList.remove('active-speaking');
             });
         }
 
@@ -807,11 +930,28 @@
                 return;
             }
 
+            if (synth.speaking) {
+                synth.cancel();
+            }
+
             currentParaIdx = idx;
             highlightParagraph(idx);
 
             const textToSpeak = paragraphs[idx].textContent;
             utterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            // Set voice if selected
+            const selectedVoiceName = ttsVoice.value;
+            if (selectedVoiceName) {
+                const voices = synth.getVoices();
+                const voice = voices.find(v => v.name === selectedVoiceName);
+                if (voice) {
+                    utterance.voice = voice;
+                }
+            }
+            
+            // Set rate if selected
+            utterance.rate = parseFloat(ttsRate.value) || 1.0;
             
             utterance.onend = () => {
                 if (isSpeaking && !isPaused) {
@@ -821,7 +961,7 @@
 
             utterance.onerror = (e) => {
                 console.error("SpeechSynthesis error:", e);
-                if (isSpeaking) {
+                if (isSpeaking && !isPaused && e.error !== 'interrupted') {
                     speakParagraph(currentParaIdx + 1);
                 }
             };
@@ -833,9 +973,10 @@
             if (!isSpeaking) {
                 isSpeaking = true;
                 isPaused = false;
+                body.classList.add('speech-active');
                 btnSpeak.innerHTML = '⏸️ Pause';
                 btnStopSpeak.style.display = 'inline-block';
-                speakParagraph(0);
+                speakParagraph(currentParaIdx || 0);
             } else if (isPaused) {
                 isPaused = false;
                 btnSpeak.innerHTML = '⏸️ Pause';
@@ -848,24 +989,54 @@
         }
 
         function stopSpeaking() {
-            synth.cancel();
+            if (synth) {
+                synth.cancel();
+            }
             isSpeaking = false;
             isPaused = false;
+            body.classList.remove('speech-active');
             btnSpeak.innerHTML = '🔊 Read';
             btnStopSpeak.style.display = 'none';
             clearHighlights();
-            currentParaIdx = 0;
         }
 
         btnSpeak.addEventListener('click', toggleSpeak);
-        btnStopSpeak.addEventListener('click', stopSpeaking);
+        btnStopSpeak.addEventListener('click', () => {
+            currentParaIdx = 0;
+            stopSpeaking();
+        });
+
+        // Change settings mid-read restarts current paragraph with new settings
+        ttsVoice.addEventListener('change', () => {
+            if (isSpeaking && !isPaused) {
+                speakParagraph(currentParaIdx);
+            }
+        });
+        
+        ttsRate.addEventListener('change', () => {
+            if (isSpeaking && !isPaused) {
+                speakParagraph(currentParaIdx);
+            }
+        });
+
+        // Click a paragraph/heading/list item to start reading from there
+        paragraphs.forEach((p, idx) => {
+            p.addEventListener('click', () => {
+                isSpeaking = true;
+                isPaused = false;
+                body.classList.add('speech-active');
+                btnSpeak.innerHTML = '⏸️ Pause';
+                btnStopSpeak.style.display = 'inline-block';
+                speakParagraph(idx);
+            });
+        });
 
         // Stop reading if page is unloaded or hidden
         window.addEventListener('beforeunload', () => {
-            synth.cancel();
+            if (synth) synth.cancel();
         });
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
+            if (document.hidden && synth) {
                 synth.cancel();
                 if (isSpeaking) {
                     stopSpeaking();
